@@ -1,0 +1,1586 @@
+Operational Research
+           (2026) 26:23 
+https://doi.org/10.1007/s12351-025-01008-x
+ORIGINAL PAPER
+A continuous-review retrial inventory system with repair 
+options for defective items
+Saranyadas Sivadasan1 · Shophia Lawrence Arputham1
+Received: 21 November 2024 / Revised: 26 September 2025 / Accepted: 20 November 2025
+© The Author(s), under exclusive licence to Springer-Verlag GmbH Germany, part of Springer Nature 2026
+Abstract
+We consider a continuous time inventory system with two types of inventories, 
+namely main inventory (MI) and defective inventory (DI). The arrival times of cus
+tomers in the system follow a Poisson process. We adopt the (s, S) ordering policy. 
+When the order is received, the received items are fully inspected and segregated 
+into perfect and defective items. These items are stored separately in MI and DI 
+respectively. The defective items are then repaired individually and delivered to MI 
+after repair. If there is no item in MI, even if DI has either a positive inventory or 
+no inventory, the incoming customer joins the orbit of retrial customers and tries to 
+meet his demand again after a random time. The lead time, repair time, and retrial 
+time follow independent exponential distributions. We derived the joint probability 
+distribution of the number of customers in orbit, the level of MI, and the level of 
+DI. Some key system performance measures are derived and these measures are 
+used to calculate the expected total cost. The results are illustrated numerically 
+using Julia software.
+Keywords Continuous-review inventory · Poisson process · Repairing defective 
+items · Retrial customers
+1 Introduction
+After Harris (1913) introduced the concept of economic order quantity(EOQ) model, 
+many researchers focused on the same in the following years (see (Schwarz 1972; 
+Lowe and Schwarz 1983; Porteus 1985, 1986b), etc.). In most inventory systems, it is 
+implicitly assumed that the batch ordered by the procurement manager had no defects 
+upon delivery and that the quality of each unit of product in the batch accepted by 
+Shophia Lawrence Arputham
+shophialawrence@gmail.com
+1
+School of Mathematics, Madurai Kamaraj University, Madurai, India
+1 3
+S. Sivadasan, S. L. Arputham
+   23  
+Page 2 of 33
+the company was completely acceptable to the company’s customers. But in reality, 
+most people’s everyday experiences support the phenomenon of defective items. Due 
+to product quality issues, department stores face a large number of product returns 
+from consumers.
+Shih (1980) introduced the concept of defective items in the deterministic EOQ 
+model. In this article he expanded on two inventory models, a deterministic EOQ 
+Model and a stochastic one-period model for the case where the proportion of defec
+tive units in the accepted lot is a random variable with a known probability distri
+bution. Subsequently, Porteus (1986a) analyzed that in the production process of a 
+lot, the process can go out of control and producing defective units throughout the 
+production of the current lot. This paper focused on improvement of quality control 
+and finding the optimal lot size to minimize the production of defective items and it 
+revealed the significant relationship between the quality and lot size.
+Following the work of Shih (1980) and Porteus (1986a), many researchers focused 
+on the study of defective items in the deterministic EOQ model (see for example, 
+(Schwaller 1988; Cheng 1991; Eroglu and Ozdemir 2007)). Over the last two decades, 
+many researchers focused on dealing with these defective items during production 
+time in EPQ inventory (see (Sarkar and Saren 2016)) or during the ordered lot arrival 
+time in EOQ inventory (see (Yoo et al. 2009; Öztürk 2021; Öztürk and Konstantaras 
+2025)). Lee and Rosenblatt (1987) was the first paper which extended the applica
+tion of economic manufacturing quantity (EMQ) to deteriorating production systems 
+and this paper dealt with the simultaneous determination of EMQ and inspections 
+schedules with no inspection errors. Salameh and Jaber (2000) extended the tradi
+tional EPQ/EOQ model by accounting for imperfect quality items when using the 
+EPQ/EOQ formulae. They assumed a 100% screening process with no human error. 
+An error in their paper was corrected by Cardenas-Barron (2009). Khan et al. (2011) 
+extended the work of Salameh and Jaber (2000) by assuming inspection errors. Since 
+then, numerous researchers have addressed the issue of imperfect items with inspec
+tion errors (for recent papers, see (Wangsa and Wee 2019; Öztürk 2021; Asadkhani 
+et al. 2022; Nobil et al. 2024; Namnabat et al. 2025; Öztürk and Konstantaras 2025) 
+and references therein).
+In all the above works, the authors studied that when inventory is replenished with 
+the ordered/produced items, inspection takes place to verify the quality of the items 
+and that during the inspection, the items which are found out as defective are either 
+reworked/repaired, replaced or disposed. Additionally, this kind of works were con
+sidered only in the literature of periodic-review inventory systems. However, Siva
+kumar and Anbazhagan (2011); Saranya and Shophia Lawrence (2019) and Saranya 
+et al. (2022) studied the continuous review inventory system with replacement and 
+refurbishment of perished/failed items. In this paper, we adopt the concept of inspec
+tion in a continuous review inventory system where the inspection is carried out on 
+receipt of the order and after the error-free inspection, the items are separated into 
+perfect and defective items which can be repaired. For example, furniture, electronic 
+and mechanical goods and household items may be damaged during transport, but 
+these damages can be repaired after the items have been inspected after delivery.
+Continuous-review inventory systems with retrial demands/customers have been 
+studied by many researchers during the last few decades. Artalejo et al. (2006) was 
+1 3
+A continuous-review retrial inventory system with repair options for…
+Page 3 of 33 
+   23 
+the first article to address the concept of retrial in inventory under the assumption of 
+Poisson requirements, exponentially distributed lead time, and exponentially distrib
+uted time between retrials.
+Following Artalejo et al. (2006); Ushakumari (2006) considered a retrial inventory 
+system with a classic retrial policy and (Krishnamoorthy and Jose 2007) analyzed 
+three different retrial inventory systems with positive service time and positive lead 
+time. Sivakumar (2008) considered a two-commodity substitutable inventory system 
+with a common ordering policy and retrial demands. Sivakumar (2009) considered 
+a perishable inventory system with retrial demands and a finite number of sources 
+for generating requests. Arivarignan et al. (2008) studied a perishable inventory sys
+tem with service facilities, MAP arrival of demands, and exponential time between 
+retrials. Padmavathi et al. (2015) considered a retrial inventory system with single 
+and modified multiple vacation for servers. Karthick et al. (2015) studied a retrial 
+inventory with two types of customers and an exponential time between retrials for 
+type 1 customers. Arivarignan et al. (2020) analyzed a production inventory system 
+with a “made-to-stock” production policy, a renewal process for incoming Demand, 
+exponential production times and exponential intermediate repetition times. Melikov 
+et al. (2022) considered a retrial queuing-inventory system with primary, repeat and 
+feedback customers.
+This article is organized as follows: In the following section, the mathematical 
+model of the paper is described. In Sect. 3, the detailed analysis of the model is 
+presented and in Sect. 4, some system performance measures in the steady state is 
+derived and the total cost function is calculated. The numerical computations of the 
+paper are given in Sect. 5.
+1.1 Notations
+●
+[A]
+ : 
+(i,j)
+ element/ sub matrix of the matrix A.
+● 0: Zero vector/matrix of appropriate dimension.
+● e : The column vector of 1’s with appropriate dimension.
+●
+●
+●
+●
+n ⨿
+j=1
+xi=xnxn−1···x1
+δ
+ = 
+¯ δ
+ = 
+{1, j=i,
+0
+1−δij
+is defective.
+bk=(Q
+k
+)pk(1−p)Q−k,k=0,1
+ where p is the probability that an item 
+1 3
+S. Sivadasan, S. L. Arputham
+   23  
+Page 4 of 33
+2 Model description
+We consider a continuous review retrial inventory system with two types of invento
+ries namely main inventory(MI) and defective inventory(DI). Let 
+L1(t
+ and 
+respectively, denote the inventory level of DI and MI at time t. The maximum inven
+tory of the system is 
+L2(t)
+L1(t)+L2(t)=
+We have the following assumptions:
+● The customer requesting a single item arrives at the system following a Poisson 
+process with the rate 
+λ(>
+and the demand of the customer is satisfied with an 
+item from MI.
+L1(t)+L2(t)=
+● The (s, S) ordering policy is adopted: That is, when the joint inventory level drops 
+to s, (i.e., 
+), we place an order for 
+ items. Ordered 
+items are received after an exponentially distributed lead time with parameter 
+β(>
+.
+Q(=S−s
+● The inspection policy is defined as follows: After receipt of an order, all items re
+ceived are subjected to an error-free inspection. After inspection, these items are 
+separated into perfect and defective items. The probability for k defective items 
+in a lot of Q items is denoted by 
+bk
+The perfect items and the defective items are 
+stored in MI and DI respectively. We note that the inspection time is negligible.
+● The items in the DI are repaired individually. After repaired, they will be ac
+commodated in MI. The repair time follows an exponential distribution with the 
+parameter 
+µ(>
+.
+● If the MI is zero and the DI has either a positive stock or zero, the arriving cus
+tomer joins the orbit of retrial customers and tries again after a random period 
+of time following an exponential distribution with the parameter 
+constant retrial policy is adopted here.
+3 Analysis
+θ(>
+. The 
+Let X(t) denote the number of customers in the orbit at time t. The state of the system 
+at time t can be described by a process 
+L1(t
+ and 
+L2(t
+Z(t)={(X(t),L1(t),L2(t)),t≥0
+, where 
+are defined in the Sect. 2. From our assumptions made on the input 
+and output processes in Sect. 2, it can be seen that the stochastic process Z(t) is a 
+continuous time Markov chain (CTMC) with state space
+Ω={(x,l1,l2):x=0,1,...; l1=0,1,...,S; l2=0,1,...S−l1}
+The transitions of states of the Markov chain Z(t) are described below:
+● Due to an arrival of a customer : 
+x≥0; 0≤l1≤S; 1≤l2≤S−l1
+(x,l1,l2)→(x,l1,l2−
+ with rate 
+ for 
+● Due to an arrival of customers when there is no item in the MI : 
+(x,l1,0)→(x+1,l1,
+ with rate 
+ for 
+x≥0; 0≤l1≤
+● Due to completion of repair of an item from DI : 
+with rate 
+ for 
+x≥0; 1≤l1≤S; 0≤l2≤S−l1
+(x,l1,l2)→(x,l1−1,l2
+1 3
+A continuous-review retrial inventory system with repair options for…
+Page 5 of 33 
+   23 
+● Due to replenishment of an order : 
+bk
+(x,l1,l2)→(x,l1+k,l2+Q−k
+ with rate 
+ where k is the number of defective items in the received lot of Q items, for 
+x≥0; 0≤l1+l2≤s; 0≤k≤
+● Due to retrial customer : 
+x≥1; 0≤l1≤S; 1≤l2≤S−l1
+(x,l1,l2)→(x−1,l1,l2−
+● No other transitions are possible.
+ with rate 
+ for 
+The flow diagram of the model is given in the Fig. 1 which illustrates all the internal 
+transitions from a single state 
+(x,l1,l2)
+ For internal transitions in the Fig. 1, we fix 
+S=6, s=2
+Using this and the description above we obtain the infinitesimal gen
+erator of CTMC Z(t).
+The block partitioned form of the generator matrix of the CTMC Z(t) is given by
+[P]ij=
+
+  
+  
+B0, j=i, i=0,
+A1, j=i, i=1,2,...,
+A2, j=i−1, i=1,2,...,
+A0, j=i+1, i=0,1,...,
+0
+where the sub-matrices are given by the following:
+Fig. 1 Flow diagram of the transitions from a state 
+(x,l1,l2
+1 3
+S. Sivadasan, S. L. Arputham
+ 
+[B0]ij=
+
+ 
+ 
+Fi, j=i, i=0,1,...,S,
+Gi, j=i−1, i=1,2,...,S,
+Hij, j=i+k, i=0,1,...,s, k=1,2,...,Q,
+0, elsewhere,
+[A1]ij=
+
+ 
+ 
+Wi, j=i, i=0,1,...,S,
+Gi, j=i−1, i=1,2,...,S,
+Hij, j=i+k, i=0,1,...,s, k=1,2,...,Q,
+0, elsewhere,
+[A0]ij=
+{Mi, j=i, i=0,1,...,S,
+0, elsewhere,
+[A2]ij=
+{Ni, j=i, i=0,1,...,S,
+0, elsewhere.
+For k=0,1,...,S,
+ 
+[Mk]ij=
+{λ, j=i, i=0,
+0, elsewhere.
+For k=0,1,...,S,
+ 
+[Nk]ij=
+{θ, j=i−1, i=1,2,...,S−k,
+0, elsewhere.
+For k=1,2,...,S,
+ 
+[Gk]ij=
+{µ, j=i+1, i=0,1,...,S−k,
+0, elsewhere.
+For k=0,1,...,s,
+ 
+[Fk]ij=
+
+  
+  
+−(β+µ+λ), j=i, 0≤i≤s−k,
+−(µ+λ), j=i, s−k+1≤i≤S−k,
+b0β, j=Q+i, 0≤i≤s−k,
+λ, j=i−1, i=1,...,S−k,
+0, elsewhere.
+For k=s+1,s+2,...,S,
+ 
+[Fk]ij=
+{−(µ+λ), j=i, 0≤i≤S−k,
+λ, j=i−1, 1≤i≤S−k,
+0, elsewhere.
+For m=0,1,...,s and n=1,2,...,Q,
+ 
+[Hmn]ij=
+{bnβ, j=Q−n+i, 0≤i≤s−m,
+0, elsewhere.
+1 3
+   23  Page 6 of 33
+A continuous-review retrial inventory system with repair options for…
+Page 7 of 33 
+   23 
+For 
+For 
+k=0,1
+[Wk]ij=
+
+    
+    
+−(β+µ+λ), j=i, i=0,
+−(β+µ+λ+θ), j=i, 1≤i≤s−k,
+−(µ+λ+θ), j=i, s−k+1≤i≤S−k,
+b0β, j=Q+i, 0≤i≤s−k,
+λ, j=i−1, i=1,...,S−k,
+0,
+k=s+1,s+2
+[Wk]ij=
+
+ 
+ 
+−(µ+λ), j=i, i=0,
+−(µ+λ+θ), j=i, 1≤i≤S−k,
+λ, j=i−1, 1≤i≤S−k,
+0,
+The dimension of sub-matrices are given in the Table 1.
+3.1 Stability analysis
+In this subsection, we derive the stability condition of the CTMC Z(t). From the 
+structure of the infinitesimal generator matrix P,  the CTMC Z(t) is irreducible. To 
+derive the condition for positive recurrence of the CTMC, we first consider the matrix 
+A=A0+A1+A
+ which is given by
+[A]ij=
+
+ 
+ 
+Oi, j=i, i=0,1,...,S,
+Gi, j=i−1, i=1,2,...,S,
+Hij, j=i+k, i=0,1,...,s, k=1,2,...,Q,
+0
+where 
+Let 
+Oi=Wi+Mi+N
+and the sub matrices are defined in the previous section. 
+ denote the stationary probability vector of A which satisfies the equations,
+ΠA=0,
+Πe=1
+The vector 
+ is represented as 
+(π(0),π(1),··· ,π(S))
+ where,
+π(i)=(π0
+(i),π1
+(i),··· ,πS−i
+(i) ), i=0,1
+The equation 
+for 
+ΠA=
+ gives the following set of equations:
+π(0)O0+π(1)G1=0
+i=1,2,...,s+1
+(1)
+1 3
+1 3
+Table 1 Dimension of sub-matrices of P
+Matrix
+B0
+A2
+A0
+A1
+Mk, k= 0, 1, …, S
+Nk, k= 0, 1, …, S
+Wk, k= 0, 1, …, S
+Dimension
+(S+1)(S+2)
+2 ×(S+1)(S+2)
+(S+1)(S+2)
+2 ×(S+1)(S+2)
+(S+1)(S+2)
+2 ×(S+1)(S+2)
+(S+1)(S+2)
+2 ×(S+1)(S+2)
+((S+1)−k)×((S+1)−k
+((S+1)−k)×((S+1)−k
+((S+1)−k)×((S+1)−k
+Matrix
+Fk, k= 0, 1, …, S
+Gk, k= 1, 2, …, S
+Hm1, k= 0, 1, …, s
+Hm2, k= 0, 1, …, s
+HmQ, k= 0, 1, …, s
+Dimension
+((S+1)-k) × ((S+1)-k)
+((S+1)-k) × ((S+1)-k−1)
+((S+1)-m) × ((S+1)-m+1)
+((S+1)-m) × ((S+1)-m+2)
+((S+1)-m) × ((S+1)-m+Q)
+   23  
+Page 8 of 33
+S. Sivadasan, S. L. Arputham
+A continuous-review retrial inventory system with repair options for…
+(2)
+Page 9 of 33 
+   23 
+i−1∑
+k=0
+π(k)Hk(i−k)+π(i)Oi+π(i+1)Gi+1=0
+for 
+for 
+i=s+2,s+3
+s ∑
+k=0
+π(k)Hk(i−k)+π(i)Oi+π(i+1)Gi+1=0
+i=Q+1,Q+2,...,S−1
+S∑
+k=i
+π(k−Q)H(k−Q)(i−(k−Q))+π(i)Oi+π(i+1)Gi+1=0
+and
+π(s)HsQ+π(S)OS=0
+From Eqs. 1–5, we can calculate 
+ as
+(3)
+(4)
+(5)
+π(i)=(−1)Q−iπ(Q)
+Q−1⨿
+k=i
+Gk+1V−1
+k , i=0,1,...,Q−1,
+π(i)=(−1)Q−sπ(Q)
+{Q−1⨿
+k=s
+Gk+1V−1
+k
+}
+TiO−1
+i , i=Q+1,Q+2,...,S−1,
+π(S)=−π(s)TSO−1
+S
+where 
+V
+ and 
+V0=O0
+T
+ are given by
+Vi=Oi+
+i−1∑
+k=0
+(−1)k+i
+
+
+
+i−1⨿
+j=k
+Gj+1V−1
+j
+
+
+Hk(i−k), i=1,...,s+1,
+Vi=Oi+
+s ∑
+k=0
+(−1)k+i
+
+
+
+s ⨿
+j=k
+Gj+1V−1
+j
+
+
+Hk(i−k), i=s+2,...,Q−1,
+Ti=(−1)i+1Ti+1O−1
+i Gi+
+s ∑
+k=i−Q
+(−1)k
+
+
+
+s−1⨿
+j=k
+Gj+1V−1
+j
+
+
+Hk(i−k), i=Q+1,Q+2,...,S−1,
+TS=HsQ
+and 
+π(Q
+ can be obtained by solving the following Eqs. 6 and 7,
+1 3
+S. Sivadasan, S. L. Arputham
+   23  
+Page 10 of 33
+π(Q)
+
+
+
+s ∑
+k=0
+
+
+(−1)Q−k
+Q−1⨿
+j=k
+Gj+1V−1
+j
+
+
+Hk(i−k)+OQ+
+{
+(−1)Q−s
+{Q−1⨿
+k=s
+Gk+1V−1
+k
+}
+TQO−1
+Q
+}
+GQ+1
+}
+=0
+π(Q)
+
+Q−1∑
+k=0
+
+
+(−1)Q−k
+Q−1⨿
+j=k
+Gj+1V−1
+j
+
+
++I
++
+S−1∑
+k=Q+1
+{
+(−1)Q−s
+{Q−1⨿
+k=s
+Gk+1V−1
+k
+}
+TkO−1
+k
+}
++
+(−1)Q−s+1
+{Q−1⨿
+k=s
+Gk+1V−1
+k
+}
+TSO−1
+S
+]
+e=1
+Lemma 1 The stability condition for the model considered is given by
+λ
+θ <
+1− S∑
+j=0
+π0
+(j)
+S∑
+j=0
+π0
+(j)
+(6)
+(7)
+(8)
+Proof From the well known result of Neuts (1994) (Equation 3.1.4 page no. 83), on 
+the positive recurrence of P,  the CTMC Z(t) is positive recurrent if and only if
+ΠA0e<ΠA2e
+By exploiting the structure of 
+3.2 Steady state analysis
+A0,A
+ and 
+ the lemma follows.  
+In this subsection, we determine the joint probability distribution of the number of 
+customers in the orbit, on-hand DI level and on-hand MI level in steady state by using 
+the matrix geometric methods (Neuts 1994). From the structure of the rate matrix P 
+and stability condition in (8), the CTMC Z(t) with state space 
+ is regular. Hence the 
+limiting probability distribution defined by
+ψ(i,j,k)=lim t→∞
+Pr[X(t)=i,L1(t)=j,L2(t)=k|(X(0),L1(0),L2
+exists and is independent of the initial state.
+Let 
+ψ=(ψ(0),ψ(1),...
+, be the steady state probability vector of P where
+1 3
+A continuous-review retrial inventory system with repair options for…
+Page 11 of 33 
+   23 
+ψ(i)=(ψ(i,0),ψ(i,1),··· ,ψ(i,S)), i=0,1,...,
+ψ(i,j)=ψ(i,j,0),ψ(i,j,1)··· ,ψ(i,j,S−j)), j=0,1
+Then 
+ satisfies the following equations,
+ψP=0, andψe=1
+ is given by,
+Theorem 1 When the stability condition (8) holds good, the steady-state probability 
+vector 
+ψ(i)=ψ(0)Ri, i=1,2
+(9)
+where the R is the minimal non-negative solution to the matrix quadratic equation,
+R2A2+RA1+A0=0
+and the vector 
+ψ(0
+ is the unique solution to the equations
+ψ(0)(B0+RA2)=0,
+ψ(0)(I−R)−1e=1
+(10)
+Proof The proof of the theorem follows from the well-known results of Neuts (1994) 
+(Theorem 3.1.1 page no. 82).  
+4 System performance measures
+In this section, we derive some system performance measures of the system in the 
+steady state and using these measures, we construct the total expected cost per unit 
+time. 
+1. Expected MI level: Let 
+Since 
+ψ(i,j,k
+ξ
+ denote the expected MI level in the steady state. 
+ gives the steady state probability vector for k-th MI level when the 
+number of customers in the orbit is i and the on-hand DI level is j, the expected 
+MI level is given by 
+ξMI=
+∞ ∑
+i=0
+S−1∑
+j=0
+S−j∑
+k=1
+kψ(i,j,k)
+2. Expected Inventory Level of DI: Let the expected DI level be denoted by 
+Since 
+ψ(i,j
+(11)
+ξDI
+ gives the steady state probability vector for j-th DI level when the 
+number of customers in the orbit is i with a component specifies the on-hand MI 
+1 3
+S. Sivadasan, S. L. Arputham
+   23  
+Page 12 of 33
+level, 
+ψ(i,j)
+ gives the probability that the DI level is (i, j) in the steady state. 
+Hence the expected DI level is given by 
+ξDI=
+∞ ∑
+i=0
+S∑
+j=1
+jψ(i,j)e
+3. Expected Reorder Rate: Let the expected reorder rate be denoted by 
+steady state. To compute the mean reorder rate 
+ξR
+(12)
+ξ
+ in the 
+ we consider events of triggering 
+an order which occur when joint inventory level drops from 
+s
+ to s,  provided 
+at least one item in the MI. That is when 
+L2(t)≥
+L1(t)+L2(t)=s+1
+ and 
+a customer arrival or a retrial, if any, from orbit triggers the order. Hence the 
+expected reorder rate is given by 
+ξR=
+∞ ∑
+i=0
+s ∑
+j=0
+ψ(i,j,s+1−j)(λ+¯ δi0θ)
+4. Expected Number of Customers in the Orbit: Let 
+ξ
+(13)
+ denote the expected number 
+of customers in the orbit in the steady state. Since 
+ψ(i
+ gives the steady state 
+probability vector for i number of customers in the orbit with the components 
+specify the MI level and the DI level, the quantity 
+ψ(i)
+ gives the probability that 
+the number of customers in the orbit is i in the steady state. Hence the expected 
+number of customers in the orbit is given by 
+ξO=
+∞ ∑
+i=1
+iψ(i)e=ψ(1)(I−R)−2e
+5. Expected Repair Rate of Defective Inventories: Let 
+ξ
+(14)
+ denote the expected repair 
+rate of defective inventories in the steady state and it is given by 
+ξT=
+∞ ∑
+i=0
+S∑
+j=1
+µψ(i,j)e
+6. Expected Waiting Time of Retrial Customers: Let 
+(15)
+ξ
+ be the expected waiting 
+time of customers in the orbit in the steady state. Then, by Little’s formula, 
+ξW= ξO
+λef
+ where 
+λ
+(16)
+is the effective joining rate of customers to the orbit, which is given 
+by 
+1 3
+A continuous-review retrial inventory system with repair options for…
+Page 13 of 33 
+   23 
+λef=
+∞ ∑
+i=0
+S∑
+j=0
+λψ(i,j,0)
+7. Total Expected Cost: Let 
+cs, ch1
+, ch2
+, c
+ and 
+cr
+ respectively denote the setup 
+cost per order, the MI holding cost per unit item per unit time, the DI holding 
+cost per unit item per unit time, waiting cost of a customer in the orbit per unit 
+time and the repair cost for defective inventory per unit item per unit time. The 
+long-run total expected cost of this model is defined to be 
+TC(S,s)=ch1
+ξMI+ch2
+ξDI+csξR+cwξO+crξT
+ Substituting 
+ξMI,ξDI,ξR,ξ
+ and 
+ξT
+ we get, 
+(17)
+TC(S,s)=ch1
+
+
+
+∞ ∑
+i=0
+S−1∑
+j=0
+S−j∑
+k=1
+kψ(i,j,k)
+
+
++ch2
+
+
+
+∞ ∑
+i=0
+S∑
+j=1
+jψ(i,j)e
+
+
++
+cs
+
+
+
+∞ ∑
+i=0
+s ∑
+j=0
+ψ(i,j,s+1−j)(λ+¯ δi0θ)
+
+
++cw
+{
+ψ(1)(I−R)−2e
+}
++cr
+
+
+
+∞ ∑
+i=0
+S∑
+j=1
+µψ(i,j)e
+
+
+
+(18)
+5 Numerical analysis
+In this section, we provide some numerical examples that illustrate performance 
+of the inventory model under study. In Sect. 5.1, we study the optimality of total 
+expected cost and the effect of costs on the optimal values and the influence of system 
+parameters on the optimal values of S, s and TC. In Sect. 5.2, we determine the opti
+mality of expected waiting time and the impact of system parameters on the optimal 
+values of S, s and 
+ξW
+We analyze the joint optimazation of total expected cost and 
+expected waiting time and the impact of system parameters and costs on the optimal 
+values of S, s, TC and 
+ξ
+ in the Sect. 5.3.
+We denote the optimal values of S, s, TC and 
+ξ∗
+ξ
+ respectively by 
+S∗,s∗,TC
+ and 
+ throughout this numerical section.
+It is quite challenging to demonstrate the convexity analytically because of the 
+complexity of the cost function that is derived in Sect. 4. Therefore, we make use of 
+numerical methods. Researchers favor meta-heuristic algorithms like ant colony opti
+mization, simulated annealing, etc or derivative free algorithm like, Nelder-Mead, 
+Pattern search, etc for this kind of complex functions with integer decision variables. 
+To determine the optimal values in this study, we employ the mesh adaptive direct 
+search (MADS) algorithm. This is an extension of the generalized pattern search 
+technique. In Audet and Dennis (2006), MADS was first introduced. We suggest that 
+the reader visit (Audet and Hare 2017) for a thorough analysis and the mathematical 
+foundation of the MADS algorithm.
+We utilize Julia software and its packages for all computational tasks performed in 
+the ensuing two subsections. Deriving the 
+values is necessary in order to compute 
+the cost functions and system performance metrics. The R matrix must be computed 
+1 3
+S. Sivadasan, S. L. Arputham
+   23  
+Page 14 of 33
+in order to derive the 
+ values. Using the logarithmic reduction algorithm (LRA) 
+(see (Latouche and Ramaswami 1993)), which is a quadratically converging algo
+rithm, the matrix R is found since there is no simple structure that can be exploited. 
+Through the use of LRA and setting 
+ϵ=10−15
+we have developed a Julia program 
+to compute the R matrix. With the Julia program, we were able to determine system 
+performance metrics including the expected waiting time and the total expected cost. 
+To determine the optimal values of the total expected cost and expected waiting time, 
+we use NOMAD.jl (see (Montoison et al. 2020)), a package in Julia for MADS algo
+rithm. In order to confirm the optimality of the solution that NOMAD offers, we list 
+values of the objective function in the neighborhood of the optimal values provided 
+by NOMAD.
+5.1 Optimization of the cost function
+In this subsection, we have derived the optimality of the cost function and the optimal 
+values of S and s numerically. We have also studied the impact of the system param
+eters and the costs on the optimal values 
+TC
+ of cost function and the optimal values 
+S∗, s
+ of inventory’s maximum capacity and the reorder level.
+5.1.1 Convexity of the optimal cost function
+In this subsection, we have carried out the numerical study to analyze the con
+vex nature of the total cost function. Since it is difficult to examine the quali
+tative behavior of the cost function because of its complex form, we have 
+conducted a thorough numerical study using the Julia program in order to ana
+lyze the convex nature of the cost function. For this study, we fix the system 
+parameters as 
+λ=4, µ=5.5, θ=4.2, β=0.15, p=0.
+ch1
+=2,ch2
+=1.5,cs=100,cr=20,cw=10
+ and cost values as 
+In the Fig. 2, we present a three-dimensional diagram showing the optimality of 
+the total expected cost for the values of S and s. From the Fig. 2, we observe that the 
+optimal total cost 
+TC∗=68.
+ is occurred at 
+(S∗,s∗)=(22,5)
+Fig. 2 Convexity of total cost function
+1 3
+A continuous-review retrial inventory system with repair options for…
+5.1.2 Effect of system parameters on optimal values
+This subsection examines how system parameters affect optimal values. To do this, 
+we vary the following system parameters: the customer’s arrival rate λ; the repair 
+rate for defective item µ; the retrial rate of the orbiting customer θ; the reorder rate 
+β and the probability of receiving defective items p. For this study, we set the cost 
+values to ch1
+=2, ch2
+=1.5, cs=100, cr=20, cw=10. By varying the system 
+parameters, we obtain the optimal values S∗,s∗ and TC∗ with NOMAD. We pres
+ent the optimal values S∗, s∗ as upper entries and the corresponding TC∗ as lower 
+entries in Table 2. We observe the following from Table 2.
+ ● The optimal values S∗,s∗ and the corresponding TC∗ increase as the arrival rate 
+λ of customers increases. As customer arrival rates increase, maintaining higher 
+inventory levels helps managers to prevent frequent shortages and to prevent 
+more customers entering into the orbit.
+ ● As the retrial rate θ increases, the optimal value S∗ increases, but the optimal 
+reorder level s∗ and the corresponding optimal total cost decrease. Increasing 
+the retrial rate leads to higher demand from orbit and consequently reduces the 
+number of customers and their waiting time in orbit. Therefore, the maximum 
+inventory level S must be kept high to meet the requirements of retrial customers 
+in addition to the requirements of primary customers.
+ ● Increasing the repair rate µ increases the total cost TC∗ and s∗. However, there 
+is no consistent pattern in S∗. This is because the inflow to the MI will gradually 
+increase due to the high repair rate of DI, which is why the determination of the 
+maximum inventory cannot be precisely predicted.
+ ● As the probability value p increases, the optimal values S∗ and s∗ decrease and 
+TC∗ increases. As the reorder rate β increases, the maximum inventory level S 
+must be kept high and the reorder level must be kept as low as possible. This is 
+reflected in the results.
+5.1.3 Influence of costs on optimal values
+In this subsection, we analyze the influence of costs on optimal values by varying 
+the costs defined in the previous section. For this study, we set the system parameter 
+values as the follows: λ=4, µ=5.5, θ=4.2, β=0.15, and p=0.2. By varying 
+the costs, we obtain the optimal values S∗,s∗ and TC∗ with NOMAD. In the Table 3, 
+we present the optimal values S∗,s∗ as upper entries and the corresponding optimal 
+cost values TC∗ in the lower entry. The following can be seen from Table 3.
+ ● As the setup cost cs, and the waiting cost cw increase, the optimal inventory level 
+S∗ increases. Of course, when setup costs are high, frequent ordering increases 
+the total expected cost of the system. To prevent this, we need to maintain a 
+higher level of inventory in the system.
+ ● The optimal inventory level S∗ decreases when the holding costs of DI ch2
+, the 
+holding costs of MI ch1
+ and the repair costs of DI cr increase. It is evident that 
+keeping more inventory will raise the total expected cost because we will need 
+1 3
+Page 15 of 33    23 
+S. Sivadasan, S. L. Arputham
+to lower the maximum inventory level due to rising storage and repair expenses.
+ ● As costs cw and cr increase, the optimal reorder level s∗ increases, and as cost ch1
+ 
+increases, s∗ decreases. To prevent customers from having to wait due to insuf
+ficient inventory, the reorder level must be set higher if waiting costs are high. 
+We need to maintain a higher reorder point because if we keep the maximum 
+inventory so low, we may be at risk of running out of stock. Furthermore, it is 
+obvious that the reorder value must be set low even if the holding cost of perfect 
+inventory increases. We also note that the optimal value S∗ decreases as repair 
+costs cr increase.
+ ● When the costs cs and ch2
+ increase, the pattern of the optimal reordering point 
+s∗ cannot be predicted and does not have a consistent pattern. This is because the 
+decision on placement of an order and the reorder point is completely influenced 
+by the level of DI and setup costs.
+ ● The optimal total cost TC∗ increases in tandem with that of all system costs.
+5.2 Optimization of the expected waiting time
+In this subsection, we concentrate on minimizing the waiting time of a retrial cus
+tomer in the orbit and address the role that system parameters play in this process. 
+The Table 4 displays the optimal values of the expected waiting time ξ∗
+W in the lower 
+entries with the corresponding optimal values S∗ and s∗ in the upper entries. From 
+the Table 4, we made the following observations:
+ ● The optimal waiting time and the corresponding optimal values S∗ and s∗ do not 
+exhibit any pattern of increasing or decreasing as the arrival rate λ and p increase.
+ ● As µ increases, so does the the optimal waiting time. However there is oscillation 
+in the corresponding optimal values S∗ and s∗.
+ ● When β increases, ξ∗
+W decreases while S∗ increases. But s∗ is fluctuating.
+ ● With the increase of θ, ξ∗
+W decreases, but the corresponding optimal values S∗ 
+and s∗ oscillate.
+5.3 Joint optimization of waiting time and total cost
+In the previous two subsections, we have examined the optimality of TC(S, s) and 
+ξW individually. But to understand the analysis more fully, we need to perform the 
+joint optimization of the total cost and the waiting time. Therefore, we formulate the 
+following a nonlinear bi-objective program (NLBOP):
+1 3
+   23  Page 16 of 33
+A continuous-review retrial inventory system with repair options for…
+β 0.1 0.15 0.2
+µ λ θ p
+0.15 0.2 0.25 0.15 0.2 0.25 0.15 0.2 0.25
+5 3.5 3.7 20 6 20 5 20 4 21 5 21 4 20 3 22 5 21 4 20 3
+61.62 62.21 62.76 61.01 61.82 62.54 60.40 61.41 62.32
+4.2 20 6 20 5 20 4 21 5 21 4 20 3 22 5 21 4 20 3
+61.59 62.19 62.74 60.96 61.78 62.50 60.34 61.35 62.26
+4.7 21 6 20 5 20 4 21 5 21 4 20 3 22 5 21 4 21 3
+61.57 62.17 62.72 60.92 61.73 62.46 60.28 61.29 62.21
+4 3.7 22 7 22 6 21 4 23 6 22 4 21 3 23 5 22 4 22 3
+67.42 68.06 68.63 66.77 67.63 68.40 66.08 67.18 68.15
+4.2 22 7 22 6 21 4 23 6 22 4 21 3 23 5 22 4 22 3
+67.40 68.04 68.61 66.72 67.58 68.35 66.01 67.11 68.08
+4.7 22 7 22 6 21 4 23 5 22 4 21 3 23 5 22 4 22 3
+67.38 68.02 68.59 66.67 67.54 68.31 65.94 67.05 68.02
+4.5 3.7 23 7 23 6 22 3 24 6 24 5 23 3 25 6 24 4 23 3
+72.97 73.63 74.21 72.24 73.17 73.95 71.52 72.69 73.69
+4.2 23 7 23 6 22 2 24 6 24 5 23 3 25 6 24 4 23 3
+72.94 73.61 74.18 72.19 73.11 73.90 71.45 72.61 73.62
+4.7 24 7 23 5 22 2 24 6 23 4 23 3 25 6 24 4 23 3
+72.92 73.59 74.16 72.14 73.07 73.85 71.38 72.54 73.56
+Table 2 Effect of system parameters on S∗, s∗, TC∗
+1 3
+Page 17 of 33    23 
+S. Sivadasan, S. L. Arputham
+β 0.1 0.15 0.2
+µ λ θ p
+0.15 0.2 0.25 0.15 0.2 0.25 0.15 0.2 0.25
+5.5 3.5 3.7 20 6 20 6 20 5 21 5 21 4 20 3 22 5 21 4 20 3
+61.94 62.54 63.12 61.33 62.17 62.92 60.71 61.74 62.68
+4.2 20 6 20 6 20 5 21 5 21 4 20 3 22 5 21 4 20 3
+61.91 62.52 63.10 61.28 62.12 62.87 60.64 61.67 62.62
+4.7 20 6 20 6 20 5 21 5 21 4 20 3 22 5 21 4 21 3
+61.89 62.50 63.08 61.23 62.07 62.83 60.57 61.61 62.56
+4 3.7 22 7 21 6 21 5 23 6 22 5 22 4 23 5 22 4 22 3
+67.85 68.51 69.12 67.19 68.09 68.91 66.51 67.64 68.65
+4.2 22 7 21 6 21 5 23 6 22 5 22 4 23 5 22 4 22 3
+67.82 68.50 69.10 67.13 68.04 68.86 66.43 67.57 68.58
+4.7 22 7 22 6 21 5 23 6 22 5 21 3 23 5 22 4 22 3
+67.80 68.47 69.08 67.09 68.00 68.82 66.36 67.50 68.52
+4.5 3.7 23 7 23 7 22 5 24 6 23 5 23 4 25 6 24 5 23 3
+73.52 74.22 74.86 72.80 73.76 74.61 72.06 73.27 74.35
+4.2 23 7 23 7 22 5 24 6 23 5 23 4 25 6 24 5 23 3
+73.50 74.19 74.84 72.75 73.71 74.56 71.98 73.19 74.28
+4.7 23 7 23 7 23 5 24 6 24 5 23 4 25 6 24 5 23 3
+73.47 74.17 74.82 72.70 73.66 74.52 71.91 73.13 74.21
+Table 2 (continued)
+ 
+1 3
+   23  Page 18 of 33
+A continuous-review retrial inventory system with repair options for…
+β 0.1 0.15 0.2
+µ λ θ p
+0.15 0.2 0.25 0.15 0.2 0.25 0.15 0.2 0.25
+6 3.5 3.7 20 6 20 6 20 5 21 5 21 5 20 4 22 5 21 4 20 3
+62.19 62.80 63.39 61.58 62.43 63.21 60.94 62.00 62.97
+4.2 20 6 20 6 20 5 21 5 21 5 20 3 22 5 21 4 20 3
+62.16 62.78 63.37 61.52 62.38 63.16 60.87 61.93 62.90
+4.7 20 6 20 6 20 5 21 5 21 4 20 3 22 5 21 4 20 3
+62.14 62.76 63.35 61.48 62.34 63.12 60.81 61.86 62.84
+4 3.7 22 7 21 7 21 6 23 6 22 5 22 4 23 5 23 5 22 4
+68.19 68.86 69.49 67.53 68.45 69.30 66.84 67.99 69.04
+4.2 22 7 21 7 21 6 23 6 22 5 22 4 23 5 23 5 22 4
+68.16 68.84 69.47 67.47 68.40 69.25 66.76 67.92 68.97
+4.7 22 7 22 7 21 6 23 6 22 5 22 4 23 5 23 5 22 3
+68.14 68.82 69.45 67.42 68.35 69.20 66.69 67.85 68.91
+4.5 3.7 23 8 23 7 22 6 24 6 24 6 23 4 25 6 24 5 23 4
+73.96 74.67 75.35 73.25 74.24 75.13 72.49 73.73 74.85
+4.2 23 8 23 7 22 6 24 6 23 5 23 4 25 6 24 5 23 4
+73.93 74.65 75.33 73.19 74.19 75.07 72.41 73.65 74.78
+4.7 23 8 23 7 22 6 24 6 23 5 23 4 25 6 24 5 23 4
+73.91 74.63 75.31 73.14 74.14 75.03 72.33 73.58 74.72
+Table 2 (continued)
+ 
+1 3
+Page 19 of 33    23 
+S. Sivadasan, S. L. Arputham
+cw 8 10 12
+ch1
+ch2
+cr 17 20 23 17 20 23 17 20 23
+cs
+1.5 1 95 25 5 27 6 28 7 25 6 27 7 28 8 25 6 26 7 28 8
+57.49 58.64 59.72 61.48 62.64 63.73 65.46 66.62 67.71
+100 26 5 27 6 29 7 26 6 27 7 28 7 25 6 27 7 28 8
+58.34 59.47 60.53 62.35 63.48 64.54 66.35 67.47 68.53
+105 27 6 28 6 29 7 27 6 28 7 29 8 26 6 28 7 29 8
+59.18 60.27 61.31 63.20 64.29 65.34 67.21 68.31 69.34
+1.5 95 25 6 26 6 27 7 24 6 26 7 27 7 24 6 26 7 27 8
+58.26 59.45 60.56 62.25 63.43 64.55 66.21 67.41 68.53
+100 26 6 27 6 28 7 25 6 27 7 28 8 25 6 26 7 28 8
+59.15 60.30 61.38 63.13 64.30 65.39 67.12 68.27 69.37
+105 26 6 27 6 28 7 26 6 27 7 28 7 25 6 27 7 28 8
+60.00 61.13 62.19 64.01 65.14 66.20 68.00 69.13 70.19
+2 95 24 5 25 6 27 7 24 6 25 7 26 7 23 6 25 7 26 8
+59.02 60.23 61.38 62.99 64.21 65.36 66.93 68.17 69.33
+100 25 6 26 6 27 7 24 6 26 7 27 7 24 6 26 7 27 8
+59.92 61.11 62.22 63.90 65.09 66.21 67.86 69.06 70.19
+105 26 6 27 7 28 7 25 6 26 7 28 8 25 6 26 7 28 8
+60.81 61.96 63.04 64.79 65.95 67.04 68.77 69.93 71.03
+Table 3 The influence of costs on S∗, s∗, TC∗
+1 3
+   23  Page 20 of 33
+A continuous-review retrial inventory system with repair options for…
+cw 8 10 12
+ch1
+ch2
+cr 17 20 23 17 20 23 17 20 23
+cs
+2 1 95 21 3 22 4 24 5 21 4 22 5 23 5 20 4 22 5 23 6
+61.00 62.42 63.75 64.95 66.38 67.72 68.86 70.31 71.66
+100 22 3 23 4 24 5 21 4 23 5 24 5 21 4 22 5 24 6
+61.98 63.36 64.66 65.95 67.34 68.65 69.88 71.29 72.61
+105 22 3 24 4 25 5 22 4 23 5 24 5 21 4 23 5 24 6
+62.94 64.28 65.55 66.92 68.28 69.56 70.89 72.24 73.53
+1.5 95 21 4 22 4 23 5 20 4 22 5 23 6 20 4 21 5 23 6
+61.68 63.12 64.47 65.60 67.07 68.43 69.50 70.98 72.37
+100 21 3 22 4 24 5 21 4 22 5 23 5 20 4 22 5 23 6
+62.67 64.09 65.41 66.62 68.04 69.38 70.54 71.98 73.32
+105 22 4 23 4 24 5 21 4 23 5 24 6 21 4 22 5 24 6
+63.65 65.02 66.32 67.62 69.00 70.31 71.55 72.95 74.27
+2 95 20 3 21 4 23 5 20 4 21 5 22 5 19 4 21 5 22 6
+62.33 63.80 65.19 66.23 67.73 69.13 70.11 71.63 73.05
+100 21 4 22 4 23 5 20 4 22 5 23 6 20 4 21 5 23 6
+63.35 64.79 66.13 67.27 68.73 70.10 71.17 72.65 74.03
+105 21 3 23 5 24 5 21 4 22 5 23 5 20 4 22 5 23 6
+64.35 65.75 67.07 68.28 69.71 71.04 72.22 73.64 74.98
+Table 3 (continued)
+ 
+1 3
+Page 21 of 33    23 
+S. Sivadasan, S. L. Arputham
+cw 8 10 12
+ch1
+ch2
+cr 17 20 23 17 20 23 17 20 23
+cs
+2.5 1 95 18 2 20 3 21 4 18 2 19 3 20 4 17 2 19 4 20 4
+63.84 65.50 67.05 67.73 69.39 70.96 71.58 73.27 74.86
+100 19 2 20 3 21 4 18 2 20 3 21 4 18 3 19 3 20 4
+64.92 66.53 68.06 68.83 70.47 71.99 72.70 74.36 75.90
+105 20 2 21 3 21 3 19 2 20 3 21 4 19 3 20 4 21 4
+65.98 67.56 69.05 69.91 71.50 72.99 73.81 75.42 76.93
+1.5 95 18 2 19 3 20 4 17 2 19 3 20 4 17 3 18 3 19 4
+64.43 66.11 67.69 68.30 70.00 71.59 72.12 73.85 75.46
+100 19 2 20 3 21 4 18 2 19 3 20 4 18 3 19 4 20 4
+65.54 67.18 68.72 69.42 71.08 72.63 73.28 74.96 76.53
+105 19 2 20 3 21 4 18 2 20 3 21 4 18 3 19 3 20 4
+66.60 68.21 69.72 70.53 72.14 73.66 74.40 76.05 77.58
+2 95 18 2 19 3 20 4 17 2 18 3 19 4 17 3 18 4 19 4
+65.02 66.72 68.32 68.85 70.58 72.21 72.66 74.43 76.06
+100 18 2 19 3 20 4 18 2 19 3 20 4 17 3 18 3 19 4
+66.13 67.80 69.37 70.01 71.69 73.27 73.84 75.55 77.15
+105 19 2 20 3 21 4 18 2 19 3 20 4 18 3 19 4 20 4
+67.22 68.85 70.39 71.12 72.76 74.31 74.98 76.65 78.21
+Table 3 (continued)
+ 
+1 3
+   23  Page 22 of 33
+A continuous-review retrial inventory system with repair options for…
+β 0.145 0.15 0.155
+µ λ p 0.149 0.15 0.151 0.149 0.15 0.151 0.149 0.15 0.151
+θ
+5.29 3.75 4.15 26 5 26 5 26 5 27 7 27 7 29 9 32 9 32 9 32 9
+0.915654 0.915653 0.915653 0.913675 0.913675 0.91364 0.911574 0.911574 0.911574
+4.2 26 5 26 5 26 5 28 5 28 5 28 5 29 7 29 7 29 7
+0.915173 0.915173 0.915173 0.913295 0.913295 0.913295 0.911103 0.911103 0.911103
+4.25 26 5 26 5 26 5 27 7 27 7 28 5 29 7 29 7 29 7
+0.914699 0.914699 0.914699 0.912707 0.912706 0.912814 0.910614 0.910614 0.910614
+3.8 4.15 28 8 29 6 29 6 25 5 25 5 25 5 28 6 28 6 28 6
+0.915636 0.915706 0.915706 0.913891 0.913891 0.913891 0.911807 0.911807 0.911807
+4.2 28 8 28 8 29 6 25 5 25 5 25 5 28 6 28 6 28 6
+0.915159 0.915159 0.915229 0.913396 0.913396 0.913396 0.911307 0.911307 0.911307
+4.25 28 8 29 6 29 6 25 5 25 5 25 5 30 8 30 8 30 8
+0.914688 0.914758 0.914758 0.912907 0.912907 0.912907 0.91071 0.91071 0.91071
+3.85 4.15 26 5 26 5 26 5 27 6 27 6 29 8 29 6 29 6 29 6
+0.915829 0.915829 0.915829 0.913804 0.913804 0.913843 0.911845 0.911845 0.911845
+4.2 26 5 26 5 26 5 27 6 27 6 27 6 29 6 29 6 29 6
+0.915344 0.915344 0.915344 0.913311 0.913311 0.913311 0.911344 0.911344 0.911344
+4.25 26 5 26 5 26 5 27 6 27 6 27 6 29 6 29 6 29 6
+0.914865 0.914865 0.914865 0.912824 0.912824 0.912824 0.91085 0.91085 0.91085
+Table 4 Effect of system parameters on S∗, s∗, ξ∗
+W
+1 3
+Page 23 of 33    23 
+S. Sivadasan, S. L. Arputham
+β 0.145 0.15 0.155
+µ λ p 0.149 0.15 0.151 0.149 0.15 0.151 0.149 0.15 0.151
+θ
+5.31 3.75 4.15 26 5 26 5 26 5 28 5 27 7 28 5 32 9 32 9 32 9
+0.915776 0.915776 0.915775 0.913903 0.913794 0.913903 0.911687 0.911687 0.911687
+4.2 26 5 26 5 26 5 27 7 27 7 27 7 29 7 29 7 29 7
+0.915296 0.915296 0.915296 0.913308 0.913308 0.913308 0.911221 0.911221 0.911221
+4.25 26 5 26 5 26 5 27 7 27 7 27 7 29 7 29 7 29 7
+0.914823 0.914823 0.914823 0.912827 0.912827 0.912827 0.910733 0.910733 0.910733
+3.8 4.15 29 6 29 6 28 8 25 5 25 5 25 5 28 6 28 6 28 6
+0.915828 0.915828 0.915756 0.914014 0.914014 0.914014 0.911927 0.911927 0.911927
+4.2 28 8 28 8 28 8 26 7 26 7 26 7 28 6 28 6 28 6
+0.91528 0.91528 0.91528 0.913518 0.913518 0.913518 0.911428 0.911428 0.911428
+4.25 29 6 29 6 29 6 25 5 25 5 25 5 34 9 28 6 34 9
+0.914881 0.914881 0.914881 0.913032 0.913032 0.913032 0.910883 0.910936 0.910883
+3.85 4.15 28 5 28 5 28 5 29 8 27 6 29 8 29 6 29 6 29 6
+0.915945 0.915945 0.915945 0.913964 0.913928 0.913964 0.911966 0.911966 0.911966
+4.2 28 5 28 5 28 5 27 6 27 6 27 6 29 6 29 6 29 6
+0.915465 0.915464 0.915464 0.913435 0.913435 0.913435 0.911467 0.911467 0.911467
+4.25 28 5 28 5 28 5 29 8 27 6 27 6 29 6 29 6 29 6
+0.914989 0.914989 0.914989 0.912994 0.912949 0.912949 0.910973 0.910973 0.910973
+Table 4 (continued)
+ 
+1 3
+   23  Page 24 of 33
+A continuous-review retrial inventory system with repair options for…
+β 0.145 0.15 0.155
+µ λ p 0.149 0.15 0.151 0.149 0.15 0.151 0.149 0.15 0.151
+θ
+5.33 3.75 4.15 26 5 26 5 26 5 28 5 26 5 26 5 32 9 32 9 29 7
+0.915897 0.915897 0.915897 0.914022 0.91407 0.91407 0.9118 0.9118 0.911831
+4.2 26 5 26 5 26 5 29 9 29 9 29 9 29 7 29 7 29 7
+0.915418 0.915418 0.915418 0.913391 0.913391 0.913391 0.911338 0.911338 0.911338
+4.25 26 5 26 5 26 5 27 7 28 5 28 5 29 7 29 7 29 7
+0.914945 0.914945 0.914945 0.912947 0.913056 0.913056 0.910851 0.910851 0.910851
+3.8 4.15 29 6 29 6 29 6 25 5 25 5 25 5 28 6 28 6 28 6
+0.915949 0.915949 0.915949 0.914136 0.914136 0.914136 0.912047 0.912047 0.912046
+4.2 29 6 29 6 31 9 25 5 25 5 25 5 28 6 30 8 30 8
+0.915473 0.915473 0.915397 0.913643 0.913643 0.913643 0.911549 0.911435 0.911435
+4.25 28 8 28 8 28 8 25 5 25 5 25 5 28 6 29 4 29 4
+0.914931 0.914931 0.914931 0.913156 0.913156 0.913156 0.911057 0.911243 0.911243
+3.85 4.15 28 5 28 5 28 5 27 6 27 6 27 6 29 6 29 6 29 6
+0.916069 0.916069 0.916069 0.91405 0.91405 0.91405 0.912087 0.912087 0.912087
+4.2 28 5 28 5 28 5 27 6 27 6 32 9 29 6 29 6 29 6
+0.915589 0.915589 0.915589 0.913559 0.913559 0.913539 0.911588 0.911588 0.911588
+4.25 28 5 28 5 28 5 29 8 29 8 29 8 29 6 29 6 29 6
+0.915114 0.915114 0.915114 0.913116 0.913116 0.913116 0.911095 0.911095 0.911095
+Table 4 (continued)
+ 
+1 3
+Page 25 of 33    23 
+S. Sivadasan, S. L. Arputham
+   23  
+Page 26 of 33
+minTC(S,s)
+min ξW(S,s)
+subject to
+λ
+
+S∑
+j=0
+π0
+(j)
+
+<
+
+1−
+S∑
+j=0
+π0
+(j)
+
+θ
+S−s>s+1
+S>0,s≥0
+where the total expected cost TC(S, s) and the expected waiting time 
+given in Sect. 4 and we also assume 
+ξ
+ξW(S,s
+ is 
+ as a function of S and s.
+One of the main difficulties in solving problems like NLBOP is that, unlike single 
+objective minimization problems, the definition of an optimal solution is not precise 
+or straightforward. An efficient (Pareto optimal, non-inferior, non-dominated) solu
+tion for NLBOP is a point 
+(S∗,s∗
+ such that there exists no other feasible point (S, s) 
+that satisfies 
+TC(S,s)≤TC(S∗,s∗
+ and 
+ξW(S,s)≤ξW(S∗,s∗)
+ Suppose that 
+is a set of all efficient points for the NLBOP. Whenever 
+(S∗,s∗)∈E
+we find that 
+there isn’t a single other feasible point that performs at least as well as 
+ in all 
+the criteria for problem NLBOP and strictly better in at least one criterion. As a result, 
+the Pareto optimal solution has a minimum expected cost or a minimum expected 
+waiting time.
+S∗,s
+To address this issue, the researchers have suggested a number of techniques 
+including multi-objectives Genetic Algorithm, multi-objective vortex particle swarm 
+optimization etc. We employ Mixed Integer Distributed Ant Colony Optimization 
+(MIDACO) solver (Schlüeter et al. 2013) in this work. The Ant Colony Optimiza
+tion (ACO) algorithm is the foundation of the MIDACO solver. ACO is an algorithm 
+for combinatorial optimization problems that uses population-based meta-heuristics 
+algorithm. This algorithm which mimics ant behavior was developed by Dorigo 
+(1992) in his Ph.D. thesis. For a thorough analysis and implementation of ACO, we 
+recommend the reader to Dorigo and Stützle (2019).
+As illustrated in the flowchart (Fig. 3), we compute the MIDACO solution 
+using Julia function and the MIDACO solver for Julia. For this study, we fix the 
+system parameters as 
+µ=5.5;λ=4;θ=4.2;β=0.75;p=0.
+ and costs as 
+ch1
+=2;ch2
+=1.5;cs=100;cr=20;cw=10
+ Using PlotTool.exe, the Fig. 4 is 
+plotted using the output that MIDACO generated. The Fig. 4 displays the Pareto 
+front curve between the total cost and waiting time. According to the MIDACO solu
+tion, 
+(TC∗(S,s), ξ∗
+W)=(71.84359479,0.
+ and 
+(S∗, s∗)=(35,
+ are the 
+optimal values.
+Tables 5 and 6, respectively, show how the system parameters and costs affect the 
+MIDACO solution. The upper entries in each table cell give the 
+S∗, s
+ while the 
+lower entries show the optimal expected cost and optimal waiting time. We can see 
+the following findings based on the Tables 5 and 6.
+● The optimal waiting time increases as 
+lates.
+ increases, but the optimal total cost oscil
+1 3
+A continuous-review retrial inventory system with repair options for…
+Page 27 of 33 
+   23 
+Fig. 3 Flowchart of NLBOP using MIDACO and Julia
+Fig. 4 Pareto front
+1 3
+S. Sivadasan, S. L. Arputham
+Table 5 Effect of system parameters on S∗, s∗, TC∗, ξ∗
+W
+µ Optimal values λ Optimal values θ Optimal values β Optimal values p Optimal values
+5.1 34 12 3.8 36 12 3.8 34 12 0.75 35 11 0.15 34 12
+74.645 0.625743 73.769 0.610716 74.693 0.638141 71.844 0.728633 70.883 0.625928
+5.3 34 12 3.9 30 12 4 34 12 0.9 36 11 0.18 29 11
+74.664 0.625825 73.848 0.626870 74.687 0.631854 72.783 0.691004 71.378 0.639442
+5.5 34 12 4 34 12 4.2 34 12 1.05 34 12 0.21 34 12
+74.681 0.625925 74.681 0.625925 74.681 0.625925 74.268 0.650737 75.438 0.625924
+5.7 34 12 4.1 38 12 4.4 34 12 1.2 30 12 0.24 32 13
+74.697 0.626040 76.559 0.624880 74.675 0.620326 74.885 0.620996 79.419 0.625850
+1 3
+   23  Page 28 of 33
+A continuous-review retrial inventory system with repair options for…
+Page 29 of 33 
+   23 
+● As 
+ increases, so does the optimal total cost and the optimal waiting time.
+● When 
+ increases, the optimal total cost increases. But the optimal waiting time 
+decreases.
+● Both the optimal total cost and the optimal waiting time decrease as 
+ increases.
+● When p increases, the optimal total cost increases, but the optimal waiting time 
+oscillates.
+● When 
+ch1
+, ch
+ increases, 
+TC
+ is increasing. It is evident that the 
+exhibit any pattern when the other costs 
+cs,c
+ and 
+c
+ increase.
+● The costs have little effect on waiting time, as we can see.
+● As 
+cs,c
+ and 
+while 
+s
+c
+ increase, the optimal values 
+ falls as all costs except 
+ch
+S
+ rise, but 
+ increase .
+6 Managerial insights
+S
+ falls as 
+TC
+ does not 
+ch
+ increases, 
+In the case of retail inventory management, the challenge for managers is that not all 
+products in an ordered lot are in perfect condition when delivered and some may be 
+damaged or defective. Accurate identification of these errors is essential for effective 
+management of the inventory. To address this problem, the manager could prioritize 
+inspections on receipt of orders. In the decision-making process, managers may also 
+note that changes in system parameters and costs have a significant impact on the 
+management of the total cost of the system and customer waiting time due to the 
+uncertainty of dynamic market situations.
+The analysis and the numerical results of this paper show that there are several 
+insights that will be useful in managing the inventory system that addresses the 
+inspection policy for separating defective items from a lot of ordered items. These 
+observations focus on the optimal values 
+S∗, s∗, TC
+and 
+relation to system parameters.
+ξ∗
+and their behavior in 
+● A high arrival rate usually results that more stock needs to be kept in the inven
+tory and that a high reorder level needs to be set. However, the variation in the 
+number of the perfect and defective items in the received lot contributes to the 
+inventory’s inability to hold more stock which will also affect the waiting time of 
+retrial customer. This can be prevented by setting the repair rate as high as feasi
+ble which will enable the defects to be repaired quickly and put back into main 
+inventory for use. Increasing the reorder rate and retrial rate helps to reduce total 
+costs. The probability of defective items in a received batch has a significant im
+pact on the total cost of the system as if it is high, the inventory must be kept with 
+more stock and frequent orders must be made. The manager must consider all the 
+above-mentioned parameters in order to operate the inventory system optimally.
+● The optimal waiting time oscillates with the high arrival rate and high probability 
+of defective items as the probability plays a key role in stock maintenance. If it is 
+as low as possible, the inventory can be maintained with a larger number of items 
+and the waiting time is shortened. Otherwise, the inventory should be maintained 
+with a reduced quantity and customers should have to wait longer for their items 
+due to lack of inventory. Therefore, the manager must control the optimal level of 
+1 3
+S. Sivadasan, S. L. Arputham
+Table 6 Effect of costs on S∗, s∗, TC∗, ξ∗
+W
+ch1
+Optimal values ch2
+Optimal values cs Optimal values cr Optimal values cw Optimal values
+1.8 34 12 1.3 34 12 90 30 13 18 32 13 8 32 13
+70.761 0.625925 74.576 0.625925 74.496 0.625716 74.726 0.625861 76.350 0.625861
+1.9 34 12 1.4 34 12 95 34 12 19 34 12 9 34 12
+72.721 0.625925 74.629 0.625925 73.780 0.625925 73.853 0.625925 74.668 0.625925
+2 34 12 1.5 34 12 100 34 12 20 34 12 10 34 12
+74.681 0.625925 74.681 0.625925 74.681 0.625925 74.681 0.625925 74.681 0.625925
+2.1 34 12 1.6 29 11 105 34 12 21 34 12 11 34 12
+76.641 0.625925 72.931 0.639436 75.582 0.625925 75.509 0.625925 74.693 0.625925
+1 3
+   23  Page 30 of 33
+A continuous-review retrial inventory system with repair options for…
+Page 31 of 33 
+   23 
+inventory and the optimal reorder point in order to maintain the optimal waiting 
+time, but this will have an impact on the total cost of the system. Joint optimiza
+tion of the total costs and waiting time can only provide a better understanding of 
+the behavior of the system.
+● In joint optimization, the Pareto front helps decision-makers to understand a 
+range of feasible and optimal choices, and to select the best solution for their spe
+cific needs, balancing conflicting objectives. Arrival rate plays an important role 
+in the optimal total cost while the probability of defective items plays a key role 
+in the optimal waiting time. This study shows how important the inspection is for 
+the management of the retrial inventory system and how important is to check the 
+arrival rate and the probability of defective items.
+7 Conclusion and future work
+This mathematical model is suitable for managing the inventory of a retailer when 
+the retailer is committed to selling high-quality products to its clients. In order to 
+check the quality of items before selling them, it is necessary to examine the items 
+ordered after filling them in order to determine whether they are perfect or whether 
+any defects have occurred. This model is applicable to retailers who perform a 100% 
+check on replenished items before stocking the inventory and where any defective 
+items are present in the lot, they are stored separately and are repaired before being 
+included in the main stock.
+In this paper, we have classified items as either perfect or defective after inspec
+tion, using error-free inspections with a negligible inspection time. In the continuous 
+review, the existing literature treats defective inventory as lost or replaceable goods. 
+On the contrary, we propose that such defective articles may be repaired on the prem
+ises of the retailer. As a result, we have developed a continuous review inventory 
+model including order inspections, repair options for defective items, and customer 
+retrials. We derived the joint probability distribution for the number of retrial cus
+tomers in the orbit, DI and MI levels. We have calculated the total expected cost of 
+the system and the expected waiting time for retrial customers. We have shown the 
+convexity of the cost function numerically. We also looked at the effect of the system 
+parameters on the total expected cost and the waiting time. Finally, we formulated an 
+NLBOP to perform the joint optimization of the total cost and waiting time and the 
+optimization was done with the help of the MIDACO solver in Julia.
+There are some useful extensions of our model which could form the basis for 
+future research efforts in this area. For example, this model could be extended by 
+including a general distribution for the arrival process rather than a Poisson distribu
+tion. In addition, consideration should be given to the random inspection period; the 
+inclusion of service facility in the system would also increase the usefulness of the 
+model.
+Acknowledgements S. Saranyadas thanks Rashtriya Uchchatar Shiksha Abhiyan (RUSA 2.0)(N0.046/
+RUSA/MKU/2022-2023) for providing Junior Research Fellowship.
+1 3
+S. Sivadasan, S. L. Arputham
+   23  
+Page 32 of 33
+Author contributions Saranyadas Sivadasan and Shophia Lawrence Arputham, equally contributed in 
+constructing the model, performing numerical analyses, and writing this manuscript.
+Funding Rashtriya Uchchatar Shiksha Abhiyan (RUSA 2.0)(N0.046/RUSA/MKU/2022-2023)
+Data availability The authors confirm that no data are associated with this article.
+Declarations
+Ethical approval and consent to participate Not applicable.
+Consent for publication Not applicable.
+Conflict of interest The authors declare that they have no conflict of interest.
+References
+Arivarignan G, Keerthana M, Sivakumar B (2020) A production inventory system with renewal and retrial 
+demands. In: Joshua VC, Varadhan SRS, Vishnevsky VM (eds) Applied probability and stochastic 
+processes. Springer Singapore, Singapore, pp 129–142
+Arivarignan G, Yadavalli V, Sivakumar B (2008) A perishable inventory system with multiserver service 
+facility and retrial customers. Manag Sci Pract 3–27
+Artalejo J, Krishnamoorthy A, Lopez H (2006) Numerical analysis of (s, S) inventory systems with 
+repeated attempts. Ann Oper Res 141(1):67–83
+Asadkhani J, Mokhtari H, Tahmasebpoor S (2022) Optimal lot sizing under learning effect in inspection 
+errors with different types of imperfect quality items. Oper Res Int J 22:2631–2665
+Audet C, Dennis JE (2006) Mesh adaptive direct search algorithms for constrained optimization. SIAM J 
+Optim 17(1):188–217
+Audet C, Hare W (2017) Derivative-free and blackbox optimization springer series in operations research 
+and financial engineering. Springer International Publishing, Singapore
+Cardenas-Barron LE (2009) Economic production quantity with rework process at a single-stage manufac
+turing system with planned backorders. Comput Ind Eng 57:1105–1113
+Cheng CE (1991) An economic order quantity model with demand-dependent unit production cost and 
+imperfect production processes. IIE Trans 23:23–28
+Dorigo M (1992) Optimization, learning and natural algorithms. PhD thesis
+Dorigo M, Stützle T (2019) Ant colony optimization: overview and recent advances. In: Gendreau M, 
+Potvin JY (eds) Handbook of metaheuristics, 3rd edn. Springer International Publishing, Singapore, 
+pp 311–352
+Eroglu A, Ozdemir G (2007) An economic order quantity model with defective items and shortages. Int J 
+Prod Econ 106:544–549
+Harris FW (1913) How many parts to make at once factory. Magazine Manag 10:135–136
+Karthick T, Sivakumar B, Arivarignan G (2015) An inventory system with two types of customers and 
+retrial demands. Int J Syst Sci Oper Logistics 2(2):90–112
+Khan M, Jaber MY, Guiffrida AL, Zolfaghari S (2011) A review of the extensions of a modified 
+model for imperfect quality items. Int J Prod Econ 132:1–12
+Krishnamoorthy A, Jose K (2007) Comparison of inventory systems with service, positive lead-time, loss 
+and retrial of demands. J Appl Math Stoch Anal 2007:1–23
+Latouche G, Ramaswami V (1993) A logarithmic reduction algorithm for quasi-birth-death processes. J 
+Appl Probab 30(3):650–674
+Lee HL, Rosenblatt MJ (1987) Simultaneous determination of production cycles and inspection schedules 
+in a production system. Manage Sci 33:1125–1137
+Lowe TJ, Schwarz LB (1983) Parameter estimation for the 
+ lot-size model: minimax and expected
+value choices. Naval Res Logist Quarterly 30:367–376
+1 3
+A continuous-review retrial inventory system with repair options for…
+Page 33 of 33 
+   23 
+Melikov A, Aliyeva S, Nair S, Kumar B (2022) Retrial queuing-inventory systems with delayed feedback 
+and instantaneous damaging of items. Axioms 11(5):241
+Montoison A, Pascal P, Salomon L (2020) NOMAD.jl: a Julia interface for the constrained blackbox solver 
+NOMAD. https://github.com/bbopt/NOMAD.jl
+Namnabat S, Mokhtari H, Fallahi A (2025) Extended inventory planning models for repairable imperfect 
+quality items under withdrawal policies and inspection errors. J Ind Prod Eng 42(6):625–650
+Neuts MF (1994) Matrix-geometric solutions in stochastic models: an algorithmic approach. Dover, New 
+York
+Nobil AH, Nobil E, Sedigh AH, Cárdenas-Barrón LE, Garza-Núñez D, Treviño-Garza G, Céspedes-Mota 
+A, de Jesús Loera-Hernández I, Smith NR (2024) Economic production quantity models for an 
+imperfect manufacturing system with strict inspection. Ain Shams Eng J 15(5):102714
+Öztürk H (2021) Modelling economic order quantities, considering buy and repair options for defective 
+items, and allowing for shortages and inspection errors. J Oper Research Soci China 9:757–795
+Öztürk H, Konstantaras I (2025) 
+ model with defective products, batch shipment andpartial back
+orders. Ann Oper Res 351:1–48
+Padmavathi I, Sivakumar B, Arivarignan G (2015) A retrial inventory system with single and modified 
+multiple vacation for server. Ann Oper Res 233(1):335–364
+Porteus EL (1985) Investing in reduced setups in the 
+ model. Manage Sci 31(8):998–1010
+Porteus EL (1986) Optimal lot sizing, process quality improvement and setup cost reduction. Oper Res 
+34:137–144
+Porteus EL (1986) Investing in new parameter values in the discounted 
+ model. Naval Res Log 
+Quarterly 33:39–48
+Salameh MK, Jaber MY (2000) Economic production quantity model for items with imperfect quality. Int 
+J Prod Econ 64:59–64
+Saranya N, Shophia Lawrence A (2019) A stochastic inventory system with replacement of perishable 
+items. Opsearch 56:563–582
+Saranya N, Shophia Lawrence A, Sivakumar B (2022) An inventory system with replacement and refur
+bishment of failed items. Commun Stat-Theory Methods 52(17):5966–5988
+Sarkar B, Saren S (2016) Product inspection policy for an imperfect production system with inspection 
+errors and warranty cost. Eur J Oper Res 248(1):263–271
+Schlüeter M, Erb SO, Gerdts M, Kemble S, Rückmann JJ (2013) MIDACO on MINLP space applications. 
+Adv Space Res 51(7):1116–1131
+Schwaller RL (1988) 
+ under inspection costs. Prod Invent Manag 29:22–24
+Schwarz LB (1972) Economic order quantities for products with finite demand horizons. AIIE Trans 
+4(3):234–237
+Shih W (1980) Optimal inventory policies when stockouts result from defective products. Int J Prod Res 
+18:677–686
+Sivakumar B (2008) Two commodity inventory system with retrial demand. Eur J Oper Res 187(1):70–83
+Sivakumar B (2009) A perishable inventory system with retrial demands and a finite population. J Comput 
+Appl Math 224(1):29–38
+Sivakumar B, Anbazhagan N (2011) Stochastic inventory system with replaceable items. Comput Optim 
+Econ Finance Res Compend 2(3):165–179
+Ushakumari P (2006) On (s, S) inventory system with random lead time and repeated demands. J Appl 
+Math Stoch Anal 1:1–22
+Wangsa ID, Wee HM (2019) A vendor-buyer inventory model for defective items with errors in inspection, 
+stochastic lead time and freight cost. Inform Syst Oper Res 57(4):597–622
+Yoo S, Kim D, Park M (2009) Economic production quantity model with imperfect-quality items, two-way 
+imperfect inspection and sales return. Int J Prod Econ 121:255–265
+Publisher's Note Springer Nature remains neutral with regard to jurisdictional claims in published maps 
+and institutional affiliations.
+Springer Nature or its licensor (e.g. a society or other partner) holds exclusive rights to this article under 
+a publishing agreement with the author(s) or other rightsholder(s); author self-archiving of the accepted 
+manuscript version of this article is solely governed by the terms of such publishing agreement and appli
+cable law.
+1 3

@@ -1,0 +1,1170 @@
+Journal of Maritime Archaeology            (2026) 21:3 
+https://doi.org/10.1007/s11457-026-09495-5
+RESEARCH
+Lost in Transit: Reconstructing Transhipment Costs 
+from the Roman Era
+James Page1 
+Received: 10 September 2025 / Accepted: 6 January 2026 
+© The Author(s) 2026
+Abstract
+Transhipment was an activity that all cargo had to undergo during its journey, but is often 
+absent from discussions and mobility models of Roman transport. The surviving evidence 
+for the cost and time of transferring cargo from the Roman period is often fragmentary 
+and difficult to interpret, but is clear that transhipment was a complex, multistage process. 
+Periods spent in transhipment hubs could cost significant time and money, making tran
+shipment’s inclusion in mobility analyses a necessity. This paper uses a combination of 
+ancient literary and archaeological evidence to explore the cost and time of transhipment in 
+the Roman era. The key stages of the transhipment process are outlined, highlighting that 
+transhipment activities went beyond just the physical handling of cargo. Comparative evi
+dence, in the form of architectural energetics, is also applied to Roman contexts to further 
+explore the duration of transhipment activities. Finally, the importance of considering the 
+volume of cargo undergoing transfer, and the subsequent impact this had on transport flows 
+through transhipment hubs, is highlighted. The paper’s analysis of Roman transhipment 
+activities is used to propose two new methods for incorporating transhipment costs (in both 
+time and money) into future models and discussions of mobility.
+Keywords Transhipment · Roman transport · Roman ports · Cargo transfer · Modelling
+Introduction
+During the Roman era, significant quantities of goods and materials were moved over long 
+distances. Foodstuffs, raw materials, and luxuries, to name but a few, crossed from one 
+side of the empire to the other. Ports, both maritime and fluvial, were hubs of activity, 
+processing vast quantities of arriving and departing cargo. Throughout its journey from 
+point of production to point of consumption, a critical stage in a cargo’s journey was tran
+shipment, where goods were transferred from one mode of transport to another. Tranship
+ment took a variety of forms. Cargo might be transferred between different transport types: 
+maritime-terrestrial, terrestrial-fluvial, or fluvial-maritime. Alternatively, cargoes could be 
+split up into smaller consignments or united into bigger shipments, all while utilising the 
+* James Page 
+james.page@bsc.es
+1
+Barcelona Supercomputing Center, Barcelona, Spain
+Vol.:(0123456789)
+Journal of Maritime Archaeology            (2026) 21:3 
+    3  
+Page 2 of 23
+same form of transport. Not every settlement had access to a navigable river or seaport, and 
+most journeys necessarily utilised a combination of transportation (Adams 2012; Campbell 
+2012; Laurence 1998). This meant most cargo would be transhipped multiple times before 
+it reached its destination.
+Over the past decade, theoretical models have significantly advanced understanding on 
+the Roman economy (Brughmans 2020, 2022; Rubio-Campillo and Coto-Sarmiento 2022; 
+Wilson 2022). Using increasingly sophisticated computational and statistical techniques, 
+models have been used to test theories surrounding transport and trade at scales ranging 
+from a single city to the entirety of the Roman Empire (Brughmans and Poblome 2016; 
+De Soto 2019; Livarda and Orengo 2015; Mclean and Rubio-Campillo 2022; Orengo and 
+Livarda 2016; Scheidel 2014). Transhipment represents a key stage of any cargo’s jour
+ney, but it has often been overlooked in prior discussions and models of ancient mobility. 
+This is, in part, due to the disparate state of evidence for the cost and time of transhipment 
+during the Roman period. Diocletian’s Edict of Maximum Prices, the principal source of 
+transport costs in the Roman world, does not include transhipment fees (Erim and Reyn
+olds 1970). Other evidence for transhipment costs, notably from papyri, is often vague and 
+fragmentary, with concrete figures being hard to come by. Although transhipment is pri
+marily envisaged as the physical transfer of cargo, this often formed only part of the pro
+cess. Other stages of transhipment, such as the payment of customs dues, docking tariffs, 
+and warehouse fees also added to costs but are difficult to quantify. Estimating the time it 
+took for goods to be transhipped suffers from similar limitations, although transhipment 
+activities from later periods offer a point of comparison. The limited data and difficulty in 
+reconstructing transhipment processes have led to them being generally absent from many 
+models of Roman transport.1 However, transhipment could be an expensive and time-con
+suming process. Indeed, comparative evidence from thirteenth and sixteenth-century con
+struction accounts suggest transhipment could make up between 20 and 30% of the total 
+cost of transport, making its inclusion in mobility analyses essential (Russell 2013).
+Over the past thirty years, a significant quantity of data has been gathered on the pro
+cessing of cargo in the Roman era. Iconographic representations of docking operations, 
+legal agreements concerning cargo, and physical port infrastructure all provide a rich back
+ground for transhipment processes. New research in adjacent fields, such as the use of ener
+getics to explore ancient construction, also provides new points of comparison and data for 
+labour costs (Barker and Russell 2012, 2023; DeLaine 1997; 2015, 2017). Building on the 
+foundations of earlier work, this article does not seek to provide exact figures for the cost 
+and time of transhipment during the Roman period. Such figures, if they ever existed, likely 
+varied considerably from cargo to cargo, between ports, and over time. Rather, it aims to 
+provide a body of contextualised evidence to help future discussions and models of mobil
+ity better incorporate transhipment into their analyses. Discussing figures for transhipment 
+in context will help reveal the full complexity of the process beyond the physical act of 
+transferring cargo. It will also serve to highlight important aspects of transhipment often 
+not factored into discussions and models of mobility, such as storage time before or after 
+loading and the volume of cargo being transferred.
+1 For example, the original ORBIS model did not include transfer costs, although an update allowed 
+users to manually add a time cost in the form of days (http:// orbis. stanf ord. edu/# seaex pense Last accessed 
+05/09/25).
+Page 3 of 23 
+Journal of Maritime Archaeology            (2026) 21:3  
+    3 
+The Transhipment Process
+Transhipment, at its simplest, consisted of unloading cargo from one mode of transport and 
+loading it onto another for its onward journey. However, the reality was frequently more 
+complex, and transhipment was often a multi-stage process. Cargo might be moved mul
+tiple times at transhipment hubs between stages in its journey, involving significant labour 
+and bureaucracy. Although the exact process would vary from cargo to cargo and from 
+port to port, many aspects of transhipment can be reconstructed from the surviving ancient 
+evidence.
+Large quantities of cargo were transported along maritime routes during the Roman 
+period. Great emporia such as Alexandria, Ephesus, Massalia, and Portus were equipped 
+with extensive harbour facilities and handled hundreds of shipments each year (Brandon 
+et al. 2014; Keay 2018). The presence of a deepwater harbour equipped with wharfing 
+allowed a maritime vessel to set up alongside the dock and unload directly onto the land. 
+However, in the absence of such facilities, maritime vessels were forced to moor offshore, 
+unloading their cargo onto waiting lighters which would then transfer it to land. A similar 
+situation might arise if a vessel with a deep draught approached a river harbour. The ship 
+would need to stay in the deeper part of the channel while smaller vessels transferred goods 
+to the riverbank. These smaller vessels or lighters, often identified as scaphae or lenun
+cularii, were important parts of the harbour ecosystem (Casson 1965; Campbell 2012). 
+Alternatively, cargo could be transferred from a maritime ship directly to a river vessel, as 
+depicted by a late second-century AD mosaic at Statio 25 in the Piazzale delle Corporazi
+oni, Ostia (see Fig. 1). These river vessels, termed naves codicariae, are well known from 
+Fig. 1  Drawing of cargo being transferred from a maritime vessel to a navis codicaria depicted on a mosaic 
+in Statio 25 in the Piazzale delle Corporazioni, Ostia (circa [c.] late second century AD)
+Journal of Maritime Archaeology            (2026) 21:3 
+    3  
+Page 4 of 23
+Ostia and Portus, where they carried cargo upstream to Rome (Boetto 2011; Casson 1965; 
+Keay 2018). The diverse range of harbour craft operating during the Roman period formed 
+important intermediaries between maritime transport and terrestrial and fluvial networks. 
+Their operation was well-organised, with associations of lenuncularii, scapharii, and codi
+carii attested at ports such as Arles, Ostia, and Serville (Rougier 2020; Tran 2020). How
+ever, their use added an additional step in the transhipment process, ultimately increasing 
+the transfer time between stages in the cargo’s journey.
+On inland waterways, barges, designed with the shallow water fluvial environments in 
+mind, were constructed with flat bottoms rather than keeled hulls. This allowed barges to 
+beach themselves on the riverbanks for loading and unloading in the absence of built har
+bour facilities. While this provided rivercraft with a high degree of flexibility, evidence 
+for fluvial ports with extensive harbourside infrastructure survives from across the Roman 
+world (Campbell 2012). Indeed, facilities such as wharfing and warehouses, alongside 
+more specialist equipment such as cranes and winches, would be essential for handling 
+large cargoes and high quantities of material.
+On the shore, porters were responsible for the transfer of cargo from the warehouse or 
+dockside onto a waiting vessel or vice versa.2 Most of the loading and unloading was done 
+by hand, either carrying or rolling the cargo (Martelli 2013).3 In some circumstances, the 
+crew or agents related to the owners of the cargo might try to unload the vessel themselves 
+rather than employ porters at the harbour, depriving them of work (Freu 2009, 304–06). 
+A fourth-century constitution issued by Valentinian I and Valens, granting the corpus of 
+the saccarii at Portus a monopoly over the loading and unloading of cargo at the harbour, 
+may represent an effort to guarantee employment to porters during this later period (Codex 
+Theodosianus 14.22.1; Tran 2020). Although there was likely sufficient demand at major 
+emporia to sustain a resident population of porters, in minor ports or rural areas along 
+the waterways the situation was different. In these cases, the boatmen or the traders them
+selves may have been responsible for the loading of the cargo, alongside seasonal labour.4 
+Of course, large, heavy, and unwieldy cargoes, such as stone sarcophagi or architectural 
+elements, could not have been moved by hand. Specialist equipment such as cranes and 
+winches, alongside their operators, were a necessity and would have limited the ports 
+where such cargo could be processed (Russell 2013, 2018). The high value and high risk of 
+breakage for items like stone would have resulted in extra care being taken to ensure their 
+safe loading and unloading, resulting in a lengthy transhipment time.
+Loading cargo onto a ship was no simple matter. Goods needed careful placement in 
+and removal from the hold, both to ensure the stability of the vessel and to reduce the like
+lihood of damage to the cargo. Loose cargo could prove deadly, and sufficient movement 
+could be enough to destabilise and capsize a vessel (Hein and Kilikoglou 2020; McGrail 
+1989). As a result, cargo was packed tightly. Amphorae were interlocked with each other 
+and might be stacked five containers high (Hein and Kilikoglou 2020). Where possible, 
+spare space in the hold was filled with extra goods, not just to maximise the voyage’s profit 
+2 Terms broadly covering porters include baiuli, geruli, or saccarii in Latin, and sakkophoroi, phortègoi, 
+nautophoroi, ômophoroi or achthophoroi in Greek (Freu 2009: 306).
+3 The majority of cargo at ports was loaded and unloaded by hand before the advent of the shipping con
+tainer in the mid-twentieth century (Levinson 2006: Chap. 2).
+4 For example, P.Mich. 20.801-820 record numerous undertakings of boatmen to transport wheat and bar
+ley from the nome of Oxyrhynchus to Alexandria and Pelusium in the fourth century AD (Sijpesteijn et al. 
+2011). In most cases, it is either the boatmen or the landowners who undertake the loading of the cereals 
+onto the waiting craft.
+Page 5 of 23 
+Journal of Maritime Archaeology            (2026) 21:3  
+    3 
+but also to help reduce cargo movement. Finewares, such as Italian Terra Sigillata (ITS) 
+and Aftrican red slip (ARS), often filled this role (Fentress and Perkins 1988; McGrail 
+1989). Further precautions taken during loading to protect cargoes are evident from the 
+remains of several shipwrecks. On the Late Roman Ses Fontanelles Wreck, the cargo of 
+amphorae was padded with dunnage of vine shoots and reeds to prevent the vessels from 
+knocking and abrading each other (and the hull) during the voyage, reducing the risk of 
+breakages and damage (Munar Llabrés et al. 2022, 491). Similar precautions are also seen 
+on the Madrague de Giens, Ilovik-Paržine 1, and Bou Ferrer wrecks, amongst others (De 
+Juan and Cibecchini 2021; Fournier et al. 2024; Tchernia et al. 1978). Although its primary 
+purpose was to protect the cargo and the vessel, dunnage might also be sold at the ship’s 
+destination as a source of extra profit. For example, the small branches used as dunnage 
+for a cargo of roof tiles in the wreck of the Kamensko river barge may have been sold 
+as firewood after the unloading of the vessel (Boetto et al. 2021). Although a significant 
+amount of trade in the Roman period was direct, with the entire cargo unloaded at a singu
+lar destination port, some ships engaged in itinerant trade or cabotage. If a ship was stop
+ping at multiple destinations, care would be taken to load the cargo so that it could easily 
+be removed in sequence. Goods being unloaded at the first port of call would need to be 
+the most accessible, while those destined for the final stop of the voyage would have been 
+lower down.
+Upon arrival at its destination port, cargo was unlikely to have been immediately 
+transferred to onward transport for the next leg of its journey. It would have needed to 
+be received and accounted for by a handler, cleared by the port authorities, and (if it had 
+arrived from outside the province) have customs dues paid (Keay 2018; Purpura 2022). 
+Several surviving documents attest to the extensive written bureaucracy involved in the 
+unloading and receiving of cargo at destination ports. Papyrus P. Bingen 77 forms a promi
+nent example, recording in-depth the docking operations of eleven ships over two days at 
+Alexandria. Details included the names of each vessel, their ports of origin, their cargo, 
+their capacity, length of voyage, vessel owner, captain, and crew. Other documents, such 
+as the Tabulae Pompeianae Sulpiciorum, point to the intricate connections and agreements 
+between traders and transporters (Jakab 2022; Marzano 2022). Cargoes embarked on a 
+maritime vessel were often mixed, with multiple merchants contributing goods. This cre
+ated a need to differentiate the merchandise of individual traders, especially if products of 
+the same type were being transported onboard. Tituli picti served to add the owner’s name 
+(amongst other data) to amphorae. Inscribed stoppers, seals, or labels made out of wood, 
+lead, or clay might also be used to record ownership of cargo (Purpura 2022). A relief from 
+Portus depicts porters unloading amphorae from a ship passing a token to waiting harbour 
+officials (see Fig. 2). These tokens, the transfer of which is being recorded in a ledger by 
+one of the officials, may have acted as both a way to identify ownership and to ensure 
+the quantity of cargo matched the ship’s manifest (Rickman 1998). Perishable cargo would 
+also need to be tested to ensure its quality matched the provided sample for the shipment 
+(Keay 2018; Purpura 2022).
+Once they had cleared the dockside, goods would likely have spent a period of time 
+stored in a warehouse until onward transport could be arranged. Journeys were subject 
+to the wind and the weather, alongside a host of other variables (Arnaud 2007; Camp
+bell 2022). Outside of some contexts such as the annona, where state apparatus ensured a 
+degree of contingency, the likelihood of transport aligning at both ends of a journey was 
+probably slim, necessitating a period of storage. If a warehouse was close to the dock, por
+ters may have carried goods directly to their place of storage (Martelli 2013; Virlouvet 
+2020). However, if there was some distance between the wharf and the warehouse, goods 
+Journal of Maritime Archaeology            (2026) 21:3 
+    3  
+Page 6 of 23
+Fig. 2  Drawing of a relief from Portus showing amphorae being unloaded from a ship. A porter hands a 
+token to one of three waiting officials (Credit: Zofia Guertin)
+may have been placed on a wagon, cart, or pack animal for transport to the horreum, where 
+they would have been received by workers in the warehouse. In addition to adding time to 
+the transhipment process, a period spent in a horreum would have also added to expenses, 
+covering the cost of the storage and guarding of the goods. Once safely placed in a ware
+house, cargo could then wait for onward transport to be arranged, at which point the pro
+cess outlined above would be carried out in the reverse.
+The brief overview of cargo transhipment outlined above demonstrates that the physical 
+transfer of cargo between transport modes formed only part of the overall process. Cargo 
+might need to be moved multiple times within the port environment before transferring 
+onto the next leg of its journey. Administrative procedures and bureaucracy within the port 
+would have added considerable time and expense to the process as tariffs were paid and 
+cargo accounted for. In many cases, a period spent stored in a warehouse would have been 
+necessary while onward transport was organised. This complex, multi-stage process, could 
+take significant time and expense to complete, something that is reflected in the surviving 
+evidence for transhipment figures.
+Transhipment Figures
+In the following sections, the available evidence from the Roman period regarding the 
+monetary cost and duration of transhipment is explored. These variables were chosen as 
+they represent the most frequent measures of ‘cost’ used in models of Roman transport. 
+Page 7 of 23 
+Journal of Maritime Archaeology            (2026) 21:3  
+    3 
+Transhipment figures are likely to have varied extensively across the Roman world in both 
+time and expense. They would have been highly dependent on factors such as the cargo 
+type, the time of year, and the facilities of the port where transhipment occurred. As dis
+cussed above, while cargoes of smaller goods, such as amphorae and finewares, could have 
+been loaded by hand, cranes and winches would have been essential for heavy cargoes such 
+as stone. Meanwhile, the constitution issued by Valentinian I and Valens in AD 364 records 
+that the remuneration for the loading and unloading of goods at Portus varied according to 
+the seasons (Codex Theodosianus 14.22.1). Porters may have charged more to handle cargo 
+during the peak summer months when they were most in demand. Quieter periods may 
+have incurred a lower fee, especially if there was competition for work between different 
+labour gangs (Hawkins 2013, 340).
+Surviving transhipment figures from the Roman world are often difficult to interpret. 
+The data for them are extremely limited and comes from a wide variety of locations and 
+time periods. These range from Italy to Egypt and from the first century AD to the fourth 
+century AD. The limited quantity and eclectic nature of the evidence means that it must 
+be treated with extreme caution. The Roman Empire encompassed a vast geographic area 
+and was home to diverse communities. The transhipment process for cargo at a Romano
+British port may well have been very different to one in Asia Minor. In the same vein, 
+the Roman period encompassed centuries and oversaw changes in technology and contain
+erisation, both of which may have affected the cost and duration of transhipment (Bevan 
+2014; Wilson 2011a, b). However, the limited and disparate state of the evidence makes it 
+difficult to effectively incorporate these spatial and temporal variations into reconstructions 
+of transhipment cost.
+The context of surviving data is also problematic. Surviving evidence for transhipment 
+cost is not distributed evenly, being primarily concentrated in the Mediterranean area. 
+Egypt has also produced a high quantity of evidence due to the ideal preservation condi
+tions for papyri, allowing the recovery of administrative documents such as freight con
+tracts that do not survive from other areas. Furthermore, the majority of evidence concerns 
+major ports and transhipment hubs, resulting in a focus on large emporia within the discus
+sion. However, it should be cautioned that reconstructing transhipment figures based on 
+estimates from a top-down approach may result in an overestimation or underestimation of 
+costs when applied to smaller ports. For example, the demands placed on small ports may 
+have been lower than major emporia, leading to reduced costs. Equally, the limited facili
+ties at these ports may have made transhipment activities more difficult, serving to increase 
+costs.
+Finally, the type of cargo being transhipped will have had an impact on the cost and 
+duration of transfer. The time taken to tranship a tonne of grain would not be the same as 
+the time taken to move a tonne of stone, and different methods would have been employed 
+in each transfer. A sack of grain could be moved by hand, while a large block of stone 
+would have needed extra equipment such as cranes. Types of containers will also have 
+made a difference to transhipment. While amphorae could be carried by hand, either indi
+vidually or between two porters, a barrel could have been rolled, allowing heavy loads to 
+be moved with greater ease (Marlière 2001, 2014). In dolia ships (sometimes described as 
+proto-tankers), wine carried inside the large ceramic vessels built into the ship’s structure 
+would have needed to be siphoned out into containers on the shore, adding a layer of dif
+f
+iculty and expense to its transhipment (Rice 2016). Frustratingly, the limited scope of the 
+surviving evidence makes reconstructing this level of variation difficult. As a result, there 
+remains a risk in over or under-estimating the time and cost of transhipment when extrapo
+lating figures from one type of cargo to another.
+Journal of Maritime Archaeology            (2026) 21:3 
+    3  
+Page 8 of 23
+The surviving body of evidence for Roman transhipment figures forms a complex data
+set. However, even with the limited quantity of evidence available, interesting patterns and 
+trends are visible, providing a tentative indication of the possible cost and duration of tran
+shipment during the Roman period. As long as they are treated with due caution, the fig
+ures explored here will be able to serve as a starting point for researchers when considering 
+how to incorporate transhipment costs into their models.
+Transhipment Costs
+The monetary costs of transhipment from the Roman world are difficult to reconstruct. 
+Most surviving evidence consists of fragmentary papyri, alongside some incomplete epig
+raphy. Coming from a wide chronological spectrum, figures for costs associated with tran
+shipment are given in a range of denominations, which include the drachma, obol, and 
+nummus.5 The value of these coins was not static across the Roman period, making direct 
+comparisons difficult. In many cases, figures for the cost of transhipment come from state
+related activities, mostly the shipping of grain and wine for the annona. Given the state’s 
+involvement in the organisation and shipping of these cargoes, it is hard to know how repre
+sentative these figures are for wider commercial transactions (Adams 2018). Furthermore, 
+many of the documents recording transhipment costs are missing important contextual 
+information. In a typical example (Freu 2009, 318), a papyrus from Oxyrhynchus dated to 
+c. AD 90 (P.Oxy. 6.985) records that a group of porters were paid 8 drachmas and 4 obols 
+to move 228 tetrachoes of wine (approximately 4300 L). Although the figures on the papy
+rus include the quantity of the cargo and the cost of its movement, they do not indicate how 
+many porters were involved, the distance the wine travelled, or how long it took to move. 
+Without this context, it is difficult to ascertain exactly what governed the porter’s fee. For 
+example, was it the quantity of the wine being moved or the time spent moving it?
+One of the most extensive pieces of surviving evidence for transhipment costs comes 
+from a second-century AD freight contract from Oxyrhynchus (P.Oxy. 3.522). The papyrus 
+records the expenses associated with three rivercraft transporting cereals in Egypt, along
+side important contextual detail (see Table 1). Amongst the payments (which included 
+the cost of carriage, food for the sailors, and pay for guards), are the wages for the men 
+involved in loading the vessels. The load of the first vessel (that of Triadelphus) was 3400 
+artabae, for which eleven men were paid 6 drachmae and 2 obols.6 The load of the second 
+and third vessels (those of Horion and Pausiris) is recorded jointly, as are their loading 
+costs. The cargo of the two vessels consisted of 2000 artabae of wheat, for which seven 
+men were paid 4 drachmae to load. In both cases, the wages for each man were approxi
+mately 3.5 obols (assuming they were evenly distributed), perhaps suggesting a flat rate 
+paid for each job regardless of the cargo’s size and the time taken to load it. The wages 
+paid to the porters in P.Oxy. 3.522 are not dissimilar to the wages preserved in other papyri 
+from the late first and early second century AD. P.Leiden Inv.111 (c. 111 AD) records that 
+a group of porters were paid 8 drachmae to load a cargo of pulses, while the porters in the 
+aforementioned P.Oxy. 6.985 were paid 8 drachmae and 4 obols to move a shipment of 
+wine (Chepel 2023, 158).
+5 The nummus is a denomination of bronze coinage introduced by Diocletian c. AD 294. It has also been 
+referred to as the follis in past literature.
+6 The artaba is an ancient unit of dry volume equal to approximately 36.18 L.
+Table 1  Breakdown of costs and expenses contained within P.Oxy 3.522 (second century AD)
+Vessel: Triadelphus
+Transportation of 3400 artabae of wheat
+Tax per 1000 artabae
+Carriage of 171 artabae of wheat from drying place
+Jar of wine to assistants and soldiers
+Wages of 11 workmen employed in lading
+Granary guard wages
+Total:
+Costs:
+712 drachmae
+12 drachmae
+6 drachmae
+8 drachmae, 1 obol
+6 drachmae, 2 obols
+18 drachmae
+Vessels: Horion and Pausiris
+Transportation of 2000 artabae of wheat
+Payment of pilot
+Jar of wine to assistants and soldiers
+2 jars of wine to the sailors
+Provisions for sailors (excluding bread)
+Wages of 7 workmen employed in lading
+Wages for porter working beyond normal lading 
+activities
+Costs:
+420 drachmae
+8 drachmae
+8 drachmae, 1 obol
+16 drachmae, 2 obols
+4 obols
+4 drachmae
+5 drachmae
+Journal of Maritime Archaeology            (2026) 21:3  
+Page 9 of 23 
+    3 
+762 drachmae, 3 obols
+Total:
+466 drachmae
+Journal of Maritime Archaeology            (2026) 21:3 
+    3  
+Page 10 of 23
+Table 2  Breakdown of costs 
+and expenses contained within 
+P.Oxy. 14.1650 (c. AD 75–125). 
+Although some costs do not 
+survive, the total expenditure 
+is provided at the end of the 
+document
+Expenses
+Expenditure
+Transport of 550 artabae of wheat
+Repairs to the boat
+Taxes
+Examination dues
+Banker’s fee
+Commission
+Exchange (?)
+Interpreter’s fee
+Replacement rudder
+Payment for guard on land
+Payment for guard on boat
+Clerks fee
+To Artemis
+Affidavit
+Receipt
+Examination dues for a libation
+Total
+44 drachmae
+6 drachmae
+4 drachmae
+4 drachmae
+1 drachma
+5 drachmae
+1 drachma
+2 drachmae
+14 drachmae, 4 obols
+(…)
+(…), 2 obols
+4 drachmae
+1 drachma
+1 drachma
+4 obols
+2 drachmae
+91 drachmae
+In addition to individual expenses, P.Oxy. 3.522 also records the total expenditure for 
+each vessel’s voyage, allowing loading costs to be viewed in their wider context. The total 
+expenditure for the voyage of Triadelphus’ vessel was 762 drachmae, 3 obols, while the 
+total expenditure for Horion and Pausisris’ vessels was 466 drachmae. In both cases, the 
+porters’ wages were less than 1% of the overall outlay. In a world where labour was cheap 
+and abundant, it is perhaps not surprising that renumeration for physical work such as 
+loading and unloading was low (Hawkins 2013; Scheidel 2010). Although lading a ves
+sel involved a degree of expertise, the presence of a gangmaster would have provided the 
+majority of coordination, allowing unskilled or partially skilled labourers to be hired (Tran 
+2020, 95). The cost of loading was also low in comparison to other expenses incurred dur
+ing the vessels’ time in port, such as paying guards for the cargo, hiring a pilot, and buying 
+food for the sailors. Indeed, the cost of a jar of wine for the loading assistants and guard 
+(8 drachmae and 1 obol) was more than the wages for the eleven porters loading the 3400 
+artabae cargo of Triadelphus’ vessel.
+When all harbour operations and expenses are factored in, transhipment costs made up 
+6.57% of Triadelphus’ and 9.88% of Horion and Pausiris’ total expenditure, reinforcing the 
+importance of including costs beyond loading and unloading when considering tranship
+ment. The situation is echoed by other surviving freight contracts from Oxyrhynchus. In 
+papyri P.Oxy. 14.1650 + P.Oxy. 14.1650 (a) (c. AD 75–AD 125) and P.Oxy. 14.1651 (third 
+century AD), a host of other expenses besides loading are detailed in the contracts. Other 
+incidental costs, such as payment for guards, clerks, storage, and inspections, all feature 
+prominently and represented a significant outlay.7 Indeed, for one of the vessels contracted 
+in P.Oxy. 14.1650, harbour operations accounted for 51.5% of the total expenses, more 
+7 See comparisons in labour expenses for ancient stone working in Barker and Russell (2023), where inci
+dental costs aside from the physical labour are shown to have formed a significant outlay.
+Page 11 of 23 
+Journal of Maritime Archaeology            (2026) 21:3  
+    3 
+than the actual cost of transporting the cargo (see Table 2). It is also worth remembering 
+that the expenses outlined in the freight contacts discussed above cover only the loading of 
+the cargo at its port of origin. At the vessels’ destination, port fees would be incurred for 
+unloading and other expenses in the harbour, further increasing costs.
+The range of fees and tariffs beyond the physical loading and unloading of cargo are 
+further demonstrated by a late third or early fourth-century AD inscription discovered in 
+Rome near Piazza San Silvestro. The translation of the inscription has proved difficult 
+due to its fragmentary nature, disagreement over whether it should be read top to bottom 
+or bottom to top, and the presence of several hapax legomena (terms for which only one 
+instance of use survives) within the language (Malmberg 2015; Rougé 1957; Vera 2006). 
+However, it has been interpreted as a list of tariffs for the unloading and storage of wine 
+barrels from Ciconias. Ciconias (literally Storks) is assumed to refer to a place, probably 
+a port near Posterula della Pila on the lefthand bank of the Tiber (Malmberg 2015). The 
+area’s name ‘Storks’ may also be in reference to the cargo cranes at the port (McCormick 
+2012, 75; Rougé 1957). The inscription is outlined below:
+(h)austoribus in cupa una numm(is) XXX / tabu
+lariis in singulis apocis numm(is) XX / exasciatori 
+in cupa una numm(is) X /
+falancariis qui de Ciconiis ad templum cupas / 
+referre consuerunt numm(is) … /
+custodibus cuparum [numm(is)…] /
+de ampullis placuit ut post degustation[em] posses
+sori reddantur /
+professionariis de Ciconiis statim ut advenerent / 
+vinum in una cupa numm(is) CXX
+To the drainers, 30 nummi per barrel;
+To the bookkeepers, 20 nummi per receipt;
+To the barrel-openers, 10 nummi per barrel;
+To the porters who usually carry the barrels from 
+Ciconias to the temple, [?] nummi;
+To the guardians of the barrels, [? nummi];
+Regarding the sample bottles, it was decided to return 
+them to their owners after the tasting;
+To the tax account examiners at Ciconias, upon 
+arrival of the wine, 120 nummi per barrel
+CIL VI. 1785 = 31931 [Translation from Malmberg 2015, 199.]
+The surviving tariffs from the inscription reflect the multiple stages of transhipment and 
+fees that needed to be paid at each stage. These included tariffs that had to be paid per bar
+rel (for example to the barrel drainers, openers, and the tax officials), and tariffs that were 
+paid per load (for example to the porters moving the barrels and those guarding them). The 
+wine in the barrels was likely destined for a cella vinaria (wine cellar) at the Temple of the 
+Sun before redistribution, imported to the capital as part of the vina fiscalia introduced by 
+Aurelian (SHA Aurel. 48.4; Pena 1999; Vera 2006). The tariffs in the inscription represent 
+a significant outlay for each shipment during its transit from dockside to storage. The fee 
+for the actual unloading of the barrels, either by hand or by crane, has not survived. How
+ever, once the cargo had been unloaded and accounted for on the dockside, a tariff of 120 
+nummi per barrel was payable to the tax authorities at the port. A fee then needed to be 
+paid for the carriage of the barrels from the port to the temple, and another fee to those who 
+guarded them (either at the temple or at the port). Upon arrival at the temple, the book
+keepers were paid 20 nummi for receipt of the wine barrels. Once transferred inside, there 
+was a fee to open each barrel. A subsequent fee was then paid to drain each barrel, presum
+ably either into a larger storage vessel (for example a dolium) or a decanting into smaller 
+vessels for distribution. As with the freight contracts discussed above, fees concerning the 
+physical handling of cargo formed only a fraction of the overall expenses incurred during 
+the transfer of the wine from barrels on a river barge to its point of distribution. The fees 
+for each activity in the inscription are standardised, as might be expected for expenditure 
+associated with state activity. There may have been more flexibility in the fees set for pri
+vate commerce, although the presence of professional associations at transhipment hubs, 
+Journal of Maritime Archaeology            (2026) 21:3 
+    3  
+Page 12 of 23
+such as the corpus of the saccarii, may have served to limit competition within individual 
+port environments (Rohde 2020; Tran 2020).
+The surviving figures for transhipment cost from the Roman world suggest that the 
+actual fees for the loading and unloading of the cargo represent a fraction of transhipment’s 
+overall cost. With access to cheap labour, the physical transfer of cargo from ship to dock
+side and vice versa may have accounted for less than 1% of total transport costs. However, 
+when other harbour and transfer expenses are factored in, transhipment costs could quickly 
+mount up, equating to between 5 and 10% of the value of a journey’s total expenditure in 
+the case of P.Oxy. 3.522. In extreme cases, this portion might be even greater. The range of 
+fees, tariffs, and expenditure incurred during transhipment varied from state taxes on goods 
+to more mundane outlay covering things such as provisions for the crew or guards for the 
+cargo. These served to make transit through transhipment hubs an expensive period for 
+cargo, one that could often also prove time-consuming.
+Transhipment Time
+Surviving figures for the duration of transhipment from the Roman period are even rarer 
+than those for cost. Some limited papyrological evidence has been recovered but, as with 
+the figures for cost, it is often missing contextual information. For example, P.Oxy. 33.2670 
+(AD 127), records the delivery and loading over nine days of 10,000 artabae onto a group 
+of river barges. The total amount arriving at the port each day varied between 424 and 
+1324 artabae. However, it is unknown how many workers were involved in the loading 
+of the cargo, how the delivered grain was distributed, how many barges were present at 
+the harbour, and how long it took to load them (Adams 2018, 187). Another papyrus from 
+the Fayum (P.Lond. 3.948) dated to AD 236 preserves a shipping contract for the carriage 
+of 250 artabae (approximately 9.5 tonnes) of the vegetable seed lachanospermon (Adams 
+2018). The document records that it took two days to load the cargo but four days for its 
+unloading. It is uncertain why it took double the amount of time to unload the cargo than 
+it did to load it. Perhaps fewer porters were available at Oxyrhynchus to help with the 
+unloading or equipment such as cranes were present at the vessel’s port of origin to speed 
+up the loading process. Alternatively, extra time may have been factored into the unloading 
+time at Oxyrhynchus to account for inspections of the cargo. To return to P.Oxy. 3.522, the 
+contract for Horion and Pausiris’ vessels includes a special payment of 5 drachmae that 
+was made to a porter who worked for three and a half days. However, this seems too short a 
+period of time to load the 2000 artabae of wheat that formed the cargo (approximately 76 
+tonnes) when compared to the time scales for cargo processing outlined for the 250 arta
+bae cargo being transhipped in P.Lond. 3.948. The language of the papyrus is uncertain in 
+this section, but the porter was likely engaged in a special task (hence the higher payment 
+and short timescale) unrelated to the vessel’s lading (Chepel 2023).
+The absence or fragmentary condition of figures outlining the time taken to transfer 
+cargo in the ancient world makes them difficult to estimate. However, comparative evi
+dence in the form of architectural energetics presents a way of estimating ancient figures. 
+Architectural energetics is a type of reverse quantity surveying, where the goods and 
+labour constants (measured in man-hours) needed to complete a task can be used to esti
+mate the material needs and duration of a project. Nineteenth century building manuals, 
+most notably Pegoretti’s 1869 Manuale pratico per l’estimazione dei lavori architettonici 
+stradali, idraulici e di fortificazione per uso degli ingegneri ed architetti, have proved a 
+useful source of data for labour constants (Pegoretti 1869). Given the similarities between 
+Page 13 of 23 
+Journal of Maritime Archaeology            (2026) 21:3  
+    3 
+Table 3  The upper and lower time in minutes to transfer different types of stone from a boat or cart 
+(Adapted from Pegoretti 1869, 281). The figures assume that a cartier or shipman is being assisted by a 
+stonecutter and one or two handlers for each cubic metre of stone unloaded
+Task
+Lower time 
+(minutes)
+Upper 
+time 
+(minutes)
+Unloading 1 cubic metre of porphyry, granite, serpentine, or other similar durable 
+stone or marble
+Unloading 1 cubic metre of limestone, travertine, sandstone, or puddingstone
+Unloading 1 cubic metre of tufa, soft limestone, chalkstone, pumice, or volcanic 
+slag
+30
+24
+15
+60
+48
+30
+construction in the pre-industrial and ancient world (notably the use of manual labour 
+rather than machinery to move items and perform tasks), they have been used as a source 
+of comparison for labour figures in the Roman period.8 Architectural energetics have been 
+successfully used in the study of ancient construction to estimate the labour costs associ
+ated with projects, most famously those of the Baths of Caracalla (DeLaine 1997, 2015, 
+2017). Although the veracity and applicability of the labour constants found in Pegore
+tti have been questioned and there are inherent risks in applying evidence from one time 
+period to another, comparisons to modern reconstruction, conservation, and restoration 
+projects using traditional building techniques have shown a strong correlation between his 
+f
+igures and reality (Barker and Russell 2012; DeLaine 1997).
+While building manuals are principally focused on activities related to construction, 
+Pegoretti also includes labour constants for unloading materials. For loose cargo, an esti
+mated time of between 24 and 48 min is given for the transfer of a cubic metre of loose 
+material from a river vessel to the shore (Pegoretti 1869). Elsewhere in the manual (Pegore
+tti 1869), more detailed estimates for the unloading of blocks of stone and marble from 
+wagons and boats are provided (see Table 3). These figures provide a basis for estimating 
+possible transhipment times. Using the labour constants, it is evident that a large cargo of 
+heavy stone may have taken several days to safely unload and transfer. This is made appar
+ent when the figures are applied to a case study using the early third-century AD Punta 
+Scifo A wreck. The Punta Scifo A was carrying a c. 200-tonne cargo of approximately 
+30 pieces of Pavonazzetto and Proconnesian marble when it sank (Parker 1992a). These 
+included columns, basins, blocks, column capitals, column bases, tables and a statuary 
+group in various stages of completion. A cubic metre of marble weighs approximately 2.71 
+tonnes, resulting in the cargo having a hypothetical volume of around 74 cubic metres.9 
+When applying Pegoretti’s figures, a duration of between 37 and 74 h is estimated for the 
+unloading of the cargo. Assuming a ten-hour workday, the cargo might take between four 
+and eight days to unload fully, a plausible length of time for such an activity.10 While this 
+8 For example, Barresi (2003), Caré (2005), DeLaine (1997, 2015), Previato (2023), Russell (2013). The 
+labour estimates given by the manuals have proved relatively accurate when compared to the labour exerted 
+by modern stonemasons (Barker and Russell 2012).
+9 Weight taken from Aqua-Calc.com. https:// www. aqua- calc. com/ calcu late/ volume- to- weight/ subst ance/ 
+marble (Accessed 10/04/2025).
+10 Most building manuals from the nineteenth century assume a ten-hour working day (Barker and Russell 
+2012, 85).
+Journal of Maritime Archaeology            (2026) 21:3 
+    3  
+Page 14 of 23
+example uses heavy marble, a similar-sized cargo of lighter stone, such as soft limestone or 
+pumice, might have been unloaded in half the time. Equally, shorter or longer working days 
+would impact the duration.
+Of course, there are caveats to using labour constants to estimate transhipment time. 
+Labour constants represent an idealised scenario, assuming that sufficient workmen are 
+present and that the material to be moved is in a handleable state. The irregular shape of 
+worked marble means that perfect cubic metres of stone will rarely be present, increas
+ing either the ease or difficulty of movement. Although small stone blocks are moveable 
+by hand over short distances, larger blocks of stone or architectural elements would have 
+likely required additional hands to aid in their transfer (Russell 2013, 2018). The largest 
+stone items, such as columns or hollowed-out sarcophagi, would have needed specialist 
+equipment such as cranes and their operators to unload, something not factored into the 
+labour costs outlined in the manual. Furthermore, Pegoretti’s figures are primarily con
+cerned with the transhipment of stone, a heavy, bulky, and subsequently time-consuming 
+item to load and unload. Cargoes of amphorae and finewares could be transferred with 
+far less difficulty, resulting in a shorter transhipment time. The labour constants given for 
+loose materials may serve as a better indication of the loading time for items such as sacks 
+of grain. Finally, Pegoretti’s figures primarily refer to the unloading of cargo, rather than 
+its loading. As highlighted earlier in the paper, loading could be a delicate process, requir
+ing the careful placement and packing of goods to ensure the stability of the vessel and the 
+safety of the cargo. As a result, it is possible that loading was a more time intensive transfer 
+than the figures suggested for unloading.
+The rarity of surviving figures recording the time of transhipment in the Roman world 
+necessitates the use of comparative data from later periods in their reconstruction. Despite 
+some drawbacks, labour constants present a valuable starting point for calculating the 
+length of time it took to load and unload cargo. Using the high and low figures for the 
+number of man-hours needed for the movement of a cubic metre of material, an informed 
+estimate can be made on the time taken to transfer a cargo. Although a useful source of 
+comparative data, energetics can only account for the physical transfer of cargo from one 
+point to another (Barker and Russell 2023). The duration of other transhipment activities, 
+such as cargo inspections and storage time, remains a source of speculation. These could 
+be significant, especially when the high volumes of cargo being transiting through tran
+shipment hubs are considered.
+Cargo Volumes
+In addition to cost and time, a final factor that is crucial to consider within the tranship
+ment process is cargo volume (i.e. the amount of cargo being transferred). In discussions 
+of mobility, cargo is often viewed in abstract terms as a value, rather than a real physical 
+object. In a network model of Roman transport, a hypothetical ‘cargo’ might simply be 
+described as a ‘tonne’ of some undefined item, travelling independently of any wider ship
+ment.11 Although this simplification is useful for modelling, it does not reflect the reality 
+of ancient transport and trade, resulting in idealised journeys free of delay and bureau
+cratic constraints, and creating a perception of frictionless transport. For most of their 
+11 For example, in Carreras and de Soto (2010; 2013), de Soto (2015, 2019), Orengo and Livarda (2016; 
+Page 2024.).
+Page 15 of 23 
+Journal of Maritime Archaeology            (2026) 21:3  
+    3 
+journey, goods travelled as part of a larger cargo, either of the same material or as a mixed 
+consignment.
+Although a tonne of cargo, depending on what it was, might fit onto a cart, a fluvial 
+vessel could take on multiple carts’ worth of cargo, while a maritime vessel could hold 
+multiple rivercrafts’ worth of cargo. This was also true in the reverse, with the cargo of a 
+maritime vessel needing to be divided amongst multiple rivercraft, which in turn would 
+need to be divided between multiple carts and so on. This is not to say that all the cargo 
+had to be transferred at once or indeed transferred to the same mode of transport. Once at 
+a transhipment hub, cargoes might be broken up, reunited, or mixed with others to form 
+new shipments. Maritime ships had the greatest cargo capacities and can be separated into 
+three categories based on their tonnage. The smallest (and most numerous) vessels could 
+carry cargoes of up to 75 tonnes (Broekart and Zuiderhoek 2020, 111; Parker 1992b, 89). 
+Examples of these include the Culip IV, the Diano Marina, and the Plemmirio B wrecks. 
+Vessels belonging to the middle category, such as the Comacchio and San Pietro in Bev
+agna wrecks, could carry between 75 and 200 tonnes. The biggest ships could hold cargoes 
+upwards of 250 tonnes, with many of the largest, such as the Madrague de Giens and Albe
+gna wrecks, dating to the Late Republic (Parker 1992b). Even larger vessels, such as the 
+Obelisk ships, also existed, but these were designed with special purposes in mind rather 
+than the routine transport of cargo (Broekart and Zuiderhoek 2020).
+On the rivers, the largest fluvial vessels, such as the Zwammerdam 4, have been hypoth
+esised as being capable of transporting cargoes of up to 30 tonnes (Bockius 2000; Broekart 
+and Zuiderhoek 2020; de Weerd 1993). However, these were exceptional cases, their long 
+lengths confining them to the greatest rivers where they had sufficient room to manoeuvre. 
+Many rivercraft were considerably smaller, with most falling between 8 and 25 tonnes in 
+terms of cargo capacity (Broekart and Zuiderhoek 2020; Campbell 2012). Notable exam
+ples include the Arles-Rhône 3, which had a cargo capacity of c. 21.5 tonnes, and the De 
+Meern 1 with a capacity of c. 15 tonnes (Moeyes 2007; Rieth 2014). Fluvio-maritime ves
+sels such as the Comacchio (c. 130 tonne cargo capacity) and Blackfriars’s Ship (c. 55 
+tonne cargo capacity) could operate both at sea and on rivers (Bondesan et al. 1990; Mars
+den 1967). While this would have allowed vessels with a larger cargo capacity to operate in 
+f
+luvial environments, their operation was primarily restricted to a river’s lower course and 
+estuary due to their size.
+On land, a range of transport options were available. Wagons and carts formed the 
+most common and could carry large loads, especially if they were pulled by mules or 
+oxen. Legislation from the fourth century AD served to limit the load a cart could carry 
+to under 500 kg, potentially to avoid damaging or blocking public roads (Codex Theodo
+sianus 8.5.30; Edict of Maximum Prices 14.1.8; Adams 2012, 220–21). However, wagons 
+with a higher capacity are known to have existed, with many carts likely able to carry 1–2 
+tonnes of cargo (Russell 2013). Specialist wagons used to transport extremely heavy loads 
+of stone and marble are also known, but these were used in extraordinary circumstances 
+(Adams 2007, 199; Russell 2013, 102–03). Finally, if cargo was sufficiently portable, pack 
+animals offered another method of transport. Pack animals, such as mules and camels, have 
+been estimated to be capable of carrying loads of between 80 and 150 kg (Adams 2007, 
+2012; Raepsaet 2009). Although not suitable for all cargoes, a mule could carry goods in 
+panniers on either side, so long as the loads were balanced. This might take the form of two 
+amphorae, two crates, or two sacks. Pack animals were especially useful if a cargo needed 
+to move over arduous terrain, being able to traverse landscapes impassable to wheeled 
+traffic.
+Journal of Maritime Archaeology            (2026) 21:3 
+    3  
+Page 16 of 23
+In Table 4, a series of hypothetical ratios based on the cargo capacity of different trans
+port types are displayed. These outline the quantities of other transport types needed for 
+the onward movement of a maritime vessel’s total cargo. For example, a 150-tonne cargo 
+carried by a medium-sized ship would fit into five large river barges, ten medium river 
+barges, 100 large wagons and so on. As the intersection of many different modes of trans
+port, each with significantly different cargo capacities, transhipment hubs formed bottle
+necks in trade networks. For example, even a small maritime cargo of twelve tonnes would 
+require approximately twenty-six wagons to move onwards overland. There was pressure 
+from officials to load arriving cargo onto waiting vessels to avoid clogging the port and 
+ensure the smooth flow of goods. Papyrus P.Oxy. 33.2670 (AD 127) gives an indication of 
+the capacity issues that could emerge as goods arrived for transfer. The papyrus lists the 
+number of pack animal convoys arriving at a port in the Oxyrhynchus nome each day and 
+the quantities of grain they delivered (Adams 2018). Over a nine-day period, the number 
+of convoys each day varied between ten and twenty-eight, with the total quantities of grain 
+varying between 424 and 1334 artabae. The grain needed to be loaded onto waiting river
+craft quickly to avoid creating a backlog. Of course, officials were not always successful. 
+The frantic activity described in papyrus SB 14.11,371 (first century AD), where cargo was 
+being loaded round-the-clock day and night to clear the harbour, points to the risks of over
+loading ports during busy periods (Adams 2018. See also P. Panop.Beatty 2).
+With large quantities of goods coming and going, ports needed ample storage where 
+cargoes could be placed and formed until they were ready for their onward journey. The 
+large quantities of horrea discovered at emporia across the Roman world attest to the need 
+to provide sufficient storage capacity for transiting cargo (Van Oyen 2020). The cost and 
+duration of time spent in storage are rarely factored into discussions and calculations of 
+transhipment, but it could be considerable. Many models only measure active transport 
+time; but this can create a misleading image of seamless travel and trade. Cargo might 
+sit in a warehouse for a considerable amount of time before its onward journey, waiting 
+for transport to be arranged or to arrive. Alternatively, goods may have needed to wait for 
+other cargo to join them in order to fill out the capacity of a maritime or fluvial vessel. It 
+made little sense for a vessel to sail with an empty or partially empty hold in terms of both 
+profit and safety. Where possible, a return cargo would be sourced or efforts made to plug 
+gaps in the hold with extra cargo and avoid taking on additional ballast (Rice 2016). This 
+Table 4  Estimated ratios of capacity between different transport types from the Roman world. For each 
+maritime vessel, the total number of transports of each type required to carry the entirety of the vessel’s 
+cargo (rounded up to the nearest whole number) are displayed
+Maritime Vessel
+River Ves
+sel (c. 30 
+tonnes)
+River Ves
+sel (c. 15 
+tonnes)
+Large Wagon 
+(c. 1.5 tonnes)
+Small Wagon 
+(c. 0.5 tonnes)
+Pack Animal 
+(c. 0.12 tonnes)
+Small Vessel (c. 15 tonnes)
+Small Vessel (c. 25 tonnes)
+Small Vessel (c. 50 tonnes)
+Small Vessel (c. 75 tonnes)
+Medium Vessel (c. 150 
+tonnes)
+1
+1
+2
+3
+5
+1
+2
+3
+5
+10
+Large Vessel (c. 400 
+tonnes)
+14
+27
+9
+17
+34
+50
+100
+267
+26
+50
+100
+150
+300
+800
+108
+209
+417
+625
+1250
+3333
+Page 17 of 23 
+Journal of Maritime Archaeology            (2026) 21:3  
+    3 
+situation is reflected in the discovery of a large assemblage of Gallic Terra Sigillata pottery 
+recovered from a warehouse at Port-la-Nautique in Southern France. Consisting of multiple 
+deliveries from La Graufesenque, the finewares were stored in the horreum awaiting sale 
+to traders operating out of the port (Fiches et al. 1978; Nieto 1986; Sanchez 2009). While 
+most finewares in the warehouse were from a single kiln firing, transported to the port as 
+a singular consignment, leftover sigillata from previous kiln shipments were also present 
+(Dannell and Mees 2013; Van Oyen 2016). Merchants had purchased parts of previous 
+f
+ineware shipments stored in the horreum, possibly to fill gaps in their hold, leaving unsold 
+sigillata in the warehouse until a buyer could be found. It is unknown how long the sigillata 
+had remained in the warehouse, but the wide range of potters attested suggest that part of 
+the inventory had been in storage for some time (Van Oyen 2016). Of course, where there 
+were strict deadlines involved, such as with the state-backed trade in grain, oil, and wine, 
+goods might move through transhipment hubs at a greater pace. The impetus to move and 
+tranship perishable cargoes with a risk of spoilages such as fresh foodstuffs would also 
+have been higher than for objects such as finewares. Ultimately, all remained dependent 
+on the myriad variables of ancient transport to align. If carts and ships were delayed by 
+weather or mishap, there was little option for cargo but to wait until onward carriage could 
+be organised.
+Conclusion
+Transhipment was an activity that all cargo had to undergo during its journey. The nature 
+of Roman transport networks meant many journeys utilised multiple modes of transport, 
+necessitating the transfer of cargo at multiple points. Although it is impossible to recon
+struct exact figures for the cost and times of transhipment from the ancient world, surviv
+ing evidence for these activities reveals the process in its full complexity. Any attempt to 
+reconstruct transhipment from the ancient world needs to take into account not just the 
+actual transfer of cargo, but the range of other expenses and tasks surrounding it. The cost 
+of the physical loading and unloading likely formed a fraction of the expenses incurred by 
+transhipment, with fees for port operations and tariffs all contributing to the total cost. In 
+the same vein, the transfer of cargo between transport accounts for only part of the time 
+goods spent in transhipment. Movement between areas within the port environment and 
+inspections could prolong the time cargo spent being transferred. However, it was stor
+age time that had the most significant impact on the duration of time a cargo spent in port. 
+A transhipment time that on paper might look like days could easily turn into weeks, as 
+cargo languished in a warehouse waiting to be purchased or for onwards transport to be 
+organised.
+Although a range of ancient evidence for transhipment has been explored in this arti
+cle, the question remains as to how models of mobility should approach transhipment fig
+ures and include them in their analyses? While fixed values for the loading and unloading 
+cargo, ones that can be applied uniformly across transhipment hubs, have proved attractive 
+in some past models, they form a poor measure of actual transhipment costs and difficult 
+to ground in ancient evidence.12 Instead, it may be better to express transhipment expenses 
+as a percentage of a journey’s overall cost, rather than a flat rate for cargo. A range of 
+12 For example, in Orengo and Livarda (2016; Page 2024).
+Journal of Maritime Archaeology            (2026) 21:3 
+    3  
+Page 18 of 23
+methodologies exist for calculating the price of transport in the Roman era, allowing the 
+total cost of a journey between two points to be determined (De Soto 2019; DeLaine 1992; 
+Meeks 2015; Orengo and Livarda 2016; Scheidel 2014). Transhipment costs could then 
+be calculated based on this figure and added to generate a total price for the journey that 
+included the transfer of cargo. Expressing transhipment costs as a percentage of overall 
+journey cost overcomes several limitations in the ancient data. Given that the value of coin
+age changed significantly over the Roman period, it removes the need to adjust figures to 
+account for inflation. It also eliminates the need to equate costs between the different cur
+rencies in circulation within the Roman Empire (for example the denarius and drachma). 
+Expressing transhipment as a percentage of total journey cost also enables other, variable 
+expenses associated with harbour operations to be factored in. Total harbour operations 
+might cost, as suggested by the shipping contracts recorded in P.Oxy. 3.522, between 5 and 
+10% of the total expenses associated with the journey. However, in some cases this could 
+be significantly higher. Different percentages could also be applied to different cargo types 
+depending on the difficulty of their transfer. For example, it has been estimated that the 
+transhipment of stone in the Medieval period could account for 20–30% of the total cost of 
+its transport (Russell 2013). Accounting for different levels of cost would allow a range of 
+scenarios to be explored using high and low values, reflecting the differing impact of tran
+shipment expenses on trade networks.
+In comparison to cost, factoring transhipment time into models of mobility represents a 
+simpler task, although not without difficulties. The labour constants outlined in Pegoretti’s 
+manual provide a range of figures that can be used to calculate the time taken to transfer 
+cargo. Although predominately concerned with the movement of stone and loose material, 
+Pegoretti’s labour constants enable different transfer scenarios to be modelled using the 
+high and low values provided. These figures are not without flaws, representing an ide
+alised scenario for the unloading of cargo by hand that may not reflect the messy reality 
+of ancient port activity. However, they can act as a starting point for modellers to make 
+educated calculations for cargo transfer time. A further consideration is that labour con
+stants only cover the time taken for the physical transfer of cargo. They do not account for 
+the duration of other activities during transhipment, activities that likely accounted for the 
+majority of the time cargo spent in transfer. Figures for the time that cargo waited on dock
+sides, the duration of inspections, and the amount of time cargo spent in storage during 
+transfer are highly variable and were probably unique to each shipment. In these cases, it is 
+only possible to make an informed estimate of the time these activities added to time spent 
+moving through trade hubs.
+Although ancient data for transhipment has often proved fragmentary and difficult to 
+interpret, these obstacles are not insurmountable. The discussions outlined in this paper 
+represent a starting point for the inclusion of transhipment figures in Roman mobility stud
+ies and future models of Roman transport. However, more work remains to be done. The 
+veracity of the paper’s conclusions and methodologies require exploration and testing, 
+which will lead to further refinement of transhipment figures. Agent Based Modelling rep
+resents one such avenue of future research, providing a way to test a range of hypotheses by 
+simulating different transhipment scenarios (Brughmans 2022; Brughmans and Poblome 
+2016; Brughmans et al. 2019; Rubio-Campillo 2022). Further research and the discovery 
+of new evidence may also provide ways to incorporate greater nuance into transhipment 
+f
+igures, accounting for geographic and chronological differences across the Roman world. 
+The continuing integration of this crucial process into models of Roman mobility will ena
+ble more comprehensive analyses of ancient journeys, allowing transhipment’s full impact 
+on Roman transport and trade to be understood.
+Page 19 of 23 
+Journal of Maritime Archaeology            (2026) 21:3  
+    3 
+Author Contribution J.P. was responsible for writing and preparing the manuscript for submission.
+Funding The research in this article was funded by the European Research Executive Agency (REA) under 
+Grant Agreement 101154683—OverTheWaters.
+Data Availability No datasets were generated or analysed during the current study.
+Declarations 
+Conflict of interest The author declares they have no financial or proprietary interests in any material dis
+cussed in this article.
+Open Access This article is licensed under a Creative Commons Attribution-NonCommercial-NoDeriva
+tives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduc
+tion in any medium or format, as long as you give appropriate credit to the original author(s) and the source, 
+provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do 
+not have permission under this licence to share adapted material derived from this article or parts of it. The 
+images or other third party material in this article are included in the article’s Creative Commons licence, 
+unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative 
+Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted 
+use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, 
+visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
+References
+Adams C (2007) Land transport in Roman Egypt a study of economics and administration in a Roman prov
+ince. Oxford University Press. https:// doi. org/ 10. 1093/ acprof: oso/ 97801 99203 970. 001. 0001
+Adams C (2012) Transport. In: Scheidel W (ed) The Cambridge companion to the Roman economy. Cam
+bridge University Press, Cambridge, pp 218–240. https:// doi. org/ 10. 1017/ CCO97 81139 030199. 015
+Adams C (2018) Nile river transport under the Romans. In: Wilson A, Bowman A (eds) Trade, commerce, 
+and the state in the Roman world. Oxford University Press, Oxford, pp 175–208. https:// doi. org/ 10. 
+1093/ oso/ 97801 98790 662. 003. 0006
+Arnaud P (2007) Diocletian’s prices edict: the prices of seaborne transport and the average duration of mari
+time travel. J Roman Archaeol 20:321–336. https:// doi. org/ 10. 1017/ S1047 75940 00054 44
+Barker S, Russell B (2012) Labour figures for Roman stone-working: pitfalls and potential. Anejos Archivo 
+Esp Arqueol 64:83–94
+Barker S, Russell B (2023) Beyond labour figures: the ‘hidden’ costs of stoneworking and their application 
+in architectural energetics. In: Barker S, Courault C, Domingo JÁ, Maschek D (eds) From concept to 
+monument: time and costs of construction in the ancient world papers in honour of janet DeLaine. 
+Archaeopress, Oxford, pp 15–42. https:// doi. org/ 10. 2307/ jj. 53292 94.6
+Barresi P (2003) Province dell’Asia Minore: costo dei marmi, architettura pubblica e committenza. Rome, 
+L’Erma di Bretschneider
+Bevan A (2014) Mediterranean containerization. Curr Anthropol 55:387–418. https:// doi. org/ 10. 1086/ 
+677034
+Bockius R (2000) Antike Prahme. Monumentale Zeugnisse keltischrömischer Binnenschiffahrt aus der Zeit 
+vom 2. Jh. v.Chr. bis ins 3. Jh. n.Chr. Jahrb Römisch-German Zentralmus Mainz 47:439–493
+Boetto G, Divić A, Zubčić K (2021) A Roman barge from the Kupa River at Kamensko, Croatia: evidence 
+of a regional shipbuilding tradition of the Danube River Basin in Southeastern Europe. Archaeonautica 
+21:115–121. https:// doi. org/ 10. 4000/ archa eonau tica. 969
+Boetto G (2011) Tra il fiume e il mare: le caudicariae di Fiumicino. In: Arnaud F, Harris WV, Ira K (eds) 
+Maritime technology in the ancient economy. Ship-design and navigation (Portsmouth, RI, Journal of 
+Roman Archaeology Supplementary Series). Portsmouth, Journal of Roman Archaeology
+Bondesan M, Dal Cin R, Monari R (1990) L’ambiente in cui si arenò la nave romana di Comacchio: pos
+sibili modalità del suo naufragio e seppellimento. In: Berti F (ed) Fortuna maris: la nave romana de 
+Comacchio. Nuova Alfa, Bologna, p 13
+Brandon CJ, Hohlfelder RL, Jackson MD, Oleson JP, Bottalico L (2014) Building for eternity: the history 
+and technology of Roman concrete engineering in the sea. Oxbow Books, Oxford. https:// doi. org/ 10. 
+2307/j. ctvh1 dvk5
+Journal of Maritime Archaeology            (2026) 21:3 
+    3  
+Page 20 of 23
+Broekaert W, Zuiderhoek A (2020) Capital goods in the Roman economy. In: Erdkamp P, Verboven K, 
+Zuiderhoek A (eds) Capital, investment, and innovation in the Roman world. Oxford University Press, 
+Oxford, pp 99–146. https:// doi. org/ 10. 1093/ oso/ 97801 98841 845. 003. 0004
+Brughmans T (2020) Evaluating the potential of computational modelling for informing debates on Roman 
+economic integration. In: Verboven K (ed) Complexity Economics. Building a new approach to ancient 
+economic history. Springer, Cham, pp 105–123
+Brughmans T (2022) Why simulate Roman economies? In: Brughmans T, Wilson A (eds) Simulating 
+Roman economies: theories, methods, and computational models. Oxford University Press, Oxford, pp 
+3–36. https:// doi. org/ 10. 1093/ oso/ 97801 92857 828. 003. 0001
+Brughmans T, Poblome J (2016) Roman bazaar or market economy? Explaining tableware distributions 
+through computational modelling. Antiquity 90:393–408. https:// doi. org/ 10. 15184/ aqy. 2016. 35
+Brughmans T, Hanson J, Mandich M, Romanowska I, Rubio-Campillo X, Carrignon S, Collins-Elliott S, 
+Crawford K, Daems D, Fulminante F, de Haas T, Kelly P, Moreno Escobar M, Paliou E, Prignano L, 
+Ritondale M (2019) Formal modelling approaches to complexity science in Roman studies: a mani
+festo. Theor Rom Archaeol J 2(1):4. https:// doi. org/ 10. 16995/ traj. 367
+Campbell B (2012) Rivers and the power of ancient Rome. University of North Carolina Press, Chapel Hill
+Campbell PB (2022) Contingent movement: seafaring, contracts and law. In: Candy P, Ferrándiz EM (eds) 
+Roman law and maritime commerce. Edinburgh University Press, Edinburgh, pp 23–40. https:// doi. 
+org/ 10. 1515/ 97814 74478 168- 007
+Caré A (2005) L’ornato architettonico della Basilica di Massenzio. Rome, L’Erma di Bretschneider
+Carreras C, De Soto P (2010) Historia de la movilidad en la Península Ibérica: Redes de transporte en SIG. 
+Editorial de la Universitat Oberta de Catalunya, Barcelona
+Carreras C, De Soto P (2013) The Roman transport network: a precedent for the integration of the European 
+mobility. Hist Methods 46:117–133. https:// doi. org/ 10. 1080/ 01615 440. 2013. 803403
+Casson L (1965) Harbour and river boats of ancient Rome. J Roman Stud 54:31–39. https:// doi. org/ 10. 2307/ 
+297428
+Chepel E (2023) 45 List of expenses for shipping of wine. In: Hoogendijk FAJ, Vera Stolk J (eds) Greek, 
+demotic and Coptic Papyri and Ostraca in the Leiden Papyrological Institute. Leiden, Brill, pp 154
+159. https:// doi. org/ 10. 1163/ 97890 04519 596
+Dannell GB, Mees A (2013) New approaches to Samian distribution. In: Fulford M, Durham E (eds) Seeing 
+red: new economic and social perspectives on Terra Sigillata. University of Chicago Press, Chicago, 
+pp 165–187
+De Juan C, Cibecchini F (2021) Initial construction evidence of the Bou Ferrer shipwreck, a large vessel 
+of the Early Roman Empire. Archaeonautica 21:153–159. https:// doi. org/ 10. 4000/ archa eonau tica. 1248
+De Soto P (2019) Network analysis to model and analyse Roman transport and mobility. In: Verhagen P, 
+Joyce J, Groenhuijzen MR (eds) Finding the limits of the limes. Modelling demography, economy and 
+transport on the edge of the Roman Empire. Springer, Berlin, pp 271–289
+de Weerd MD (1993) Zwammerdam: Romeinse schepen in de noordelijke provincies. Lampas 
+26(3):241–257
+DeLaine J (2015) The pantheon builders: estimating manpower for construction. In: Wilson Jones M, 
+Marder TA (eds) The pantheon: from antiquity to the present. Cambridge University Press, Cam
+bridge, pp 160–192. https:// doi. org/ 10. 1017/ CBO97 81139 015974. 007
+DeLaine J (2017) Quantifying manpower and the cost of construction in Roman building projects: research 
+perspectives. Archeol Archit 22:13–19. https:// doi. org/ 10. 1400/ 263403
+DeLaine J (1992) Design and construction in Roman imperial architecture: the Baths of Caracalla in Rome. 
+Dissertation, University of Adelaide
+DeLaine J (1997) The baths of Caracalla: a study in the design, construction, and economics of large-scale 
+building projects in imperial Rome. Portsmouth (RI). J Roman Archaeol
+De Soto P (2010) Anàlisi de la xarxa de comunicacions i del transport a la Catalunya romana: estudis de 
+distribució i mobilitat. Dissertation, Universitat Autònoma de Barcelona
+Erim KT, Reynolds J (1970) The copy of Diocletian’s edict on maximum prices from Aphrodisias in Caria. 
+J Roman Stud 60:120–141. https:// doi. org/ 10. 2307/ 299418
+Fentress E, Perkins P (1988) Counting African red slip ware. In: Mastino A (ed) L’Africa Romana: Atti del 
+V Convegno di studio Sassari, 11–13 dicembre 1987. Università degli studi di Sassari, Sassari, pp 
+205–214
+Fiches J-L, Guy M, Poncin L (1978) Un lot de vases sigillés des premières années du règne de Néron dans 
+l’un des ports de Narbonne. Archaeonautica 2:185–219
+Fournier F, Léonide P, Marié L, Quillévéré F, Margerel J-P, Miholjek I, Dugonjić P, Carre M-B, Cavassa 
+L, Morsilli M, Boetto G (2024) Provenance of the ballast stones from the Roman Republican ship 
+Page 21 of 23 
+Journal of Maritime Archaeology            (2026) 21:3  
+    3 
+Ilovik-Paržine 1: a hypothesis about its place of construction. J Archaeol Sci Rep 57:104580. https:// 
+doi. org/ 10. 1016/j. jasrep. 2024. 104580
+Freu C (2009) Dockers et portefaix du monde romain: réflexions à partir du Code Théodosien 14.22.1 con
+cernant le corpus des saccarii du Portus Romanus. In: Aubert J-J, Blanchard P (eds) Droit, religion et 
+société dans le Code Théodosien. Université de Neuchâte, Geneva, pp 303–326
+Hawkins C (2013) Labour and employment. In: Erdkamp P (ed) The Cambridge companion to ancient 
+Rome. Cambridge University Press, Cambridge, pp 336–351. https:// doi. org/ 10. 1017/ CCO97 81139 
+025973. 024
+Hein A, Kilikoglou V (2020) Digital modelling of function and performance of transport amphorae. Int J 
+Ceram Eng Sci 2:187–200. https:// doi. org/ 10. 1002/ ces2. 10056
+Jakab É (2022) Loans and securities: tracing maritime trade in the archive of the Sulpicii. In: Candy P, 
+Ferrándiz EM (eds) Roman law and maritime commerce. Edinburgh University Press, Edinburgh, pp 
+137–170. https:// doi. org/ 10. 1515/ 97814 74478 168- 012
+Keay S (2018) The role played by the Portus Augusti in Flows of commerce between rome and its mediter
+ranean ports. In: Woytek B (ed) Infrastructure and distribution in ancient economies. Proceedings of 
+a conference held at the Austrian Academy of Sciences, 28–31 October 2014. Austrian Academy of 
+Sciences, Vienna, pp 147–194
+Laurence R (1998) Land transport in Roman Italy: costs, practice and the economy. In: Parkins H, Smith C 
+(eds) Trade, traders and the ancient city. Routledge, London, pp 129–148
+Levinson M (2006) The box: how the shipping container made the world smaller and the world economy 
+bigger. Princeton University Press, Princeton. https:// doi. org/ 10. 2307/j. ctvcs zztg
+Livarda A, Orengo HA (2015) Reconstructing the Roman London flavourscape: new insights into the exotic 
+food plant trade using network and spatial analyses. J Archaeol Sci 55:244–252. https:// doi. org/ 10. 
+1016/j. jas. 2015. 01. 008
+Malmberg S (2015) ‘Ships are seen gliding swiftly along the sacred Tiber’: the river as an artery of urban 
+movement and development. In: Östenberg I, Malmberg S, Bjørnebye J (eds) The moving city. Proces
+sions, passages and promenades in Ancient Rome. Bloomsbury, pp 187–201
+Marlière É (2001) Le tonneau en Gaule romaine. Gallia 58:181–201
+Marlière É (2014) Les campagnes militaires et l’expansion de l’usage du tonneau dans l’Empire romain. In: 
+Pérard J, Perrot M (eds) Rencontres du Clos-Vougeot 2013—De la cave au vin: Une fructueuse alli
+ance. Centre Georges Chevrier, pp 47–61
+Marsden P (1967) A ship of the Roman period: from blackfriars, in the City of London. Guildhall Museum, 
+London
+Martelli E (2013) Sulle spalle dei saccarii: le rappresentazioni di facchini e il trasporto di derrate nel porto 
+di Ostia in epoca imperiale. Archaeopress, Oxford. https:// doi. org/ 10. 30861/ 97814 07310 787
+Marzano A (2022) The personal infrastructure of maritime trade. In: Candy P, Ferrándiz EM (eds) Roman 
+law and maritime commerce. Edinburgh University Press, Edinburgh, pp 57–76. https:// doi. org/ 10. 
+1515/ 97814 74478 168- 009
+McCormick M (2012) Movements and markets in the first millennium. information, containers, and ship
+wrecks. In: Morrison C (ed) Trade and markets in Byzantium. Dumbarton Oaks, Washington, D.C., 
+pp 51–98
+McGrail S (1989) The shipment of traded goods and of ballast in antiquity. Oxf J Archaeol 8:353–358. 
+https:// doi. org/ 10. 1111/j. 1468- 0092. 1989. tb002 10.x
+Mclean A, Rubio-Campillo X (2022) Beyond least cost paths: circuit theory, maritime mobility and patterns 
+of urbanism in the Roman Adriatic. J Archaeol Sci 138:105534. https:// doi. org/ 10. 1016/j. jas. 2021. 
+105534
+Meeks E (2015) The design and implementation of ORBIS: the Stanford geospatial network model of the 
+Roman world. Bull Assoc Inf Sci Technol 41:17–21. https:// doi. org/ 10. 1002/ bult. 2015. 17204 10206
+Moeyes G (2007) Laadvermogen en vaareigenschappen van De Meern 1. In Jansma E and Morel JMAW 
+(eds.) Een Romeinse Rijnaak, gevonden in Utrecht-De Meern. Resultaten van het onderzoek naar de 
+platbodem ‘De Meern 1’ (Rapportage Archeologische Monumentenzorg 144). Rijksdienst voor Arche
+ologie, Cultuurlandschap en Monumenten, Amersfoort, pp 151–174
+Munar Llabrés S, Cardell J, De Juan C, Cau MÁ, Bernal-Casasola D, Picornell L, García Riaza E (2022) 
+Ses Fontanelles shipwreck (Mallorca, Balearic Islands): an exceptional late Roman vessel and its 
+cargo. J Marit Archaeol 17:487–505. https:// doi. org/ 10. 1007/ s11457- 022- 09331-6
+Nieto FJ (1986) El pecio Culip IV. Observaciones sobre la organización de los talleres de terra sigillata de la 
+Graufesenque. Archaeonautica 6:81–115
+Orengo HA, Livarda A (2016) The seeds of commerce: a network analysis-based approach to the Romano
+British transport system. J Archaeol Sci 66:21–35. https:// doi. org/ 10. 1016/j. jas. 2015. 12. 003
+Journal of Maritime Archaeology            (2026) 21:3 
+    3  
+Page 22 of 23
+Page J (2024) Rivers vs. Roads? A route network model of transport infrastructure in Northern Italy during 
+the Roman period. In: CAA 2023 proceedings. https:// doi. org/ 10. 5281/ zenodo. 10593 574
+Parker AJ (1992a) Ancient shipwrecks of the mediterranean & the Roman provinces. Archaeopress, Oxford
+Parker AJ (1992b) Cargoes, containers and stowage: the ancient Mediterranean. Int J Naut Archaeol 21:89
+100. https:// doi. org/ 10. 1111/j. 1095- 9270. 1992. tb003 51.x
+Pegoretti G (1869) Manuale practico per l’estimazione dei lavori architettonici stradali, idraulici e di fortifi
+cazione per uso degli ingegneri ed architetti, Milan
+Previato C (2023) The amphitheatres of Regio X –Venetia et Histria: the impact of stone supplying cost on 
+ancient construction processes. In: Barker S, Courault C, Domingo JÁ, Maschek D (eds) From concept 
+to monument: time and costs of construction in the ancient world papers in honour of Janet DeLaine. 
+Archaeopress, Oxford, pp 356–371. https:// doi. org/ 10. 32028/ 97817 89694 222
+Purpura G (2022) Roman documentation concerning shipping in bulk. In: Candy P, Ferrándiz EM (eds) 
+Roman law and maritime commerce. Edinburgh University Press, Edinburgh, pp 109–136. https:// doi. 
+org/ 10. 1515/ 97814 74478 168- 011
+Raepsaet G (2009) Land transport, part 2: riding, harnesses, and vehicles. In: Oleson JP (ed) The Oxford 
+handbook of engineering and technology in the classical world. Oxford University Press, Oxford, pp 
+580–605. https:// doi. org/ 10. 1093/ oxfor dhb/ 97801 99734 856. 013. 0024
+Rice C (2016) Shipwreck cargoes in the western Mediterranean and the organization of Roman maritime 
+trade. J Roman Archaeol 29:165–192. https:// doi. org/ 10. 1017/ S1047 75940 00720 93
+Rickman GE (1988) The archaeology and history of Roman ports. Int J Naut Archaeol 17:257–267. https:// 
+doi. org/ 10. 1111/j. 1095- 9270. 1988. tb006 52.x
+Rickman GE (1998) Problems of transport and storage of goods for distribution: “Les traces oubliées” 
+La mémoire perdue Recherches sur l’administration romaine. L’École française de Rome, Rome, pp 
+317–324
+Rieth É (2014) Le chaland Arles-Rhône 3 dans la batellerie gallo-romaine: étude typologique et interpréta
+tion historique. Archaeonautica 18:279–287
+Rohde D (2020) Roman port societies and their collegia: differences and similarities between the associa
+tions of Ostia and Ephesos. In: Arnaud P, Keay S (eds) Roman port societies: the evidence of inscrip
+tions. Cambridge University Press, Cambridge, pp 107–131. https:// doi. org/ 10. 1017/ 97811 08665 278. 
+005
+Rougé J (1957) Ad ciconias nixas. Rev Etud Anc 59:320–328
+Roughier H (2020) Port occupations and social hierarchies: a comparative study through inscriptions from 
+Hispalis, Arelate, Lugdunum, Narbo Martius, Ostia-Portus and Aquileia. In: Arnaud P, Keay S (eds) 
+Roman port societies: the evidence of inscriptions. Cambridge University Press, Cambridge, pp 132
+151. https:// doi. org/ 10. 1017/ 97811 08665 278. 006
+Rubio-Campillo X, Coto-Sarmiento M (2022) New approaches to old questions: the exploration of large
+scale trade dynamics using hypothesis-testing frameworks. In: Brughmans T, Wilson A (eds) Simu
+lating Roman economies: theories, methods, and computational models. Oxford University Press, 
+Oxford, pp 167–195. https:// doi. org/ 10. 1093/ oso/ 97801 92857 828. 003. 0006
+Russell B (2013) The economics of the Roman stone trade. Oxford University Press, Oxford. https:// doi. org/ 
+10. 1093/ acprof: oso/ 97801 99656 394. 001. 0001
+Russell B (2018) “Difficult and costly”: Stone transport, its constraints, and its impact. In: Coquelet C, 
+Creemers G, Dreesen R, Goemare É (eds) Roman Ornamental Stones in North-Western Europe. 
+AWaP, Namur, pp 131–150
+Sanchez C (2009) Narbonne à l’époque tardo-républicaine. Chronologies, commerce et artisanat céramique. 
+Montpellier, Revue Archéologique de Narbonnaise
+Scheidel W (2010) Real wages in early economies: evidence for living standards from 1800 BCE to 1300 
+CE. J Econ Soc Hist Orient 53:425–462
+Scheidel W (2014) The shape of the Roman world: modelling imperial connectivity. J Roman Archaeol 
+27:7–32. https:// doi. org/ 10. 1017/ S1047 75941 40011 47
+Sijpesteijn PJ, Worp KA, Gagos T, Verhooght AMFW (2011) A transportation archive from fourth-century 
+Oxyrhynchus: (P. Mich. American Society of Papyrologists, Durham
+Tchernia A, Pompey P, Hesnard A (1978) L’epave romaine de la Madrague de Giens (Var) (Campagnes 
+1972–1975). Editions du Centre National de la Rescherche Scientifique, Paris
+Tran N (2020) Boatmen and their Corpora in the great ports of the Roman west (second to third centuries 
+AD). In: Arnaud P, Keay S (eds) Roman port societies: the evidence of inscriptions. Cambridge Uni
+versity Press, Cambridge, pp 85–106. https:// doi. org/ 10. 1017/ 97811 08665 278. 004
+Van Oyen A (2016) How things make history: the Roman empire and its terra sigillata pottery. Amsterdam 
+University Press, Amsterdam. https:// doi. org/ 10. 5117/ 97894 62980 549
+Page 23 of 23 
+Journal of Maritime Archaeology            (2026) 21:3  
+    3 
+Van Oyen A (2020) The socio-economics of Roman storage. Agriculture, trade, and family. Cambridge Uni
+versity Press, Cambridge. https:// doi. org/ 10. 1017/ 97811 08850 216
+Vera D (2006) Un’iscrizione sulle distribuzioni pubbliche di vino a Roma (CIL VI 1785=31931). In: Silves
+trini M, Spagnuolo Vigorita T, Volpe G (eds) Studi in onore di Francesco Grelle. Bari, Edipuglia, pp 
+303–317
+Virlouvet C (2020) Warehouse societies. In: Arnaud P, Keay S (eds) Roman port societies: the evidence 
+of inscriptions. Cambridge University Press, Cambridge, pp 152–177. https:// doi. org/ 10. 1017/ 97811 
+08665 278. 007
+Wilson A (2011a) Developments in Mediterranean shipping and maritime trade from the Hellenistic period 
+to AD 1000. In: Robinson D, Wilson A (eds) Maritime archaeology and ancient trade in the mediter
+ranean. Oxford University Press, Oxford, pp 33–59
+Wilson A (2011b) The economic influence of developments in maritime technology in antiquity. In: Harris 
+WV, Iara K (eds) maritime technology in the ancient economy: ship design and navigation. JRA sup
+plementary series 84, journal of Roman archaeology. Portsmouth, Rhode Island, pp 211–233
+Wilson A (2022) Positioning computational modelling in Roman studies. In: Brughmans T, Wilson A (eds) 
+Simulating Roman economies: theories, methods, and computational models. Oxford University Press, 
+Oxford, pp 308–324. https:// doi. org/ 10. 1093/ oso/ 97801 92857 828. 003. 0012
+Publisher’s Note Springer Nature remains neutral with regard to jurisdictional claims in published maps and 
+institutional affiliations.

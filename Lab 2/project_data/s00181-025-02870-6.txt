@@ -1,0 +1,1887 @@
+Empirical Economics 
+         (2026) 70:19 
+https://doi.org/10.1007/s00181-025-02870-6
+Impact of e-commerceonlocalretail markets: evidence
+fromAmazonfulfillmentcenters
+Urbashi Mookerjee1
+Received: 9 November 2024 / Accepted: 9 October 2025
+©TheAuthor(s), under exclusive licence to Springer-Verlag GmbH Germany, part of Springer Nature 2026
+Abstract
+This paper estimates the effect of local e-commerce on labor outcomes in the retail
+sector at the county level for the period 2010 to 2017, using the presence of Amazon
+fulfillment centers as a proxy. A two-stage event study design is employed, taking
+advantage of the staggered rollout of fulfillment centers across U.S. counties. E
+commerceplaysadualroleintheretailsector—asbothacollaboratorandacompetitor.
+Traditional retail establishments face job losses as consumers shift toward online pur
+chases due to greater convenience, variety, and lower prices. This initial disruption
+phase puts pressure on brick-and-mortar stores, resulting in downsizing and the dis
+placement of low-skilled retail workers. Over time, however, an adjustment phase
+emerges as small and medium-sized firms adapt by selling their products online.
+Through collaboration with platforms like Amazon, these businesses benefit from
+reduced shipping costs and access to a larger customer base, leading to the creation
+of new high-skilled retail jobs. The results show that total retail employment remains
+broadlyunchanged,butthecompositionoftheworkforceshiftsmarkedly.High-skilled
+employment increases while low-skilled employment falls, widening the employment
+gap. Wages follow a similar trend, with short-run gains for high-skilled workers even
+tually giving way to compression, while low-skilled wages steadily decline. These
+patterns result in growing within-sector inequality and underscore the uneven labor
+market consequences of local e-commerce expansion for workers of different skill
+levels.
+Keywords E-commerce · Fulfillment centers · Wage gap · Employment gap
+JEL Classification J21 · J23 · J24 · J31 · L81
+This paper is based on the third chapter of my doctoral dissertation at the University of Florida. I am
+deeply grateful to my advisor, Jonathan Hamilton, for his guidance and support throughout this paper. I
+also thank Gunnar Heins, Hector Hugo Sandoval Gutierrez, and Thomas Knight for their valuable
+feedback and guidance. I am especially indebted to Matthew Freedman for his insightful comments on an
+earlier draft, which significantly improved the paper.
+B Urbashi Mookerjee
+urbashi.mookerjee03@gmail.com
+1
+Department of Economics, St Olaf College, 1520 St Olaf Ave, Northfield, MN 55057, USA
+123 0123456789().: V,-vol 
+   19 
+Page 2 of 40
+U. Mookerjee
+1 Introduction
+Retail e-commerce, first launched in 1982 has grown rapidly since its inception,
+accounting for 0.6% of the total sales in 1999 and 8.2% in 2016 (Federal Reserve
+Bank of St. Louis 2025). This is consistent with the rapid increase in the number of
+consumers shopping online, with a 2016 survey on consumer behavior reporting 34%
+of the survey respondents preferring to shop online instead of in-person; while 28%
+of internet users reported shopping online several times a month, and a further 15%
+reportedly shopping online on a weekly basis (Pew Research Center 2016). This has
+led to traditional brick-and-mortar retailers adding online components to their stores
+to reach a larger consumer base. Omni-channel stores have been faring well, with
+consumers reserving products online and picking them up from the stores, implying
+that consumers still value the physical aspects of shopping.
+In this study, I analyze the impact that local e-commerce has on employment and
+wages in the retail sector in the county labor markets. The study focuses on the expan
+sion of Amazon fulfillment centers, using them as a proxy for local e-commerce
+presence. The main aim of this study is to quantify the impact e-commerce has, not
+onlyontheretailsectoremploymentbutalsoonthewageandemploymentgapbetween
+high- and low-skilled workers.
+Amazon is by far the largest e-commerce company in the U.S., with a retail e
+commerce market share of 34% in 2016, outweighing the combined market shares of
+three of its largest competitors, Walmart, eBay, and Apple. In 2017, the company had
+over 100 fulfillment centers spread across nearly 70 counties in the U.S. The lack of
+storefronts led to much lower overhead costs as compared to other retailers and was
+oneofthemajorreasonsthat helped Amazonswiftlyexpandacrossthecountry. Being
+an online seller, Amazon is not required to pay any sales taxes unless it has a physical
+presence in a state. Additionally, Amazon signed several tax treaties with the state
+and local governments, resulting in large tax breaks. This usually translated into lower
+prices of goods online giving it quite an edge over the brick-and-mortar retailers. In
+2010, Amazon operated in 17 states but collected sales taxes in only four (Good Jobs
+First 2016). Amazon’s sales have been rapidly increasing, with its 2016 sales revenue
+increasing by 27% over their 2015 sales figures. The e-commerce seller has also gone
+on a hiring spree, with 109,800 full-time and part-time workers in the third quarter of
+2013, hiring another 72,900 workers in 2014. Amazon added 39,300 jobs in the third
+quarter of 2015 and a further 34,600 in the last quarter of 2016 (Amazon Quarterly
+Earnings Reports). They are now second only to the largest private employer in the
+U.S., Walmart (Business 2021). Despite these large numbers, many have put forth the
+argument that Amazon has caused a massive wipeout of brick-and-mortar retail jobs,
+withonereportclaimingthatAmazonhaseliminated149,000retailjobs,farexceeding
+the number of jobs that it has created (Institute for Local Self-Reliance 2016), and
+another report estimating the number of department store jobs lost from 2012–2016 at
+279,000, effectively two or three jobs being destroyed for every job created (Federal
+Reserve Bank of St. Louis 2018).
+There is no general consensus on the impact of e-commerce on employment and
+wages thus far. The general assumption is that, with the advent of e-commerce most
+consumers prefer to shop online instead of in-person, effectively destroying the brick
+123
+Impact of e-commerce onlocal retail markets…
+Page 3 of 40
+   19 
+and-mortar retail stores. However, jobs are also created via e-commerce, with online
+sellers having access to millions of consumers and enabling them to grow at a faster
+rate than brick-and-mortar stores and creating new jobs in the retail sector. Using
+Bureau of Labor Statistics data from 2007-2017, Michael (2018) explored the benefits
+of e-commerceintermsofreducingwageinequality and jobcreation. He found that e
+commerce had created more jobs than those lost by the brick-and-mortar retail sector,
+and suggested that e-commerce reduced the number of unpaid household hours that
+goes into shopping at traditional stores and further suggested that these hours could
+be shifted to the market sector. Michael (2018), also conducted a county-level wage
+analysis and found that fulfillment centers paid an average weekly wage that is 31%
+higher than the average weekly wage paid by the brick-and-mortar retail stores in the
+samecounty.Chavaetal.(2018),studiedtheimpactofe-commerceontheretailsector
+by exploiting the staggered rollout of fulfillment centers. They found that counties
+with fulfillment centers experienced a decline in the labor income of 2.4%, and the
+effect remained negative and significant for counties lying within 100 miles. Most of
+the effect was due to a decline in the number of hours worked. Chava et al. (2018),
+also observed a U-shaped pattern in which both young and old workers experienced
+a decline in their labor income. All effects became insignificant for counties lying
+within 500 miles. Furthermore, they found a decline of 2.4% in employment in all
+stores and an exit rate of 3%, with small stores being more likely to exit than larger
+stores. Additionally, the entry rate for small stores declined by 11.8%, with this low
+entry rate persisting for counties within 100 miles. In contrast, Vikram and Nettessine
+(2022) find an overall positive effect of Amazon entry into the counties with a job
+gain of 0.7 to 1 percentage points and an increase in the median household income of
+1.8–2.2%. Current estimates show that fulfillment centers occupy three-fourths of the
+square footage of the U.S.’s entire distribution structure, (Jones and Zipperer 2018)
+with Amazonstillexpandingitsfulfillment center network, begging thequestion, does
+Amazon harm or benefit the counties that it establishes its fulfillment centers in.
+The analysis in this study focuses on the impact of local e-commerce via Amazon
+fulfillment centers on the local labor markets using detailed data from the IPUMS and
+the American Community Survey to construct information on county characteristics.
+ThelogisticscompanyMWPVLprovidesdataonAmazonfulfillmentcentersandtheir
+opening dates. Following the approach of Gardner et al. (2024), I exploit the staggered
+rollout of the fulfillment centers and use a two-stage difference-in-difference and a
+two-stage event study approach to estimate the impact the centers have on the county
+labor markets. Counties that have fulfillment centers are considered to be the treated
+group, while counties that get centers later in the period under observation, are used
+as the control group.
+The results show that local e-commerce impacts the retail sector in two distinct
+phases. The first is a disruption phase, where goods sold online directly compete with
+those sold in brick-and-mortar retail stores, leading to a decline in consumer demand
+for in-store purchases. This puts competitive pressure on traditional retailers, forcing
+some to downsize or shut down entirely, resulting in job losses-particularly among
+low-skilled retail workers. The second phase is an adjustment period, marked by the
+growth of small and medium-sized retail firms that adopt e-commerce platforms. By
+partnering with Amazon, these firms are able to expand their reach, access a broader
+123
+   19 
+Page 4 of 40
+U. Mookerjee
+consumer base, and focus on scaling their business while fulfillment centers manage
+logistics and delivery. This shift leads to a restructuring of the retail workforce, with
+rising demand for high-skilled labor in non-Amazon retail settings and a subsequent
+creation of new high-skilled retail jobs. The labor market adjustments over time reflect
+not only a reallocation of jobs, but also a transformation in the types of roles the retail
+sector demands.
+Myworkisrelatedtotwostrandsofliterature. The first relates to existing empirical
+studies that look at the impact e-commerce has on retail firms in terms of job creation
+and compensation to workers. While these studies have also used Amazon fulfillment
+centers as a proxy for the presence of local e-commerce, they do not account for the
+staggered entry timing and the heterogeneity of treatment. The two-stage difference
+in-difference methodology regresses the labor market outcomes on the county and
+year fixed effects in the first stage, and the estimates are then subtracted from the
+dependent variable. The modified dependent variable is then regressed on the treat
+ment, successfully isolating the impact of local e-commerce presence on the retail
+sector in the county labor markets. A two-stage event study approach has also been
+conducted in a similar manner to observe how the impact of local e-commerce on the
+retail sector in the county labor markets, evolve over time. Given that some counties
+have multiple fulfillment centers, with additional centers being established a year or
+two after the initial fulfillment center entry, the analysis has been further broken down
+into the impact of the initial fulfillment center entry versus that of additional centers.
+This isolates the differential impact multiple centers have on the retail sector.
+Second, this study relates to several studies that look at the impact of technology on
+employmentandwages,focusingontheskillcomponentofthejobs.AutorandDavid,
+(2001) found that computerization acts as a labor substitute for routine jobs but not
+for non-routine ones, while Autor and David, (2015) found that, though automation
+does substitute labor, there are ways in which it can complement labor and increase its
+productivity as well, leading to higher demand for labor. Thus, e-commerce is treated
+as a skill-biased technical change. The rest of the study is structured as follows. The
+next section, Sect.2 provides some information on the background of Amazon and
+the evolution of the retail sector. Section3 presents the details of the data used, the
+empirical model is presented in Sect.4, and the results and the robustness checks are
+discussed in Sect.5 and Sect.6, respectively. Section7 concludes the study.
+2 Background
+2.1 Retail sector
+Ranked as the second largest employer in the U.S., the retail industry has faced many
+changes over the years, from mom-and-pop stores to the big box retailers, followed
+by the rise of e-commerce sellers. A quick look at the retail history suggests that every
+few decades the retail formats undergo a change.
+The 1700s to 1800s were characterized by mom-and-pop stores, small family
+owned stores that could be found in each town, offering general merchandise. The
+mid-1800s to the early 1900s, witnessed the entry of department stores with Sears,
+123
+Impact of e-commerce onlocal retail markets…
+Page 5 of 40
+   19 
+Macy’s,andBloomingdale’ssettingupshopinNewYorkandChicago(BigCommerce
+2021). This was followed by the emergence of malls beginning in the 1920s, followed
+by chain stores established in the 1940s with 7-Eleven launching in 1946 (Lightspeed
+2015). The entry of big box retailers occurred in the 1960s, with Walmart opening
+its first store in 1962 in Rogers, Arkansas. Amazon launched its website in 1997 and
+since then has gone on to become the largest e-commerce retailer in the U.S.
+Toputthegrowthofe-commerceinperspective, the quarterly share of e-commerce
+sales of the total U.S. retail sales increased from 0.8% in the first quarter of 2000 to
+7.7% in the first quarter of 2016. It further increased to 13.6% in the first quarter of
+2021(CensusBureau,RetailSalesReport,2021).Inthefaceofincreasingcompetition
+from online sellers, several big box retailers filed for bankruptcy in 2015 and 2016,
+with Macy’s and Sears being among the many to do so. However, the Pew survey
+suggests that Americans aren’t simply abandoning traditional in-store locations for
+online purchases. For instance, 65% of online shoppers indicated that they generally
+prefer buying from physical outlets if given the choice. Age also plays a role in
+shopping preferences, with 72% of Baby Boomers, who grew up with brick-and
+mortar stores as their default, primarily shopping in-store, as compared to Millennials,
+67% of whom shop online (Pew Research Center, 2016).
+2.2 Amazon
+Amazon was launched in Seattle, Washington, in 1995 as an online bookstore. The
+companywentpublicin1997,andlaterthat year it established two fulfillment centers,
+in Seattle and NewCastle,Delaware,respectively. It expanded into music, selling CDs
+and DVDs alongside books. In 1999, Amazon allowed third-party sellers to sell used
+merchandiseontheirwebsite,bringingaboutahugeincreaseinthetransactionvolume.
+In2002,clothingwasaddedtothewebsiteinadditiontoelectronics,kitchenware,toys,
+andbooks. Post 2005, Amazonstartedrapidly expanding their fulfillment centers with
+aconcentrationintheNortheastandSoutheastregionsoftheU.S.In2017,thecompany
+had a net revenue of 177.87 billion dollars, employed 566,000 employees (combined
+part-time and full-time), and was the leading online e-commerce seller with 37% of
+the market share. In 2023, Amazon’s retail e-commerce market share had grown to
+37.6%,farexceedingthecombinedmarketsharesofitstopthreecompetitors,Walmart
+(6.4%), Apple (3.6%), and eBay (3%) (Statista 2023).
+Amazon used an economic model published by the U.S. Bureau of Economic
+Analysis and estimated that it had invested $45 billion in the U.S. economy and
+paid $25 billion in wages in 2016 alone (WRAL News 2018). In the early stages of
+e-commerce, most of the goods were shipped from out of state; hence, the sellers
+would have to collect sales tax in their home state but not in the other states. Amazon
+set up one of its first fulfillment centers in Delaware, where there is no state sales
+tax and shipped its goods using UPS and FedEx to its consumers in other states,
+with effectively no sales tax collection. States argued for several years that they were
+losing money by not collecting sales tax on online sellers. On June 1, 2018, the U.S.
+Supreme court changed the rules and allowed the individual states to impose sales tax
+collection on internet sellers. Jean-Francois et al. (2017), found that Amazon’s choice
+123
+   19 
+Page 6 of 40
+U. Mookerjee
+Fig. 1 Amazon fulfillment center expansion 1997–2017. Note This figure illustrates the rapid expansion of
+Amazon fulfillment centers from two centers in 1997 to 108 FCs spread across the country in 2017. The
+data is obtained from the MWPVL Logistics Company
+of location for its fulfillment centers was a trade-off between the loss of revenue from
+local consumers due totheimposition of sales tax and the cost savings it incurred from
+the reduction in shipping distance to the consumers. They found that the cost savings
+far outweighed the loss in revenue due to sales taxes. In the context of its distribution
+network expansion, this estimate implied that Amazon had reduced its total shipping
+cost by over 50% and increased its profit margin between 5 and 14% since 2006.
+Separately, they demonstrated that prices on Amazon fell by approximately 40% over
+the same period, suggesting that a significant share of the cost savings were passed on
+to the consumers. Amazon’s rapid growth influenced different states’ decision to offer
+Amazon tax abatements; Amazon had received over $1 billion credits, exemptions,
+and infrastructural assistance worth millions of dollars in exchange for performance
+based incentives in terms of local job creation. Jones and Zipperer (2018) noted that
+by the end of 2016, Amazon had received over $1 billion in state and local subsidies
+for its fulfillment centers and argued that Amazon did not create enough employment
+to justify these tax breaks and this money would have been better spent on public
+services such as early childhood education and infrastructure.
+While the New Castle, Delaware, fulfillment center is still in use as of today, the
+center in Seattle, Washington, has been converted to a seasonal facility; hence only
+one fulfillment center in 1997 is displayed on the map (Fig.1a). By 2007, Amazon
+opened 7 fulfillment centers in 6 counties across Delaware, Kentucky, Arizona and
+Wisconsin(Fig.1b). By2017,Amazonspreadto108fulfillmentcentersin68counties
+(Fig.1c).
+These fulfillment centers are designed to not only stock goods but also act as
+distribution centers where workers pack and distribute the goods and use computer
+systemstotrackandfulfillconsumerorders.Amazoncategorizesitsfulfillmentcenters
+by the kind of task carried out in each fulfillment center. There are six such categories.
+Sortable centers, where Amazon employees pick, pack, and ship customer orders
+123
+Impact of e-commerce onlocal retail markets…
+Page 7 of 40
+   19 
+for small goods such as books, toys, and housewares. Non-sortable centers carry out
+the same function as sortable centers except the goods in question are large bulky
+orders such as patio furniture or outdoor equipment. Sortation centers, which receive
+packages from multiple fulfillment centers, and then the consumers’ orders are sorted
+according to their zip codes and loaded into trucks for faster delivery. Receive centers
+take an inventory of the quick selling products and allocate them to the fulfillment
+centers withinthenetwork.Deliverycentershandlelastmileshippingandthespecialty
+centershandlespecificcategoriesofgoodsoractassupportcentersforotherfulfillment
+centers during peak season (Amazon 2021). There does not seem to be any particular
+pattern in the type of fulfillment centers Amazon establishes in different locations. For
+example, Amazon entered Arizona in 2007, establishing a specialty fulfillment center
+inMaricopaCounty;lateritestablishednon-sortablecenters(in2008,2011,and2015),
+and a sortable, seasonal, and return center in 2010, 2015, and 2017, respectively. In
+contrast, Amazon entered Florida in 2014 with sortable centers in Orange and Polk
+Counties and a non-sortable center in Miami-Dade County. A delivery center was
+added to Pinellas County in 2015. Hence, there is no clear indication of the type
+of fulfillment centers Amazon establishes in each state, nor is there any consistent
+pattern about the type of fulfillment centers established in states that already have a
+few fulfillment centers in them. Thus, the analysis focuses on sortable, non-sortable,
+specialty, returns and supplemental centers, as similar type of work is conducted in
+them.
+3 Datadescription
+In 2018, Amazon increased its minimum wage to $15, in order to capture the effect
+of the fulfillment centers prior to the wage increase, I use county-level data from the
+American Community Survey (ACS) for the years 2005-2017 (ACS does not record
+countyidentifiers prior to 2005). TheACSreportsarangeofindividualcharacteristics,
+suchastheindustrieswhereeachindividualinthesurveyisemployed,numberofhours
+worked, level of education, their race and gender information. The data has been
+restricted to workers in the directly competing sub-sectors within the retail sector, as
+these are most likely to be impacted by Amazon’s entry into a county. The detailed list
+of the directly competing sub-sectors is provided in the appendix (Table 8). County
+level sales tax information has been obtained from the Department of Revenue (DOR)
+of each state. The DORs provide information on the county-level sales tax imposed as
+well as the dates of changes of the taxes if any. In case of any changes in sales tax, the
+annual weighted average of the sales tax has been used. The Census Bureau provides
+the data on county land area, which has been used to calculate county population
+density per square mile. The median household income has been calculated based on
+the ACSdata. The sumoftheaverage household cost of water, gas, and electricity has
+beendefinedastheoperationalcostandusedtoproxyforthecostofrunningacenterin
+eachcountyineachyear.Thenumberofairportsineachcountyhasbeenobtainedfrom
+the US Department of Transportation database, while the ArcGIs database provides
+the number of Class I freight railway tracks and the number of Interstate highways
+in each county. The worker inflows data has been obtained from the Longitudinal
+123
+   19 
+Page 8 of 40
+U. Mookerjee
+Table 1 Treatment timing
+Total No. of counties: 467
+No. of never treated counties: 420
+No. of eventually treated counties: 47
+No. of counties with 1 or 2 initial FCs only: 37
+No. of already treated counties that receive additional FCs: 10
+Year
+No. of counties with initial FC
+2010
+2011
+2012
+2013
+2014
+2015
+2016
+2017
+1
+4
+5
+6
+6
+5
+9
+11
+No. of counties with additional FCs
+0
+0
+0
+0
+2
+2
+4
+2
+This table displays the staggered treatment timing of fulfillment centers with 37 counties that receive initial
+treatment via the establishment of 1 or 2 initial centers. Another 10 counties receive additional centers
+during the latter years of the observed time period
+EmployerHouseholdDynamicsOrigin–DestinationEmploymentStatistics(LODES).
+Thelogistics company MWPVLprovidesinformationonAmazonfulfillmentcenters,
+the type of center, and the year opened, as well as the location of the fulfillment center.
+Toestimate the impact of local e-commerce via the presence of Amazonfulfillment
+centers, the variation in the openings of fulfillment centers in different counties has
+been used. The presence of a fulfillment center in a county is defined as the treatment
+with a focus on the fulfillment centers established during the years 2010-2017, with
+the previous years (2005-2009) being used to test the parallel trends. Counties that
+received a center between 2005-2009 are not included in the analysis (there are 47
+treated counties between 2010 and2017,with10countiesbeingtreated prior to 2010).
+Table1providesinformationonthenumberoffulfillmentcentersaswellasthenumber
+ofcountiestreatedacrosstheyears.Thefullsampleretailemploymentdatasetcontains
+467 counties, 47 of which are eventually treated and 420 never-treated counties. The
+treatment is staggered over time, with 37 counties receiving one or two initial centers
+andanother 10counties receiving additional fulfillment centers during the latter years.
+Amazon announces its entry into a county publicly at most two years before its
+actual entry; hence, the earliest treated county is in 2010 with its anticipated treatment
+in 2008,whichleaves2periodsfrom2005to2007astheearliestpre-treatmentperiods.
+Tables 2 and 3 below provide the summary statistics on the mean differences between
+the counties that eventually receive a center during the observed time period and the
+counties that never do in terms of levels and growth in the county characteristics. For
+the eventually treated counties, the mean of the levels over-3 to-1 periods before the
+anticipated treatment and the mean of the growth in the variables in the same period
+is calculated. For the never-treated counties, a pseudo treatment year of 2013 (the
+123
+Impact of e-commerce onlocal retail markets…
+Page 9 of 40
+   19 
+Fig. 2 Employmentandworkerinflowtrends.NoteTherearenospillovereffectsfromneighboringcounties
+in terms of workers relocating to treated counties or a greater number of workers commuting to the treated
+counties, in response to the announcement of an Amazon center being established in the treated counties
+median treatment year is assigned) and then similar calculations are conducted for
+comparison. This has been done to avoid any noise from a year-to-year comparison.
+The eventually treated counties (Table 2), have notably larger total and working
+age populations than never-treated counties; they are also substantially more dense
+on average. The eventually treated counties also have higher operational costs and
+higher median household incomes, as well as a larger number of interstate highways,
+freight I railway tracks, and airports as compared to the never-treated counties. This
+suggests that Amazon tends to locate in more populous, economically developed
+urban areas with better infrastructure. There has not been a significant change in
+the infrastructure present in the counties in the observed time period, however, the
+eventually treated counties (Table 3) display significant differences in the growth rates
+of the total population, working-age population, population density, operational costs,
+and the sales taxes, confirming that Amazon chooses to locate its centers in counties
+that are not only larger, more urbanized, and economically developed to begin with
+but also are on a higher growth trajectory. In this context, the dataset is limited to only
+eventually treated counties, using not-yet-treated counties as a control for the treated
+counties.
+A point of concern is the change in the employment trends and trends in worker
+inflows from neighboring counties in response to the announcement of a fulfill
+ment center being established in the eventually treated counties. Figure2 displays
+the employment trends in the retail sector in never-treated counties as well as eventu
+ally treated counties before treatment (that is, not-yet-treated counties) along with the
+worker inflows of neighboring counties into treated counties. There is no significant
+change in the employment trends or worker inflows, implying that a greater number
+of workers are not commuting into the treated counties or moving into the treated
+counties in hopes of getting a fulfillment center job. Given that there are no significant
+spillover effects from the neighboring counties, not-yet-treated neighboring counties
+are retained in the control group.
+123
+   19 Page 10 of 40 U.Mookerjee
+Table2Meandifferenceinlevelsbetweentreatedandnevertreatedcounties
+Variable Meantreated S.D.treated No.treated Meancontrol S.D.control No.control Diffinmeans Pvalue Stddiff
+Totalpopulation 883615.084 819245.600 119 427421.804 703042.042 1046 456193.280 0.000 0.598
+Working-agepopulation 646625.597 608311.142 119 311040.562 521121.561 1046 335585.034 0.000 0.592
+Populationdensity 1162.407 935.253 119 1396.014 4985.677 1046 −233.607 0.186 −0.065
+Operationalcost 3638.275 458.610 119 3565.903 563.222 1046 72.372 0.114 0.141
+Medianhouseholdincome 65403.307 14241.543 119 61419.161 16371.293 1046 3984.146 0.005 0.260
+Salestax 6.775 0.980 119 6.331 1.517 1046 0.443 0.000 0.347
+No.ofinterstatehighways 1.471 0.964 119 1.058 0.911 1046 0.412 0.000 0.440
+No.ofFreightIrailwaytracks 191.756 157.068 119 75.462 134.654 1046 116.295 0.000 0.795
+No.ofairports 2.689 2.705 119 1.772 1.707 1046 0.918 0.000 0.406
+Thistabledisplaysthemeandifferencebetweenthecountycharacteristicsofeventuallytreatedandnever-treatedcountiesduringtheobservedtimeperiod.Totalpopulation,
+working-agepopulation,medianhouseholdincomeandinfrastructurearestatisticallysignificant,suggestingthatAmazonlocatesinlargercountiesthataremoreeconomically
+developedandhavebetterinfrastructure
+123
+Impactofe-commerceonlocalretailmarkets… Page 11 of 40   19 
+Table3Meandifferenceingrowthbetweentreatedandnevertreatedcounties
+Variable Meantreated S.D.treated No.treated Meancontrol S.D.control No.control Diffinmeans Pvalue Stddiff
+Totalpopulation 0.020 0.022 42 0.011 0.015 420 0.010 0.009 0.507
+Working-agepopulation 0.016 0.028 42 0.007 0.019 420 0.010 0.031 0.412
+Populationdensity 0.023 0.026 42 0.011 0.015 420 0.012 0.005 0.573
+Operationalcost −0.000 0.070 42 −0.060 0.064 420 0.060 0.000 0.891
+Medianhouseholdincome 0.020 0.064 42 0.025 0.071 420 −0.004 0.692 −0.062
+Salestax 0.016 0.044 42 −0.007 0.044 408 0.023 0.002 0.523
+No.ofinterstatehighways 0.000 0.000 35 0.003 0.037 264 −0.003 0.166 −0.121
+No.ofFreightIrailwaytracks 0.000 0.000 40 0.000 0.000 371 0.000
+No.ofairports 0.000 0.000 35 0.000 0.000 373 0.000
+Thistabledisplaysthemeandifferencebetweenthegrowthinthecountycharacteristicsofeventuallytreatedandnever-treatedcountiesduringtheobservedtimeperiod.The
+eventuallytreatedcountiesgrowatafasterratethanthenever-treatedcounties
+123
+   19 
+Page 12 of 40
+U. Mookerjee
+Another point of concern regarding the staggered rollout of fulfillment centers is
+the possibility of dynamic selection across counties over time. Table 4 displays the
+pre-treatment county characteristics of eventually treated counties by their cohort in
+terms of levels, while Table 5 displays the growth values. Some cohorts (e.g., 2011,
+2015) show larger population values and higher costs, while others (2010, 2013) have
+smaller populations or different infrastructure patterns. Similarly, some cohorts, like
+2008 (1 county) and 2012 (6 counties), exhibit higher population or operational cost
+growth, whileothersshownearzeroornegativefigures.Importantly,thereisnomono
+tonic progression across the cohorts in either levels or growth terms, suggesting that a
+simple “larger, richer counties adopt later” pattern does not exist; rather, each cohort
+has distinct characteristics. To further support this argument, the average outcomes of
+the eventually treated county characteristics, such as the county population, median
+household income, operational costs, and sales taxes (there is no change in the infras
+tructure, hence they have been excluded from the plots) for the periods before their
+treatment are presented in the Appendix (Fig.3). The figure shows that across all mea
+sures, there is no monotonic progression of levels over time: some cohorts enter with
+higher values (e.g., population or operational costs), others with lower or declining
+values, and several show dips and rebounds (e.g., 2010, 2012, 2013 cohorts). This
+heterogeneity confirms that there is no dynamic selection of Amazon into counties.
+The final dataset contains 474 observations with 47 eventually treated counties and 10
+treated counties receiving additional FCs.
+3.1 Dependentvariables
+Following the approach of Autor et al. (2013), the sample of workers selected are as
+follows; individuals between the ages of 16 and 64 years, provided they worked in
+the year preceding the survey. Individuals working in group quarters and institutions
+such as prisons have been dropped from the sample along with the self-employed,
+unpaid family workers, and those who work in NGOs. Workers with no recorded
+wages have been removed from the sample as well. State and counties are identified
+with the Federal Information Processing (FIP) Codes; that is, the combination of state
+and county FIP codes uniquely identifies counties within each state.
+The data for the actual number of weeks worked is not available; however, ACS
+provides a range of the weeks worked, and hence the midpoint of the given ranges has
+been used. Labor supply is then calculated as the product of the weeks worked and
+the usual number of hours worked, weighted by the person weights (the number of
+people in the U.S. population represented by a given person in an IPUMS sample).
+Hourly wages are computed as the yearly wage and salary income divided by the
+product of weeks worked and usual number of hours worked in a week. Following
+Autoretal. (2013), top-coded yearly wagesaremultipliedbyafactorof1.5andhourly
+wages are set not to exceed this value divided by 50 weeks times 35hours. Hourly
+wages below the first percentile of the national hourly wage distribution are set to the
+value of the first percentile. Wages are inflated to the year 2017 using the Personal
+ConsumptionExpenditure Index, Autor et al. (2013). A dummyvariableforeducation
+is used, with workers having a year or more of college education being assigned the
+123
+Impactofe-commerceonlocalretailmarkets… Page 13 of 40   19 
+Table4 Pre-treatmentlevelsbytreatmentCohort
+Treatment
+Cohort
+No. of
+counties
+Total pop
+ulation
+Working
+age
+popula
+tion
+Population
+density
+Operational
+cost
+Median
+household
+income
+Salestax No. of
+interstate
+highways
+No. of
+tracks
+No. of air
+ports
+2010 1 410085.00 296501.00 453.41 3482.12 59516.67 6.00 1.00 45.00 2.00
+2011 3 604241.22 444789.89 1088.83 3496.32 60032.78 6.85 2.00 172.33 2.33
+2013 4 711723.17 525049.17 390.56 3477.52 61827.92 6.83 1.75 212.25 4.50
+2011 3 1201455.44 883398.78 1193.75 3705.62 54362.78 7.31 1.67 203.33 3.67
+2014 6 988917.28 715433.44 865.56 3917.85 59978.17 6.78 1.33 164.00 3.50
+2015 5 485351.20 350762.47 862.74 3599.62 64357.33 6.60 1.60 64.40 1.40
+2016 9 685717.31 508446.09 1059.18 3535.35 72225.24 6.98 0.89 174.89 2.33
+2017 11 1136962.45 829426.97 1788.32 3665.18 69585.62 6.53 1.45 265.64 2.00
+Somecohortsexhibitlargerpopulationvaluesandoperationalcostsascomparedtotheothersbutthereisnoconsistentpatterninthechoiceofeventuallytreatedcounties
+acrosstime
+123
+   19 Page 14 of 40 U.Mookerjee
+Table5 Pre-treatmentgrowthbytreatmentCohort
+Treatment
+Cohort
+No. of
+counties
+Total pop
+ulation
+Working
+age
+popula
+tion
+Population
+density
+Operational
+cost
+Median
+household
+income
+Salestax No. of
+interstate
+highways
+No. of
+tracks
+No. of air
+ports
+2008 1 0.07 0.08 0.07 0.01 0.17 0.00 0.00 0.00 0.00
+2009 3 0.02 0.02 0.02 0.05 0.07 0.04 0.00 0.00 0.00
+2010 4 0.03 0.03 0.03 0.05 0.01 0.06 0.00 0.00 0.00
+2011 3 0.01 0.00 0.01 −0.04 −0.05 0.09 0.00 0.00 0.00
+2012 6 0.04 0.05 0.06 −0.02 −0.04 −0.01 0.00 0.00 0.00
+2013 5 0.01 0.00 0.01 −0.13 0.04 0.01 0.00 0.00 0.00
+2014 9 0.02 0.02 0.02 −0.03 0.05 −0.00 0.00 0.00 0.00
+2015 11 0.01 0.00 0.01 0.05 0.03 0.00 0.00 0.00 0.00
+Therearenosignificantmonotonicincreasingordecreasingtrendsinthegrowthofthecountycharacteristicsacrossthecohorts
+123
+Impact of e-commerce onlocal retail markets…
+Page 15 of 40
+   19 
+value one. The dataset is then aggregated based on the year, county, and education
+dummy, resulting in the average wages based on the skill level as well as the number
+of high- and low-skilled workers employed in the retail sector in each county per year.
+The ratio of high- and low-skilled employment as well as the ratio of the average
+high- and low-skilled wages represents the skill and wage gap between the high- and
+low-skilled workers, respectively. The total retail industry employment as a share of
+the working-age population, the number of high-skilled retail workers as a share of
+the working-age population, the number of low-skilled retail workers as a share of
+the working-age population, as well as the average high-skilled wages, average low
+skilled wages, the retail employment skill gap, and the wage skill gap form the seven
+dependent variables in the analysis.
+3.1.1 Independent andcontrol variables
+There are 47 treated counties in the data, with 37 counties having just 1 fulfillment
+center established in them and 10 counties receiving additional fulfillment centers.
+Theindependent variables are two dummies; the first accounts for the treated counties
+having at least one fulfillment center, and the second accounts for the presence of
+additional fulfillment centers. This allows for the differential impact between the first
+time a county receives treatment and the additional effect from having more centers
+established in these counties later on. The implicit assumption here is that, although
+the first fulfillment center may have a distinct impact, the second, third, fourth, and
+any additional centers exert a similar effect on the retail labor market. Given the varia
+tion in county sizes, the regression equations have been weighted by the working-age
+population in the treated counties a year prior to anticipated treatment. This ensures
+that the estimated average treatment effects are more representative of the underly
+ing population affected by the treatment. Importantly, using pre-treatment weights
+avoids post-treatment bias. The change in the number of women employed, the num
+ber of college-educated, and the number of foreign-born population a year prior to the
+anticipated treatment have been used as the control variables in the analysis.
+Amazon’s choice of county and its timing of entry are both non-random and hence
+the dataset is restricted to eventually treated counties only. Within the eventually
+treated county dataset, the choice of county and timing of entry can be predicted by
+time-invariant county characteristics such as the infrastructure and population or time
+varying factors that influence entry. Both the time-invariant and time-varying factors
+are accountedforwithcountyandyearfixedeffectsrespectively.Insection6,Iprovide
+a more detailed discussion on why the factors predicting the entry choice and timing
+are accounted for through the two fixed effects for eventually treated counties. As
+part of the robustness checks, I also use a nearest-neighbor matching between treated
+and never-treated counties based on the total population, working-age population,
+medianhouseholdincome,salestax,numberofInterstatehighways,numberoffreight
+I railway tracks and number of airports in levels and the growth rates from-3 to-1
+periods before the anticipated treatment for total population, working-age population,
+population density, operational costs, and sales tax (all county characteristics with
+significant p-values from (Tables 2 and 3).
+123
+   19 
+Page 16 of 40
+U. Mookerjee
+4 Empirical model
+In this study, I analyze the impact of local e-commerce proxied by the presence
+of Amazon fulfillment centers on the county labor market. To capture this effect,
+the variation in the staggered rollout of fulfillment centers across counties and time
+has been exploited. Assuming that the county-specific treatment timing is exogenous
+conditional on county and year fixed effects for the eventually treated counties, a
+difference-in-difference analysis has been conducted. The treatment is defined as the
+presence of fulfillment centers in a county and is further divided into the initial and
+additional treatment for counties that received multiple fulfillment centers. The not
+yet-treated counties form the control group. The model also assumes irreversibility
+of treatment, once a county gets a fulfillment center; that is the treatment, it remains
+treated. Hence, only centers that are still in operation during the observed time period
+have been considered. Amazon announces its entry into a county at most two years
+ahead of the actual entry; thus a 2 year anticipation of the entry timing has also been
+assumed. The standard difference-in-difference regression setup is as follows
+Yit = αi +αt +βFCit +γadditional FCit + it
+(1)
+where i indexes the counties, and t indexes the calendar time in years, with αi and αt
+denoting the county andtimefixedeffects, respectively. The initial treatment status for
+each county across time is represented by, FCit, the dummy for the fulfillment center
+presence in a county in the year of establishment and subsequent years. The additional
+FC takes on a similar interpretation, a dummy for the presence of additional centers
+in the year of establishment and subsequent years.
+Recent literature has shown that, when the adoption of treatment is staggered
+over time with heterogeneous treatment effects across groups and time, the standard
+difference-in-difference methodology does not represent the weighted average of the
+unit-level treatment effects (Kirill and Hull 2020; Athey and Imbens 2022; Goodman
+Bacon 2021; de Chaisemartin and D’Haultfoeuille September 2020;Imaietal.2023;
+Sun and Abraham 2021), and the estimates do not identify an easily interpretable
+estimate of the treatment. The fulfillment center entries vary considerably, and the
+treatment effect is likely to vary over time for the following reason. As Amazon’s rep
+utation as an e-commerce platform grows, more sellers are likely to migrate online,
+increasing product variety andofferingcompetitiveprices.Thiswillinduceconsumers
+to buy more online in lieu of brick-and-mortar stores with the effect increasing over
+time. Hence, the treatment effect cannot be considered to be constant, and a two-way
+f
+ixed-effect model will bias the estimates.
+4.1 Mainspecifications
+In this study, I rely on Gardner et al. (2024) straightforward and easy to interpret
+two-stage difference-in-difference methodology, which is robust to treatment effect
+heterogeneitywhentheadoptionisstaggered.FollowingGardneretal.(2024)method
+ology, in the first stage, I regress the outcome on the county and year effects, as well as
+123
+Impact of e-commerce onlocal retail markets…
+Page 17 of 40
+   19 
+the control variables on the untreated subsample FCit = 0, the untreated subsample
+being the not-yet-treated counties. In the second stage, the estimated county and year
+effects are subtracted from the outcome, and the adjusted outcome is then regressed
+on the two treatment variables. Under the usual parallel trends assumption, this pro
+cedure identifies the overall average effect of the treatment on the treated (i.e., across
+counties and years), even when average treatment effects are heterogeneous (Gardner
+et al. 2024). The regression equations are given as follows.
+First Stage Regression on the untreated subsample is:
+Yit = αi +αt +δtXit + it
+(2)
+Theearliesttreatedcounties,receivedafulfillmentcenterin2010,andthelatesttreated
+countiesreceivedtreatmentin2017,withthecorrespondinganticipatedtreatmentdates
+being2008and2015,respectively.Theoutcomevariablesaretheannualretailemploy
+ment as a share of the working-age population, the high-skilled workers employed as
+a share of the working-age population, the low-skilled workers employed as a share
+of the working-age population, and the average hourly wages for high-skilled and
+low-skilled workers, as well as the employment gap and wage gap between high- and
+low-skilled workers in county i at time t. A set of county characteristics (the change in
+the college-educated population, female-employed population, and the foreign-born
+population a year prior to the anticipated treatment) is included as controls in the
+f
+irst stage as denoted by Xit. The regressions are weighted by the baseline working
+age population, measured as the working-age population a year prior to anticipated
+treatment, to correctly account for the initial size of the county labor market without
+introducing any post-treatment bias.
+In the second stage, the adjusted outcome is regressed on the two treatment statuses
+for the full sample (the already treated and the not-yet-treated counties), that is.
+Ait = βFCit +γadditional FCit + ηit
+where Ait = Yit−ˆ
+αi −ˆ
+(3)
+αt − ˆδt Xit. While the results are intuitively simple to interpret,
+they are not very informative for policy analysis, and hence I conduct an event study
+analysis as well. The standard event study is represented by the following equation:
+−2
+Yit = αi +αt +δXit +
+−2
++
+j=−P
+γkPre additional FCkt +
+k=−R
+Q
+βj PreFCjt +
+S
+j=0
+βj PostFCjt
+γkPost additional FCkt + it
+k=0
+(4)
+where for j ≤−2, PreFCjt ∈ PreFC−Pt,...PreFC−2t and represents the leads
+for the treatment adoption, while for j ≥ 0, PostFCjt ∈ PostFC0t,...PostFCQt
+represents thejperiodtreatmentdurations(Gardneretal.2024).Similarly,fork ≤−2,
+Pre additional FCkt ∈ Pre additional FC−Rt,... Pre additional FC−2t and represents
+the leads for the additional treatment adoption while for k ≥ 0, Post additional FCkt ∈
+123
+   19 
+Page 18 of 40
+U. Mookerjee
+Post additional FC0t,...Post additional FCSt represents the k period additional treat
+ment durations.
+The PostFC−1t andthePost additional FC−1t havebeendroppedfromtheestima
+tion to prevent multicollinearity issues, and all the coefficient estimates are treated as
+percentage changes relative to the outcome that existed a year prior to the antic
+ipated establishment of the initial and additional fulfillment centers, respectively.
+The two-stage difference-in-difference methodology is then extended to the event
+study case by modifying the second stage and regressing the adjusted outcome Ait on
+PreFC−Pit,.....PostFCQit and Pre additional FC−Rit,.....Post additional FCSit.
+Given that there are a small number of treated counties; in order to avoid small sample
+bias, the pre-trends and the post-trends for the initial FC presence beyond the 4th year
+is pooled together, that is the 5th to 9th years are combined. Similarly, the pre-trends
+for additional FCs beyond the 2nd year (3rd to 9th year pre-trends) and the post-trends
+for additional FCs beyond the second year (3rd to 5th year post-trends) are combined.
+Aconcern arises with the two-stage difference-in-differences estimator, given that
+the second stage relies on an outcome that has already been residualized in the first
+stage, which could in principle bias standard errors. This issue is addressed in Gard
+ner et al. (2024), wherein they show that the two stages can be interpreted jointly as
+a single regression estimated within a conventional joint GMM framework. In prac
+tice, the first stage partials out group and period effects using untreated observations,
+and the second stage then regresses the residualized outcomes on the treatment sta
+tus. Because this procedure can be estimated using the joint GMM procedure, the
+resulting estimator is equivalent to estimating both stages simultaneously, ensuring
+valid asymptotic inference. Thus, rather than producing biased standard errors, the
+two-stage framework delivers consistent estimates with correct inference even under
+heterogeneous treatment effects and staggered adoption.
+5 Results
+Table 6 presents the two-stage difference-in-difference results of the impact of local
+e-commerce on the retail sector employment via the presence of Amazon fulfillment
+centers. The analysis focuses only on counties that eventually receive a fulfillment
+center during the period under analysis, 2010-2017, using the yet-to-be treated coun
+ties as the control group for the already treated counties. The estimates capture the
+average impact on counties receiving at least one fulfillment center (the initial FC)
+and the marginal effect of receiving additional FCs. The results show that while retail
+employment as a share of the working-age population increases slightly following the
+establishment of an Amazon FC (+1.95% for the initial FC and +2.30% for additional
+FCs);theseestimatesarenotstatisticallysignificant.Thissuggeststhattheoveralllevel
+of retail employment remains broadly unchanged, masking underlying compositional
+shifts. In contrast, the high-skilled retail employment as a share of the working-age
+population increases substantially and significantly after both initial (+11.18%) and
+additional FCs (+8.98%).Thislikelyresults fromAmazon’ssupportforsmallretailers
+to sell online, which creates new job opportunities in the retail sector. The new jobs
+created by small online retailers supported by Amazon may demand higher-skilled
+123
+Impact of e-commerce onlocal retail markets…
+Page 19 of 40
+   19 
+workers, as these roles involve e-commerce management, digital marketing, and cus
+tomer service, which require more skills than traditional retail roles. The results also
+show a significant decline in low-skilled retail employment following the first FC
+(−6.42%), with smaller and statistically insignificant declines associated with subse
+quent FCs, suggesting that the establishment of the Amazon fulfillment center exerts
+competitive pressure on traditional brick-and-mortar retailers, leading to job losses in
+the sector. This pattern suggests that most of the displacement of routine low-skilled
+roles (e.g., cashiers, stock clerks) occurred due to the initial entry of Amazon, after
+which the labor market adjusts to the presence of the fulfillment center. The combined
+effect is a substantial and statistically significant widening of the employment gap
+between high- and low-skilled retail workers (+17.59% after the first FC; +10.89%
+with subsequent FCs). Thesefindingsindicate the emergence ofamorestratifiedretail
+sector, with jobs increasingly favoring higher-skilled individuals.
+Table 7 presents the two-stage difference-in-difference results on the retail sector
+wages. Thewageoutcomesalsoreflect thepolarization between high- and low-skilled
+workers. The initial FC widens the wage gap between high- and low-skilled workers
+(+9.18%); it narrows (insignificantly) with additional FCs (−5.73%). This pattern
+is largely driven by changes in high-skilled retail wages, with a significant 7.38%
+increase after the first FC, followed by a significant 11.62% decline with additional
+FCs. This suggests an initial period of demand for high-skilled workers, followed by
+wagenormalizationorcompressionasAmazon’sfootprintexpands.Low-skilledwage
+effects are negative but statistically insignificant, implying that displacement is more
+prominentinemploymentlevelsratherthaninwages.TheseresultsrevealthatAmazon
+FCs do not lead to a net expansion in retail employment but instead a restructuring
+of the local retail labor market. High-skilled retail workers benefit disproportionately
+from the firm’s presence, both in terms of employment and wages, especially during
+the early stages of expansion. Meanwhile, low-skilled workers experience job loss and
+stagnation, resulting in significant increases in within-sector inequality (Table 8).
+Table 9 presents the event study estimates from a two-stage design, capturing the
+dynamiceffectsofAmazonfulfillmentcenter(FC)openingsontheretailemployment.
+While overall retail employment is not significantly impacted due to the entry of
+FCs, I observe substantial and persistent changes in employment composition. High
+skilled retail employment increases significantly from the year of treatment onward,
+with cumulative gains exceeding 16% beyond the fourth year. In contrast, low-skilled
+retail employment declines sharply, particularly in the second and third years after
+FC entry. Subsequently, the employment gap between high- and low-skilled retail
+workers rises significantly, indicating pronounced labor market polarization within
+the retail sector. Additional FCs reinforce these trends, particularly with respect to
+high-skilled employment growth. These dynamic results align closely with the two
+stage DiD estimates presented in Table 6, which found large and significant positive
+effects on high-skilled retail employment and significant negative effects on low
+skilled retail employment, resulting in a widening employment gap. The event study
+adds nuance by highlighting the timing of these effects and confirming that structural
+shifts in the retail workforce unfold gradually over multiple years, rather than as an
+immediate shock. The pre-treatment coefficients are mostly insignificant except for a
+significance at Pre add FC (2), that is the pre-trends two years prior to the anticipated
+123
+123
+Table 6 Retail sector: two-stage difference-in-difference employment results
+Log( retail employment
+working-age population):
+(1)
+FC
+additional FC
+Observation:
+0.0195
+(0.0243)
+0.0231
+(0.0234)
+438
+∗p <0.1, ∗∗p < 0.05, ∗∗∗p < 0.01
+Log( HSretail employment
+working-age population):
+(2)
+0.1118***
+(0.0331)
+0.0898***
+(0.0342)
+438
+Log( LSretail employment
+working-age population):
+(3)
+−0.0642**
+(0.0253)
+−0.0192
+(0.0243)
+438
+Log( high-skilled workers employed
+low-skilled workers employed ):
+(4)
+0.1760***
+(0.0420)
+0.1089***
+(0.0423)
+438
+This table shows two-stage difference-in-differences estimates for retail employment outcomes, focusing on how the arrival and expansion of fulfillment centers affect overall,
+high-skilled, and low-skilled retail labor. The results suggest that while the presence of an FC boosts high-skilled retail work, it appears to dampen low-skilled employment,
+leading to a notable shift in the composition of the retail workforce
+   19 
+Page 20 of 40
+U. Mookerjee
+Table 7 Retail sector: two-stage difference-in-difference results
+Log(average hourly high-skilled wages):
+(1)
+FC
+additional FC
+Observation:
+∗p <0.1, ∗∗p < 0.05, ∗∗∗p < 0.01
+0.0738**
+−0.1162***
+(0.0347)
+438
+Log(average hourly low-skilled wages):
+(2)
+−0.0180
+−0.0588*
+(0.0341)
+438
+Log( average hourly high-skilled wages
+average hourly low-skilled wages ):
+(3)
+0.0918**
+−0.0573
+(0.0419)
+438
+This table reports two-stage difference-in-differences estimates for high- and low-skilled retail wages, revealing a positive effect of the first fulfillment center on high-skilled
+hourly pay but a negative impact once an additional FC is established. Meanwhile, low-skilled hourly wages remain largely unchanged when the first FC arrives, though the
+second FC appears to slightly reduce wage levels for both skill categories
+Impact of e-commerce onlocal retail markets…
+Page 21 of 40
+   19 
+123
+   19 
+Page 22 of 40
+U. Mookerjee
+entry of the additional fulfillment centers in the county. This isolated deviation, while
+statistically significant at the 10% level, is not accompanied by a broader pattern of
+upward drift and is unlikely to drive the sustained post-treatment divergence observed
+in the event windows that follow. Importantly, the event study plots presented in Fig.4
+in the Appendix, serve asanadditional validity check, visually confirming the absence
+of systematic pre-trends and reinforcing the causal interpretation of the post-treatment
+effects.
+Table 10 presents two-stage event study estimates assessing the impact of Amazon
+fulfillment center entry on retail wages and wage gap between high- and low-skilled
+workers. The results reveal an uneven pattern of wage adjustments by skill level.
+High-skilled retail workers experience a statistically significant 7.3% increase in the
+average hourly wages in the year of FC entry, consistent with immediate demand
+for managerial and technical talent within Amazon-aligned retail operations. How
+ever, this initial gain is followed by a sharp and statistically significant decline in
+response to the arrival of additional FCs, suggesting the presence of wage normal
+ization, labor market saturation, or increasing monopsony power as Amazon’s local
+footprint expands. In contrast, low-skilled retail wages show a delayed but persistent
+decline, becoming statistically significant by the fourth year post-treatment. The net
+effect is a sustained widening of the wage gap between high- and low-skilled retail
+workers, which peaks around two to four years after initial treatment. These findings
+are closely aligned with the earlier two-stage difference-in-differences results, which
+also documented a significant initial increase in high-skilled wages followed by com
+pression, alongside a decline in low-skilled wages. The event study further clarifies
+the timing and persistence of these effects, confirming that wage inequality within the
+retail sector emerges gradually but consistently after Amazon FC entry. Together with
+the employment effects, the results offer strong evidence of skill-biased restructuring
+within the retail sector, where technological and operational shifts favor high-skilled
+labor while displacing and devaluing low-skilled roles.
+The presence of Amazon fulfillment centers in a county act as a proxy for local
+e-commerce affecting the retail sector in two ways, as a competitor for the consumer’s
+demand, negatively impacting local businesses (competition effect) and as a platform
+for firms to sell their goods on, which the firms can use to expand their business
+(collaboration effect). The contrasting effects observed in the two phases (initial ful
+f
+illment center andadditional centers being established later in those counties) provide
+a nuanced understanding of the impact of local e-commerce on the retail sector. There
+is an initial disruption of the retail sector with the entry of the first fulfillment center.
+Jean-Francois et al. (2017), analyzed the factors driving Amazon’s location choices
+between 1999 and 2018 and found that Amazon’s choice of location is a trade-off
+between the loss of revenue from local consumers due to the imposition of sales tax
+and the cost savings it incurs from the reduction in shipping distance to the con
+sumers. They also demonstrate that prices on Amazon fell by approximately 40%
+during this period, suggesting that a significant share of the cost savings was passed
+on to consumers. The lowered prices and the increased product variety offered induce
+consumers to shop more online instead of in-person from brick-and-mortar retailers.
+This loss of consumer demand forces stores to downsize or close altogether, leading
+to low-skilled job loss.
+123
+Impact of e-commerce onlocal retail markets…
+Page 23 of 40
+   19 
+However, as Amazon expands with additional fulfillment centers, the local retail
+sector adapts and grows, with significant job creation driven by Amazon’s support for
+small online retailers. This reinforces the high-skilled job creation effects of the initial
+FC. Amazon, in its 2021 small business report stated that it sources more than 50%
+of its goods from third-party sellers (Amazon 2021), most of which are local small
+and medium retail stores. Amazon also has various investment programs in place to
+help small businesses sell online. Adopting e-commerce gives these firms access to a
+large consumer base; additionally, the fulfillment by Amazon program (FBA) allows
+small firms to ship their goods to the nearest fulfillment centers and get them picked,
+packed, and shipped using the Amazon distribution network resulting in a significant
+cost savings for small and medium firms. This allows the retail firms to focus solely
+on growing their business and results in job creation as they expand.
+Asurvey by Lendios of more than 2000 small business owners showed that most
+viewed Amazon as a threat to their growth opportunities; however this statement is
+not in line with the numbers that show the increased growth of two-thirds of small
+businesses (Forbes 2019). Another survey stated that 85 percent of business owners
+agreed that selling their goods online generated more revenue as compared to the
+physical stores, (TechNet 2024). A study by Grandon and Pearson (2004) examining
+the factors determining e-commerce adoption by small and medium firms in the U.S.
+points to organizational readiness in terms of economic costs and lack of technolog
+ical knowledge being the distinguishing factor between adopters and non-adopters.
+Amazon, through its small business investment programs helps local businesses sell
+online with both funds and the technical know-how needed to sell online; additionally,
+the proximity to the fulfillment centers lowers the shipping costs. Amazon has been
+hosting third-party sellers on its website since 2000 and has sold 120 million differ
+ent commodities worldwide, with 50% of the goods being provided by independent
+sellers by the third quarter of 2017 (Statista 2025). It is reasonable for small firms
+to want to sell on Amazon, given that Amazon is where most of the consumers are,
+with 31 million Prime members in 2014, which grew to 65 million in 2016 (Statista
+2019).Furthermore,53%ofproductsearchesstartonAmazonandonly23%onsearch
+engines, many of which lead back to Amazon. The remaining 16% of the searches
+are on a retailer or brand website and 8% in other marketplaces, with possibly many
+of those searches going back to Amazon for price comparison or free shipping with
+Prime, (Forbes 2021). A survey from NetElixir found that 60.2% of small businesses
+selling products online received at least half of their online sales income from Ama
+zon, Jet, and eBay while for another 26.6% selling on these three websites and its own
+website, the sales were fifty-fifty (MarTech 2017). This partnership helps the firms
+reach millions of consumers and grow at a faster rate, in turn resulting in the creation
+of non-Amazon retail jobs.
+The partnership is highly beneficial to Amazon as well, with the retail e-commerce
+giant charging the sellers 10-15% commission on each item sold. In 2020, Amazon
+made 45 million dollars from seller fees (commission for selling on Amazon) and
+another 30milliondollarsfrom"fulfillmentbyAmazon"(thelogisticsservicesoffered
+to the sellers). The steep commission hurts the sellers; however, as one small business
+owner succinctly put it, “I am not happy with it [the rate], but you do get a constant
+stream of millions of users, you are paying for those millions” (The Guardian 2015).
+123
+   19 
+Page 24 of 40
+U. Mookerjee
+Sellers chose to partner with Amazon not only to access a wider consumer base but
+also to have the ability to focus on growing their business while Amazon handles the
+logistics. Sellers choose Amazon for potential high sales volume, brand recognition,
+and the website’s infrastructure.
+The results for the low-skilled job loss due to the initial fulfillment center entry are
+in keepingwithChavaetal.(2018),whofoundthattheestablishmentofthefulfillment
+centers results in a loss of retail sales and a decline in the retail sector jobs for both
+treated and neighboring counties. The high-skilled job gains from the establishment
+of additional centers are in line with Vikram and Nettessine (2022), who found that
+fulfillment center entries increased the county employment as a share of the working
+age population by 0.7 to 1 percentage points with a corresponding increase of 1.8 to
+2.2% in the median household income. Foster et al. (2006) analysis of the retail sector
+suggests that the reallocation of activity across stores is driven by the entry of new
+and more efficient firms and the expansion of successful ones, and this accounts for
+most of the gains in overall retail productivity.
+Amazonhaschangedthewayconsumersshop;however,itcannotbesolelyblamed
+for the demise of brick-and-mortar retail stores. Consumers now want the same online
+shopping experience while shopping in-person, with a recent study showing that 92%
+of shoppers prefer stores that offer mobile experiences with 61% of the consumers
+preferring to speak to a kiosk rather than speaking with a sales associate, (Antonio
+et al. 2021). Hortacsu and Syverson (2015) also discuss the dual effect of e-commerce
+as a competitor and collaborator for retail firms. They further highlight the continued
+importance of physical retail stores, albeit with an emphasis on investment in tech
+nology being highly correlated with retail growth, which need not necessarily be via
+the adoption of e-commerce. Doms et al. (2004) also find that retail establishments’
+productivity levels and growthratesarecorrelatedwiththeirinvestmentininformation
+technologies. Furthermore, research by the Institute for Competitiveness and Prosper
+ity Institute for Competitiveness and Prosperity (2010) suggests that larger retailers
+employ better management practices and thereby contribute to sector-wide produc
+tivity growth. As things currently stand, businesses regardless of their size, need to
+evolve to meet changing consumer demands and shopping preferences, with those
+establishing multichannel sales benefiting the most.
+6 Robustnesschecks
+A concern with using the variation in fulfillment center openings as the empirical
+strategy is that Amazon’s timing of entry into counties, as well as its choice of which
+counties to enter, is potentially non-random. This raises the possibility that underlying
+differences across counties—such as local economic growth, infrastructure, or labor
+market conditions—may be driving both treatment and outcomes. To address this,
+I restrict the sample to eventually treated counties and exploit variation in the tim
+ing of treatment across them. Within this restricted sample, all time-invariant county
+characteristics are absorbed by county fixed effects, and any time-varying shocks
+common across counties are captured by year fixed effects. As a result, the identifi
+cation comes purely from within-county changes in the retail labor market following
+123
+Impact of e-commerce onlocal retail markets…
+Page 25 of 40
+   19 
+the staggered entry of fulfillment centers, alleviating concerns about selection bias in
+Amazon’s county-level entry decisions. As an additional check to assess the robust
+ness of the main findings, I replicate the two-stage difference-in-differences and event
+study analyses using a nearest-neighbor matched dataset in which each treated county
+is matched to the most similar never-treated county based on pre-treatment character
+istics that differ significantly in their means both in terms of levels and growth. The
+pre-treatment characteristics are, total population, working-age population, median
+household income, sales tax, number of Interstate highways, number of freight I rail
+way tracks, and number of airports the year prior to the anticipated treatment and the
+change in the total population, working-age population, population density, opera
+tional costs, and sales tax from-3 to-1 periods before the anticipated treatment. The
+matched dataset has 317 observations with 33 treated and 33 never-treated counties.
+Thismatcheddesignservesasarobustnesscheckbyconstructingacleanercounter
+factual group, minimizing concerns related to heterogeneous treatment timing among
+eventually treated counties. The matched sample results, shown in Tables 11, 12,
+13 and 14, closely mirror the patterns documented in the main specification. Ama
+zon FC entry leads to a significant increase in high-skilled retail employment and a
+decline in low-skilled retail employment, with no meaningful change in total retail
+employment, confirming the within-sector restructuring observed previously. These
+patterns are echoed in the wage results, where high-skilled retail wages rise initially
+and decline with additional FCs, while low-skilled wages gradually fall, contributing
+to a widening and statistically significant wage gap. The event study results using the
+matched sample reinforce the timing and persistence of these effects, showing no evi
+dence of pre-treatment divergence and sharp post-treatment shifts that are consistent
+with a structural transformation of the local retail labor market. Overall, the matched
+sample estimates strongly validate the main findings and confirm that the documented
+employment and wage polarization in the retail sector is not an artifact of control
+group composition.
+7 Conclusion
+In this study, I analyze the impact of local e-commerce on the retail sector via the
+establishment of fulfillment centers in the counties. The presence of local e-commerce
+impacts workers with different levels of skill within the retail sector.
+E-commerce serves a dual purpose, as a competitor for consumer demand as well
+as a platform for the small brick-and-mortar retailers to sell their goods on. Con
+sumers buy more online in lieu of shopping in-person at the brick-and-mortar stores
+given lower prices, greater product variety, and the quick delivery options available
+online. However, the growth of small firms due to the small-firm–Amazon collab
+oration creates high-skilled non-Amazon retail jobs. Using detailed population data
+from the American Community Survey, I find that the entry of Amazon fulfillment
+centers leads to a shift in the composition of retail employment, rather than a change in
+its overall level. High-skilled retail employment increases significantly following the
+establishment of a fulfillment center, while low-skilled retail employment declines.
+Wages follow a similar trend, with high-skilled retail wages rising initially and falling
+123
+   19 
+Page 26 of 40
+U. Mookerjee
+with the arrival of additional centers, while low-skilled wages decline over time. As
+a result, both the employment and wage gaps between high- and low-skilled retail
+workers widen in the years following fulfillment center entry.
+These results are robust to using a matched sample of treated and never-treated
+counties and hold across both difference-in-differences and event study designs.
+The findings highlight that the staggered entry of multiple fulfillment centers gen
+erates uneven labor market consequences, benefiting high-skilled workers more than
+low-skilled workers, and widening inequality within the retail sector. These patterns
+underscore the importance of investing in local reskilling efforts for low-skilled retail
+workers, supporting transitions into more tech-integrated roles, and ensuring that the
+gains from local e-commerce expansion are more equitably distributed across the
+workforce.
+AppendixA:Retailsectorplotsandeventstudyresults
+Thefollowing table lists all the directly competing brick-and-mortar retail sub-sectors
+being considered based on the products sold on Amazon.
+Table 8 List of directly
+competing sub-sectors
+Affected retail sub-sectors
+Auto parts, accessories, and tire stores
+Furniture and home furnishings stores
+Household appliance stores
+Radio, TV, and computer stores
+Hardware stores
+Lawn and garden equipment and supplies stores
+Health and personal care, except drugstores
+Clothing stores
+Shoe stores
+Jewelry, luggage, and leather goods stores
+Sporting goods, camera, and hobby and toy stores
+Sewing, needlework, and piece goods stores
+Musical instrument and supplies stores
+Bookstores and news dealers
+Department and discount stores
+Miscellaneous general merchandise stores
+Office supplies and stationery stores
+Used merchandise stores
+Miscellaneous retail stores
+Electronic shopping
+Electronic auctions
+Mail-order houses
+Other direct selling establishments
+Electronics stores
+Gift, novelty, and souvenir shops
+Miscellaneous retail stores
+List of sub-sectors within the retail sector that are directly affected by the presence of local
+e-commerce as measured via the presence of Amazon fulfillment centers
+123
+Impact of e-commerce onlocal retail markets…
+Page 27 of 40
+   19 
+Fig. 3 Average outcome of county characteristics in the pre-treatment periods. Across all measures, the
+pre-treatment patterns are non-monotonic, with some cohorts entering at higher or lower levels, and others
+showing dips or rebounds. This heterogeneity indicates that there is no dynamic selection into counties
+across the cohorts
+123
+   19 Page 28 of 40 U.Mookerjee
+Table9 Retailsector:two-stageeventstudyemploymentresults
+Log( retailemployment
+working-agepopulation): Log( HSretailemployment
+working-agepopulation): Log( LSretailemployment
+working-agepopulation): Log( high-skilledworkersemployed
+low-skilledworkersemployed ):
+Period
+PreFC(5pooled) −0.0019 −0.0025 0.0046 −0.0070
+(0.0162) (0.0183) (0.0206) (0.0254)
+PreFC(4) −0.0032 0.0082 −0.0111 0.0193
+(0.0176) (0.0253) (0.0295) (0.0433)
+PreFC(3) −0.0037 0.0094 −0.0044 0.0139
+(0.0176) (0.0207) (0.0270) (0.0332)
+PreFC(2) −0.0144 0.0054 −0.0277 0.0330
+(0.0235) (0.0290) (0.0299) (0.0385)
+PostFC(0) 0.0035 0.0780** −0.0585** 0.1364***
+(0.0211) (0.0343) (0.0248) (0.0437)
+PostFC(1) 0.0216 0.1047*** −0.0389 0.1435***
+(0.0223) (0.0299) (0.0379) (0.0532)
+PostFC(2) −0.0011 0.1213*** −0.1122*** 0.2334***
+(0.0223) (0.0299) (0.0379) (0.0532)
+PostFC(3) 0.0283 0.1561*** −0.0968** 0.2529***
+(0.0359) (0.0541) (0.0378) (0.0727)
+PostFC(4) 0.0249 0.1016** −0.0320 0.1336**
+(0.0303) (0.0434) (0.0507) (0.0682)
+123
+Table 9 continued
+Period
+PostFC(5 pooled)
+Pre add FC(3 pooled)
+Pre add FC(2)
+Post add FC(0)
+Post add FC(1)
+Post add FC(2)
+Post add FC(3 pooled)
+Observation:
+Log( retail employment
+working-age population):
+0.0366
+(0.0543)
+0.0088
+(0.0161)
+−0.0107
+(0.0427)
+0.0025
+(0.0159)
+0.0380*
+(0.0194)
+0.0103
+(0.0495)
+0.0492
+(0.0599)
+438
+∗p <0.1, ∗∗p < 0.05, ∗∗∗p < 0.01
+Log( HSretail employment
+working-age population):
+0.1616***
+(0.0579)
+−0.0095
+(0.0179)
+−0.0874
+(0.0668)
+0.0019
+(0.0180)
+0.0719*
+(0.0410)
+0.0911
+(0.0674)
+0.1246**
+(0.0568)
+438
+Log( LSretail employment
+working-age population):
+−0.0659
+(0.0698)
+0.0204
+(0.0206)
+0.0846*
+(0.0483)
+−0.0036
+(0.0218)
+0.0154
+(0.0476)
+−0.0592
+(0.0591)
+−0.0050
+(0.0811)
+438
+Log( high-skilled workers employed
+low-skilled workers employed ):
+0.2275***
+(0.0717)
+−0.0298
+(0.0221)
+−0.1720**
+(0.0765)
+0.0055
+(0.0276)
+0.0565
+(0.0781)
+0.1503*
+(0.0780)
+0.1296
+(0.0792)
+438
+Tableillustrates how eachpre-andpost-treatmentperiodcomparestothebaseline.TheinitialFCentrycreatesjobsforhigh-skilledworkersbyattractinge-commerce-intensive
+sellers to sell on Amazon, and the additional FCs reinforce this impact
+The initial FC creates a competition impact for directly related brick-and-mortar retail stores causing loss of low-skilled jobs, creating a corresponding increase in the
+employment gap. Any job creation impact for low-skilled workers via the additional FCs are temporary
+Impact of e-commerce onlocal retail markets…
+Page 29 of 40
+   19 
+123
+123
+Table 10 Retail sector: two-stage event study wage results
+Log(average hourly high-skilled wages):
+Period
+PreFC(5 pooled)
+PreFC(4)
+PreFC(3)
+PreFC(2)
+PostFC(0)
+PostFC(1)
+PostFC(2)
+PostFC(3)
+−0.0151
+(0.0213)
+−0.0346
+(0.0297)
+−0.0066
+(0.0308)
+−0.0352
+(0.0283)
+0.0729**
+(0.0310)
+0.0439
+(0.0374)
+0.0568
+(0.0475)
+0.0341
+(0.0451)
+Log(average hourly low-skilled wages):
+−0.0071
+(0.0133)
+0.0330
+(0.0598)
+−0.0217
+(0.0313)
+−0.0306
+(0.0242)
+0.0212
+(0.0331)
+−0.0499*
+(0.0255)
+−0.0509
+(0.0341)
+−0.0571
+(0.0384)
+Log( average hourly high-skilled wages
+average hourly low-skilled wages ):
+−0.0081
+(0.0275)
+−0.0675
+(0.0519)
+0.0151
+(0.0498)
+−0.0046
+(0.0419)
+0.0518
+(0.0451)
+0.0938**
+(0.0397)
+0.1077**
+(0.0484)
+0.0912***
+(0.0324)
+   19 
+Page 30 of 40
+U. Mookerjee
+Table 10 continued
+Period
+PostFC(4)
+PostFC(5 pooled)
+Pre add FC(3 pooled)
+Pre add FC(2)
+Post add FC(0)
+Post add FC(1)
+Post add FC(2)
+Post add FC(3 pooled)
+Observation:
+Log(average hourly high-skilled wages):
+0.0118
+(0.0350)
+0.0244
+(0.0453)
+0.0163
+(0.0212)
+−0.0880
+(0.0730)
+0.0204
+(0.0217)
+−0.1214***
+(0.0382)
+−0.0441
+(0.0447)
+−0.0031
+(0.0543)
+438
+∗p <0.1, ∗∗p < 0.05, ∗∗∗p < 0.01
+Log(average hourly low-skilled wages):
+−0.0855**
+(0.0358)
+−0.0361
+(0.0531)
+0.0009
+(0.0140)
+0.0276
+(0.1045)
+0.0099
+(0.0141)
+−0.0522
+(0.0554)
+−0.0300
+(0.0558)
+0.0207
+(0.0655)
+438
+Log( average hourly high-skilled wages
+average hourly low-skilled wages ):
+0.0973**
+(0.0462)
+0.0605
+(0.0631)
+0.0154
+(0.0240)
+−0.1156
+(0.0929)
+0.0105
+(0.0259)
+−0.0692
+(0.0567)
+−0.0142
+(0.0672)
+−0.0238
+(0.0970)
+438
+Table highlights the event study estimates for both high- and low-skilled retail wages, showing how each pre-and post-treatment window compares to baseline. High-skilled
+wages often rise significantly in the initial post-treatment periods, whereas low-skilled wages exhibit more modest or sometimes negative shifts, implying that the arrival of
+fulfillment centers has an uneven impact on wage levels across skill segments
+123
+Impact of e-commerce onlocal retail markets…
+Page 31 of 40
+   19 
+   19 
+Page 32 of 40
+U. Mookerjee
+AppendixB:Robustnesschecks
+Fig. 4 Parallel trends check of dependent variables. Note The lack of pre-trend violations in the dependent
+variables shows that the parallel trend assumptions are valid
+123
+Table 11 Retail sector: two-stage difference-in-difference employment results—matched dataset
+Log( retail employment
+working-age population):
+(1)
+FC
+additional FC
+Observation:
+0.0226
+(0.0254)
+0.0215
+(0.0249)
+474
+∗p <0.1, ∗∗p < 0.05, ∗∗∗p < 0.01
+Log( HSretail employment
+working-age population):
+(2)
+0.1085***
+(0.0351)
+0.0979***
+(0.0364)
+474
+Log( LSretail employment
+working-age population):
+(3)
+−0.0594**
+(0.0259)
+−0.0238
+(0.0253)
+474
+Log( high-skilled workers employed
+low-skilled workers employed ):
+(4)
+0.1679***
+(0.0440)
+0.1216***
+(0.0443)
+474
+Table reports the two-stage difference-in-difference results for the retail employment in a matched sample, showing a pattern similar to the main results. While the first
+FC consistently raises high-skilled employment and reduces low-skilled retail jobs, the additional FCs further amplify that effect, reinforcing the notion of a skilled-biased
+employment effect
+Impact of e-commerce onlocal retail markets…
+Page 33 of 40
+   19 
+123
+123
+Table 12 Retail sector: two-stage difference-in-difference wage results—matched dataset
+Log(average hourly high-skilled wages): Log(average hourly low-skilled wages): Log( average hourly high-skilled wages
+average hourly low-skilled wages ):
+(1)
+FC
+additional FC
+Observation:
+0.0675**
+(0.0315)
+−0.0953***
+(0.0352)
+396
+∗p <0.1, ∗∗p < 0.05, ∗∗∗p < 0.01
+(2)
+−0.0289
+(0.0255)
+−0.0509
+(0.0358)
+396
+(3)
+0.0964**
+(0.0389)
+−0.0444
+(0.0409)
+396
+Table presents the wage results from the matched dataset, with the initial FC raising the wages for high-skilled workers but it does not have a significant impact on the wages
+of low-skilled workers. The additional FCs, however, dampen the high-skilled wages, displaying a subsequent wage depression
+   19 
+Page 34 of 40
+U. Mookerjee
+Table 13 Retail sector: two-stage event study employment results-matched dataset
+Log( retail employment
+working-age population):
+Period
+PreFC(5 pooled)
+PreFC(4)
+PreFC(3)
+PreFC(2)
+PostFC(0)
+PostFC(1)
+PostFC(2)
+PostFC(3)
+−0.0019
+(0.0174)
+−0.0030
+(0.0187)
+−0.0035
+(0.0187)
+−0.0142
+(0.0251)
+0.0110
+(0.0222)
+0.0216
+(0.0233)
+−0.0070
+(0.0318)
+0.0351
+Log( HSretail employment
+working-age population):
+−0.0021
+(0.0195)
+0.0085
+(0.0265)
+0.0097
+(0.0220)
+0.0069
+(0.0308)
+0.0754**
+(0.0375)
+0.1008***
+(0.0322)
+0.1156***
+(0.0396)
+0.1668***
+Log( LSretail employment
+working-age population):
+0.0064
+(0.0217)
+−0.0091
+(0.0309)
+−0.0024
+(0.0281)
+−0.0268
+(0.0320)
+−0.0412*
+(0.0244)
+−0.0342
+(0.0402)
+−0.1189***
+(0.0374)
+−0.0995**
+Log( high-skilled workers employed
+low-skilled workers employed ):
+−0.0085
+(0.0267)
+0.0176
+(0.0449)
+0.0121
+(0.0344)
+0.0337
+(0.0407)
+0.1166**
+(0.0467)
+0.1349**
+(0.0575)
+0.2345***
+(0.0466)
+0.2663***
+Impact of e-commerce onlocal retail markets…
+Page 35 of 40
+   19 
+123
+123
+Table 13 continued
+Period
+PostFC(4)
+PostFC(5 pooled)
+Pre add FC(3 pooled)
+Pre add FC(2)
+Post add FC(0)
+Post add FC(1)
+Post add FC(2)
+Post add FC(3 pooled)
+Observation:
+Log( retail employment
+working-age population):
+(0.0376)
+0.0267
+(0.0310)
+0.0662
+(0.0545)
+0.0081
+(0.0174)
+−0.0148
+(0.0460)
+0.0026
+(0.0171)
+0.0319
+(0.0212)
+−0.0060
+(0.0549)
+0.0192
+(0.0602)
+∗p <0.1, ∗∗p < 0.05, ∗∗∗p < 0.01
+Log( HSretail employment
+working-age population):
+(0.0555)
+0.0952**
+(0.0450)
+0.1680**
+(0.0687)
+−0.0094
+(0.0194)
+−0.0918
+(0.0720)
+0.0015
+(0.0193)
+0.0784*
+(0.0457)
+0.0945
+(0.0754)
+0.1181*
+(0.0669)
+Log( LSretail employment
+working-age population):
+(0.0394)
+−0.0303
+(0.0531)
+−0.0312
+(0.0705)
+0.0176
+(0.0219)
+0.0826
+(0.0523)
+−0.0053
+(0.0230)
+0.0075
+(0.0521)
+−0.0806
+(0.0658)
+−0.0404
+(0.0826)
+Log( high-skilled workers employed
+low-skilled workers employed ):
+(0.0741)
+0.1256*
+(0.0712)
+0.1992**
+(0.0784)
+−0.0270
+(0.0234)
+−0.1744**
+(0.0828)
+0.0068
+(0.0290)
+0.0709
+(0.0862)
+0.1751**
+(0.0847)
+0.1585*
+(0.0853)
+Table presents the event study estimates for retail employment under a matched sample, showing a consistent increase in high-skilled retail jobs and a decline in low-skilled
+retail jobs, with a subsequent increase in the employment gap similar to the main results
+   19 
+Page 36 of 40
+U. Mookerjee
+Table 14 Retail sector: two-stage event study wage results—matched dataset
+Log(average hourly high-skilled wages):
+Period
+PreFC(5 pooled)
+PreFC(4)
+PreFC(3)
+PreFC(2)
+PostFC(0)
+PostFC(1)
+PostFC(2)
+PostFC(3)
+−0.0123
+(0.0228)
+−0.0321
+(0.0312)
+−0.0041
+(0.0319)
+−0.0341
+(0.0297)
+0.0697**
+(0.0333)
+0.0453
+(0.0374)
+0.0589
+(0.0512)
+0.0396
+Log(average hourly low-skilled wages):
+−0.0051
+(0.0135)
+0.0345
+(0.0608)
+−0.0203
+(0.0313)
+−0.0307
+(0.0251)
+0.0100
+(0.0343)
+−0.0581**
+(0.0274)
+−0.0666*
+(0.0354)
+−0.0648
+Log( average hourly high-skilled wages
+average hourly low-skilled wages ):
+−0.0072
+(0.0285)
+−0.0666
+(0.0522)
+0.0161
+(0.0504)
+−0.0034
+(0.0438)
+0.0597
+(0.0459)
+0.1034***
+(0.0367)
+0.1255***
+(0.0486)
+0.1044***
+Impact of e-commerce onlocal retail markets…
+Page 37 of 40
+   19 
+123
+123
+Table 14 continued
+Period
+PostFC(4)
+PostFC(5 pooled)
+Pre add FC(3 pooled)
+Pre add FC(2)
+Post add FC(0)
+Post add FC(1)
+Post add FC(2)
+Post add FC(3 pooled)
+Observation:
+Log(average hourly high-skilled wages):
+(0.0463)
+0.0069
+(0.0347)
+0.0084
+(0.0504)
+0.0150
+(0.0226)
+−0.0940
+(0.0782)
+0.0174
+(0.0231)
+−0.1100***
+(0.0409)
+−0.0103
+(0.0410)
+0.0140
+(0.0582)
+396
+∗p <0.1, ∗∗p < 0.05, ∗∗∗p < 0.01
+Log(average hourly low-skilled wages):
+(0.0400)
+−0.0872**
+(0.0373)
+−0.0351
+(0.0618)
+0.0016
+(0.0145)
+0.0389
+(0.1128)
+0.0075
+(0.0231)
+−0.0554
+(0.0589)
+−0.0287
+(0.0645)
+0.0202
+(0.0739)
+396
+Log( average hourly high-skilled wages
+average hourly low-skilled wages ):
+(0.0334)
+0.0941**
+(0.0472)
+0.0436
+(0.0724)
+0.0135
+(0.0250)
+−0.1329
+(0.0993)
+0.0099
+(0.0267)
+−0.0546
+(0.0537)
+0.0184
+(0.0685)
+−0.0062
+(0.1055)
+396
+Table presents the event study estimates for retail wages under a matched sample, showing an increase in the high-skilled wages due to the initial FC but a subsequent decline
+in the wages when the county receives additional FCs. The low-skilled workers experience a decline in the average hourly wages due to the presence of the initial fulfillment
+center
+   19 
+Page 38 of 40
+U. Mookerjee
+Impact of e-commerce onlocal retail markets…
+Page 39 of 40
+   19 
+References
+About Amazon (2021) Our Facilities. https://www.aboutamazon.com/workplace/facilities
+Amazon (2021) Small business empowerment report 2021. https://assets.aboutamazon.com/9b/84/
+05cb2fc14da18e4574a5132f675a/amazon-smb-report-2021.pdf
+Athey S, Imbens GW (2022) Design-based analysis in difference-in-differences settings with staggered
+adoption. J Econom 226(1):62–79
+Autor HD (2001) Wiring the labor market. J Econ Perspect 15(1):25–40
+Autor DH(2015)Whyaretherestill so many jobs? The history and future of workplace automation. J Econ
+Persp 29:3–30
+AutorDH,DornD,HansonGH(2013)TheChinasyndrome:locallabormarketeffectsofimportcompetition
+in the United States. Am Econ Rev 103(6):2121–2168
+BigCommerce(2021)Thehistory and evolution of retail stores: from mom and pop to online shops. https://
+www.bigcommerce.com/blog/retail/
+Borusyak K (2018) Hull P (2020) Non-random exposure to exogenous shocks: theory and applications
+and xavier jaravel, revisiting event study designs, SSRN Scholarly Paper ID 2826228. Social Science
+Research Network, Rochester, New York
+Business Insider (2021) Amazon employees: 1 of 153 U.S. workers are employed at Amazon.https://www.
+businessinsider.com/amazon-employees-number-1-of-153-us-workers-head-count-2021-7
+Chava S, Oettl A, Singh M (2018) Impact Of e-commerce on employees at brick-and-mortar retailers. 29th
+Annual conference on financial economics & accounting. Georgia Tech Scheller College of Business
+Research Paper, pp. 18–23. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3197326
+de Chaisemartin C, D’Haultfoeuille X (2020) Two-way fixed effects estimators with heterogeneous treat
+ment effects. Am Econ Rev 110(9):2964–2996
+DomsME,JarminRS,KlimekSD(2004)InformationtechnologyinvestmentandfirmperformanceinU.S.
+retail trade. Econ Innov New Technol 13(7):595–613
+Federal Reserve Bank of St. Louis (2018) all employees: retail trade: department stores.
+https://fred.stlouisfed.org/series/CES4245210001
+FederalReserveBankofSt.Louis(2025)E-commerceretailsalesasapercentoftotalsales(ECOMPCTSA).
+https://fred.stlouisfed.org/series/ECOMPCTSA
+Forbes (2019) Amazon: small business friend or foe?
+https://www.forbes.com/sites/brockblake/2019/09/23/amazon-friend-or-foe/
+Forbes (2021) Amazon’s third-party marketplace is its cash cow, not AWS. https://www.forbes.com/sites/
+pamdanziger/2021/02/05/amazons-third-party-marketplace-is-its-cash-cow-not-aws/
+Foster L, Haltiwanger J, Krizan CJ (2006) Market selection, reallocation, and restructuring in the us retail
+trade sector in the 1990s. Rev Econ Stat 88(4):748–58
+Gardner J, Thakral N, Linh TT and Luther Y (2021) Two stage difference-in-differences. Working Paper
+GoodJobsFirst(2016)Willamazonfoolustwice?Whystateandlocalgovernmentsshouldstopsubsidizing
+the online giant’s growing distribution network. https://goodjobsfirst.org/will-amazon-fool-us-twice
+why-state-and-local-governments-should-stop-subsidizing-online/
+Goodman-BaconA(2021)Difference-in-differenceswithvariationintreatmenttiming.JEcon225(2):254
+277
+Grandon EE, Pearson MJ (2004) Electronic commerce adoption an empirical study of small and medium
+USbusinesses. Info Manage 42(1):197–216
+Hortacsu A, Syverson C (2015) The ongoing evolution of US retail: a format tug-of-war. J Econ Persp
+29(4):89–112
+Houde JF, Newberry P, Seim K (2017) Nexus tax laws and economies of density in e-commerce: a study of
+amazon’s fulfillment center network. National Bureau Of Economic Research, Working Paper 23361
+Imai K, Kim IS, Wang EH (2023) Matching methods for causal inference with time-series cross-sectional
+data. Am J Polit Sci 67(3):587–605
+Institute for competitiveness and prosperity (2010) Management matters in retail. Working Paper 13
+Institute for Local Self-Reliance (2016) Amazon’s stranglehold: how the company’s tightening
+grip is stifling competition, eroding jobs, and threatening communities. https://ilsr.org/wp
+content/uploads/2020/04/ILSR_AmazonReport_final.pdf
+Jones J, Zipperer B (2018) Unfulfilled promises. Amazon fulfillment centers do not generate broad-based
+employment growth, Economic Policy Institute
+123
+   19 
+Page 40 of 40
+U. Mookerjee
+Lightspeed HQ (2015) The history of retail: a timeline. https://www.lightspeedhq.com/blog/the-history
+of-retail-a-timeline/
+Mandel M (2018) How ecommerce creates jobs and reduces inequality. Progressive Policy Institute
+MarTech (2017) 60% of SMBs report half or more of online sales come from Amazon, Jet
+&eBay[Survey]. https://martech.org/60-smbs-report-half-online-sales-come-amazon-jet-ebay/#:~:
+text=According%20to%20a%20recent%20survey,to%20the%20three%20online%20marketplaces
+Moreno, Antonio, Santiago Gallino and Amy Klopfenstein (2021) Buy online, pickup in store: evaluating
+an omnichannel intervention in retail. Harvard Business School Case Collection
+Pathania, V, S Nettessine (2022) The impact of amazon facilities on local economies. SSRN Preprint
+Pew Research Center (2016) Online shopping and e-commerce. https://www.pewresearch.org/internet/
+2016/12/19/online-shopping-and-purchasing-preferences/
+Statista (2019) Number of amazon prime members in the United States as of december 2019.’ https://www.
+statista.com/statistics/546894/number-of-amazon-prime-paying-members/
+Statista (2023) Market share of leading retail e-commerce companies in the United States in 2023. https://
+www.statista.com/statistics/274255/market-share-of-the-leading-retailers-in-us-e-commerce/
+Statista (2025) Share of paid units sold by third-party sellers on Amazon platform from 2nd quarter 2007
+to 2nd quarter 2025.’https://www.statista.com/statistics/259782/third-party-seller-share-of-amazon
+platform/
+Sun L, Abraham S (2021) Estimating dynamic treatment effects in event studies with heterogeneous treat
+ment effects. J Econ 225(2):175–199
+TechNet(2024)Nationalsmallretailerattitudessurvey.https://www.technet.org/wp-content/uploads/2024/
+12/TechNet-Ipsos-Small-Retail-Survey-Toplines.pdf
+TheGuardian (2015) Third-party sellers and Amazon- a double-edged sword in e-commerce. https://www.
+theguardian.com/technology/2015/jun/23/amazon-marketplace-third-party-seller-faustian-pact
+WRALNews(2018)Amazon’swarehousesdon’tboostoverallemployment,studyfinds.https://www.wral.
+com/story/amazon-s-warehouses-don-t-boost-overall-employment-study-finds/17306681/
+Publisher’s Note Springer Nature remains neutral with regard to jurisdictional claims in published maps
+and institutional affiliations.
+Springer Nature or its licensor (e.g. a society or other partner) holds exclusive rights to this article under
+a publishing agreement with the author(s) or other rightsholder(s); author self-archiving of the accepted
+manuscriptversionofthisarticleissolelygovernedbythetermsofsuchpublishingagreementandapplicable
+law.
+123

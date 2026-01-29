@@ -1,0 +1,2157 @@
+Annals of Operations Research
+https://doi.org/10.1007/s10479-026-07051-x
+ORIGINAL RESEARCH
+Multi-echelon location routing problem with vehicle-drone
+delivery and transshipment for cold chain transportation
+Yanfeng Li1
+· Jie Zhang2
+Received: 2 April 2025 / Accepted: 9 January 2026
+©TheAuthor(s), under exclusive licence to Springer Science+Business Media, LLC, part of Springer Nature 2026
+Abstract
+Toaddressthechallengesofcoldchaindistributionforperishablegoodsduringdisruptionsor
+emergency situations such as infectious diseases and global epidemic, this paper investigates
+an integrated optimization problem called the multi-echelon location routing problem with
+vehicle-dronedelivery(ME-LRP-VD).Specifically,itisdefinedasanoveltransportationsys
+tem integrating two types of facility location, multi-echelon path planning, and collaborative
+operation between vehicles and drones. This mode facilitates the consolidation and trans
+shipment of fresh goods via the distribution transshipment station (DTS) in the first-echelon
+transportation. While in the second-echelon distribution, this mode provides pickup services
+for normal residents and permits the launch and landing of drones to serve quarantined resi
+dents via the contactless delivery site (CDS). Given this, we explicitly model various types of
+economic costs, travel time of heterogeneous vehicles and drones, the risk of virus transmis
+sion, and quality decay of fresh products, develop a mixed-integer programming model with
+multi-objective optimization. Furthermore, we propose a hybrid multi-objective metaheuris
+tic approach based on decomposition techniques in which a bi-level clustering algorithm
+with the spatio-temporal feature is designed to obtain the location strategies of distribution
+transshipment sites and contactless delivery sites, followed by a cooperative multi-objective
+evolutionary algorithm with the local search rule is applied to explore the Pareto solution
+for multi-echelonvehicle-droneroutes.Finally,extensivecomputationalexperimentsdemon
+strate theeffectivenessofourproposedalgorithmineachsolutionundervariousscaleproblem
+instances. A real-world implementation case in Chongqing, China, further validates the oper
+ational feasibility of ME-LRP-VD system. The sensitivity analysis is conducted to analyze
+key parameters and further provides some management implications regarding perishable
+product distribution in case of some disruptions or emergency situation.
+Keywords Multi-echelon · Location routing problem · Vehicle-drone routes · Cold chain ·
+Multi-objective metaheuristic algorithm
+B JieZhang
+jiezhang_5@163.com
+1
+2
+School of Economics and Management, Southwest Jiaotong University, Chengdu 610031, China
+School of Traffic and Transportation, Chongqing Jiaotong University, Chongqing 400074, China
+123
+Annals of Operations Research
+1 Introduction
+With the outbreak of infectious diseases, the urban logistics distribution of fresh food is
+facing extremely severe challenges. Driven by some disruptions or emergency situation such
+as the infectious diseases and global epidemic, “all people are desperately scrambling food
+online” has led to a surge in demand for cold chain transportation of refrigerated food,
+vegetables, fruits, and frozen products (Cnr.cn, 2020). Direct vehicle delivery into residential
+communities involves direct contact between personnel and vehicles, potentially increasing
+the risk of infection for delivery personnel, vehicles, and residents in other areas, so that
+vehicles and personnel of take-out and delivery services are prohibited from entering the
+residential area (Jiang et al., 2023; Mei, 2022). When traffic restrictions are implemented on
+certain roads, they may affect the normal travel of vehicles. Many communities have even
+taken intervention measures to isolate some infected residents at home. Therefore, relying
+solely on vehicle delivery cannot effectively provide high-quality cold chain services to some
+isolated residents and gated residential community.
+Drone technology, as an innovative tool for transportation and distribution, is continually
+evolving and growing in its application in last-mile delivery (Kim et al., 2021; Wang, 2025).
+In many cases, drones are generally performed in collaboration with vehicles to finish their
+work (Carlsson & Song, 2018; Chung et al., 2020; Meng et al., 2024). In the event of an
+infectious disease or an epidemic, logistics companies should adopt “contactless” delivery
+technology to alleviate the shortage of delivery personnel and the risk of cross-infection
+during the epidemic (Chen, 2020). Especially when the warehouse is located in the suburbs
+and the epidemic areas are scattered in urban areas, high distribution costs will be incurred
+if refrigerated vehicles still travel directly from the warehouse to various epidemic areas.
+When faced with this scenario, the multi-echelon distribution system with transshipment is
+frequently usedbylogistics companiestotransportanddistribute variouscommodities(Cuda
+et al., 2015;Yuetal.,2011).
+Given this background, it is necessary to introduce a new delivery method, namely trans
+shipment via refrigerated transport vehicles and contactless delivery via drones. Govindan
+et al. (2014) consider that continuously improving the multi-echelon integrated system can
+facilitate the efficient completion of cold chain distribution. This model consolidates and
+transships goods through the distribution transshipment stations. Two types of vehicles and
+drones are used during first-echelon transportation and second-echelon distribution, respec
+tively. The scenario studied in this paper is a multi-echelon distribution model in which the
+warehouse is in the suburbs, and the distribution transshipment station (DTS) and contactless
+delivery site (CDS) are in urban areas. Chen et al. (2019) and Acevedo-Chedid et al., (2023)
+believe that location allocation problem is regarded as the foundation for solving the vehicle
+routing problem, and rational site selection strategies can help reduce overall logistics and
+distribution costs. Therefore, how to determine the locations of DTS and CDS sites in the
+network and combining them with subsequent route planning is crucial.
+We believe that this paper is the first to consider both two types of facility location and
+multi-echelon routing planning in a multi-echelon vehicle-drone mode while simultaneously
+considering the transshipment management, the risk of virus transmission, and quality decay
+of fresh products in an epidemic situation. The problem is definedas amulti-echelon location
+routing optimization problem with vehicle-drone delivery (ME-LRP-VD) for fresh products,
+which is an extension to the vehicle routing problem with drones and location allocation
+problem while taking low economic cost and high delivery efficiency as the objective.
+123
+Annals of Operations Research
+Compared with the traditional concept of the multi-echelon vehicle routing problem
+(Tadaros et al., 2024) and the multi-echelon location problem (Rohaninejad et al., 2018),
+the ME-LRP-VDconceptindicates a type of facility for parcel transshipment and consolida
+tion as wellasanothertypeoftemporaryinfrastructureforvehicle-dronecontactlessdelivery.
+ME-LRP-VD is a comprehensive problem related to several issues, including the location
+problem of two types of site nodes (i.e., distribution transshipment stations and “contactless”
+delivery sites), the route optimization problem of three types of delivery routes (i.e., the driv
+ing route of transportation vehicles, the driving route of distribution vehicles, and the flight
+route of drones). Thefirstechelonoftransportation is that refrigerated transportation vehicles
+transport fresh products from the warehouse to transshipment stations. The second echelon
+of distribution uses refrigerated distribution vehicles and drones to complete “contactless”
+distribution from the transshipment station to the epidemic area. We use different types of
+vehicles for multi-echelon distribution scenarios. Combined with some emerging concepts,
+such as drones, smart express cabinets, etc., it can not only effectively solve the problem of
+urban traffic restrictions, but also further optimize terminal distribution.
+This paper is organized as follows. In Sect. 2, the related work and literature are reviewed,
+wheretheuniquefeaturesofthisproblemarehighlighted.Section3presentsaformalproblem
+descriptionandmodelsitasabi-objectivemathematicalformulation.Thedetailsofthehybrid
+multi-objective metaheuristic algorithm are introduced in Sect. 4. Section 5 gives the results
+and analysis related to the experiments. Some conclusions of the study and an outlook on
+possible future research are presented in Sect. 6.
+2 Literature review
+In this section, we successively summarize some literature about the specific problems of the
+entire problem setting. We focus on four main fields of literature and analyze the gap in the
+previous literature that is filled by this work at hand.
+2.1 Freshproductdeliveryproblem
+Most related research on fresh product distribution mainly focuses on the vehicle routing
+optimization problem of fresh food and perishable products. Some general characteris
+tics considered in model construction focused on time window limits, temperature control,
+and product perishability (Alvarez et al., 2020; Cai & Zhou, 2014;Chenet al., 2018;
+Neves-Moreira et al., 2019). Osvald and Stirn (2008) proposed a fresh product distribu
+tion optimization model based on time window constraints and product freshness. Keizer
+et al. (2017) believed that the quality of fresh agricultural products in the network design
+model is affected by logistics time, heterogeneity of the commodity itself, and distribution
+temperature. Ahmadi-Javid et al. (2023) constructed a mixed integer linear programming
+model to minimize the sum of the energy cost of the warehouse and the transportation cost
+of delivering customer needs. In addition, some studies typically consider quality decay and
+time-related value loss in cold chain transportation as well (Albrecht & Steinrücke, 2018;
+Chan et al., 2020;Dengetal.,2023). For example, Liang et al. (2020) combined the factors
+of temperature and humidity, and collaboratively optimized vehicle routes as well as distri
+bution environmental conditions to reduce the quality loss of perishable products. Deng et al.
+123
+Annals of Operations Research
+(2023) studied the problem of pick-up and delivery with time windows in cold chain trans
+portation. By quantifying the impact of time on the quality of multiple perishable products,
+they constructed a set partitioning model with incompatibility constraints.
+2.2 Location-routing problemoffreshproducts
+To the best of our knowledge, incorporating the impact of location problems when planning
+vehicleroutescaneffectivelyreducetheoveralllogisticsdistributioncost(Drexl&Schneider,
+2015). The location routing problem of fresh products (LRP-FP) has received great interest
+from practitioners and scholars in recent years (Devapriya et al., 2017; Hashemi-Amiri et al.,
+2023;Rahmanifaretal.,2024;Zhouetal.,2023).Forinstance,Golestani etal. (2021)studied
+a bi-objective green LRP-FP for collaborative distribution of multiple types of perishable
+products at different storage temperatures. Acevedo-Chedid et al., (2023) considered time
+windows,optimalterminalcenterlocations, andheterogeneousfleetswithlimitedcapacityto
+study LRP-FP. They established a mixed integer nonlinear optimization model to minimize
+logistics costs and environmental impacts.
+Somescholars have also gradually paid attention to the problem of multi-echelon location
+routing optimization of fresh food (Chen et al., 2024;Govindanetal.,2014; Lan et al., 2022;
+Liu et al., 2021). Govindan et al. (2014) studied a two-echelon location-routing problem
+with time windows based on the supply chain network of perishable food. Bala et al. (2017)
+integrated the characteristics of production planning, facility location selection, and route
+optimization to study a two-echelon LRP-FP. A metaheuristic algorithm was designed based
+on a pre-flow propulsion algorithm and simulated annealing to solve the problem. Liu et al.
+(2021) combined the new perspective of economic cost, freshness, and carbon emission
+factors, and proposed a multi-objective optimization model for perishable products. The
+integrated model can significantly improve the efficiency of supply chain management for
+perishable goods from a global optimization perspective. However, under the influence of the
+epidemic of infectious diseases, there are few studies on the optimization of multi-echelon
+location routing distribution in cold chain transportation for fresh products.
+2.3 Vehicle-drone routing problem
+Given the particularity of the epidemic background, traditional vehicle distribution meth
+ods may be restricted in the closed environment of the epidemic area. Cold chain logistics
+companies should adopt “contactless” distribution technology completed by vehicle-drone
+collaboration. Macrina et al. (2020) proposed that the vehicle routing problem with drones
+(VRPD) covers two main situations. One category is composed of multiple trucks and mul
+tiple drones, and each node is visited by vehicles or drones. The other scenario is composed
+of one or more trucks and one or more drones, and each node is only visited by drones. Mur
+ray and Chu (2015) proposed the traveling salesman problem in the context of collaborative
+delivery by trucks and drones. To reduce the risk of virus transmission and total distribu
+tion costs, it is necessary to consider how to effectively utilize the collaborative delivery
+characteristics of vehicles and drones to reasonably allocate delivery tasks. Current research
+on vehicle-drone collaborative delivery mainly focuses on differentiated treatment from the
+selection of launch and landing locations of drones, the number of drones that vehicles can
+carry, and the joint operation methods of vehicles and drones, etc. (Chang and Lee, 2018;
+Boysen et al., 2018;Ham,2018; Dell’Amico et al., 2020; Dukkanci et al., 2024).
+123
+Annals of Operations Research
+Carlsson and Song (2018) considered that vehicles and drones can meet at any location.
+KarakandAbdelghany(2019)regardedvehiclesascarriersofdrones,andalldeliveryservices
+werecompletedonlybydrones.Chauhanetal.(2019)combineddrones’energyconsumption
+andflightdistanceconstraintstoproposeamaximumcoveragefacilitylocationproblem.Kim
+et al. (2019) studied the uncertainty of drone operating conditions and proposed a stochastic
+modeling framework to determine the location and transport capacity of drone facilities
+to effectively respond to disasters. Moshref-Javadi et al. (2020) took into account the load
+capacity and flight time limitations to improve the efficiency of the delivery system and
+reduce the total waiting time for customers. Faiz et al. (2024) proposed a two-echelon routing
+problem, where trucks performed the first-echelon transportation and drones performed the
+second-echelon transportation. When trucks could not reach the trapped people directly, they
+transported drones from warehouses to some intermediate satellite locations to complete
+the rescue mission. Meng et al. (2024) proposed a truck-drone routing problem with time
+windows, in which each truck is equipped with a drone, to provide pickup and delivery
+services to a group of customers at the lowest cost.
+2.4 Multi-objective optimization
+Research in related fields considers multi-objective optimization problem (MOP) focusing
+on considerations of total distribution cost, customer satisfaction, product freshness, num
+ber of vehicles used, customer waiting time, vehicle travel distance, carbon emissions, etc.
+(Bortolini et al., 2016;Lengetal.,2020; Liang et al., 2023; Liu et al., 2021; Mahapatra
+et al., 2020;Mogaleetal.,2020). To solve the multi-echelon LRP-FP, Govindan et al. (2014)
+applied Multi-objective Particle Swarm optimization and Adaptive Multi-objective Variable
+Neighborhood Search algorithms to find the optimal distribution solution. Martínez-Salazar
+et al. (2014) proposed a bi-objective minimization of economic cost and workload balancing
+model for the driver. Scattered Point Tabu Search and Non-dominant Sorting Genetic Algo
+rithm II (NSGA-II) were utilized to solve the model. Esmizadeh et al. (2021) proposed a
+multi-objective mixed-integer linear programming to model a cold chain with complemen
+tary operations on a hierarchical hub network and applied a genetic algorithm in large-sized
+networks. Hosseini et al. (2023) proposed a blood supply chain network design problem to
+minimize the total cost, transportation time, and unsatisfied demand as well as maximize
+the total reliability, and they applied the intelligent NSGA-II algorithm to solve this prob
+lem. Acevedo-Chedid et al., (2023) applied various solution strategies to solve the LRP-FP,
+including experimental tests with Pareto optimization” and “weighted sum” methods. Wu
+and Dong (2023) proposed an ecological economic routing optimization problem for the
+distribution of perishable goods. A mixed integer scale model for bi-objective optimization
+of vehicle fuel consumption and perishables decay value was constructed, and the Gurobi
+solver was applied to solve the model through weighted normalization.
+2.5 Multi-objective optimization
+Table 1 summarizes the research in the aforementioned directions and briefly outlines the
+problem characteristics identified in the literature discussed earlier. However, we found that
+the aforementioned studies have certain limitations: (i) The related literature review revealed
+thatresearchonthelocationallocationandroutingplanningattractedlessattention,especially
+on vehicle-drone scheduling and distribution transshipment of network sites belonging to
+different echelons.(ii)Althoughmethodsevenexistforthedistributionplanningofperishable
+123
+AnnalsofOperationsResearch
+Table1Overviewofproblemcharacteristicsusedinrelevantliterature
+Problem
+type
+References Problemfeatures Objective Size Approach
+LRP Govindanetal.
+(2014)
+Two-echelonandtime
+windows
+Costandenvi
+ronmental
+impact
+60 Heuristic
+LRP Liuetal.(2021) Location-inventory-routing
+integration
+Cost,carbon
+emission,and
+freshness
+31 Heuristic
+LRP Golestanietal.
+(2021)
+Multi-typeproducts Costand
+quality
+25 Exact
+LRP Acevedo-Chedid
+etal.,(2023)
+Cross-dockingand
+heterogeneousfleets
+Costandenvi
+ronmental
+impact
+8 Exact
+LRP Chenetal.(2024) Pickupanddelivery Cost 111 Heuristic
+VRPD MurrayandChu
+(2015)
+1-Vehicle,1-Drone Time 20 Heuristic
+VRPD Carlssonand
+Song(2018)
+1-Vehicle,1-Drone Time 100 Heuristic
+VRPD Ham(2018) m-Vehicle,n-Drone Time 100 Heuristic
+VRPD Moshref-Javadi
+etal.(2020)
+1-Vehicle,m-Drone Time 159 Heuristic
+VRPD Robertiand
+Ruthmair
+(2021)
+1-Vehicle,1-Drone Time 39 Exact
+VRPD Mengetal.
+(2024)
+1-Vehicle,1-Drone Cost 50 Heuristic
+MOP Lengetal.(2020) Multipletypesofcargo Costand
+qualityof
+decay
+60 Heuristic
+MOP Esmizadehetal.
+(2021)
+Threelevelsoffreshness
+timewindows
+Cost,time,and
+satisfaction
+18 Heuristic
+MOP Liangetal.
+(2023)
+Multi-period Costand
+customer
+satisfaction
+100 Heuristic
+MOP WuandDong
+(2023)
+Nonlinearfuelconsumption
+model
+Fuel
+consumption
+and
+perishables
+decayvalue
+107 Exact
+LRP+
+VRPD
++MOP
+Thispaper m-Truck,n-Drone Cost,time,and
+risk
+120 Heuristic
+123
+Annals of Operations Research
+goods and vehicle-drone dispatching, to the best of our knowledge, none of these methods
+focus on the optimization of multi-echelon location routing structures in the context of some
+disruptions or emergency situation (e.g., infectious diseases, post-disaster scenario. etc.). (iii)
+Furthermore, they did not model the value loss and transmission risk in the road network by
+introducing external factors of the epidemic.
+The main contributions of this paper are described as follows:
+i.
+ii.
+Weintegratethemulti-echelonlocationroutingproblemandvehicle-droneroutingprob
+lem to consider the synergy between them. To achieve low economic cost and high
+distribution efficiency for cold chain transportation in the sudden disruptions or emer
+gency environment, the proposed synergistic optimization framework incorporates key
+practical considerations, including the selection of two types of sites (i.e., DTS and
+CDS), vehicle-drone scheduling, temperature control, and transmission risk in the road
+network.
+The development of a new hybrid multi-objective metaheuristic approach (HMOM) for
+ME-LRP-VD that outperforms existing algorithms in a large number of instance tests.
+Namely, a bi-level clustering algorithm yields location strategies of DTS and EDS sites
+as well a cooperative multi-objective evolutionary algorithm that can explore the Pareto
+solution for the multi-echelon vehicle-drone route.
+iii. Extensive numerical experiments prove the effectiveness and applicability of the pro
+posed solution methodology in different scale instances. Also, the algorithm is applied
+to a real-world case to demonstrate valuable managerial implications. We obtain var
+ious optimal strategies that benefit from location analysis of DTS and EDS sites and
+vehicle-drone routes of multi-echelon networks.
+3 Problemstatementandmathematicalmodel
+3.1 Problemstatement
+In the multi-echelon location routing problem for cold chain transportation with vehicle
+drone delivery (ME-LRP-VD), logistic enterprises deliver fresh products to their customers
+through a multi-echelon logistics network with transshipment and “contactless” delivery. A
+visual example of the ME-LRP-VD solution is depicted in Fig. 1. Namely, the ME-LRP
+VDintegrates the multi-echelon vehicle-drone delivery routing problem (VRPD-2E) as well
+as the location problem of distribution transshipment stations and contactless delivery sites
+(LAP-2D).
+Firstly, we can ascertain that the VRPD-2E covers two types of vehicles and three types
+of delivery routes, namely the travel route for transport vehicles from the warehouse to DTS,
+the travel route for delivery vehicles from DTS to CDS, and the flight route for drones from
+CDStoquarantined residents. Secondly, it can also be observed that LAP-2D in the logistics
+network includes two types of location decisions, namely which sites among the potential
+sites becomedistribution transshipment stations (DTS) andwhichsites become“contactless”
+delivery sites (CDS). Either potential site cannot be selected to operate as both types of sites
+simultaneously. Note that DTS is defined as each station that a refrigerated transport vehicle
+must pass through and the starting point of a refrigerated delivery vehicle. CDS stands for
+the locations where drones are launched and collected, as well as the pick-up locations for
+normal residents to obtain fresh goods.
+123
+Annals of Operations Research
+Fig. 1 Generalized illustration of the ME-LRP-VD logistics network
+For instance, 10 potential sites are selected as CDS locations and 3 potential sites are
+designated as DTS locations in the ME-LRP-VD network. The refrigerated transport vehicle
+departs from the depot and transports goods to each DTS along the route (Depot → DTS14
+→DTS9 →DTS1 →Depot). One refrigerated delivery vehicle departs from DTS9 and
+distributes goods to each CDS via the route (DTS9 → CDS6 → CDS7→CDS8→DTS9).
+Residents C4, C5, and C6 are assigned to CDS8 for pickup. One drone launches from CDS7
+and follows the flight route (CDS7 → C7 → CDS8) to complete delivery services for the
+remaining isolated resident C6.
+3.2 Symboldefinition
+The ME-LRP-VD network is presented on a complete directed graph G 
+node set V 
+(V, A) with
+N ∪S∪{0} and arc set A {(i, j)|i, j ∈ V,i j},whereN is the hub
+set of potential sites (i.e., which can be opened as DTSs or CDSs), S is the resident set, 0
+as the warehouse in the network. Any potential site cannot be selected to be both types of
+sites simultaneously. S is composed of the node sets of normal residents S1 and quarantined
+123
+Annals of Operations Research
+residents S2. We consider a set of drone sorties P for quarantined residents’ requests with
+p ∈ P,wherep i, j,m is a potential drone mission, and i,m ∈ N,i m, j ∈ S2.
+The takeoff and landing points for drones must not be the same location. The drone’s flight
+sortie consists of three nodes: the initial launch location, labeled as node i; the destination
+where the drone visits a quarantined resident, designated as node j; and the recovery position
+where the drone returns, identified as node m. P+
+i represents all sorties based on set P with a
+takeoff task at node i. P−
+m represents all sorties based on set P with a return task at node m.
+Refrigerated transportation vehicles K1 are used for transportation from depot to DTS,
+while refrigerated distribution vehicles K2 are used for distribution from DTS to CDS. All
+vehicles have temperature control settings. When the temperature control of the refrigerated
+vehicle k is set to w, the freshness decay coefficient of fresh products is αwk.Wedefineγw as
+the infection probability of fresh products when the temperature control of the refrigerated
+vehicle is set to w. We reasonably defines λ as the highest number of people who can collect
+goods from the CDS node during the same period to reduce virus transmission. Table 2
+summarizes the other notation used in the model formulation.
+Asmentioned above, the core decision of the proposed ME-LRP-VD is the vehicle-drone
+routing planning in the combined multi-echelon location problem (i.e., the site location
+of DTS and CDS). The purpose of the general assumptions we provide is to simplify the
+model for the sake of analysis and theoretical derivation. This paper adopts some general
+assumptions to clarify the operation scenarios.
+Wemakeroutingdecisionbasedontheonthetransportation routes from the depot to DTS
+(i.e., first echelon), the distribution routes from DTS to CDS and the flying routes from CDS
+to quarantined residents (i.e., second echelon). When these goods are delivered to the CDS
+node, normal residents may use different modes of transportation (e.g., bicycles, walking,
+etc.) to pick up their goods. Therefore, Assumption 1 is given as follows: After fresh products
+are delivered from DTS to CDS by refrigerated distribution vehicles, normal residents can
+pick up the goods at the CDS node. The detailed routes from the CDS to all normal residents
+are not discussed.
+In real-world, distribution centers or temporary stations typically stock sufficient spare
+batteriestosupportcontinuousdroneoperations,eliminatingconcernsaboutbatteryshortages
+during peak periods. Additionally, battery replacement for drones is a standardized operation
+and its duration (usually 1–2 min) is negligible compared to the total delivery time. This
+assumption simplifies the model without distorting the trade-off between drone range and
+delivery efficiency. Therefore, Assumption 2 is given as follows: the drone can regain power
+by replacing the batteries without being restricted by the number of replaceable batteries,
+and the time required for each replacement can be ignored.
+Euclidean distance is used to calculate the distance between nodes because it directly
+reflects the straight-line distance on a two-dimensional plane. Its calculation is straightfor
+ward and approximates real-world geographic conditions, making it convenient for quickly
+estimating transportation costs and time. For velocity, vehicles and drones can be operated at
+a fixed speed by ignoring short-term speed fluctuations (e.g., temporary traffic lights) allows
+the model to focus on optimizing route structure rather than transient disturbances. There
+fore, Assumption 3 is given as follows: each journey is made up of various interconnected
+nodes in the network, with the distance between them being calculated in terms of Euclidean
+distance. Both the heterogeneous vehicle and the homogeneous drone go through each trip
+at a fixed velocity.
+To avoid overcomplicating the model by having different temperature control settings
+for various fresh products in the vehicle (which would introduce unnecessary complexity to
+vehicle-drone strategies), we primarily focus on exploring the core logic of vehicle-drone
+123
+Annals of Operations Research
+Table 2 Notation used in the mathematical model
+Sets:
+N
+S
+K
+N0
+C
+P
+W
+Parameters:
+qi
+ei ,li
+Ei
+Qd
+Qk
+vd
+vk
+βij
+βij
+cki
+ci n
+cg
+gw
+g∗ w
+tmax
+E
+μ
+ϕ
+σ
+Variables:
+xk
+ij
+od
+ij
+fis
+fni
+yk p
+Set of potential sites
+Set of resident nodes,S 
+S1 ∪ S2
+Set of heterogeneous refrigerated vehicles,K 
+K1 ∪ K2
+The hub set of locations on the transportation vehicles’ travel, N0 
+Set of nodes on the drones’ flight,C 
+N ∪S2
+Set of possible drone sorties, represented by the tuples p 
+N ∪{0}
+i, j,m,p ∈ P
+Set of temperature control conditions
+The demand of the resident i ∈ S
+Service time window of resident i ∈ S
+Service capacity of each potential site i ∈ N
+Capacity of drone d
+Capacity of vehicle k,Qk 
+Flight speed of drone d
+Qk1 ∪ Qk2
+Driving speed of vehicle k,vk 
+vk1 ∪vk2
+Flight distance of the drone from node i to j
+Travel distance of the vehicle from node i to j
+Transport cost per distance unit for the transportation vehicles (ck1,∀k ∈ K1)orthe
+distribution vehicles (ck2, ∀k ∈ K2)∈ K2
+The fixed cost for operating a DTS (c1 n)oraCDS(c2 n)
+The price per weight unit of fresh products
+The temperature control cost per unit time of transport vehicles
+The temperature control cost per unit time of distribution vehicles
+Maximum duration time limit of each route
+The drone’s maximum battery capacity
+The power consumption per weight unit per time unit of drones
+The value loss per weight unit per time unit of fresh products without temperature
+control
+Risk coefficient to quantify the risk of virus transmission
+1 if vehicle k passes through the arc (i, j), ∀i, j ∈ N0 ∪ N, i
+0 otherwise
+1 if drone d passes through the arc (i, j), ∀i, j ∈ C,i
+j, k ∈ K1 ∪K2,
+j, d ∈ D, 0otherwise
+1 if the CDS node i serves the resident s, ∀i ∈ N,s ∈ S, 0 otherwise
+1 if the CDS node i is served by the DTS node n, ∀i,s ∈ N,i s, 0 otherwise
+1 if the sortie p is applied in the path of the distribution vehicle k, ∀p ∈ P,k ∈ K2,
+0 otherwise
+123
+Annals of Operations Research
+Table 2 (continued)
+yk
+iw
+zi n
+qn
+i
+td
+i
+tk
+i
+Qd
+i
+ptk∗
+i
+CTk
+i
+Eid
+Eijd
+1 if the fresh goods at site i are delivered by vehicle k with temperature control w,
+0 otherwise
+1ifthenth potential site is opened as a DTS (z1 n 1) or a CDS (z2 n 1), 0
+otherwise
+Quantities of products delivered by DTSs (q1
+i )oraCDSs(q2
+i )
+The time when drone d arrives at the quarantined resident i ∈ S2
+The time when transport vehicle k arrives at the DTS node i ∈ N0
+The load of the drone d when it leaves node i,∀i ∈ C
+The time when delivery vehicle k arrives at the CDS node i ∈ N
+The time when the drone on delivery vehicle k arrives at CDS node,∀i ∈ N,k ∈ K2
+The power value of the drone d leaving from the node i,∀i ∈ C,d ∈ D
+The power consumption of drone d flies over the arc (i, j),∀i, j ∈ C,i
+j, d ∈ D
+collaborative operations. Therefore, Assumption 4 is given as follows: The products required
+by residents belong to the same type, and the required temperature control ranges of all
+products are also the same. Only refrigerated transport and delivery vehicles can adjust the
+temperature control, while drones cannot set the temperature control.
+3.3 Modelformulation
+3.3.1 Multi-objective function
+Indicator of economic cost (F1) includes transportation cost f1, fixedcost f2, tempera
+ture control cost f3, and value loss of fresh goods f4. Since the refrigerated truck can
+make temperature control adjustments throughout the delivery process, the loss produced
+in this process is related to the goal temperature of temperature control. Note that cg · q1
+i
+and cg · q2
+i represent the initial value of fresh products in the first echelon transportation
+and the second echelon distribution. The freshness of fresh goods varies within the inter
+val [1, 0), and the initial freshness of fresh goods is considered to be 1. e−αwk·tk
+i and
+e−αwk·ptk∗
+i
+represent the exponential decay models for calculating the freshness of fresh
+goods over time in first echelon transportation and the second echelon distribution, respec
+tively. Then, cg · q1
+i · e−αwk·tk
+i and cg · q2
+i · e−αwk·ptk∗
+i
+are utilized to compute the current
+value of fresh products. Next, the initial value minus the current value, i.e., cg · q1
+i minus
+cg · q1
+i · e−αwk·tk
+i , cg · q2
+i minus cg · q2
+i · e−αwk·ptk∗
+i
+, the value loss cost of fresh products
+can be further obtained. Namely, cg · q1
+i − cg · q1
+i · e−αwk·tk
+i 
+cg · q2
+i − cg · q2
+i · e−αwk·ptk∗
+i
+cg · q2
+i · (1 − e−αwk·ptk∗
+i
+cg · q1
+i · (1 − e−αwk·tk
+i )and
+) define the one method to calculate
+the value loss. However, we consider that the temperature control of the drone cannot be set
+123
+AnnalsofOperationsResearch
+duringflight,weusethegeneral formofvalueloss tocalculateit.Finally,weadopt two
+methodsforcalculatingvalueloss,asshowninEq. (4).Forcalculationdetailsofvarious
+costs,pleaserefertotheformulas(1)to(4).
+f1
+i∈N0 j∈N0k∈K1
+ck1·βij ·xk
+ij +
+i∈N j∈Nk∈K2
+ck2·βij ·xk
+ij +
+i∈C j∈Cd∈D
+cd ·βij ·od
+ij
+(1)
+f2
+n∈N
+c1
+n ·z1
+n+c2
+n ·z2
+n (2)
+f3
+i∈N0w∈Wk∈K1
+gw·tk
+i ·yk
+iw+
+i∈Nw∈Wk∈K2
+g∗
+w·ptk∗
+i ·yk
+iw (3)
+f4 cg·
+⎛
+⎝
+i∈N0w∈Wk∈K1
+q1
+i ·(1−e−αwk·t k
+i )·yk
+iw+
+i∈Nw∈Wk∈K2
+q2
+i ·(1−e−αwk·pt k∗
+i )·yk
+iw
+⎞
+⎠+
+d∈Di∈S2
+qi ·ϕ·td
+i
+(4)
+Further,theindicatorofdeliveryefficiency(F2)includesdeliverytimeandtransmission
+riskintheroadnetwork.ThedetectionofCOVID-19onthepackagingofsomecoldchain
+productshasarousedsocialconcernandvigilance.Theseincidentsillustratetheriskofvirus
+transmissionincoldchaintransportationduringtheepidemicandhighlighttheimportance
+andnecessityofcoldchainsafety.Whenavehiclevisitsnodei, theriskoftransmissionin
+theroadnetworkat thistimeincludesthreeparts: theinitial infectionriskofthenodeM0
+i ,
+theriskofvirustransmissioncarriedbythetransportationvehiclealongtheroue(h, i)ζhi,
+andtheriskofvirustransmissioncarriedbythefreshfoodpackagingwhenunloadingri.
+TheinitialinfectionriskatthedistributionsiteM0
+i θ×Si
+2 iscalculatedbymultiplying
+thenumberofquarantinedresidents(i.e., Si
+2 )withintheservicerangeofthedistribution
+siteandtheinfectioncoefficientofquarantinedindividuals(i.e.,θ).Theriskoftherouteζij
+iscalculatedbyζij χi ·M0
+i ·xk
+ij ,whereχi represents theprobabilityofcross-infection
+χi (1−e−si)×ϒiwhenthevehicleisatthenodei.Andsi istheunloadingtimeofthe
+vehicleintheepidemicareai,whichisproportionaltothelocaldemand.Whenthevehicle
+servesnodei,thatis,thedeliverymethodisface-to-facecontactdeliveryϒi 1;otherwise,
+itmeansthatthedroneservesnodei,andthedeliverymethodisnon-contactdeliveryϒi 0.
+Theriskofcross-infectionrj isobtainedbyrj ζij·γwwhenfreshproductsareunloadedat
+pointj,andγwisdefinedastheinfectionprobabilityoffreshproductswhenthetemperature
+controlof therefrigeratedvehicleisset tow.Eventually,whenallnodesintheepidemic
+areaarevisitedbyvehicles, thecorresponding transmissionrisk in the roadnetwork is
+i∈VM0
+i + k∈K i∈N0 j∈N0
+χi·M0
+i ·xk
+ij ·(1+γw).
+Unliketraditionallocationroutingproblemmodelsforfreshgoodsdelivery,theobjective
+ofourproposedME-LRP-VDis todeterminethelocationstrategiesofDTSandCDSas
+wellasthemulti-echelonvehicle-droneroutestoservealldemandswiththeoptimal total
+economiccostandthedistributionefficiency.Fortheproposedmulti-echelonlocationrouting
+planningproblem,bi-objectivefunctionsF1andF2areconstructedbyformulas(5)and(6).
+minF1 f1+ f2+f3+ f4 (5)
+minF2
+k∈K1i∈N0 j∈N0
+βij
+vk1
+·xk
+ij +
+k∈K2i∈N j∈N
+βij
+vk2
+·xk
+ij +
+d∈Di∈C j∈C
+βij
+vd
+·od
+ij
+123
+Annals of Operations Research
+M0
+i + 
+⎞
+⎛
++σ ·
+⎝
+3.3.2 Location and assignment constraints
+χi · M0
+i · xk
+ij · (1 + γw)
+⎠
+i∈V
+k∈Ki∈N0 j∈N0
+fis 1,∀s ∈ S
+i∈N
+qs · fis ≤ Ei · z1
+i ,∀i ∈ N
+s∈S
+i∈S
+i∈N
+fis ≤ λ,∀i ∈ N
+s∈S1
+qi · fis q2
+i · z2
+i ,∀i ∈ N
+q2
+i · fni 
+q1
+n · z1
+n, ∀n ∈ N
+z1
+n+z2
+n ≤ 1,∀n ∈ N
+xk
+ni ≤ fni,∀i ∈ N,n ∈ N,k ∈ K1
+xk
+in ≤ fni,∀i ∈ N,n ∈ N,k ∈ K1
+od
+is ≤ fis,∀i ∈ N,s ∈ S2,d ∈ D
+od
+si ≤ fis,∀i ∈ N,s ∈ S2,d ∈ D
+xk
+ij + fni − fnj ≤ 1,∀i, j ∈ N,i j,n ∈ N,k ∈ K2
+xk
+ij + fnj − fni ≤ 1,∀i, j ∈ N,i j,n ∈ N,k ∈ K2
+od
+sh + fis − fih ≤ 1,∀s,h ∈ S2,s h,i ∈ N,d ∈ D
+(6)
+(7)
+(8)
+(9)
+(10)
+(11)
+(12)
+(13)
+(14)
+(15)
+(16)
+(17)
+(18)
+(19)
+od
+sh + fih − fis ≤ 1,∀s,h ∈ S2,s h,i ∈ N,d ∈ D
+Constraints (7) guarantee that a single potential site is designated for each resident to pre
+vent multiple assignments. Constraints (8) represent that the service demand cannot exceed
+the service capacity of each site. Constraints (9) impose a limitation on the number of indi
+viduals collecting goods from the CDS node during any given time period, thereby aiming to
+promote a staggered pickup schedule for these residents. Constraints (10) and (11) indicate
+the delivery volume of fresh goods at CDS and DTS respectively. Constraints (12) mean that
+anypotential site can only be selected to open as onetypeofsite at most. Constraints (13) and
+(14)ensure that a distribution vehicle travels from a DTS to a CDS or from a CDS to a DTS
+only if that CDS is assigned to the corresponding DTS. Constraints (15) and (16) guarantee
+that a drone flies from a CDS to a quarantined resident or from a quarantined resident to
+a CDS only if that quarantined resident is assigned to that CDS. Constraints (17) and (18)
+impose that if a distribution vehicle visits two CDS nodes consecutively, and they must be
+assigned to the same DTS node. Constraints (19) and (20) state that two epidemic area nodes
+must be assigned to the same CDS node if they are visited consecutively by the same drone.
+(20)
+123
+AnnalsofOperationsResearch
+3.3.3Vehicleconstraints
+i∈N0∪Nk∈K
+xk
+ij zj,∀j∈N (21)
+i∈N0∪N
+xk
+ih−
+j∈N0∪N
+xk
+hj 0,∀h∈N,k∈K1∪K2 (22)
+j∈N
+xk
+0j 1,∀k∈K1 (23)
+i∈N
+xk
+i0 1,∀k∈K1 (24)
+i∈N
+xk
+ni 1,∀k∈K2,n∈N (25)
+j∈N
+xk
+jn 1,∀k∈K2,n∈N (26)
+tk
+i +βij
+vk
+·xk
+ij +si−M(1−xk
+ij)≤tk
+j ,∀i, j∈N0∪N,k∈K1∪K2 (27)
+i∈N0 j∈N
+xk
+ij ·q1
+i ≤Qk1,∀k∈K1 (28)
+i∈N j∈N
+xk
+ij ·q2
+i ≤Qk2,∀k∈K2 (29)
+Constraints(21)stipulatethateverychosensitemustonlybeservedoncebyarefrigerated
+transportvehicleorarefrigerateddeliveryvehicle.Constraints(22)statetheflowconservation
+conditionsintheheterogeneousvehicleroutes,thatis,vehiclesmustleavethesitenodeafter
+visitingthesite.Constraints(23)and(24)representtherefrigeratedtransportvehiclesdepart
+fromthewarehouseandreturntothewarehouseafterservingallDTSs.Constraints(25)and
+(26)specifythat therefrigerateddeliveryvehiclesstart fromtheDTSandgobacktothe
+DTSafterfinishingtheirservice.Constraints(27)determinethetimewhenvehiclesarrive
+at thecorrespondingsitesanddelineate theeliminateconstraints forvehicles’ sub-tours.
+Constraints (28)and(29)guarantee that the total requirementsof freshproductsonany
+givenvehicleroutemustnotexceedthemaximumloadofarefrigeratedtransportvehicle
+andarefrigerateddeliveryvehicle,respectively.
+3.3.4Droneconstraints
+i∈Cd∈D
+od
+ij 1,∀j∈S2 (30)
+i∈C
+od
+ih−
+j∈C
+od
+hj 0,∀h∈S2,d∈D (31)
+od
+ij 0,∀i, j∈N,i j (32)
+0≤Eijd≤E·od
+ij,∀i, j∈C,i j,d∈D (33)
+i∈C j∈C
+Eijd ·od
+ij≤E,∀d∈D (34)
+123
+AnnalsofOperationsResearch
+μ·Qd
+i · βij
+vd
+−E·(1−od
+ij)≤Eijd≤μ·Qd
+i · βij
+vd
+,∀i, j∈C,i j,d∈D (35)
+Ejd+μ·Qd
+i · βij
+vd
+≤Eid+M(1−od
+ij),∀d∈D (36)
+j∈S2d∈D
+od
+ij≤|D|·z2
+i ,∀i∈N (37)
+i∈C j∈C
+βij ·od
+ij≤Ld,∀d∈D (38)
+td
+i+βij
+vd
+·od
+ij +si−M(1−od
+ij)≤td
+j ,∀i, j∈C,d∈D (39)
+i∈C j∈S2
+od
+ij ·qj≤Qd,∀d∈D (40)
+h∈S2
+od
+ih+
+h∈S2/{s}
+od
+hs≤1+ fis,∀i∈N,s∈S,d∈D (41)
+Constraints(30)stipulateeveryquarantinedresidentlocatedwithintheserviceregionof
+thedeliverysitecanreceiveoneservicefromthedroneonlyonce.Constraints(31)enforce
+themaintenanceofaflowbalancewithinthedrone’sflightpath, therebyensuringthat the
+dronedepartsfromthequarantinedresident immediatelyafterservingit.Constraints(32)
+specifythatdronesareprohibitedfromflyingdirectlyfromonesitetoanother.Constraints
+(33)and(34) limit thepowerconsumptionof thedrone’sbatterythroughthearcandthe
+singlerouteforanydrone.Constraints(35)calculatethebatteryconsumptionforeachtrip
+whileconstraints(36)keeptrackofthebatteryconsumptionlevelateachquarantinedresident
+node.Constraints(37)meanthatthenumberofarcsdepartingfromthechosendeliverysite
+cannotexceedthenumberofdronesutilized.Constraints(38)statethattheflyingradiusof
+anydroneislimitedtoitsmaximumpermissibledistance.Constraints(39)determinethetime
+whendronesarriveatthesites,whilealsodelineatingtheconstraintsthateliminatesub-tours
+fordrones.Constraints (40)guarantee that theaggregaterequirements fromquarantined
+individualsonanygivenflyingrouteshallnotexceedthemaximumloadofeachdrone.
+Constraints(41)stipulatethateveryquarantinedindividualmustbeallocatedtothechosen
+potentialCDS.
+3.3.5Synchronizationandotherconstraints
+2yk
+p≤
+h∈N\{i}
+xk
+ih+
+l∈N\{m}
+xk
+lm,∀k∈K2,p i, j,m ∈P (42)
+p∈P+
+i
+yk
+p≤1,∀k∈K2,i∈N (43)
+p∈P−m
+yk
+p≤1,∀k∈K2,m∈N (44)
+ptk
+i −tmax(1−
+p∈P+
+i
+yk
+p)≤CTk
+i ,∀i∈N,k∈K2 (45)
+ptk
+i +tmax(1−
+p∈P+
+i
+yk
+p)≥CTk
+i ,∀i∈N,k∈K2 (46)
+123
+Annals of Operations Research
+ptk∗
+m −tmax(1−
+ptk∗
+m +tmax(1 −
+tk
+i , ptk∗
+yk
+p) ≤ CTk
+m,∀m ∈ N,k ∈ K2
+p∈P−m
+p∈P−m
+i
+yk
+p) ≥ CTk
+m,∀m ∈ N,k ∈ K2
+≥0,∀i ∈ N,k ∈ K
+td
+i ≥ 0,∀i ∈ S2,d ∈ D
+CTk
+i ≥ 0,∀i ∈ N,k ∈ K
+q1
+i , q1
+2 ≥ 0,∀i ∈ N
+xk
+ij 
+yk
+iw 
+{0, 1},∀i, j ∈ N0 ∪ N,k ∈ K
+od
+ij 
+yk
+p 
+fis, fni 
+{0, 1},∀i, j ∈ C,d ∈ D
+{0, 1},∀i ∈ N,w∈ W,k ∈ K
+{0, 1},∀p ∈ P,k ∈ K2
+{0, 1},∀s ∈ S,∀n,i ∈ N
+zn, z1
+n, z2
+n 
+{0, 1},∀n ∈ N
+(47)
+(48)
+(49)
+(50)
+(51)
+(52)
+(53)
+(54)
+(55)
+(56)
+(57)
+(58)
+Constraints (42) dictate the takeoff and collect sites of the drone must coincide with
+locations visited by the refrigerated delivery vehicle. Constraints (43) and (44) indicate that
+the drone can launch and land at most once at each CDS. Constraints (45) to (48) represent
+the time synchronization constraints of refrigerated delivery vehicle and drone. Constraints
+(49) to (58) represent variable values and types.
+4 Hybridmulti-objective metaheuristic algorithm
+4.1 OverviewoftheHMOMalgorithm
+Since our research is an integrated problem, that is, site location selection of multi-echelon
+logistics facilities and vehicle-drone delivery route optimization. Most of the related research
+onthis typeofproblemissolvedbymetaheuristicintelligentalgorithms(Abbassietal.,2021;
+Govindan et al., 2014; Lan et al., 2022). It is difficult for a single metaheuristic algorithm
+to solve two sub-problems at the same time. By recognizing that our ME-LRP-VD model
+is a combination of different structural elements, such as products, nodes (depot, CDSs and
+DTSs), vehicles, and drones, we develop a hybrid multi-objective metaheuristic algorithm
+based ondecomposition to provide good-quality solutions within a plausible amount of time:
+abi-levelclusteringalgorithmandacooperativemulti-objectiveevolutionaryalgorithmbased
+on the objective function decomposition (CMOEA).
+Two types of site location strategies (i.e., distribution transshipment stations and con
+tactless delivery sites) are considered in the bi-level clustering operation, and the regional
+decomposition belonging to the selected stations is obtained. The CMOEA method based on
+objective function decomposition is used to assign independent populations to each objective
+123
+Annals of Operations Research
+CMOEA 
+(a) Regional decomposition
+F1 objective
+F2 objective
+Single objective differential 
+evolution
+No-dominated solution set pool
+Pareto sorting
+Optimal solution set
+(b) Objective decomposition
+CDS
+Depot DTS Quarantined residents
+Fig. 2 General diagram for the HMOM optimization
+Echelon1 route
+(c) Optimization and adjustment
+Echelon2 route
+Drone route
+function for optimization, but there is a problem that the solutions are easily biased towards
+the extreme values of each objective and deviate from the Pareto frontier. For this reason,
+additional populations are introduced to guide the direction of evolution through the informa
+tion sharing strategy, and the optimal solutions of each independent population are combined
+to generate the Pareto non-dominated solution set. Furthermore, based on density estimation,
+thevalueofeachcrowdingdistanceisobtained.Paretosortedvaluesareusedforselectionand
+crowding distance is used for differentiation within ranks. After the elite solution is selected,
+various crossover and mutation operators are designed for route optimization. Local search
+rules are introduced, and various neighborhood operators are designed to improve the solu
+tion and avoid falling into the local optimum solution. We simulate a basic executive process
+of the hybrid multi-objective metaheuristic algorithm, as depicted in Fig. 2.
+4.2 Bi-level clustering algorithm
+In the first stage, the optimization goal is to formulate an effective location strategy for distri
+bution transshipment stations and contactless delivery sites, that is, to determine the decision
+variables z1 n and z2 n in the LAP-2D problem. According to the feedback of the path opti
+mization algorithm, if the delivery path cost of some clustering units is found to be too high,
+the clustering algorithm can re-evaluate and adjust the cluster center or cluster boundary to
+further optimize distribution efficiency and cost. We assign all residents to corresponding
+cluster centers and all contactless delivery sites to appropriate distribution transshipment
+stations. Then, the respective service areas of the CDS and DTS in the logistics network
+are obtained to achieve preliminary optimization of the ME-LRP-VD logistics network. The
+bi-level clustering algorithm is used to divide different epidemic areas into small clusters and
+determine the center of each cluster. Refrigerated delivery vehicles pass through all cluster
+centers, while drones serve the needs of quarantined residents in each cluster. The clustering
+framework is established on the time–space coordinate system, and the time window’s flex
+ibility is incorporated as a criterion for classifying all residents. Based on the geographical
+location and time window of all residents, clustering units are formed by dividing different
+epidemic areas, and multiple attributes within a clustering unit are similar.
+Assumethatnodeiinthenetworkischaracterizedbygeographicalcoordinates(xi, yi)and
+a time window[ei,li]. The division of the time axis allows normal residents to pick up goods
+at staggered time. The purpose is to give a reduction in the likelihood of physical contact and
+cross infections while also optimizing the violation of time windows as much as possible.
+We carry out a straightforward linearization on the representation of the time window by
+123
+Annals of Operations Research
+Time axis
+(a) The routes before clustering
+C6
+C7
+C3
+C2
+Y axis
+C1
+(b) The routes after clustering
+C6
+C7
+C3
+C2
+C5
+C4
+Demand point
+ Delivery site
+C1
+C4
+Time window
+Violation of time window
+Actual routes
+C5
+Spatio-temporal routes
+Fig. 3 Comparison of route results before and after bi-level clustering
+X axis
+the form twi ei(li −ei) (li max −ei min) to yield the improved time coordinate twi.For
+all residents, the ending and beginning moments in the time windows are denoted by li max
+and ei min, respectively. η represents the conversion coefficient between time and distance to
+ensure that different dimensional indicators are in the same range. Therefore, the improved
+distance between two points is regarded as a spatio-temporal distance, and it is defined as
+dij 
+(xi − xj)2 +(yi − yj)2 +η(twi −twj)2 1/2 .
+The bi-level clustering framework is shown in Fig. 3, the geographical position and time
+windowofdemandpointaredepictedusingX,Y-axes,andtime-axis.Thetime-axisisdivided
+to reduce time window violations and form the same period, thereby facilitating staggered
+pick-up and reducing face-to-face contact. That is, these nodes clustered in the same spatio
+temporal range have similar geographical coordinates and time windows. Let A denote the
+set of all clustering units, and then ca denote the set of residents in the ath clustering unit.
+All residents are divided into |A| clustering units. The initial positions of cluster centers
+are randomly assigned, and each cluster center represents a delivery site. As the clustering
+iterative process proceeds, the cluster centroids are continuously updated based on the status
+of the residents assigned to the cluster. Bi is the spatio-temporal coordinate (˜xi, ˜yi,twi)of
+nodei. Bai 
+isthespatio-temporalcoordinateofresidentiinclustera, Ba isthespatio-temporal
+coordinate of the cluster center, and Bn is the spatio-temporal coordinate of candidate site n.
+The number of candidate sites is |N|, the numbers of DTS and CDS (z1 n and z2 n) both vary
+within the range of [1,|N| − 1], and the sum of DTSs and CDSs satisfies z1 n + z2 n ≤ |N|.
+4.2.1 The upper-level iterative optimization
+When solving the multi-echelon facility location problem, the bi-level clustering method
+aims to identify appropriate DTSs and CDSs. This approach simultaneously ensures that the
+total spatio-temporal distances for both resident-CDS and DTS-CDS pairs are minimized.
+The primary operation steps consist of iterative optimization for every clustering plan and
+comparative evaluation for various clustering plans. The specific steps are as follows:
+123
+Annals of Operations Research
+Step 1: For all residential points, we assign the residential points to the corresponding
+clustering units and minimize the spatio-temporal distance between the residents and the
+cluster center by Jc 
+min a∈A ai∈ca 
+Bai 
+− Ba
+2 .
+Step 2: For contactless delivery sites, we divide the different cluster centers Ba through
+the location coordinates of all residents. The equation J1n 
+min a∈A n∈N|Bn − Ba|2 is
+used to minimize the distance between the cluster center and candidate sites. We select the
+candidate site with the shortest distance from the cluster center as the contactless delivery
+site.
+J2n 
+Step 3: For distribution transshipment sites, we divide different cluster centers
+Da through the location coordinates of all contactless delivery sites, and apply
+min a∈A n∈N|Bn −Da|2 to minimize the distance between the cluster centers
+and candidate sites. Those candidate sites with the shortest distance from the cluster center
+are used as distribution transshipment sites.
+4.2.2 The lower-level comparison optimization
+After iterative optimization within a clustering scheme, different clustering schemes need to
+be compared. We identify the most effective clustering solutions, including the location and
+quantity of clustering centers, by utilizing silhouette values, thereby mitigating the subjectiv
+ity of manual decisions on the number of clusters. The silhouette values of DTSs’ and CDSs’
+clustering plans need to be calculated separately to demonstrate the advantages of both site
+location strategies. The silhouette value Sn represents the proximity of each point in the
+clustering unit to the adjacent clustering unit (Struyf et al., 1997). By calculating the average
+silhouette value S
+n∈ca 
+Sn |ca|, the distinguishing effect of the generated clustering
+unit on the datais displayed. Silhouette value is a commonindicatorto evaluate the clustering
+effect, which takes into account the elements of both cohesiveness an and separation bn.
+They are utilized in the computation of the silhouette value Sn for node n by
+Sn (bn −an) max(an,bn). In particular, the average distance between the node n and the
+other sample nodes that are grouped within the same cluster is an. Also, bn denotes the
+average distance from point n in other clusters to all sample points in this cluster, that is, the
+nearest average distance found by traversing all other clusters. The value of S in one cluster
+ing plan is defined as the average silhouette value across all nodes n. The clustering plan’s
+performanceissuperiorwhen S approaches1.Thebi-levelclusteringmethodisimplemented
+only in scenarios where there are a minimum of two or more potential sites.
+4.3 Initial population of COMEA
+In the bi-objective ME-LRP-VD, we need to determine the nodes visited by refrigerated
+transport vehicles, refrigerated delivery vehicles, and drone launch nodes respectively, as
+well as the order of nodes they visit. The representation of the solution is a key factor
+affecting the performance of the metaheuristic algorithm. If these decisions are considered
+simultaneously in the representation of the solution, the algorithm may take too long to run.
+Therefore, the site selection results solved by the clustering algorithm are used as the input
+of the route optimization. In this paper, the two one-dimensional chromosomes X1 and X2
+represent site selection and the refrigerated transport vehicle route, and the two-dimensional
+chromosome X3 representstherefrigerateddeliveryvehicleanddroneroutes.Figure4shows
+anME-LRP-VDsolutionwith2quarantinedresidents,8contactlessdelivery sites, 2 delivery
+123
+Annals of Operations Research
+Fig. 4 Solution representation of multi-echelon route for vehicle-drone
+transshipment sites, 2 drones, 1 refrigerated transport vehicle, and 2 refrigerated delivery
+vehicles.
+In the coding process, X1 is defined as the location result obtained by the clustering
+algorithm, that is, the list of CDS nodes andDTSnodes.Thesizeof X1 isequaltothenumber
+of distribution sites, and the value of each element is the index to which the distribution site
+is assigned. The origin and destination for the transport vehicle are indicated by a dark 0,
+while the DTS is marked with orange.X2 identifies the order in which transport vehicles
+visit the two DTSs after departing from the warehouse. The first line of X3 represents the
+visit sequence of delivery vehicles starting from the DTS to the CDS. The second row of X3
+specifies the CDS nodes that serve as takeoff and return points for drones, and the order in
+which quarantined residents are visited. The chosen DTSs marked with orange serve as the
+origin and destination points for the delivery vehicle. The locations where the drone takes
+off and lands are called CDSs and are identified with dark gray.
+Routing planning is carried out according to the regional decomposition results yielded by
+bi-level clustering optimization. In our paper, the scanning algorithm is applied for the initial
+population generation. We take the positive direction of the X-axis as the scanning ray and
+scan in the counterclockwise direction. Then each distribution site and each residential point
+are scanned separately to form the scanning angle. CDS location and resident node are sorted
+by angle size. The delivery area is divided by using the capacity of vehicles and drones as
+constraints. Thus, an initial route for vehicle-drone collaborative delivery is generated. In the
+process of algorithm implementation, the limitations of the site location and the planning of
+123
+Annals of Operations Research
+vehicle-drone routes need to be considered comprehensively to thoroughly test the viability
+of the yielded solution.
+4.4 Geneticoperation
+4.4.1 Elite solution selection
+We adopt the elite retention strategy with non-dominated sorting and crowding distance,
+thereby increasing the feasibility of the solution after applying crossover and mutation oper
+ations. The population’s top individuals are selected by using the elite strategy, and thus a
+new Pareto optimal solution is chosen based on the selection rules. It is essential to check
+whether the quality of the candidate solution is better than or the same as the worst solution.
+Note that the basic rule is stipulated in the following. The one with a lower non-dominance
+rank is chosen if the non-dominance ranks of the two individuals are different. Also, the one
+with a greater crowding distance is chosen if two individuals have identical non-dominance
+ranks.
+Crossover and mutation operators help the algorithm conduct a broad search in the space
+of solutions. Various types of typical mutation operators and crossover operators need to be
+adjusted according to the characteristics of the problem. Since the ME-LRP-VD solution
+gives different chromosomes based on the location order of DTSs and CDSs, the algorithm
+needs to perform genetic operations on the routes of two types of vehicles.
+4.4.2 Crossover operators
+For the one-dimensional chromosome X1 of one transport vehicle, two parents are selected
+on the route of the refrigerated transport vehicle. Two crossover operators are used, the first
+is the partial mapping crossover operator (PMX), and the second is order crossover (OX).
+The repeated genes appearing in the two parent chromosomes can be replaced according to
+the mapping relationship, i.e., the selected gene sequences (3, 4, 6) and (5, 7, 10) form a
+matching rule in the parent chromosomes Pa1 and Pa2. OX crossover randomly selects two
+sequences in two chromosomes. Theselected gene sequence (1, 8, 7, 10) from the first parent
+chromosomePa1ispasseddowntothefirstoffspringCh1.Subsequently,the remaining gene
+nodes from the second parent chromosome Pa2, excluding the ones already mentioned, are
+inherited to Ch1 in the sequence found in Pa2. Likewise, the same steps are taken to produce
+a second offspring Ch2. Figure 5 (a) and Fig. 5 (c) illustrate the operation process of the
+PMXandthe OXoperators, respectively.
+In addition, two crossover operators are designed for routes of refrigerated delivery vehi
+cles. The first one still uses the PMX operator. The second method applies the uniform
+crossover operator (UX) to the one-dimensional chromosomes X2 of different delivery vehi
+cle routes, as shown in Fig. 5 (b). To this end, a binary vector with the same size as the
+chromosome is first generated for each solution. Then, in accordance with the corresponding
+values of the vector, the corresponding positions in the two parent chromosomes (Pa1 and
+Pa2) are crossed to generate offspring (Ch1 and Ch2). For the delivery vehicle route X2, if
+the corresponding position of S1 is 1, it indicates that there are quarantined residents within
+the service range of its corresponding CDS node. These positions define the genes that are
+retained in Pa1. If the corresponding position is 0, the retained gene in Pa2 is defined. In
+this case, the genes corresponding to Pa1 and Pa2 need to be kept unchanged and retained
+123
+Annals of Operations Research
+Fig. 5 Crossover operator
+in the two offspring chromosomes. The remaining elements in the two parent chromosomes
+are cross transformed.
+4.4.3 Mutation operators
+Formutationsinthechromosome X1 and X2 deliverypathways,wemainlytakethefollowing
+steps. The number of genes to be mutated is randomly decided, and one of three operations
+(insertion, exchange, or reversal) is applied to the solution. In each run, all three operators
+are not used simultaneously to avoid the solution process becoming overly complex. The
+mutation operation swaps the positions of two randomly selected genes in the chromosome.
+The mutation operation selects the node positions in the chromosome that have a higher risk
+of transmission and then operates to get a more diverse solution. Therefore, this paper uses
+random rules to select one of these three operators.
+a) Swap: randomly select two nodes on the same route of the vehicle (or drone) and then
+their positions are swapped.
+b) Insertion: randomly select a node in a route of a vehicle (or drone) and then reinsert the
+node into other locations on this route.
+c) Reversion: randomly select at least two nodes on the same route of the vehicle (or drone)
+and then reverse their positions.
+4.4.4 Differential evolution strategy
+Adifferential evolution strategy is introduced for chromosomal mutation. Xm
+i is the original
+variablevector, Xm
+best istheoptimalsolutioninthesubpopulationofthe Fm objectivefunction,
+Xm
+i1 and Xm
+i2 are two individuals randomly selected from the population, γi is the mutation
+factor. To regulate the direction of the evolution of the population, let Pr be the randomly
+selected solution from a pool of non-dominated solutions.
+Vm
+i 
+Xm
+i + γ1 Xm
+best − Xm
+i +γ2 Xm
+i1 − Xm
+i2 +γ3 Pr − Xm
+i
+(59)
+In Eq. (59), Xm
+i preserves the search information of the individuals themselves to ensure
+the convergence of the algorithm. (Xm
+best − Xm
+i ) enhances the algorithm’s search ability in the
+direction of the Fm objective.(Xm
+i1−Xm
+i2) addsrandomperturbationstomaintainthediversity
+123
+Annals of Operations Research
+of the population. (Pr − Xm
+i ) adds the search information of the other populations, which
+enhances the algorithm’s search ability in the direction of the Pareto optimal solution set.
+Thealgorithm mutation process performs the mutation of the allocation relationship between
+CDS nodes, DTS nodes and demand nodes first, and then the mutation of the distribution
+paths.
+4.5 Improvednon-dominatedsolutionsearchprocess
+Thenumberofsolutionsexploredwhileperformingiterationsaffectstherateofconvergence.
+Selecting a single solution to explore at each iteration might lead to slower convergence and
+poor diversity in the final approximate Pareto front (Lian et al., 2016). Additionally, it may
+not be efficient to explore all non-dominated solutions in every iteration. In early iterations of
+the search, non-dominated solutions have a higher probability of being dominated in the next
+iteration. The number of non-dominated solutions explored by the HMOM algorithm should
+be contingent on the quality of the current set in the non-dominated solutions. In cases where
+there is a likelihood of uncovering a new non-dominated solution, it would be prudent to
+opt for a solution set containing fewer non-dominated solutions. The point with the smallest
+distance from the ideal point in the solution space is the effective point.
+The crowding distance of each non-boundary individual in the non-dominated set U is
+determined recursively byU(di) U(di)+(UFj
+i+1 −UFj
+i−1) (Fmax
+j
+UFm
+−Fmin
+j
+), whereUFm
+i+1 and
+i−1 describe the value of jth objective function for individuals, i.e., (i +1)thand(i − 1)th in
+the set U, respectively. Fmax
+j
+and Fmin
+j
+is the maximumandminimumvaluesofjthobjective
+function. According to the basic principle of HMOM, the Pareto front of different ranks
+is obtained as follows: Rank1, Rank2, Rank3, etc. In the set U, the Pareto front Rank1
+expresses the optimal solutions in the optimization solution set.
+TheHMOMneedstofindothereffectivepointsinthesolutionspaceasmuchaspossible.In
+this scenario, the initial solution can be continuously improved. We embed a multi-objective
+optimization strategy that mainly increases the search for non-dominated solutions. A func
+tion is defined to evaluate the distance between the objective function value of the solution
+s and the ideal node (Fmin
+1 ,Fmin
+2 ).Weneedtofindasolution s that minimizes the following
+function:
+F(s) max × F1(s)−Fmin
+1
+Fmax
+2
+, (1 − )× F2(s)− Fmin
+1
+−Fmin
+1
+Fmax
+2
+−Fmin
+2
+(60)
+where is a weighting factor, and ∈ (0,1). In the process of searching for non-dominated
+solutions, the approximate Pareto front is found by setting the dominant solution set. We find
+the efficient frontier with the minimum total logistics cost (i.e., the dominant solution set
+with the smallest Fmin
+1
+value). This solution is used as a starting point and a tabu search is
+performed on it to jump out of the local optimum.
+4.6 Localsearchrule
+Given the inadequacies of CMOEA in the search direction, the local search rule is primarily
+employed for neighborhood space search to avoid local optimal situations. In the algorithm
+iteration of HMOM, we designed a tabu list specifically for searching vehicle-drone delivery
+routes. This list saves the most recently examined solutions, which are chosen based on their
+123
+Annals of Operations Research
+specific attributes. Solutions identified as locally optimal are marked to prevent redundant
+investigation in subsequent iterations. This measure can effectively increase the algorithm’s
+search capability in the Pareto optimal solution direction, thereby enabling the entire algo
+rithm to explore a wider solution space. Neighborhood operators are utilized to generate
+new solutions from the current solution. This paper designs several operators in the tabu
+search process. The efficiency of developed neighborhood operators plays a pivotal role in
+the quality of responses obtained in the local search procedures.
+a) Subsequence exchange: randomly select two subsequences from two drone routes and
+then exchange positions.
+b) Subsequence shifting: randomly select a subsequence from a drone route and then ran
+domly shift it to another position in the solution.
+c) Subsequence reverse: randomly select a subsequence from a drone route and reverse it.
+d) SwapofDTSsites: select two DTS sites with maximum and minimum sending quantity
+and then exchange their allocated customers.
+e) Swap of CDS sites: randomly select two closely located CDS sites and exchange their
+allocated customers.
+5 Computationalexperiments
+Sections 5.2–5.4 of this paper conduct experimental research through a real-world instance.
+In the ME-LRP-VDoptimization,thelocationstrategy of transshipment sites and contactless
+distribution sites as well as the distribution paths of multi-echelon facilities were analyzed.
+The sensitivity analysis of the value loss coefficient of fresh products was conducted. To
+evaluate the performance of the proposed hybrid metaheuristic algorithm, Sect. 5.5 uses the
+adapted Solomon data to generate calculation examples of different sizes. The algorithms
+are implemented in MATLABR2018a. Where applicable, all the experiments are conducted
+on a computer with Intel(R), Core i5-1135G7 CPU 2.13 GHz and 16 GB RAM.
+5.1 Instances generation
+Twotypesofinstancesareappliedtoevaluatetheperformanceofourmathematicalmodeland
+solution methodology. Oneset is areal-life instance for reporting the results and applicability
+of the proposed ME-LRP-VD optimization in infectious disease epidemics. We select the
+constructed calculation examples and then add relevant parameters to convert them into cal
+culation examples available in our article. The coordinates, time windows, product demands,
+and other information about the warehouse, 25 potential sites, and 100 residential areas in
+the logistics network are known. The following sections (Sects. 5.2–5.4) describe how the
+multi-echelon location routing optimization considering delivery transshipment stations and
+contactless delivery sites gradually takes effect.
+Someparameters involved in the ME-LRP-VD network are determined based on existing
+research (Pina-Pardo et al., 2021) and through extensive pretests. Some parameters in the
+model are set as follows: ck1 
+2, ck2 
+c2 n 
+10, Qk1 
+1000 kg, Qk2 
+1.5, 1, cd 
+200 kg, ϑ 
+0.5, cg 
+0.8, En 
+25CNY/kg, c1 n 15,
+5000 kg , vk1 
+vk2 
+40 km/h, vd 
+80 km/h,
+50 km/h. Every resident has a random demand qs for perishable
+goods determined byauniformdistribution [2,7]. The time the refrigerated transport vehicle
+123
+Annals of Operations Research
+Table 3 Overview of the key features of the dataset
+Logistics network
+Number of potential sites
+Quantity of residents (Normal/
+quarantined)
+Resident
+density
+A1-A10
+B1-B10
+C1-C10
+D1-D10
+E1-E10
+8,7,6,5,4
+12,11,10,9,8
+20,18,16,14,12
+24,22,20,18,16
+30,28,26,24,22
+40(30/10)
+60(40/20)
+90(60/30)
+120(80/40)
+150(100/50)
+0.0020
+0.0031
+0.0046
+0.0061
+0.0077
+leaves the warehouse is 0. The relevant algorithm parameters are set as: popsize 
+genmax 130, Pc 0.9, Pm 0.1,tsin 50.
+150,
+Moreover,anothertypeofinstancesetisbasedonsomewell-knownVRPTWtestproblems
+provided by Solomon (1987). The calculation examples for algorithm testing are generated
+through the adapted Solomon data. We convert them to ME-LRP-VD instances to test the
+validity of the ME-LRP-VD formulation and the effectiveness of the HMOM metaheuris
+tic algorithm (Sect. 5.5). Logistics networks of different scales cover various quantities of
+residents, some of whom may be normal people while others are in quarantine. To more
+effectively demonstrate the performance of the HMOM algorithm in solving the VRPD-2E
+problem, the test experiment is analyzed based on the site location results of different net
+works. The relevant data set characteristics of the logistics network are shown in Table 3. All
+residents’ horizontal and vertical coordinates are derived from a uniform distribution [1,140].
+5.2 Locationanalysis of DTSandCDS
+To evaluate the advantages of the FLRR-2E that considers delivery transshipment sites and
+contactless delivery sites in the epidemic environment, we compared it with the following
+modes.Fixedtransshipmentsites(FVRP),traditionalvehicledelivery(VRP),andcontactless
+delivery (FLRP) are given for a detailed comparison. The traditional distribution method is
+that refrigerated vehicles perform one-to-one terminal distribution, that is, fresh products
+are transported from the warehouse to various residential nodes in the epidemic area. The
+comparison results of the optimal values (Best.F1 and Best.F2) and the average values (Avg.
+F1 and Avg. F2) of the objective function (F1 and F2) of different distribution modes are
+summarized in Fig. 6. The optimal and mean values of the bi-objective function obtained by
+the three modes are comparedandanalyzed. Columns“Gap(%)”presentthegapbetweenthe
+ME-LRP-VD mode and other modes about the bi-objective function values is listed, which
+is thus computed as Gap = 100% ×[(Bestobj − Best.2Eobj) Bestobj].
+As can be seen from Fig. 6, the proposed ME-LRP-VD achieves better results than the
+FVRP, FLRP, and VRP in all objective function values. Especially in the solution of the
+second objective function, the advantage is more significant. Specifically, ME-LRP-VD is
+significantly better than the VRP, and the obtained objective function values F1 and F2 are
+reduced by 21.93% and 30.97% respectively. Compared with the FVRP, the values of F1 and
+F2 obtained by ME-LRP-VD are reduced by 10.79% and 16.38% respectively. Compared
+with the FLRP, we found that F1 and F2 obtained by ME-LRP-VD are reduced by 14.22%
+and 23.32% respectively. This is because the warehouse set in the problem of this paper is
+located in the suburbs, and residents of the epidemic area are scattered in urban areas. If
+123
+Annals of Operations Research
+Fig. 6 Comparison of results in different delivery situations
+fresh products are delivered directly from the warehouse to the epidemic area, the values
+of the two objective functions will be too high. It demonstrates that the ME-LRP-VD with
+transshipment and contactless distribution can effectively solve the distribution optimization
+problem in the environment of infectious diseases. Delivery costs, transmission risks in the
+delivery network, and value losses of fresh products would be effectively reduced.
+As illustrated in Fig. 7, the silhouette values of the location schemes of DTSs and CDSs
+are shown.Thesilhouette values of mostclusters are relatively large, but the silhouette values
+of some clustering schemes are negative, which indicates that adjacent clusters are not well
+separated. The average silhouette values with the number of clustering units {3, 4, 5} and
+{17, 18, 19} are relatively high. Hence, the variation in silhouette values for the remaining
+clusters is not depicted in Fig. 7. The higher the silhouette value, the stronger the clustering
+consistency and separability, which means that spatio-temporal clustering effectively groups
+demand points with similar characteristics. Certainly, we prioritize clustering schemes with
+higher silhouette values, as they better indicate that the assignment relationships between
+DTS, CDS, and resident nodes are more reasonable. In the subsequent path optimization
+process, the corresponding travel costs or transportation time might be lower. Specifically,
+regarding the DTS location scheme, the average silhouette values of the 3 clusters are higher
+than those of other clustering schemes. As for the location plan of the CDSs, the average
+silhouette value of the 18 clusters is the highest. The determination of the clustering scheme
+makesthelocationstrategyforDTSsandCDSsclear.Wecantentativelyconcludethatamong
+the 25 potential sites in the network, three potential sites are selected as DTS nodes, while
+eighteen potential sites become CDS nodes. The coordinates of 3 and 18 cluster centers are
+used as location references for DTSs and CDSs, respectively.
+The specific location results of DTSs and CDSs are summarized in Table 4.Thereare3
+DTSsand18CDSsinthelogistics network, and 4 potential sites (PS) have not been selected
+for opening. Once the locations of DTS and CDS are fixed, residents are assigned to the
+nearest CDS, and CDSs are assigned to the nearest DTS. For instance, refrigerated transport
+vehicles deliver fresh products from the warehouse to DTS2, then CDS8, CDS10, CDS12,
+CDS15, and CDS16 are served by DTS2. Both normal residents and quarantined residents
+(C41, R44, C74, C76) are served by CDS2. It means that refrigerated distribution vehicles
+transport fresh products to CDS2, and drones might be launched at CDS2tomeettheproduct
+needs of quarantined residents (C74 and C76).
+123
+Annals of Operations Research
+Fig. 7 Silhouette value of DTS and CDS cluster schemes
+123
+123
+Table 4 Site location schemes of DTS and CDS
+Site
+CDS1
+CDS2
+CDS3
+CDS4
+CDS5
+CDS6
+CDS7
+CDS8
+CDS9
+CDS10
+CDS11
+CDS12
+CDS13
+Node allocation plan
+C3,C5,C7,C55,C98
+C41,C44,C74,C76
+C35,C37,C38,C40,C71,C83,C94
+C39,C45,C46,C70,C72
+C24,C25,C31,C32,C33,C63,C65,C67,C87
+C13,C17,C20,C57,C78,C81,C90,C96
+C4,C36
+C10,C18,C27,C29,C53,C54,C56,C62,C82,C86
+C11,C28,C30,C58,C68
+C8,C15,C19
+C2,C9,C48,C51,C73,C77,C79,C93,C97
+C14,C16,C23,C84,C85,C92
+C60,C61,C64,C66,C80,C88
+Site
+CDS14
+CDS15
+CDS16
+CDS17
+CDS18
+DTS1
+DTS2
+DTS3
+PS22
+PS23
+PS24
+PS25–
+Node allocation plan
+C1,C34,C50,C69
+C43,C47
+C12,C21,C26,C52,C89,C91,C100
+C6,C22,C42,C49,59,C99
+C75,C95
+CDS3,CDS5,CDS6,CDS9,CDS13,CDS17
+CDS8,CDS10,CDS12,CDS15,CDS16
+CDS1,CDS2,CDS4,CDS7,CDS11,CDS14,CDS18
+Site is not selected
+Site is not selected
+Site is not selected
+Site is not selected
+Annals of Operations Research
+Annals of Operations Research
+5.3 Multi-echelon distribution routing analysis
+Based on the above location strategies for DTSs and CDSs, the HMOM algorithm is applied
+to optimize multi-echelon routes for vehicles and drones. To demonstrate the advantages
+of ME-LRP-VD, we still compare it with traditional vehicle delivery (VRP), delivery with
+f
+ixed transit stations (FVRP), and general contactless delivery (FLRP). The specific solution
+results of the objective function are shown in Fig. 8. The objective function F1 includes the
+travel cost of transportation vehicles and distribution vehicles as well as the flight cost of the
+drone (f1), the fixed costs of DTS and CDS (f2), the temperature control cost of two types
+of vehicles (f3), and the value loss of fresh product (f4, i.e., the loss of the vehicle travel
+and the drone flight). The objective function F2 contains the travel time of all vehicles and
+drones (DT) and the transmission risk (RT) in the road network.
+From Fig. 8, refrigerated delivery vehicles finish the delivery service for all residents’
+demands (i.e., normal and quarantined residents). For the traditional way of VRP, since
+the one-to-one delivery service is performed by vehicles, the cross-infection risk and vehi
+cle travel time caused by the movement of delivery vehicles between nodes are both high.
+Althoughtherearenodroneflightcostsandfewervehiclesmightbeused,longerroutesresult
+in higher delivery costs and transmission risks. When the warehouse is located in the suburbs
+and the epidemic areas are scattered in urban areas. Compared with FVRP and FLRP, the
+opening of DTS and CDS and the use of drones in the ME-LRP-VD network have resulted
+in an increase in the fixed costs of sites as well as travel costs and value losses during drone
+f
+lights. However, experimental results show that the bi-objective function value of ME-LRP
+VDwith DTS and CDSs is the lowest. Therefore, the ME-LRP-VD distribution system not
+only effectively reduces the total cost of the logistics distribution network, but also improves
+distribution efficiency and ensures the safety of distribution.
+Furthermore, the routing optimization scheme of ME-LRP-VD is shown in Table 5.A
+refrigerated vehicle transports fresh products to three DTSs. Three delivery vehicles deliver
+fresh products from 3 DTSs to 18 CDSs. Eventually, several drones depart from the CDS to
+completethecontactlessdeliveryforquarantinedresidents,whilenormalresidentspickupthe
+goods at the corresponding smart express cabinets. Under the traditional distribution mode,
+warehouses need to dispatch refrigerated vehicles to carry long-distance transportation for
+someresidents. But in ME-LRP-VDmode,theyareredistributed to the nearest CDS, and the
+delivery needs of some quarantined residents are finished by nearby drones. The optimized
+Fig. 8 Comparison of objective function values under different delivery cases
+123
+Annals of Operations Research
+Table 5 Multi-echelon optimization routes results
+Transport vehicle
+route
+Delivery vehicle
+route 1
+Delivery vehicle
+route 2
+Delivery vehicle
+route 3
+Delivery
+vehicle
+1
+Delivery
+vehicle
+2
+Delivery
+vehicle
+3
+Drone
+1
+Drone
+2
+Drone
+3
+Drone
+1
+Drone
+2
+Drone
+3
+Drone
+1
+Drone
+2
+Drone
+3
+Depot →DTS2→DTS1→DTS3→Depot
+DTS1 →CDS1→CDS5→CDS7→CDS18→CDS17→CDS3→DTS1
+DTS2 →CDS12→CDS13→CDS10→CDS4→CDS9→CDS8→DTS2
+DTS3 →CDS2→CDS15→CDS14→CDS6→CDS11→CDS16→DTS3
+CDS1 →C98→CDS5,CDS5→C63→C65→CDS7,CDS18→C75→C95
+→CDS17,CDS17→C99→CDS3
+CDS5 →C67→CDS7,CDS17→C71→C83→CDS3
+CDS1 →C87→CDS5,CDS17→C94→CDS3
+CDS12 →C84→C85→CDS13,CDS13→C66→C64→CDS10,CDS10→
+C70 →CDS4,CDS9→C62→CDS8
+CDS12 →C92→CDS13,CDS13→C60→C61→CDS10,CDS10→C72→
+CDS4, CDS4 →C68→CDS9
+CDS13 →C80→C88→CDS10,CDS9→C86→C82→CDS8
+CDS2 →C74→C76→CDS15,CDS15→C69→CDS14,CDS6→C78→
+C81 →CDS11,CDS11→C77→C73→CDS16
+CDS6 →C90→CDS11,CDS11→C79→CDS16
+CDS14 →C96→CDS6,CDS6→C93→C97→CDS11,CDS11→C100→
+CDS16
+route of transport vehicle 1 is Depot → DTS2 → DTS1 → DTS3 → Depot. Then, delivery
+vehicle 1 transports the fresh products from DTS1 to the corresponding CDSs along theroute
+DTS1→CDS1→CDS5→CDS7→CDS18→CDS17→CDS3→DTS1.C41andC44
+are assigned to the smart express cabinet of ED2 to complete the pickup. Drone 1 of delivery
+vehicle 1 follows the flight route CDS2 → C74 → C76 → CDS15, thus all the needs of
+residents within the CDS2 service area are finished.
+5.4 Sensitivity analysis and managerial insights
+The corresponding value loss calculation methods for fresh products when delivered by
+refrigerated vehicles and drones are different. Properly controlling the temperature inside the
+refrigerated vehicle compartmentisoneoftheimportantmeanstoreducethelossrateoffresh
+products.Duringthevehicletransportationfromthewarehousetothesites(i.e.,DTSorCDS),
+the value loss of fresh products caused by this process is related to the target temperature
+set of refrigerated vehicle’s compartment. This is because the refrigerated vehicle is able to
+make temperature control adjustments while in travel. However, we use a general form of
+value loss formula for calculation when the drone flies from the contactless delivery site to
+the residential area. This is because the drone cannot perform temperature control during
+the flight. Therefore, when we analyze the impact of fresh product value loss coefficients on
+123
+Annals of Operations Research
+Fig. 9 The impact of the coefficient αw on value loss of fresh products
+Fig. 10 The impact of the coefficient ϕ on value loss of fresh products
+distribution optimization solutions, two types of value loss coefficients need to be considered.
+This section conducts sensitivity analysis on the value loss coefficient of fresh products in
+Sect. 5.4.1. Inaddition, weusethespatio-temporaldistanceintheclusteringalgorithm,which
+means we utilize an improved Euclidean distance when calculating the distance between
+two nodes in the network. This undoubtedly affects the value of the objective function in
+the model. Therefore, we present a sensitivity analysis on the conversion coefficient in the
+distance formula in Sect. 5.4.2. The corresponding results of different coefficients are shown
+in Figs. 9, 10 and 11.
+5.4.1 Sensitivity analysis on the value loss coefficient
+The requirements for the preservation temperature of fresh products change in real-time,
+and refrigerated vehicles will set appropriate temperatures based on product characteristics
+123
+Annals of Operations Research
+Fig. 11 The impact of the coefficient η on the objective value
+Table 6 COP, gw and αw of refrigerated vehicle under different temperature control
+Temperature(°C)
+0 1 2 3 4 5 6 7 8
+COP
+gw
+αw
+10.92
+2.4
+0.4
+11.42
+2.3
+0.5
+11.96
+2.2
+0.6
+12.55
+2.1
+0.7
+13.19
+2.0
+0.8
+13.90
+1.9
+0.9
+14.68
+1.8
+1
+15.56
+1.7
+1.1
+16.53
+1.6
+1.2
+and external ambient temperature. Combined with the heat change characteristics, COP is
+applied to evaluate the change value of energy, i.e., COP TL (TH − TL), where COP
+is the conversion ratio between energy and heat. TH represents the specific environment
+temperature, and TL defines the target temperature of temperature setting. The physical
+quantity that corresponds to absolute temperature is thermodynamic temperature T.The
+relationship between thermodynamic temperature T and Celsius temperature t is T 273 +
+t(◦C). Table 6 displays the values of COPand αw at different temperature settings.
+Figure 9 shows how the coefficient αw affects the value loss of fresh products after the
+vehicle is set for temperature control. We consider a scenario using 3 DTSs, 18 CDSs, and
+a drone of 8 kg capacity for this sensitivity analysis. The temperature control range of fresh
+products is 0°C-8°C. Under this temperature control setting, αw changes within [0.4, 1.2]
+with an increment of 0.1. We can see that when αw continues to increase, the value loss of
+fresh products during vehicle driving and drone flight are both on an upward trend, with the
+value loss fluctuating greatly between 170 and 374. The temperature control settings of the
+vehicle correspond to different value loss coefficients, and the delivery service of the drone
+is later than the order of the vehicle’s visit. Therefore, αw affects the value loss of fresh
+products while the vehicle is driving and will also cause certain changes in fresh products’
+value loss during the drones’ subsequent flights. For fresh products in refrigerated trucks,
+lower temperature environment reduces value loss but raises temperature control costs. If
+the increase in temperature control costs can significantly reduce the value loss of products,
+decision-makers shouldsetalower-temperaturetransportation environmentto ensurealower
+αw.Otherwise,decision-makersmustcarefullybalancewhetherthebenefitsofreducingvalue
+loss outweigh the additional temperature control costs incurred.
+123
+Annals of Operations Research
+Furthermore, the value loss coefficient ϕ without temperature control is set to vary from
+[0.5, 5] with an increment of 0.5, and Fig. 10 shows the specific calculation results. Different
+from Fig. 9, the value loss coefficient ϕ has a less impact than αw on the value loss of the
+fresh products in each part of the objective function. We can find that the total value loss
+of fresh products will increase with the growth of ϕ. Since the value loss caused by vehicle
+transportationisnotaffectedbythiscoefficient,thevaluelosscausedbyvehicletransportation
+in the objective function is relatively stable. Given that the value loss associated with drone
+delivery is directly influenced by the coefficient ϕ, the value loss also has an upward trend
+if the value of ϕ increases. When ϕ gradually increases, the value loss fluctuates between
+171 and 239. Furthermore, when ϕ ∈ [0.5,2.5], the increase in the loss of value is relatively
+stable. It can also be observed from Fig. 10,whenϕ>2.5, the value loss of fresh products in
+the network has a significantly increasing trend. For fresh products during drone delivery, a
+smaller ϕ is good for reducing value loss. But decision-makers must spend more on keeping
+fresh costs throughout drone flights to maintain a lower value loss factor.
+5.4.2 Sensitivity analysis on the conversion coefficient
+Asthe conversion coefficient for time and distance in the spatio-temporal clustering process,
+it is used to ensure that indicators of different dimensions are within the same range. The
+conversion coefficient η is set to vary from [0.5, 2.5] with an increment of 0.5, and Fig. 11
+displays the specific results of each objective function. It can be observed that the values of
+objective functions F1 and F2 gradually increase with the growth of η. The values of F1 and
+F2 fluctuate between 1182 and 1834, and between 720 and 982, respectively. Increasing the
+conversion coefficient η causes the values of f1, f2, f3 and f4 to rise. And it can be observed
+that f 1 has the largest overall increase, while f2 has the smallest increase.
+The number and locations of potential sites and customer points within the network are
+known and fixed. As the η value increases, the spatio-temporal clustering algorithm places
+greater emphasis on the time window factor when we obtain the location strategies of DTS
+and CDS. Although the horizontal and vertical coordinates of nodes in the network remain
+unchanged, the time window becomes the dominant factor during clustering. This leads to
+moreremoteanddispersedcustomernodesbeingassignedtoeachclusterunit.Consequently,
+all components of the objective function exhibit an upward trend. Sensitivity analysis results
+indicate that decision-makers should prioritize the horizontal and vertical coordinates as
+dominantfactors whenperformingspatio-temporal clustering operations. This entails setting
+a low conversion coefficient η to ensure low transportation costs and high transportation
+efficiency within the network.
+5.5 Algorithmperformanceanalysis
+Thispaperevaluatestheperformanceofdifferentalgorithmsbyusingfrequentlyutilizedmet
+rics such as spacing metric (SM), mean ideal distance (MID), the number of non-dominated
+points (QP), and hypervolume (HV) (Zitzler & Thiele, 1999; Farrokhi-Asl et al., 2020).
+5.5.1 Small size instances
+According to the improved Solomon data set, we add relevant parameters to convert into
+different scale examples for algorithm performance analysis. The remaining characteristics
+of the data set are shown in Sect. 5.1. Randomly create 10 groups of calculation examples of
+123
+AnnalsofOperationsResearch
+Table7ComparisonresultsbetweenHMOMandε-constraintmethod
+Instance Numberofresidents HMOM ε-constraintmethod
+SM MID RT SM MID RT
+A1-8 40 0.459 0.821 5.2 0.415 0.784 8.2
+A3-7 40 0.463 0.837 5.9 0.437 0.805 9.4
+A5-6 40 0.475 0.978 6.5 0.451 0.954 31.3
+A7-5 40 0.491 0.991 7.3 0.485 0.972 65.1
+A9-4 40 0.512 1.116 7.9 0.503 1.042 99.5
+B1-12 60 0.671 1.382 12.5 0.628 1.269 50.4
+B3-11 60 0.694 1.435 15.1 0.673 1.315 108.3
+B5-10 60 0.708 1.464 19.8 0.680 1.357 161.9
+B7-9 60 0.734 1.527 20.5 0.702 1.402 219.5
+B9-8 60 0.766 1.595 18.2 0.737 1.483 260.7
+Average 0.597 1.215 11.9 0.571 1.138 101.4
+differentsizestosolvetheME-LRP-VDproblem.These10groupsofcalculationexamples
+aredividedintotwocategories, that is, thenumberratiosofDTSandCDSare1:4and1:6
+respectively.Regardingourconstructedbi-objectivemodel,theproposedHMOMalgorithm
+identifiessomeParetosolutions,whereasCPLEXacquiresasolutionbyapplyingaweighted
+sumapproach.Hence,weapplytheε-constraintmethodproposedbyMartínez-Salazaretal.
+(2014)toobtaintheexactParetofront.Insmall-scalecalculationexamples,theeffectiveness
+oftheHMOMalgorithmisverifiedbycomparingitwiththeε-constraintmethod.Inaddition,
+weselectthefollowingperformanceindicatorsSM,MID,andsolutiontime(RT),andeach
+setofcalculationexamplesruns10times.
+AccordingtoTable7, theaverageSMandMIDobtainedbytheHMOMalgorithmare
+0.597and1.215respectively,andtheaverageSMandMIDyieldedbytheε-constraintmethod
+is0.571and1.138respectively.Althoughtheperformanceoftheε-constraintmethodshows
+aslightadvantagewithregardtoSMandMID, intheprocessofsolvingall theexamples,
+thedifferenceinthetwoindexessolvedbythetwomethodsisnotsignificant.Thesolution
+timeoftheHMOMalgorithmisshorterthantheε-constraintmethod.ThemeanvalueofSM
+andthemeanvalueofMIDintheHMOMalgorithmareonly0.026and0.077morethanthe
+ε-constraintmethod, respectively.Furthermore,whenthenumberofresidentsincreasesto
+60,weobservethattherunningtimeofbothalgorithmsincreaseswiththeincreasingproblem
+size.However,thecomputationtimeoftheε-constraintmethodismuchhigherthanthatof
+theHMOMalgorithm.TheHMOMobtainstheParetosolutioninnomorethan21sforall
+calculationexamples.Therefore, forthesmall-scalecalculationoftheVRPD-2Eproblem,
+theHMOMalgorithmhasgoodperformanceinfindingParetosolutions.
+5.5.2Largesizeinstances
+Next,wecomparetheHMOMalgorithmwiththeclassicalMulti-ObjectiveParticleSwarm
+Optimization(MOPSO) (Coelloet al., 2004) and theoriginalNSGA-II algorithm(Deb
+etal.,2002)tofurthervalidatetheeffectivenessandsuperiorityoftheHMOMalgorithmin
+solvinglargerscaleproblems.Whencomparingtheresultsoftheseexamples,thebi-objective
+123
+Annals of Operations Research
+function values F1, F2, and running time in seconds (RT) are evaluated and compared by
+choosing the extreme Pareto solutions after running each set of chosen data examples ten
+times. A total of 30 data sets of different sizes with the number of residents ranging from 90
+to 150 are selected. For the setting of the number of residents and the number of sites in each
+data set, please refer to Sect. 5.1 for details. Extensive preliminary experiments are conducted
+to tune the parameters in these metaheuristics. The relevant parameter settings for HMOM
+and NSGA-II are as follows: popsize 150, genmax 120, Pc 0.9, Pm 0.1. In the
+MOPSO algorithm: the acceleration parameters c1 
+c2 
+2, both the repository capacity
+and population size are set to 120, and the inertia weight ω 0.5. The computational results
+of the three algorithms are summarized in Table 8.
+Also, several observations are summarized from Table 7. In most problem instances (net
+works from C to E), HMOM outperforms NSGA-II and MOPSO, especially in terms of
+dual-objective function values. Although these solutions obtained by the metaheuristic algo
+rithm are non-dominated solutions, the objective function values F1 and F2 and the average
+value of the extreme solutions of all calculation examples are sufficient to prove the good
+performance of HMOM. The average values of F1 and F2 yielded by HMOM are 1220 and
+806 respectively. As the scale of the logistics network continues to increase, the running time
+of the three algorithms increases as well. When the network has only 90 residents, none of
+the algorithms takes more than 31 s, and MOPSO specifically finishes computation in less
+than 15 s. However, as the residents of the whole network rise from 90 to 120, we notice
+that the execution duration of all three algorithms increases significantly. HMOM does not
+have the shortest runtime, and it is slower than MOPSO but faster than NSGA-II. Despite
+this, MOPSOprovides the shortest execution time, which is also accompanied by the highest
+bi-objective function values. Compared with the original NSGA-II, HMOM uses a shorter
+running time and obtains smaller bi-objective function values.
+In addition, according to the statistics analysis (P value < 0.05), it can be concluded that
+the 30 sets of example data results obtained by the HMOM algorithm are more stable and
+have obvious advantages. HMOM can get a better Pareto solution in a relatively short time,
+which shows that HMOM is superior to the other two algorithms by solving the ME-LRP
+VDproblem in the context of the epidemic. This further illustrates that the HMOM hybrid
+algorithm has good search capabilities. The effectiveness of the improved strategies in the
+algorithm has been verified as well.
+By comparing the average values of QP, SM, and HV, as shown in Table 9,HMOM
+performs better than MOPSO and NSGA-II in all cases, with corresponding values of 32,
+0.34, and 0.70 respectively. The NSGA-II approach demonstrates a slight advantage over
+the MOPSO algorithm. We notice that the mean values for the above three indicators in the
+NSGA-II algorithm are 25, 0.46, and 0.61, respectively. Although in certain computational
+instances, the number of Pareto solutions produced by HMOM and NSGA-IIisquite similar,
+it is noteworthy that our HMOM with a higher number of Pareto solutions yields superior
+outcomes in terms of HV and SM. In summary, compared with the other two algorithms, the
+HMOMalgorithm significantly excels in these three metrics.
+6 Conclusion
+This paper investigates a novel truck-drone system called ME-LRP-VD for simultaneous
+transshipment and delivery services. Our research is a significant extension that integrates
+123
+AnnalsofOperationsResearch
+Table8ComparisonbetweenHMOMandothermetaheuristicalgorithms
+Instance HMOM MOPSO NSGA-II
+F1 F2 RT F1 F2 RT F1 F2 RT
+C1-16 951 530 27.6 1116 586 12.4 990 580 30.5
+C2-16 944 536 26.5 1120 588 12.7 993 583 30.1
+C3-15 919 526 24.1 986 569 11.5 961 557 28.6
+C4-15 923 520 23.7 987 572 12.2 966 551 28.9
+C5-14 909 508 22.5 961 555 10.5 924 531 26.4
+C6-14 900 505 22.8 965 560 10.8 928 536 26.5
+C7-13 953 547 24.9 991 605 11.7 961 580 27.5
+C8-13 956 545 24.3 998 609 12.4 965 586 27.9
+C9-12 975 589 21.0 1135 662 12.7 1064 632 25.3
+C10-12 980 592 21.6 1126 670 13.4 1054 635 25.1
+D1-20 1135 699 30.2 1264 764 22.3 1238 751 35.1
+D2-20 1141 705 30.9 1267 768 21.9 1230 753 36.1
+D3-18 1108 722 34.8 1235 795 20.3 1195 760 38.2
+D4-18 1105 732 33.5 1239 791 20.5 1192 765 38.8
+D5-16 1178 787 34.1 1268 851 21.6 1225 832 39.2
+D6-16 1181 790 33.7 1279 858 20.7 1229 839 40.3
+D7-14 1226 805 35.8 1311 891 22.9 1271 865 41.7
+D8-14 1231 802 34.6 1305 893 22.3 1280 863 41.2
+D9-12 1203 829 32.4 1286 915 21.5 1250 890 38.4
+D10-12 1208 839 32.7 1292 905 21.8 1255 893 37.9
+E1-26 1492 1005 49.2 1587 1092 36.9 1558 1062 61.5
+E2-26 1494 1017 50.8 1590 1099 36.8 1556 1060 62.5
+E3-24 1551 1079 47.3 1638 1155 33.5 1593 1126 58.9
+E4-24 1554 1083 48.1 1634 1151 33.2 1598 1128 59.2
+E5-22 1583 1137 50.2 1698 1206 36.6 1659 1183 62.7
+E6-22 1591 1140 49.6 1694 1216 37.1 1650 1180 63.4
+E7-18 1577 1173 48.4 1642 1255 34.4 1616 1227 60.1
+E8-18 1571 1162 49.0 1644 1247 35.3 1620 1230 59.9
+E9-16 1529 1146 52.5 1605 1229 37.8 1583 1187 63.2
+E10-16 1522 1142 51.7 1603 1219 38.5 1587 1186 63.6
+Avg 1220 806 35.6 1315 876 23.2 1273 852 42.6
+P-value 2.8E-15 1.9E-23– 1.6E-13 5.7E-21
+themulti-echelonlocation-routingproblemandvehicle-droneroutingproblemthatsimulta
+neouslyconsiderstheenergyconsumptionofdrones, theimpactofepidemicspreadrisks,
+andthecollaborationofheterogeneousvehiclesandhomogeneousdrones.Amathemati
+calformulationintheformofamixedintegerprogramisconstructedwhichsolvesforthe
+locationofDTSandCDSnodesandtheoptimalvehicleanddroneroutestoservevarious
+epidemicareassuchthattotaleconomiccost,thetotaltraveltime,andthetransmissionrisk
+123
+AnnalsofOperationsResearch
+Table9Comparisonresultsofcomprehensiveindicatorsinlargeproblems
+Instance HMOM MOPSO NSGA-II
+QP SM HV QP SM HV QP SM HV
+C1-18 25 0.42 0.56 15 0.73 0.22 18 0.58 0.43
+C3-12 20 0.48 0.58 14 0.70 0.26 16 0.55 0.40
+C5-11 19 0.36 0.45 12 0.75 0.30 15 0.59 0.38
+C7-10 28 0.40 0.49 10 0.64 0.35 21 0.51 0.39
+C9-9 26 0.37 0.60 17 0.55 0.33 20 0.43 0.45
+D1-18 35 0.33 0.59 19 0.53 0.41 25 0.49 0.51
+D3-16 39 0.27 0.65 20 0.78 0.45 27 0.59 0.62
+D5-14 31 0.38 0.67 15 0.62 0.49 28 0.46 0.55
+D7-12 29 0.34 0.62 22 0.55 0.40 24 0.42 0.57
+D9-10 34 0.35 0.71 18 0.54 0.42 19 0.52 0.48
+E1-20 42 0.29 0.73 24 0.49 0.55 33 0.38 0.62
+E3-18 41 0.35 0.68 30 0.48 0.49 36 0.35 0.68
+E5-16 36 0.24 0.75 25 0.50 0.55 30 0.39 0.65
+E7-14 37 0.29 0.81 29 0.42 0.58 31 0.38 0.72
+E9-12 38 0.23 0.79 21 0.45 0.51 35 0.33 0.68
+Avg 32 0.34 0.70 19 0.58 0.49 25 0.46 0.61
+areminimizedrespectively.Giventhecomplexityoftheproblem,anovelHMOMalgorithm
+thatcombines thebi-levelclusteringandtheCOMEAispresentedtosolvethisproblem.
+Tovalidatetheperformanceofthesolutionapproach,extensivetestprobleminstancesand
+real-worldprobleminstancesaregeneratedindifferentscales,ourproposedalgorithmcan
+yieldhigh-qualitysolutionsinareasonabletimeincomparisonwithothermulti-objective
+solvingmethods.Theoptimizationresultsofareal-worldcaseinChongqingdemonstrate
+thattheobjectivefunctionachievesitsminimumvaluewhenthelogisticsnetworkcomprises
+3DTSsand18CDSs.Theeffectsofkeyparametersontheproblemareevaluatedtopro
+videsomemanagerial implications:Decision-makersshouldcarefullybalancewhetherthe
+benefitsofreducingvaluelossoutweightheadditional temperaturecontrolcostsincurred;
+Anddecision-makersshouldprioritizethehorizontalandverticalcoordinatesasdominant
+factorswhenperformingspatio-temporalclusteringoperations.
+Infuturestudies,onecouldconsidercollaborativepickupanddeliveryofvehicle-drone,
+namely,vehicle-dronejointlyperformspickupanddeliveryservicesinthelocation-routing
+problembutwouldcertainlyleadtomorecomplexity.Anothermorepracticalchangewould
+betoaddmultipletypesofproductdemands,eachwithadifferent rateofqualitydecay.
+Eachcustomerhasmultipleproductsdeliveredbythesameordifferentvehiclesordrones,
+resultinginvariedroutedecisions.Therelatedinputinthispaperisdeterministicwhilesome
+elements(e.g.,productdemandandtraveltime,etc.)maybeuncertaininpractice.Because
+ofthesedynamicfactors,thisleadstoasignificantincreaseinthecomplexityoftheproblem.
+Acknowledgements ThisresearchwassupportedbytheNationalNaturalScienceFoundationofChina(No.
+72471199,72071161,72401241),ChongqingMunicipalEducationCommissionScienceandTechnology
+ResearchPlanProject (No.KJQN202500705), theFundamentalResearchCultivationProject ofCentral
+UniversitiesBasicBusinessFees(No.XJ2023000301), thePhilosophyandSocialSciencesFoundationof
+SichuanProvince(No.SCJJ23ND191,SCJJ24ND308).
+123
+Annals of Operations Research
+References
+Abbassi, A., Kharraja, S., Alaoui, A. E., Boukachour, J., & Paras, D. (2021). Multi-objective two-echelon
+location-distribution of non-medical products. International Journal of Production Research, 59(17),
+5284–5300.
+Acevedo-Chedid,J.,Soto,M.C.,Ospina-Mateus,H.,Salas-Navarro,K.,&Sana,S.S.(2023).Anoptimization
+model for routing-location of vehicles with time windows and cross-docking structures in a sustainable
+supply chain of perishable foods. Operations Management Research, 16(4), 1742–1765.
+Ahmadi-Javid, A., Mansourfar, M., Lee, C. G., & Liu, L. (2023). Optimal distribution of perishable foods with
+storage temperature control and quality requirements: An integrated vehicle routing problem. Computers
+&Industrial Engineering, 182, Article 109215.
+Albrecht, W., & Steinrücke, M. (2018). Coordinating continuous-time distribution and sales planning of
+perishable goods with quality grades. International Journal of Production Research, 56(7), 2646–2665.
+Alvarez, A., Cordeau, J. F., Jans, R., Munari, P., & Morabito, R. (2020). Formulations, branch-and-cut and a
+hybrid heuristic algorithm for an inventory routing problem with perishable products. European Journal
+of Operational Research, 283(2), 511–529.
+Bala, K., Brcanov, D., &Gvozdenovic,N.(2017).Two-echelonlocationroutingsynchronizedwithproduction
+schedules and time windows. Central European Journal of Operations Research, 25(3), 525–543.
+Bortolini, M., Faccio, M., Ferrari, E., Gamberi, M., & Pilati, F. (2016). Fresh food sustainable distribution:
+Cost, delivery time and carbon footprint three-objective optimization. Journal of Food Engineering, 174,
+56–67.
+Boysen,N.,Briskorn,D.,Fedtke,S.,&Schwerdfeger,S.(2018).Dronedeliveryfromtrucks:Dronescheduling
+for given truck routes. Networks, 72(4), 506–527.
+Cai, X. Q., & Zhou, X. (2014). Optimal policies for perishable products when transportation to export market
+is disrupted. Production and Operations Management, 23(5), 907–923.
+Carlsson, J. G., & Song, S. (2018). Coordinated logistics with a truck and a drone. Management Science,
+64(9), 4052–4069.
+Chan, F. T. S., Wang, Z. X., Goswami, A., Singhania, A., & Tiwari, M. K. (2020). Multi-objective particle
+swarm optimisation based integrated production inventory routing planning for efficient perishable food
+logistics operations. International Journal of Production Research, 58(17), 5155–5174.
+Chang, Y. S., & Lee, H. J. (2018). Optimal delivery routing with wider drone-delivery areas along a shorter
+truck-route. Expert Systems with Applications, 104, 307–317.
+Chauhan, D., Unnikrishnan, A., & Figliozzi, M. (2019). Maximum coverage capacitated facility location
+problem with range constrained drones. Transportation Research Part C: Emerging Technologies, 99,
+1–18.
+Chen, S.Y., (2020). The new economy under the epidemic: fresh food ecommerce has challenges, and the
+spring of drone delivery is not far away. (Accessed March 2023) http://finance.sina.com.cn/chanjing/
+cyxw/2020-02-12/doc-iimxxstf0718772.shtml.
+Chen, C., Tian, Z. H., & Yao, B. Z. (2019). Optimization of two-stage location-routing-inventory problem
+with time-windows in food distribution network. Annals of Operations Research, 273(1–2), 111–134.
+Chen,J.,Dong,M.,&Xu,L.(2018).Aperishableproductshipmentconsolidationmodelconsideringfreshness
+keeping effort. Transportation Research Part E: Logistics and Transportation Review, 115, 56–86.
+Chen, X. Q., Jiu, Y., & Hu, D. W. (2024). Two-echelon location-routing problem of perishable products
+based onthe integrated mode of in-store pick-up and delivery. Transportation Research Record, 2678(8),
+622–636.
+Chung,S.H.,Sah,B.,&Lee,J.(2020).Optimizationfordroneanddrone-truckcombinedoperations:Areview
+of the state of the art and future directions. Computers & Operations Research, 123, Article 105004.
+Cnr.cn, (2020). Under the epidemic, “online food grabbing” is booming, and fresh food e-commerce is facing
+a big test. (Accessed October 2025) https://baijiahao.baidu.com/s?id=1659851011077405901&wfr=sp
+ider&for=pc.
+Coello, C. A. C., Pulido, G. T., & Lechuga, M. S. (2004). Handling multiple objectives with particle swarm
+optimization. IEEE Transactions on Evolutionary Computation, 8(3), 256–279.
+Cuda, R., Guastaroba, G., & Speranza, M. G. (2015). A survey on two-echelon routing problems. Computers
+&Operations Research, 55(3), 185–199.
+Deb, K., Pratap, A., Agarwal, S., & Meyarivan, T. (2002). A fast and elitist multiobjective genetic algorithm:
+NSGA-II. IEEE Transactions on Evolutionary Computation, 6(2), 182–197.
+Dell’Amico, M., Montemanni, R., & Novellani, S. (2020). Matheuristic algorithms for the parallel drone
+scheduling traveling salesman problem. Annals of Operations Research, 289(2), 211–226.
+Deng, F. H., Qin, H., Li, J. L., & Cheng, C. (2023). The pickup and delivery problem with time windows and
+incompatibility constraints in cold chain transportation. Transportation Science, 57(2), 444–462.
+123
+Annals of Operations Research
+Devapriya, P., Ferrell, W., & Geismar, N. (2017). Integrated production and distribution scheduling with a
+perishable product. European Journal of Operational Research, 259(3), 906–916.
+Drexl, M., & Schneider, M. (2015). A survey of variants and extensions of the location-routing problem.
+European Journal of Operational Research, 241(2), 283–308.
+Dukkanci, O., Campbell, J., & Kara, B. (2024). Facility location decisions for drone delivery with riding: A
+literature review. Computers & Operations Research, 167, Article 106672.
+Esmizadeh, Y., Bashiri, M., Jahani, H., & Almada-Lobo, B. (2021). Cold chain management in hierarchical
+operational hub networks. Transportation Research Part E: Logistics and Transportation Review, 147,
+Article 102202.
+Faiz, T. I., Vogiatzis, C., & Noor-E-Alam, M. (2024). Computational approaches for solving two-echelon
+vehicle and UAVrouting problems for post-disaster humanitarian operations. Expert Systems with Appli
+cations, 237, Article 121473.
+Farrokhi-Asl, H., Makui, A., Jabbarzadeh, A., & Barzinpour, F. (2020). Solving a multi-objective sustainable
+waste collection problem considering a new collection network. Operational Research, 20, 1977–2015.
+Golestani, M., Moosavirad, S. H., Asadi, Y., & Biglari, S. (2021). A multi-objective green hub location
+problem with multi item-multi temperature joint distribution for perishable products in cold supply
+chain. Sustainable Production and Consumption, 27, 1183–1194.
+Govindan, K., Jafarian, A., Khodaverdi, R., & Devika, K. (2014). Two-echelon multiple-vehicle location
+routing problem with time windows for optimization of sustainable supply chain network of perishable
+food. International Journal of Production Economics, 152, 9–28.
+Ham, A. M. (2018). Integrated scheduling of m-truck, m-drone, and m-depot constrained by time-window,
+drop-pickup, and m-visit using constraint programming. Transportation Research Part C: Emerging
+Technologies, 91, 1–14.
+Hashemi-Amiri, O., Ghorbani, F., & Ji, R. (2023). Integrated supplier selection, scheduling, and routing
+problemforperishable product supply chain: Adistributionally robust approach. Computers &Industrial
+Engineering, 175, Article 108845.
+Hosseini, S. M. H., Behroozi, F., & Sana, S. S. (2023). Multi-objective optimization model for blood sup
+ply chain network design considering cost of shortage and substitution in disaster. RAIRO-Operations
+Research, 57(1), 59–85.
+Jiang, Y., Lai, P. L., Yang, C. C., & Wang, X. C. (2023). Exploring the factors that drive consumers to use
+contactless delivery services in the context of the continued COVID-19 pandemic. Journal of Retailing
+and Consumer Services, 72, Article 103276.
+Karak, A., & Abdelghany, K. (2019). The hybrid vehicle-drone routing problem for pick-up and delivery
+services. Transportation Research Part C: Emerging Technologies, 102, 427–449.
+Keizer, M.,Akkerman,R.,Grunow,M.,Bloemhof,J.M.,Haijema,R.,&Vorst,J.G.A.J.(2017).Logisticsnet
+workdesign for perishable products with heterogeneous quality decay. European Journal of Operational
+Research, 262(2), 535–549.
+Kim, D., Lee, K., &Moon,I.(2019). Stochastic facility location model for drones considering uncertain flight
+distance. Annals of Operations Research, 283(1–2), 1283–1302.
+Kim, J. J., Kim, I., & Hwang, J. (2021). A change of perceived innovativeness for contactless food delivery
+services using dronesafter theoutbreakofCOVID-19.InternationalJournalofHospitalityManagement,
+93, Article 102758.
+Lan, Y. L., Liu, F. G., & Huang, Z. X. (2022). Two-echelon dispatching problem with mobile satellites in city
+logistics. IEEE Transactions on Intelligent Transportation Systems, 23(1), 84–96.
+Leng, L., Zhang, J., Zhang, C., Zhao, Y., Wang, W., & Li, G. (2020). Decomposition-based hyperheuristic
+approaches for the bi-objective cold chain considering environmental effects. Computers & Operations
+Research, 123, Article 105043.
+Lian, K., Milburn, A. B., & Rardin, R. L. (2016). An improved multi-directional local search algorithm for
+the multi-objective consistent vehicle routing problem. IIE Transactions, 48(10), 975–992.
+Liang, X., Wang, N., Zhang, M., & Jiang, B. (2023). Bi-objective multi-period vehicle routing for perishable
+goodsdeliveryconsideringcustomersatisfaction.ExpertSystemswithApplications,220,Article119712.
+Liang, Y., Liu, F., Lim, A., & Zhang, D. (2020). An integrated route, temperature and humidity planning
+problem for the distribution of perishable products. Computers & Industrial Engineering, 147, Article
+106623.
+Liu, A. J., Zhu, Q. Y., & Xu, L. (2021). Sustainable supply chain management for perishable products in
+emerging markets: An integrated location-inventory-routing model. Transportation Research Part E:
+Logistics and Transportation Review, 150, Article 102319.
+Macrina, G., Pugliese, L. D., Guerriero, F., & Laporte, G. (2020). Drone-aided routing: A literature review.
+Transportation Research Part C: Emerging Technologies, 120, Article 102762.
+123
+Annals of Operations Research
+Mahapatra, D.R.,Panda,S., &Sana,S.S.(2020).Multi-choiceandstochastic programmingfortransportation
+probleminvolvedinsupplyoffoodsandmedicinestohospitalswithconsiderationoflogisticdistribution.
+RAIRO-Operations Research, 54(4), 1119–1132.
+Martínez-Salazar, I. A., Molina, J., Ángel-Bello, F., Gómez, T., & Caballero, R. (2014). Solving a bi-objective
+transportation location routing problem by metaheuristic algorithms. European Journal of Operational
+Research, 234(1), 25–36.
+Mei, J. (2022). Nanjing: All residential communities implement strict access control measures! Delivery
+personnel and takeout services are prohibited from entering residential areas. (Accessed October 2025)
+https://www.nbd.com.cn/rss/toutiao/articles/1854516.html.
+Meng, S. S., Chen, Y. R., & Li, D. (2024). The multi-visit drone-assisted pickup and delivery problem with
+time windows. European Journal of Operational Research, 314(2), 685–702.
+Mogale, D. G., Kumar, S. K., & Tiwari, M. K. (2020). Green food supply chain design considering risk and
+post-harvest losses: A case study. Annals Operations Research, 295(1), 257–284.
+Moshref-Javadi, M., Lee, S., & Winkenbach, M. (2020). Design and evaluation of a multi-trip delivery model
+withtruckanddrones.TransportationResearchPartE:LogisticsandTransportationReview,136,Article
+101887.
+Murray, C. C., & Chu, A. G. (2015). The flying sidekick traveling salesman problem: Optimization of drone
+assisted parcel delivery. Transportation Research Part C: Emerging Technologies, 54, 86–109.
+Neves-Moreira, F., Almada-Lobo, B., Cordeau, J. F., Guimaraes, L., & Jans, R. (2019). Solving a large multi
+product production-routing problem with delivery time windows. Omega, 86, 154–172.
+Osvald, A., & Stirn, L. Z. (2008). A vehicle routing algorithm for the distribution of fresh vegetables and
+similar perishable food. Journal of Food Engineering, 85(2), 285–295.
+Pina-Pardo, J. C., Silva, D. F., & Smith, A. E. (2021). The traveling salesman problem with release dates and
+drone resupply. Computers & Operations Research, 129, Article 105170.
+Rahmanifar, G., Mohammadi, M., Golabian, M., Sherafat, A., Hajiaghaei-Keshteli, M., Fusco, G., & Colom
+baroni, C. (2024). Integrated location and routing for cold chain logistics networks with heterogeneous
+customer demand. Journal of Industrial Information Integration, 38, Article 100573.
+Roberti, R., & Ruthmair, M. (2021). Exact methods for the traveling salesman problem with drone. Trans
+portation Science, 55(2), 315–335.
+Rohaninejad, M., Sahraeian, R., & Tavakkoli-Moghaddam, R. (2018). An accelerated Benders decomposition
+algorithm for reliable facility location problems in multi-echelon networks. Computers & Industrial
+Engineering, 124, 523–534.
+Solomon, M. (1987). Algorithms for the vehicle routing and scheduling problems with time window con
+straints. Operations Research, 35(2), 254–265.
+Struyf,A.,Mia,H.,&Rousseeuw,P.(1997).Clusteringinanobject-orientedenvironment.JournalofStatistical
+Software, 01(04), 1–30.
+Tadaros, M., Sifaleras, A., & Migdalas, A. (2024). A variable neighborhood search approach for solving a
+real-world hierarchical multi-echelon vehicle routing problem involving HCT vehicles. Computers &
+Operations Research, 165, Article 106594.
+Wang, M.H. (2025). Reshaping the “last mile” of express logistics. (Accessed October 2025) https://www.
+drc.gov.cn/DocView.aspx?chnid=379&leafid=1338&docid=2908760.
+Wu, F., & Dong, M. (2023). Eco-routing problem for the delivery of perishable products. Computers &
+Operations Research, 154, Article 106198.
+Yu, D. Z., Tang, S. Y., & Niederhoff, J. (2011). On the benefits of operational flexibility in a distribution
+network with transshipment. Omega, 39(3), 350–361.
+Zhou, Y. F., Liu, C. S., & Xu, Q. (2023). Time-dependent green location-routing problem under carbon cap
+and-trade policy. Transportation Research Record, 2677(5), 1135–1150.
+Zitzler, E., & Thiele, L. (1999). Multiobjective evolutionary algorithms: A comparative case study and the
+strength Pareto approach. IEEE Transactions on Evolutionary Computation, 3(4), 257–271.
+Publisher’s Note Springer Nature remains neutral with regard to jurisdictional claims in published maps and
+institutional affiliations.
+Springer Nature or its licensor (e.g. a society or other partner) holds exclusive rights to this article under
+a publishing agreement with the author(s) or other rightsholder(s); author self-archiving of the accepted
+manuscript version of this article is solely governed by the terms of such publishing agreement and applicable
+law.
+123

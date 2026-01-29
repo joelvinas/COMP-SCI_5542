@@ -1,0 +1,209 @@
+Internal and Emergency Medicine 
+https://doi.org/10.1007/s11739-026-04264-7
+LETTER TO THE EDITOR
+Delay in inpatient admission at an Emergency Department in a private 
+hospital in Beirut
+Karaali Mohamad1 · Nakhle Ramzi2 · Tanios Alain2 · Ghosn Charbel2 · Helou Mariana2 
+Received: 29 August 2025 / Accepted: 8 January 2026 
+© The Author(s), under exclusive licence to Società Italiana di Medicina Interna (SIMI) 2026
+Dear Editor,
+Emergency Departments (EDs) overcrowding is a prevalent 
+issue globally and has garnered significant attention in recent 
+times. Patient boarding is a major factor that contributes 
+to ED overcrowding. Boarding is precisely defined as the 
+time elapsed from the decision of disposition (i.e., patient 
+admission) to the actual moment when the patient is trans
+ferred to the destination ward. Boarding has adverse effects 
+on patient care, satisfaction levels, morbidity, and mortality 
+rates [1]. Boarding presents a dual challenge: on one side, 
+it burdens ED staff, who must operate under overwhelming 
+patient volumes, making it increasingly difficult to deliver 
+high-quality care. On the other side, it reflects broader 
+administrative and organizational issues, primarily related 
+to hospital bed availability. In an ideal system with unlimited 
+capacity, boarding would not be a concern. However, with 
+persistent global challenges, both financial and systemic, 
+such a scenario is unrealistic [2]. Given these constraints, 
+local administrations must recognize the strain on the system 
+and work to alleviate it. At the same time, individual pro
+viders, hospitals and emergency departments should focus 
+on optimizing the process that spans from patient incoming 
+* Helou Mariana 
+mariana.helou@lau.edu.lb
+Karaali Mohamad 
+mkaraali61@gmail.com
+Nakhle Ramzi 
+ramzi.nakhle@lau.edu.lb
+Tanios Alain 
+alain.tanios@lau.edu.lb
+Ghosn Charbel 
+charbel.ghosn@lau.edu.lb
+1
+2
+Internal Medicine Department, Lebanese American 
+University, Beirut, Lebanon
+Emergency Medicine Division, Lebanese American 
+University, Beirut 1102 2801, Lebanon
+to discharges and admissions [2]. Limited data exist on the 
+time between completion of a patient's workup and their 
+transfer to an inpatient bed. This study analyzes ED board
+ing over a one-year period to offer recommendations for 
+improvement. We conducted a retrospective review of pro
+spectively collected data from the Emergency Department 
+(ED) of the Lebanese American University Medical Center, 
+a private university tertiary level of care hospital in Beirut, 
+with an ED of 17 beds and an average daily patient flow of 
+39. No monitoring area is available in the ED. Patients stay 
+in their assigned bed inside the ED until final disposition. 
+The total hospital number of beds is 200, with an occupancy 
+rate of 60% as average. Data were gathered for all patients 
+who required hospital admission between January 2023 
+and December 2023. This study received approval from the 
+LAU Institutional Review Board under IRB # LAUMCRH.
+MH3.11/Mar/2024. A total of 13,894 patients were admitted 
+to the Emergency Department (ED) in the year 2023, out of 
+which 3,163 were inpatients, resulting in an admission rate 
+of 23%. This rate is similar to another tertiary level of care 
+hospital in the country, with an admission rate of 20.2% 
+in the year 2019 [3]. The study included 3163 inpatients. 
+The total length of stay of inpatients in the ED is on aver
+age 7 h. The average time for inpatients to be transferred 
+to their room after the patient is ready for admission was 
+64 min. The hospital administration has agreed in the trans
+fer policy that when the patient is ready for transfer, the 
+transfer time of the in-patient to his assigned room should 
+be less than 30 min. A total of 20% of inpatients experienced 
+delays and were transferred to their assigned room after the 
+30-min bundle. The primary delays were observed in the 
+intensive care unit and the isolation floor, with delay rates 
+of 38% and 31%, respectively. Other floors of the hospital 
+showed delays of 19.4% in the Medical Surgical Unit, 18% 
+in the Cardiac Critical Unit and Pediatric Unit, and 13.3% 
+in the Pediatric Intensive Care Unit. The monthly distribu
+tion of delayed admissions, both in terms of numbers and 
+percentages, is depicted in Fig. 1. A total of 654 patients 
+Vol.:(0123456789)
+Internal and Emergency Medicine
+Fig. 1  Number and percentage of admissions and delays per month
+had transfer delays during the year 2023. Medical logistics 
+was the most common cause for delay (27.52%), followed 
+by overwhelmed unit nurse (18.49%), patient medical condi
+tion (11.73%), and room availability (10.19%). Admission 
+delays for inpatients were found to have various causes, with 
+the percentage varying across hospitals and reaching up to 
+67% in some instances. At the LAUMC, the total length of 
+stay of inpatients in the ED from admission to an ED bed 
+to transfer to a ward is on average 7 h, which is higher than 
+in other institutions [4]. The average interval from admis
+sion decision to the actual transfer to the inpatient ward was 
+found to differ among countries and even among hospitals 
+within the same country. A study involving 1360 patients 
+across four hospitals in Saudi Arabia revealed a mean time 
+of 58 min, which closely aligns with our findings [5]. The 
+lack of uniformity across hospitals in measuring the inpa
+tients delay presents an additional barrier to their resolu
+tion. In our study, the primary delays were observed in the 
+intensive care unit and the isolation floor. After the COVID
+19 pandemic, new practices were implemented, such as the 
+need for infectious disease screening. These practices still 
+persist and cause further delays in patient management. 
+Another issue was the financial coverage and the associated 
+burden of isolation costs. This was seen after the COVID-19 
+pandemic with the high cost for isolation rooms and isola
+tion procedures. It is reasonable that ICU transfers expe
+rience more delay as critical patients require stabilization, 
+close monitoring, and completion of all consultations, tests, 
+and procedures before transfer; moreover, some may sud
+denly deteriorate and need immediate additional care that 
+rightly takes priority over the transfer itself. Some patients 
+can also destabilize and need additional care before transfer. 
+During the one-year observation period, delays increased 
+from September to December, when Emergency Department 
+attendance is higher and overcrowding, as expected, further 
+worsens this scenario. Furthermore, during these months, 
+delays are exacerbated by the onset of flu season, as many 
+patients with respiratory infections require isolation rooms, 
+prolonging the wait for transfer to the isolation floor. The 
+most common cause for delay was the medical logistics, 
+caused by the treating physicians and consultants to come 
+and assess the patient before transfer. Physicians are usually 
+doing their medical rounds on the floors or in the operation 
+rooms, and patients to be admitted shall wait to be assessed 
+by their dedicated treating physician before transfer. Add
+ing that only one "single physician" is responsible both for 
+admitting new patients and managing those awaiting admis
+sion handed over by the previous shift colleagues. Another 
+significant factor contributing to delays is the high workload 
+of ED nurses, who are responsible for coordinating transfers 
+to inpatient wards that require them to hand over patients 
+to ward staff, which significantly prolongs boarding times. 
+This is also compounded by the 1-h shift change periods 
+in the morning and evening, during which ward nurses are 
+unavailable to receive new patients. Another common reason 
+was the patient deteriorating medical condition, which is an 
+Internal and Emergency Medicine 
+inevitable cause of delay. Room availability is also a major 
+cause of delay, as reported in previous studies.
+It is crucial to identify and implement effective solutions 
+to mitigate Emergency Department (ED) overcrowding and 
+enhance patient care. These solutions encompass both medi
+cal and logistic levels.-Fast Track or direct admissions for non-urgent cases pre
+senting to the Emergency Department and requiring admis
+sion are beneficial in reducing waiting times and alleviat
+ing ED congestion. Many patients presenting for elective 
+procedures from outpatients go through the ED at LAUMC 
+while waiting for bed availability, mainly during night shifts 
+and weekends, or when the admitting office is overwhelmed 
+with patients. These patients go through the whole process 
+of ED admission, assessment and management and waiting 
+for a bed. However, a quick assessment for these patients, 
+and admitting them directly to their room, can be a solution. 
+This approach can lessen the workload on ED nurses, mak
+ing them more available for patients awaiting admission and 
+indirectly reducing ED boarding.-Instead of waiting residents to come assess their inpa
+tients in the ED before transfer, patients handover can be 
+done verbally over the phone between physicians and/or 
+residents, to avoid further delays.-Early discharge of patients from the hospital. Studies 
+have shown that early discharge before noon reduces ED 
+boarding by 96% [6, 7]. It can also reduce the length of 
+stay of patients admitted. Similarly, Weekend discharge can 
+reduce the hospital’s overall length of stay and increase the 
+number of available beds.-Increasing nursing staff on specific floors improve 
+patient flow. In addition, increasing isolation beds in the 
+isolation floor where a majority of patients are admitted 
+and where significant delays occur, can help alleviate bot
+tlenecks. Implementing targeted interventions is essential for 
+optimizing ED operations, enhancing patient outcomes, and 
+ensuring a more efficient healthcare environment. Prioritiz
+ing these strategies will help hospitals manage patient inflow 
+better and address ongoing challenges in healthcare delivery.
+Data availability All data generated or analysed during this study are 
+included in this published article.
+References
+1. Kenny JF, Chang BC, Hemmert KC (2020) Factors affecting 
+emergency department crowding. Emerg Med Clin North Am 
+38(3):573–587. https:// doi. org/ 10. 1016/j. emc. 2020. 04. 001
+2. McMillan JR, Younger MS, DeWine LC (1986) Satisfaction with 
+hospital emergency department as a function of patient triage. 
+Health Care Manage Rev 11(3):21–27. https:// doi. org/ 10. 1097/ 
+00004 010- 19860 1130- 00006
+3. El Zahran T, Ghandour L, Chami A, Saliba N, Hitti E (2023) 
+Comparing emergency department visits 10-year apart at a tertiary 
+care center in Lebanon. Medicine (Baltimore) 102(39):e35194
+4. Armiani AS, Yustiawan T, Prabawati E (2020) Identifying the 
+factors associated with emergency boarding time. J Health Transl 
+Med 23:220–225
+5. Al Nhdi N, Al Asmari H, Al Thobaity A (2021) Investigating 
+indicators of waiting time and length of stay in emergency depart
+ments. Open Access Emerg Med 13:311–318. https:// doi. org/ 10. 
+2147/ OAEM. S3163 66
+6. McKenna P, Heslin SM, Viccellio P, Mallon WK, Hernandez C, 
+Morley EJ (2019) Emergency department and hospital crowding: 
+causes, consequences, and cures. Clin Exp Emerg Med 6:189
+195. https:// doi. org/ 10. 15441/ ceem. 18. 022
+7. Powell ES, Khare RK, Venkatesh AK, Van Roo BD, Adams 
+JG, Reinhardt G (2012) The relationship between inpatient dis
+charge timing and emergency department boarding. J Emerg Med 
+42:186–196. https:// doi. org/ 10. 1016/j. jemer med. 2010. 06. 028
+Publisher's Note Springer Nature remains neutral with regard to 
+jurisdictional claims in published maps and institutional affiliations.

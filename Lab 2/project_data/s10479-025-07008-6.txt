@@ -1,0 +1,2845 @@
+Annals of Operations Research
+https://doi.org/10.1007/s10479-025-07008-6
+ORIGINAL RESEARCH
+Sustainable reverse logistics in e-commerce: a 
+comprehensive literature review with challenges and 
+research opportunities
+Anurag Mishra1 · Pankaj Dutta1
+Received: 6 June 2022 / Accepted: 17 December 2025
+© The Author(s), under exclusive licence to Springer Science+Business Media, LLC, part of Springer Nature 2026
+Abstract
+An exponential increase in demand fulfillment through the e-commerce platform has forced 
+many firms to switch to digital channels from traditional brick-and-mortar systems. With 
+increased demand from online websites, issues about Return Management (RM), Reverse 
+Logistics (RL), packaging wastes, disposition, and alternate use of wastes have become 
+an area of concern. A well-developed RL network through the practices of effective return 
+handling, reuse, and recycling could address these issues and help minimize wastage, 
+thereby creating a sustainable environment. A systematic literature review is conducted, 
+and 240 papers were reviewed and analyzed pertaining to RM and RL domains of online 
+markets. The findings reveal that the research on e-commerce focusing on returns and RL 
+practices for sustainable development is in the growth stage. Several aspects and features 
+of reverse supply chains, like return policy, return handling process, return costs, and RL 
+network design, have been investigated using different qualitative and quantitative meth
+odologies and theoretical foundations. Further, the RL network design is segregated into 
+food, apparel, and packaging waste sections. The basis is that these product types require 
+different treatments due to varying shelf life, packaging, and responsiveness. The study 
+aims to draw the research gap and bring out challenges and opportunities in the sustainable 
+RL domain of e-commerce faced by academics and industries. The study’s findings will 
+help the practitioners understand the key areas to focus on for designing an efficient and 
+sustainable RL system and the vital areas to focus on while developing the return process.
+Keywords e-commerce · Reverse logistics · Return management · Packaging waste · 
+Sustainability · Literature review
+Pankaj Dutta
+pdutta@iitb.ac.in
+Anurag Mishra
+anuragkrmishra22@gmail.com
+1
+Indian Institute of Technology Bombay, Powai, Mumbai 400076, India
+1 3
+Annals of Operations Research
+1 Introduction
+The recent surge in customer demands from customers who prefer buying from digital plat
+forms has made businesses switch from traditional to online forms. It has led to the formi
+dable growth of e-commerce. Today’s e-commerce has revolutionized market dynamics, 
+compelling traditional businesses to trim profits. Hypermarkets and supermarkets are adapt
+ing by launching online delivery services (Ni & Liao, 2009). The online business model 
+leans on technology-driven information sharing, influencing goods’ movement and distri
+bution strategies, and overcoming last-mile delivery hurdles to foster sustainable growth 
+within firms (Fleischmann, 2000; Yasin et al., 2014).
+Apart from changing consumers’ ideas and ways of consumption, e-commerce also 
+reduces transactional costs and adds new value (Guojing & Ciping, 2010). The progress 
+made in payment channels, logistics services, internet penetration, and globalization has 
+even led to cross-border e-commerce (Wei & Dong, 2019). With the effect of geographical 
+location holding less significance for online orders than offline ones (Lendle et al., 2016), 
+both purchases and returns will increase in the future. However, longer delivery lead time 
+and expensive postal stumpage are issues that still need to be addressed for cross-border 
+e-commerce (Wang et al., 2020).
+The pillars of e-commerce are Speed of delivery (Gabe, 2009), Inventory Leverage 
+(Mazumdar & Elliott, 2020), Support Services, and communication (Gabe, 2009; Mazum
+dar & Elliott, 2020; Ni & Liao, 2009; Pratap et al., 2021; Yu & Ni, 2013), Product selection 
+and Pricing (Mazumdar & Elliott, 2020; Yu & Ni, 2013), Information and Data (Gabe, 
+2009; Mazumdar & Elliott, 2020; Yu & Ni, 2013), and Trust (Gabe, 2009) as it is depicted 
+in Fig. 1. The E-commerce pillars play a vital role in carrying and sustaining the business 
+forward. Among the pillars mentioned above, Speed of delivery is the time taken to deliver 
+an order once the order is made. The new paradigms that have become a part of this are the 
+same delivery and next-day delivery (Ding & Jin, 2019; Nogueira et al., 2022). However, 
+this leads to increased costs (Zhang & Song, 2016). Inventory leverage is the optimization 
+of inventory costs by forecasting more precise demand and avoiding the stock–out scenario 
+(Mazumdar & Elliott, 2020). Services and communication include logistics, payment meth
+ods, security enablement, and customer service availability (Gabe, 2009; Yu & Ni, 2013). 
+Product selection and Pricing include the variety of products offered with minimum inven
+tory and warehouse costs. Pricing determines the optimal price by considering the costs of 
+the digital channel (Mazumdar & Elliott, 2020). Information and data are the most promi
+nent tools for e-commerce firms, and machine learning and artificial intelligence techniques 
+can be used to anticipate buying patterns, return behavior, fraud detection, and optimize 
+inventory. Also, the AI-enabled product recommendation to the customers has proved to be 
+a satisfactory conversion uplift (Gabe, 2009; Mazumdar & Elliott, 2020; Yu & Ni, 2013). 
+Trust is one thing that helps in customer acquisition and retention (Gabe, 2009; Titiyal et 
+al., 2020), and assurance to the customers that their security and privacy are given utmost 
+importance will help reap the firms’ revenue (Gabe, 2009; Mazumdar & Elliott, 2020).
+Though e-commerce is often considered an activity to deliver end goods to the cus
+tomers, it comprises many other vital activities that help form the backbone for customer 
+retention, where RM and RL play. Having a well-managed RM could reduce the high cost 
+of the industry. The academic research on product returns, though, initially dates back to 
+1 3
+Annals of Operations Research
+Fig. 1 The Pillars of E-commerce
+Heal (1977), and online returns have started gaining attention recently (Abdulla et al., 2019; 
+Janakiraman et al., 2016).
+RL is an important aspect of the RM process. RL is defined as "The process of plan
+ning, implementing, and controlling the efficient, cost-effective flow of raw materials, in
+process inventory, finished goods, and related information from the point of consumption 
+to the point of origin for the purpose of recapturing value or proper disposal" (Rogers & 
+Tibben-Lembke, 2001). Several essential aspects like returns, undelivered, damaged goods, 
+the company shipping the wrong product or size, delay in delivery, and exchanges make RL 
+an indispensable part of e-commerce.
+There is a growing increase in waste, such as electronic, plastic, food, packaging, textile, 
+and various other types of waste. Also, the return costs have seen a significant increase 
+(Cullinane et al., 2019). The need for an RL Channel has become more relevant as it deals 
+1 3
+Annals of Operations Research
+with the collection, inspection, and proper treatment of the used products. The role of 
+RL here is not just to reduce the economic strain on a company but also to reduce the 
+adverse environmental effects caused by the improper treatment of waste. Thus, bringing 
+RL and e-commerce together as one entity is essentially required for waste reduction by 
+reuse and recycling, proper waste utilization, and reduction in environmental losses. RL of 
+e-commerce is the return, counterflow, or reverse flow of products ordered on the Internet 
+from customers to suppliers (Yan, 2005). The products are generally returned for reasons 
+of poor quality, the wrong item received, the difference in the look of the product received 
+from what was ordered, or other factors of customer dissatisfaction (Rajasekaran & Priya
+darshini, 2021).
+The challenges in setting up an RL network are mainly the high investment and higher 
+uncertainty about the return of goods. Investors bear a high risk when making decisions in 
+the design phase of reverse production (Alshamsi & Diabat, 2015). Hence, the process of 
+setting up RL was initially slow but is now picking up due to government legislation, more 
+awareness, and a higher number of return goods.
+Our goal is to analyze RM and RL processes specific to online firms—the features and 
+characteristics that affect returns and the impact of return management policies influencing 
+customer service and satisfaction. The study further focuses on the vital decision elements 
+of the RL and the significant attributes affecting the logistics and network structure.
+The paper highlights the relevant literature on RM and Reverse Logistics network design 
+(RLND) based on e-commerce firms to investigate these issues. The research gap in differ
+ent product types has been identified. The current problems and challenges in the RM and 
+RL network are analyzed. The challenges lie in having a more efficient RM system with a 
+robust RL network. Further, the study highlights the challenges, opportunities, and research 
+gaps that academicians and practitioners could find helpful.
+Efficient RM of online markets is the need of the hour. RL is an essential component of 
+RM; though RL practices for different products have been in research for quite some time, 
+the processes have been discussed in depth through various literature. The RL network 
+design research has been extensively done for electronic products, wood, automobiles, spare 
+parts, plastic bottles, and home appliances, but it’s missing for e-commerce products.
+The study analyzes relevant literature covering RM returns and their policies and impli
+cations. Then, classify RM’s essential component, i.e., RL network design, based on prod
+uct types for different e-commerce firms and packaging wastes. The research for RL in 
+e-commerce is of urgent importance since most customers from developing countries are 
+moving to buy more from the e-commerce firms, impacting the environment and creating 
+more waste added with additional packaging wastes. Therefore, reviewing the substantial 
+work done in this area and identifying the challenges and opportunities being addressed in 
+the upcoming research is essential. The study will look into the following aspects.
+● RQ1: How does an e-commerce RL network differ from a traditional RL network with 
+complexities related to the sustainable network design?
+This has been answered by explaining the different characteristics and requirements in 
+the specific network designs for e-commerce RL pertaining to the practices of effective 
+return handling, reuse, and recycling.
+● RQ2: How has the past literature pertaining to RM and RL evolved? Also, how can the 
+past literature be studied to provide macroscopic and microscopic insights on RL in e
+1 3
+Annals of Operations Research
+commerce?
+For this, over 240 articles were inspected and followed by descriptive analysis. The 
+research quantified the growth and productivity of research topics, which could interest 
+the scientists, industrial and institutional arrangements, and their activities. To the best 
+of our knowledge, no state-of-the-art review covers the RM and RL for online markets. 
+The thematic study covered the specific problems of Inventory, Facility location, rout
+ing, barriers and drivers, strategic issues, and waste management.
+● RQ3: The RM specific to online markets and how it impacts customer loyalty and sat
+isfaction?
+For this, we studied the journals and articles specific to the RM and its varied character
+istics and explained them in detail in the following sections.
+● RQ4: How do the networking and other optimization problems for e-commerce differ 
+for different products and specific needs in the network design?
+Through thorough material evaluation and critical analysis of the journals, the RL net
+work was classified as (1) an e-commerce network, (2) Food, (3) Apparel, and (4) pack
+aging. Every network type was analyzed and discussed individually in Sect. 3 and 4. 
+Several other figures and diagrams highlighted the different problems, challenges, and 
+future research.
+The RM for e-commerce is a recent area of exploration by the research community, so this 
+paper makes an effort to bring together the research carried out in the area, categorize them 
+as per products and look for further challenges and opportunities in the area. The remainder 
+of this paper is organized as follows. Section 2 revises the literature on RLND. Section 3 
+discusses the RM and RL models in the e-commerce domain differentiating product-wise; 
+Sect. 4 provides the opportunities and further scope of research. Section 5 concludes with 
+crucial outcomes and further future work.
+2 Methodology
+The literature review for RM in e-commerce was missing; hence, this is the first attempt at 
+writing a comprehensive literature review. Review writing is a review of relevant literature 
+that becomes necessary for theory development and to find areas where research is needed 
+(Meredith, 1993; Webster & Watson, 2002). The research methodology steps will be the 
+material collection, descriptive analysis, category selection, and material evaluation. We 
+adopted the methodology proposed by Mayring (2010) for the structuring of the review of 
+the literature.
+2.1 Material collection
+We began our search by searching Google Scholar and Scopus databases. All the resources 
+were published in the relevant field of RL for e-commerce. The search is briefly described 
+in Fig. 2. The area is relatively new and hence has not been limited to the search to any 
+particular frame. It has covered all the relevant journals and conference papers dated till 
+May of 2024. The keywords for our search included Reverse Logistics and e-commerce, 
+Reverse Logistics and Food e-commerce, Reverse Logistics and Apparel/Clothing/Gar
+1 3
+Annals of Operations Research
+Fig. 2 Material searching and screening
+ments e-commerce, Reverse Logistics and packaging /packaging waste, Returns Manage
+ment and e-commerce, online product returns Omni-channel, online return policy, and other 
+variations.
+Further, the search results were filtered based on relevance, English for language. After 
+reading and analyzing the articles by keywords and abstract, only those were retained, 
+matching our theme of Return Management and Reverse Logistics in E-commerce. Finally, 
+240 articles were selected, reviewed, and analyzed in detail.
+2.2 Descriptive analysis
+To understand the better perspectives and evaluate our analysis, the articles selected were 
+from reputed journals like the Journal of Operations Management, Transportation Part E, 
+Journal of Cleaner Production, International Journal of Physical Distribution and Logis
+tics Management, Resource, Conservation and Recycling, European Journal of Operational 
+Research, International Journal of Production Research, International Journal of Production 
+Economics. The publication in the abovementioned area has been gaining attention lately, 
+and the trend is increasing. Figure 3a describes the year-wise distribution of the articles 
+published, which shows a growing trend from 2014 onwards. Figure 3b shows that the 
+published journals have used modeling and empirical methods more in the research than the 
+case study or multi-criteria decision-making (MCDM) techniques.
+1 3
+Annals of Operations Research
+Fig. 3 a E-tail product returns article distribution year-wise b Research methodology trends in online 
+product returns
+2.3 Category selection
+As discussed above in Sect. 1, the literature on RM and RL in e-commerce are divided into 
+these five categories: (1) RM, (2) RL network, (3) Food network, (4) Apparels, and (5) 
+Packaging waste. The articles were a mixed bag of empirical studies, optimization prob
+lems, Barriers and drivers, packaging waste management. This classification and the frame
+work of the study are depicted in Fig. 4.
+2.4 Material evaluation
+The analysis and segregation of the papers helped us classify the papers into relevant catego
+ries. The articles’ evaluation helped identify the essential issues and challenges in the theme 
+1 3
+Annals of Operations Research
+Fig. 4 Framework for the study
+literature review. The future research directions and research gaps were derived from the 
+critical study of the literature. The validity and reliability of the research are drawn through 
+discussion of built constructs with peer research colleagues and authors using deductive and 
+inductive approaches.
+3 Literature review
+3.1 Reverse logistics network design
+Public awareness initially led to the interest in RL and CLSC (Dowlatshahi, 2000), followed 
+by government legislation. Fleischmann et al. (1997) carried out one of the first studies 
+where they elaborated different models that were present then and gave a basic framework 
+for reverse logistics networks. RL network design for remanufacturing was discussed by 
+(Fleischmann et al., 2000, 2004), detailing how the product from the end customer reaches 
+the remanufacturing center.
+Technological development, mass consumption, and decreased product life span have 
+augmented production worldwide. Consequently, more raw materials are extracted, creat
+ing more waste (Van Wassenhove & Besiou, 2013). RL are primarily grouped into four 
+1 3
+Annals of Operations Research
+types: one in which the reverse network enterprise is set by themselves (Govindan et al., 
+2012; Huang & Yang, 2014; Kara et al., 2007), then where it is outsourced to a third party 
+(Agrawal & Singh, 2021; Govindan et al., 2012; Lee et al., 2012); a closed-loop network 
+integrating the forward logistics and RL (Das & Chowdhury, 2012; Das & Dutta, 2015; 
+Dutta et al., 2016; Shi et al., 2015) and lastly is the construction of an enterprise for RL 
+jointly be related business enterprises (Luo et al., 2012). RL encompasses the activities from 
+used products not required by the user to products that are again usable in the market and 
+gives revenue opportunities to the manufacturers (Guide & Van Wassenhove, 2009).
+The optimization of RL network design (Alshamsi & Diabat, 2015; Bing et al., 2014; 
+Diabat et al., 2013; Galvez et al., 2015; Roghanian & Pazhoheshfar, 2014;) has been taken 
+in subsequent studies with certain modifications. Also, several other specific problems 
+mainly related to operations Management in RL have been taken up by authors like design 
+and planning (Alumur et al., 2012; Chaabane et al., 2012; Zhuan & Xiuquan, 2013), price 
+and revenue models (Hong & Yeh, 2012; Qiang et al., 2013) production planning and inven
+tory problem (Niknejad & Petrovic, 2014), transportation problem (Yadegari et al., 2015), 
+remanufacturing (Millet, 2011; Pishvaee et al., 2009), recycling (Ferri et al., 2015; Kilic et 
+al., 2015; Lee & Dong, 2008; Subulan et al., 2015), forecasting return demands (Benedito 
+& Corominas, 2013; Krappe et al., 2013a; 2013b), Reuse (Xie et al., 2013; Zikopoulos & 
+Tagaras, 2007).
+Though Literature reviews on the area of RL have been done by previous researchers 
+at various spaces of time with varying themes for which a detailed analysis is tabulated in 
+Table 1. Fleischmann et al., 1997 did the first review analysis on RL. Carter & Ellram, 1998 
+covered the environmental aspects of packaging, transportation, and purchasing. Bras & 
+McIntosh, 1999 did a brief review specific to the remanufacturing sector. Guide et al. (1999) 
+and Guide (2000) did a review study on Production planning and control for remanufactur
+ing. Meade et al. (2007) reviewed the RL topic, covering the research opportunities and 
+challenges. Sasikumar & Kannan (2008a, 2008b), in their subsequent reviews, have taken 
+up inventory management along with product recovery and reverse distribution. Rubio et 
+al. (2008) analyzed the techniques and methodology used in the research of RL. Pokharel & 
+Mutha (2009) and Sasikumar & Kannan (2009), in their reviews, covered the entire area of 
+RL till the year 2008, while Sheriff et al. (2012) covered the research done till 2011. Closed 
+Loop supply chain (CLSC) and RL together as a single subject was reviewed by Ilgin & 
+Gupta (2010) in the relevant research carried out till 2009; Akcali & Cetinkaya (2011) 
+reviewed the inventory and production planning quantitative models in CLSC. Govindan 
+et al. (2015), in their exhaustive and comprehensive study of RL and CLSC, reviewed 382 
+relevant articles. Campos et al. (2017) did a review study of RL at the End of life and End 
+of the pharmaceutical industry’s use. Govindan & Bouzon (2018) analyzed the barriers and 
+drivers specific to De Paula et al. (2019) carried out a systematic literature review to study 
+the innovation opportunities linked with collaboration and trust in RL. The literature review 
+is done by Abdulla et al. (2019) also enumerates the studies about return management both 
+in online and offline stores but does not include the RL network issues of e-tailers and the 
+various barriers and drivers along with it. The study also does not draw out the packaging 
+issues, a central concern area for e-tailers. We wish to bring out the mentioned gaps in our 
+present study.
+The conventional RL network designs mainly cater to the returns of products for Reuse, 
+recycling, remanufacturing, or repair. The products for which the mentioned operations 
+1 3
+Annals of Operations Research
+Table 1 A comparative analysis with the previous RL reviews
+Reviews
+Characteristics of the study
+Fleischmann et al. 
+(1997)
+Carter & Ellram 
+(1998)
+Bras & Mcintosh 
+(1999)
+Guide et al. (1999)
+Fleischmann et al. 
+(2000)
+Guide (2000)
+Prahinski & Kocaba
+soglu (2006)
+Srivastava (2007)
+Meade et al. (2007)
+Sasikumar & Kan
+nan (2008a, 2008b)
+Subramoniam et al. 
+(2009)
+The study focused on three major areas of RL, namely distribution planning, 
+inventory control, and production planning
+Investigated the significant factors in RL process and proposed a model to show 
+the interaction of these different factors
+The remanufacturing aspect is analyzed, and the developmental work is presented 
+to improve its organizational aspects
+Production, planning, and control function of remanufacturing is analyzed
+The study reviewed the case studies focusing on product recovery
+The study delves into the unique characteristics of remanufacturing environments, 
+highlighting the absence of comprehensive models for production planning and 
+control in this field
+The study examines reverse supply chains (RSCs) and proposes research direc
+tions using empirical methods, emphasizing the significance of effective RSC 
+management for operational enhancement
+The study offers a comprehensive classification of green supply chain manage
+ment literature, examining its conceptualization, problem contexts, methodologies, 
+mathematical tools, and research trends, emphasizing the need for an integrated 
+framework in this field
+The study conducts a comprehensive review of RL literature, highlighting its 
+multi-functional, interdisciplinary nature, emphasizing its relevance from eco
+nomic and environmental standpoints,
+The reverse distribution and end of life vehicles with inventory management prob
+lems are investigated in the study
+Then study analyzes the specific facet of strategic decision making in remanufac
+turing sector of automobiles
+Ilgin & Gupta (2010) The study dives deep into the environmentally conscious manufacturing and prod
+uct recovery aspects of RL
+Akcali & Cetinkaya 
+(2011)
+Govindan et al. 
+(2015)
+Inventory and production planning in a CLSC were analyzed in depth
+The study reviewed the CLSC and RL from the recent publications and constructs 
+a vital foundation of past research
+Agrawal et al. (2015) The study extensively reviews on adoption and implementation challenges, 
+product return forecasting, outsourcing, RL networks from a secondary market 
+viewpoint, and disposition decision-making
+Wang et al. (2017)
+The study employs co-citation analysis demonstrating key research themes, knowl
+edge clusters, and potential avenues for future research within the realm of RL
+Campos et al. (2017) The study pertained specifically to RL for the End of life and End of the industry’s 
+use features in the pharmaceutical industry
+Rachih et al. (2019)
+The study analyzed the solution techniques of meta-heuristics approaches used in 
+the RL domain
+De Paula et al. 
+(2019)
+Our paper
+Innovation opportunities linked with collaboration and trust in RL were examined 
+in the study
+Return management attributes and vital decision elements influencing reverse 
+logistics network design for e-commerce markets are examined in this study
+could not occur are either sent to landfills or incineration centers. However, in the case of 
+e-commerce RL network design, the products returned may be perfectly usable and could be 
+sold to new customers with new packaging even without being returned to the hub. Hence, 
+real-time information data is of prime importance in the case of the RL network of e-com
+merce, along with a significant tradeoff of responsiveness and cost. The seller only returns 
+1 3
+Annals of Operations Research
+the money once the returned product is received, so a more responsive return logistics sys
+tem will help to retain customers and gain customer trust. A differentiating diagram between 
+RL and RL for e-commerce has been depicted in Fig. 5. The critical difference lies in RL 
+for e-commerce compared to the traditional RL network: the packaging and pricing (Sang
+wan, 2017); the return product’s value is maximized in the RL e-commerce channel (Han & 
+Trimi, 2018). Additionally, the RL for e-commerce can lead to the product’s strategic and 
+operational recapture more than the traditional RL network (Da Silveria et al., 2015).
+3.2 Returns management
+3.2.1 Importance and necessity of RM in e-commerce
+The continued growth in online shopping has created opportunities for various companies. 
+Also linked with this opportunity is the challenge of customer returns (Beranek, 2020; Nel 
+& Badenhorst, 2020) and the complexities of fraud (John et al., 2020). Heavy returns com
+ing from all types of goods are becoming a cause for the sellers. Therefore, manufacturers 
+and retailers take the reverse supply chain more responsibly and adequately (Stock et al., 
+2002). Returns management is one thing that helps to maintain customer loyalty, and if 
+done correctly, it could make all the difference between firms (Bower & Maxham III, 2012; 
+Ramanathan, 2011; Röllecke et al., 2018; Stock & Mulki, 2009). Though returns are a bane 
+for firms (Patel et al., 2021), a lenient and well-explained return policy will help increase 
+demands from online markets (Patel et al., 2021; Samar & Robert, 2004). However, the 
+worrisome part is that the firms are still not taking the RL or Returns Management seriously 
+instead of treating it as a burden and insignificant for their growth (Rogers et al., 2013).
+3.2.2 Challenges in RM
+RM is an essential aspect of RL and is becoming one of the most critical challenges the 
+industries face (Yang et al., 2015). Since online buying takes away the option of nurturing 
+offline relations (Walsh et al., 2010), the scope of making errors is less with online firms. A 
+good RM process is one way for online e-commerce firms to look after their relationships 
+with customers. The return process in e-commerce should be smooth and leave a good 
+Fig. 5 Difference between RL (a) and RL for e-commerce (b) (Davidaviciene & Majzoub, 2021)
+1 3
+Annals of Operations Research
+experience (Kawa, 2019). With the return process, the closely linked feature is a return 
+policy, an essential component of RM and one of the foremost pillars of customer satisfac
+tion and loyalty (Barman, 2024). It is observed that an easy-going return policy is related 
+to an increase in order frequency, return volume (Janakiraman et al., 2016; Lantz & Hjort, 
+2013; Yan & Pei, 2019), and return costs (Shang et al., 2017). Around 30% of the online 
+purchased products are returned to the retailer (Saleh, 2020). Considering the shipping vol
+ume of these returned products creates negative externalities on the environment (Velazquez 
+& Chankov, 2019). Hence, the returns cause economic and ecological problems (Beranek, 
+2020; Urbanke et al., 2015). At the same time, more lenient policies are expensive in opera
+tion and subject to customer abuse (Lantz & Hjort, 2013; Posselt et al., 2008).
+Janakiraman et al. (2016) conclude that leniency in return policy affects both purchase 
+and return proclivity. However, the former is more than the latter, suggesting that a lenient 
+return policy helps retailers increase purchases (Chaleshtari et al., 2022). Also, the leniency 
+helps in customer loyalty (Mollenkopf et al., 2007), build relationships (Martínez-López et 
+al., 2022); customer trust and market reputation (Pei et al., 2014) also attract more custom
+ers (Gelbrich et al., 2017). Also, the returns policy depth, which may include a long return 
+window and full refund, will signal the firm’s high service quality and increase the custom
+ers’ purchase intentions (Oghazi et al., 2018; Rao et al., 2018; Wang et al., 2019; Yu & Kim, 
+2019; Zhang et al., 2017). Though these policies are appealing to customers, they present a 
+tradeoff to the firms as they balance customer satisfaction and business goals (Karlsson et 
+al., 2023).
+3.2.3 RM dimensions and attributes
+Rogers et al. (2002) state that RM consists of returns, gatekeeping, avoidance, and reverse 
+logistics. Gatekeeping is the entry point of returns flow where, after the initial screening, 
+only any return request is accepted (Rogers & Tibben-Lembe, 1999). In the case of returns, 
+initial screening is even more difficult as the returned products could be inspected once, 
+only when they reach the return point (Griffis et al., 2012). Avoidance refers to activities 
+restraining returns (Hjort et al., 2019) with actions like engineering enhancement upgrade in 
+product quality (Bernon et al., 2013). A fifth entity service has been added in the dimensions 
+mentioned above of the management of RM. Firms that could manage returns as customer 
+service offerings can shift the gatekeeping to the next step (Hjort et al., 2019). Also, Elec
+tronic service quality has been positively related to electronic satisfaction, which is posi
+tively related to electronic Loyalty in the case of online fashion retailers in Spain (Rodriquez 
+et al., 2020). With the attributes and dimensions mentioned above, comprehensive return 
+management is depicted in Fig. 6. Where the different stages are mentioned, and their key 
+features are highlighted.
+Therefore, returns management is a holistic approach for better customer retention and 
+satisfaction. Rogers et al. (2002) described different returns like consumer and environ
+mental returns. They also stressed that each type of return is to be handled with differ
+ent processes, and the strategic and operational processes involved in RM were discussed. 
+Janakiraman et al. (2016), in their meta-analytic review, had characterized the return into 
+f
+ive dimensions: time, money, effort, scope, and exchange. Focus and capability in people, 
+Knowledge, Skills, technology, and IT systems upgradation are essential for e-tail manage
+ment (Ahsan & Rahman, 2022; Jayaraman et al., 2013).
+1 3
+Annals of Operations Research
+Fig. 6 Returns Management in e-commerce (Source: Authors)
+3.2.4 Product return reasons and policies
+Research suggests that the leading causes for the returns were a defect in the product(Ambilkar 
+et al., 2022), followed by the claim of regret in the purchase or the expectations not being 
+met with the product (De Araujo et al., 2018; Kaushik et al., 2022; Mollenkopf et al., 2011), 
+incorrectly described product, or ambiguous information (Rabinovich et al., 2011), impul
+sive buying (Chen et al., 2020a, 2020b). Product quality has also been established as an 
+essential determinant in affecting customer satisfaction and product returns (Li et al., 2013; 
+Lin et al., 2020; Misra & Arivazhagan, 2017). However, studies have also suggested that 
+product fit uncertainty has caused more product returns than product quality issues (Hong 
+& Pavlou, 2014). Even the promotional offers prompt customers to make riskier purchases, 
+which eventually increases the returns (El Kihal & Shehu, 2022; Shehu et al., 2020), which 
+ultimately lead to additional financial burdens on the firms (Frei et al., 2022).
+E-tailers either set up operation and management functions to recover the return cost or 
+transfer these to customers (Vilar-Zanon et al., 2017). Research has shown that some firms 
+have considered imposing shipping, restocking, and handling fees on return items (Hua et 
+al., 2016; Zhao et al., 2020). Customers will be ready to pay the restocking fees if they are 
+assured that online purchase has better quality than brick-and-mortar purchases (Difran
+cesco & Huchzermeier, 2020). In his study, Beranek (2020) concluded that a state-imposed 
+return fee is the best alternative to deal with returns.
+Selling the returned products once repaired through the e-markets leads to a higher stan
+dard deviation in profits (Choi et al., 2004). Saastamoinen (2009), through the study, stressed 
+that investment made in reputation could help the firm receive returns, and additionally, the 
+increase in small sellers in the market influences the price. Ramanathan (2011), through 
+an empirical study intending to analyze how risk characteristics of a product influenced 
+1 3
+Annals of Operations Research
+customer loyalty and concluded that customers are happier when they can return products 
+without any complications, influencing customer loyalty.
+One way of limiting these returns was suggested as limiting payment options, as it is 
+observed that customers who pay on delivery are twice as likely to return compared to 
+those who pay in advance (Urbanke et al., 2015). It is also observed that when products 
+are sold at a lower price, they exhibit less return rate (Shang et al., 2019). Methods, as sug
+gested by Ishfaq et al. (2016), where the e-tailers offer free shipping to the customers and 
+a 30 days return policy for a refund minus the restocking fee, could effectively discourage 
+return fraud. Even replacement policy could also be looked as an alternate to return policy 
+to give better outcomes to the firms (Mondal & Giri, 2022). The use of return credit as a 
+monetary instrument is also one way to reduce returns (Martínez-López et al., 2023). Return 
+freight insurance as a means to reduce return costs incurred by retailers is also a suggested 
+instrument (Zhang et al., 2022; Zhao et al., 2023; Xu et al., 2023). The use of machine learn
+ing techniques also helps to understand customer return behavior using past data (Policarpo 
+et al., 2021). Predictive algorithms have been developed to reduce return fraud (Cui et al., 
+2020; Heilig et al., 2016; John et al., 2017; Rajasekaran & Priyadarshini, 2021; Urbanke 
+et al., 2015; Yang et al., 2020). Table 2 illustrates more on the different aspects of the RM 
+process and key features.
+3.2.5 Customer behaviors and strategies
+Pei & Paswan (2018) divided the consumer’s return into two parts: legitimate and opportu
+nistic return behavior. Opportunistic return behavior involves the misuse or exploitation of 
+the return policy of online firms (Kaushik et al., 2020). The legitimate return, like impulsive 
+buying, could be reduced by detailed advertising, whereas it is difficult to reduce opportu
+nistic returns. Even the free return tag does not affect the customer’s return behavior (Walsh 
+& Mohring, 2017). Research has also shown that the likelihood of returns depends on the 
+regularity of the order delivery date promised and the actual delivery date (Rao et al., 2014; 
+Zhao et al., 2018). The product returned will also invoke negative online reviews and may 
+impact the e-tailer’s sales and reputation (Sahoo et al., 2018; Sun & Zhao, 2022).
+In his exploratory study, Bernon et al. (2013) provided a conceptual framework where 
+operational performance, organizational integration, and management reporting and control, 
+if appropriately implemented, will give optimal results in terms of reduction in returns—
+focusing on incentivizing for the reduction in returns. Li et al. (2018) proposed a framework 
+Hypergo to predict customer return, and the framework was based on historical purchases 
+and subsequent return records. It can help the firms reduce returns. When a customer with 
+high return intention purchases a product, the firms could incentivize the customer not to 
+return the product or prepare for the RL. Walsh & Brylla (2017) studied how consumer 
+behavior and attitudes are affected once the product has been returned. Table 3 depicts the 
+customer perspective and reactions to different RM processes and policies.
+In physical stores, the return mechanism operations significantly differ from those in 
+online stores. Online stores could incur heavy losses if they do not have a well-planned, 
+managed, and effective reverse logistics channel. Therefore, research on RL network design 
+for e-commerce is one area that is significantly gaining interest from the research commu
+nity. Next, we will discuss the various RL models.
+1 3
+Annals of Operations Research
+Table 2 Review of the RM in E-commerce study (Retailer Perspective)
+RM aspects Features and remarks
+Return 
+In online markets, the service offered to customers is similar to trying 
+Service
+Return 
+frauds
+Return 
+policy
+Product 
+returns
+Return 
+handling 
+Process
+Return 
+Costs
+on clothes from the wardrobe
+The scope of error making is less in online stores as it takes away the 
+feature of nurturing offline stores
+Good service helps to reduce customer dissatisfaction
+Reduction in product returns has also been achieved through exem
+plary customer service
+Returning without a valid reason. For example, purchasing a dress to 
+wear on special occasion and then returning back
+To make an online purchase to replace a damaged product
+Customers were returning products that were not even the original 
+ones
+Return policy essential components include time window for return, 
+terms and conditions of return, and money-back guarantee
+Return Policies are based on the signaling theory, suggesting a com
+mitment to customer service
+Depth of return policy (Justice Theory) depicts the fairness of a 
+policy and reasonability of the seller’s price, service, and policy
+Lenient Return Policy: It consists of free returns, a longer return 
+window
+Moderate Return Policy: It is a mix of leniency and confinement. It 
+includes acceptance of return with valid proof and with strict time 
+windows
+Strict return Policy: It has many gatekeeping rules to avoid return 
+acceptance
+Defects majorly cause it in product incorrect information displayed
+Product fit uncertainty
+The significant interrelated steps are gatekeeping, avoidance, e
+service, and reverse logistics
+The complex and inconvenient return process is not suitable for 
+customer retention
+The cost of processing returns in online markets is higher compared 
+to the brick and mortar stores
+It is a vital cost that cannot be avoided in online business
+Online retailers can decide return fees for unconditional returns
+Authors
+Hjort et al., (2019)
+Ahsan & Rahman, 
+(2022); Walsh et al., 
+(2010)
+Mollenkopf et al., 
+(2007); Rodriquez 
+et al., (2020)
+Walsh et al., (2016)
+Wachter et al., 
+(2012)
+Nel & Badenhorst, 
+(2020)
+Harris, (2010); 
+Wachter et al., 
+(2012)
+Shang et al., (2017); 
+Zhang et al., (2017)
+Oghazi et al., 
+(2018)
+Pei et al., (2014)
+Difrancesco et al., 
+(2018); Rao et al., 
+(2018)
+Pei et al., (2014)
+Yu & Kim, (2019)
+De Araujo et al., 
+(2018); Rabinovich 
+et al., (2011)
+Hong & Pavlou, 
+(2014); Jauhar et 
+al., (2023)
+Hjort et al., (2019)
+Griffis et al., (2012)
+Difrancesco et al., 
+(2018)
+Liu, (2014)
+Hua et al., (2016)
+1 3
+Annals of Operations Research
+Table 3 Review of the RM in E-commerce study (Consumer Perspective)
+Customer 
+Aspects
+Features
+Authors
+Customer 
+satisfaction 
+and Loyalty
+Customer 
+returns 
+behavior
+Customer 
+Purchase 
+Intention
+Positive service encounters reduce negative customer 
+experience
+A lenient return policy helps to increase customer satisfaction 
+and loyalty
+The product’s features and attributes depicted in the online 
+match compared to the original impact have a distinct effect 
+on customer satisfaction
+On-time delivery and a fast, smooth return process affect 
+customer loyalty positively
+The behavioral causes for return are no-fault returns, fraudu
+lent return behavior, or change of mind
+Legitimate returns include faulty or damaged products and 
+wrong product delivery
+Opportunistic behavior includes misuse of the e-tailer policy
+Dependent on the quality of the product
+Depth in return policy positively affects customer purchase 
+intention
+Lenient return policy, long return window, and easy return 
+process also positively affect the purchase intention.
+Jain et al., (2017); Ferraz et 
+al., (2023)
+Bower & Maxham III, 
+(2012); Janakiraman et 
+al., (2016); Lantz & Hjort, 
+(2013); Ramanathan, 
+(2011); Röllecke et al., 
+(2018); Stock & Mulki, 
+(2009); Yan & Pei, (2019)
+Hong & Pavlou, (2014)
+Rao et al., (2014); Zhao et 
+al., (2018)
+Chen et al., (2020a, 2020b); 
+de Araujo et al., (2018); Pei 
+& Paswan, (2018)
+Pei & Paswan, (2018)
+Kaushik et al., (2020)
+Li et al., (2013)
+Pei et al., (2014)
+Zhang et al., (2017)
+3.3 Product-specific e-commerce network
+3.3.1 RL process in e-commerce
+The traditional RL network has been taken up in various studies. The significant difference 
+compared to the RL network for e-commerce has been highlighted above and illustrated 
+in Fig. 5. Also, research has shown that conventional RL network consists of Acquisition, 
+collection, inspection/sorting, and disposition (Agrawal et al., 2015). The mentioned net
+work will not explain the RL for e-commerce, and some changes are required to fit into the 
+scheme of e-commerce. Research has suggested that there is a need for the incorporation of 
+asset recovery in the network design (Dutta et al., 2020; Guo et al., 2018) and the presence 
+of a secondary market or reuse facility in the market (Guo et al., 2017a, 2017b; Zhuang et 
+al., 2016) and inventory storage update with types of returns (Das et al., 2020; He et al., 
+2019). We attempt to capture these inputs in the robust network design depicted in Fig. 7. 
+The further explanation of the variables depicted is also explained below.
+Information/Information Flow: Information is a carrier that can be generated, stored, 
+processed, transmitted, retrieved, and used (Weiland, 2017), which works in both directions 
+for customers and e-commerce firms to have seamless transactions and easy working of 
+services of the firms. It is essential for effective production and services (Jayasinghe et al., 
+2019). Integration of information systems in RL networks helps improve customer service 
+(Daugherty et al., 2002). Also, the growth in internet penetration has led to a smoother 
+1 3
+Annals of Operations Research
+Fig. 7 Reverse logistics flow in e-commerce network
+information flow and has helped online commerce adjust to the geography of trade flows 
+(Hortacsu et al., 2009). In their study, Shi et al. (2012) analyzed how integrating information 
+systems helps Management in RL and waste management. The importance of information 
+f
+low in the RL supply chain was also stressed by Chileshe et al. (2019), who discussed how 
+improvement could be brought about in the present reverse system using an effective infor
+mation system. The use of information can also be seen in Fig. 8, where the information 
+plays a crucial role in the timely disbursal of return credits and coordination for the return 
+pickup.
+Collection Center: In collection centers, customers are asked to drop at the nearest col
+lection center. Sometimes, crowdsourcing ways are also used to drop to the nearest collec
+tion center (Pan et al., 2015) or integrate the return process with the regular order-dropping 
+orders (Schrotenboer et al., 2019). Once the product reaches the collection center, the pos
+session of the product gets into the hands of firms (Fleischmann, 2003).
+4R (Resell, Reuse, Recycle, Remanufacture): The concept of 4R was initially stated 
+by Fleischmann (2000) in his seminal work on the RL network design. The 4R in RL of 
+e-commerce are (1) restock in the firm’s warehouse or partner retailer storage location, (2) 
+repackaging for sale through the original e-commerce website, (3) returning to the vendor 
+if the product is damaged or defected, and (4) Refurbished/Recycled product to be obtained 
+from vendor be sold back through the e-commerce website.
+Alternative use of waste: The alternative uses include energy recovery, compositing 
+(Papargyropoulou et al., 2014), biofuels, and bioproducts (Girotto et al., 2015) from food 
+waste. Make carpets and blankets from shoddy yarn (Abraham, 2011).
+The network types are sub-grouped here into RL in one e-commerce design, with various 
+products being sold through one common platform and varying return policies for different 
+products. Then, the RL network for food e-commerce is reviewed, which could further be 
+segmented into different sub-segments like fresh food, groceries, and restaurant-delivered 
+food. Every division needs different treatment techniques based on the shelf life. The RL 
+network for apparel e-commerce only deals with apparel. The scrapped product treatments 
+vary depending on the material and textile used. The one common issue, irrespective of the 
+1 3
+Annals of Operations Research
+Fig. 8 A typical flowchart of RL in e-commerce
+1 3
+Annals of Operations Research
+e-commerce network type, is the packaging waste and how it could be reduced. Reusing is 
+one central area to look into in the future.
+Figure 8 illustrates the flow chart of how e-commerce occurs, from the customer raising 
+the return request to the e-tailer picking up the order and issuing the return credits based 
+on policy and initial inspection. The various ways of treating the returns are illustrated, 
+with restocking, repackaging, returning to manufacturers/ vendors, and disposition being 
+the primary options.
+3.3.2 E-commerce network
+Considering the specific RL network design for e-commerce, return logistics form a crucial 
+component of the network design. The product return makes the network more complex 
+(Wang, 2015). Moreover, when product returns from cross-border e-commerce are consid
+ered, the complexity increases (Wang et al., 2020).
+3.3.2.1 Types of RL models in e-commerce Kokkianki et al. (2002) carried out one of the 
+f
+irst works linking RL with e-commerce. The role of web enablement in the efficient han
+dling of returns was stressed via online tracking, and faster delivery reduces the chances of 
+returns for perishable and gift items, consolidating different return channels. Three models 
+have proposed return aggregators, which aggregate returns from original equipment man
+ufacturers without owning them, specialty locators, which focus on specialized parts or 
+products, and integrated solution providers, who use web technology as a facilitator for pro
+viding unique services. Yanyan (2010) studied different reverse models for an e-commerce 
+model and strategies for choosing a more fitting model. The characteristics noted for an RL 
+in e-commerce were the Intensive logistics system, collaborative logistics network, and 
+Flexible Customer Relationship Management.
+3.3.2.2 Optimization models (inventory, vehicle routing, demand uncertainty, and customer 
+behavior) Mathematical models were developed catering to the dynamic needs of the RL 
+network for the e-commerce market. Studies have acknowledged that managing and receiv
+ing returns using a cost-effective logistics network in the online markets is a challenge 
+(Griffies et al., 2012; Schrotenboer et al., 2017). Different models were proposed to opti
+mize several objectives. Zhang et al.’s (2020) multi-objective model was directed to choose 
+the vehicle type, optimal logistics decision, and the minimum number of online orders in 
+each transport cycle to optimize the cost. Hu et al. (2010) took a mathematical approach 
+to the problem, considering uncertainty in demand, the recall, and returns of goods. The 
+location inventory model with a secondary market presence was taken up by Guo et al. 
+(2018). Daultani et al., (2022) introduce a novel logistics network design for both new and 
+refurbished goods in e-commerce to optimize cost across the supply chain. Using a MILP 
+approach, it tackles complexities involving procurement, inventory, returns, and transporta
+tion. The models proposed by Chen et al., (2020a, 2020b) and Zhuang et al. (2016) have 
+investigated routing problems with time consideration. Inventory specific to perishable 
+items has been analyzed in the studies of Gu et al. (2018) and Ekren et al. (2021). Network 
+optimization specific to e-commerce to minimize costs was taken up by Cao et al. (2016), 
+Das et al.(2020),Deng et al. (2016), Liu (2014), Guo et al.,(2017a, 2017b), XiaoYan et al. 
+1 3
+Annals of Operations Research
+(2012), Zaarour et al. (2014) with various variations. The recent research by Thibbotuwawa 
+et al. (2023) has extended the network optimization problem by integrating it with Industry 
+4.0 technologies.
+The vehicle routing problem in e-commerce optimization has increasingly emphasized 
+the efficient routing of returns to sellers to mitigate escalating transportation costs. The 
+study of Prajapati et al. (2021a) and (2021b) have worked to reduce the time horizon to 
+deliver products by focusing on the sustainable logistics network. The Triple Bottom Line 
+framework was integrated into the vehicle routing model for a CLSC network designed by 
+Mallari et al. (2023). While the study of Li et al., 2024, assessed the advantage of having an 
+integrated truck-drone service mode over solely relying on trucks in the designed vehicle 
+routing problem.
+The other mathematical models varied with different objective functions. Dutta et al. 
+(2020) developed a multi-objective model to optimize the overall cost of the network 
+consisting of incineration customer markets, delivery hubs, fulfillment centers, recycling 
+centers, and landfills. Prajapati et al. (2022) concentrated on crafting a logistics network 
+encompassing initial grain collection and final distribution while prioritizing sustainability’s 
+triple bottom line. The role of government in successfully implementing RL practices was 
+studied by Yao & Ran (2019) using the evolutionary game method. The study concluded 
+that the government’s intense supervision would help in the successful implementation of 
+RL. Wang (2015) developed an RL evaluation index system based on customer behavior, 
+and based on the index, the call to accept a return should be taken.
+3.3.2.3 Barriers and drivers Xu & Jiang (2009) classified the characteristics of RL in the 
+e-commerce environment. They showcased that internal neglect and higher system com
+plexity act as barriers. In contrast, a zero-return policy for some commodities and a sup
+porting mechanism for talented people could help solve the problem. In the detailed study 
+focusing on the barriers, Naseem et al. (2021) listed the barriers broadly into five groups, 
+namely Management-related, infrastructure, coordination issues, policy, and financial.
+The barriers to RLND of e-commerce consist of a lack of awareness, lack of laws, and 
+supportive economic policies (Jindal & Sangwan, 2011), the focus of top management on 
+forward logistics, along with lack of proper training, education, and guidance about RL 
+(Chung & Zhang, 2011; Jindal & Sangwan, 2011). The lack of support from the other logis
+tics partner (Li & Olorunniwo, 2008), lack of technological infrastructure, lack of invest
+ment, and uncertainty in demand are the other significant key barriers (Pokharel & Mutha, 
+2009). A more comprehensive study was conducted by Lamba et al. (2019) where the barri
+ers were finalized by taking the perspective of both customers and service providers, primar
+ily being lack of investment in RL, lack of understanding, lack of transportation and storage 
+facilities were the significant barriers.
+The major drivers identified for effective implementation are Management, employees, 
+IT and technology, return policy, infrastructure, organizational structure and culture, cus
+tomer service, and quality management (Davidaviciene & Majzoub, 2021). Also, a well
+defined return process and the establishment of a well-equipped RL will promote customer 
+purchase and satisfaction (Anh & Khoa, 2023; Mollenkopf et al., 2007), which could be a 
+system-based driver. Also, while choosing a third-party reverse logistics provider(3PRLP), 
+1 3
+Annals of Operations Research
+the drivers identified were cost, lead time, customer’s voice, delivery and service, and qual
+ity (Wang et al., 2021). Also, the Effective RL implementation will drive the circular flow 
+of materials and implementation of a circular economy, which will help to reduce wastage 
+(Nanayakkara et al., 2022). Table 4 summarizes the critical studies and their findings in RL 
+for e-commerce.
+3.3.2.4 Strategies Guojing & Ciping (2010) studied the network design from the strategic 
+view and proposed that having a simple return goods policy, integrating different feedback, 
+and analyzing the different reasons for returned goods could help decrease the operating 
+cost and increase profits. An RL information management system that understands and ana
+lyzes the reasons for returns could also reduce returns (Yang, 2014).
+A third-party logistics partner for better handling the product’s reverse flow could improve 
+the firms’ RL efficiency (Ma, 2010). Wang et al. (2020) took the problem of product returns 
+in cross-border e-commerce to help the retailers choose the optimal mode of logistics that 
+considers the marketing strategies and return demands. Methods like restocking, disposi
+tion, and scrap utilization were suggested to reduce waste and make an efficient RL network 
+for e-commerce (Biswas & Kader, 2018). The method of refurbishing and recycling could 
+also lead to zero waste disposal for products like cellphone (Santana et al., 2021).
+3.3.2.5 Collection system Collecting the returned items has not been discussed with much 
+emphasis. One way to collect these returned products has been for the seller to pick them up 
+from the door, and the second is for a customer dropping to a nearby facility. Additionally, a 
+crowdsourcing solution was proposed by Pan et al. (2015) in which concepts of crowdsourc
+ing and the physical internet were proposed. The thought was to incentivize the taxi drivers 
+by giving little money, who are always in constant mobility, to collect goods and drop them 
+at a reliable preassigned shop. It is assumed that packages are assigned to taxis with drivers 
+who are not changing the routes. It will help reduce carbon emissions, be socially friendly, 
+and be more economical. Jianyu et al. (2015) suggested a grid-based distribution system to 
+manage returns coming from online buying by the customers effectively.
+3.3.2.6 Omni-channel returns The growing popularity of omnichannel retail (Jena & 
+Meena, 2022; Qiu et al., 2023; Risberg, 2023; Zhang et al., 2018) offers the flexibility of 
+cross-channel returns (Akturk et al., 2018; Gao et al., 2022; Narang & Shankar, 2019; Pals
+son et al., 2017).The Omni channel is more advantageous when the cost of RL is high. 
+Otherwise, the retailers prefer only online stores (Mandal et al., 2021).
+In omnichannel retail, the Buy –online –Return-To-store (BORS) strategy is more pop
+ular compared to the Buy –online –Return-To-Non-store (BORNS) (Akturk et al., 2018; 
+Huang & Jin, 2020; Palsson et al., 2017; Radhi & Zhang, 2019; Shi et al., 2018) and has 
+helped to draw new customers (Yang & Ji, 2022; Yang et al., 2023a, 2023b). One advantage 
+that BORS offers is that it can consolidate online and store returns (He et al., 2020), which 
+has also helped omnichannel firms derive more profit (Li et al., 2021). The Buy Online Pick 
+up in Store (BOPS) strategy has also been found to be helpful for increasing firms’ profits 
+and reducing packaging waste (Peng et al., 2022). However, the uncertain returns compli
+1 3
+Annals of Operations Research
+Authors Remarks Methodology
+Kokkianki et 
+al. (2002)
+The first kind of work in linking RL and e-commerce, furthermore, com
+ing up with specific models for practice
+Evidence
+based study
+Yanyan 
+(2010)
+The Strategies for choosing a fitting model for an RL network in e
+commerce were discussed
+Discussion
+Hu et al. 
+(2010)
+A multi-objective approach for location inventory problems Multi-objective 
+optimization
+Zaarour et al. 
+(2014)
+To locate return centers that could help reduce the inventory holding cost 
+and reduce unit transportation cost of return-shipped products
+Network 
+optimization
+Yao et al. 
+(2019)
+A Tripartite game where e-commerce firms, government, and consumer 
+behavior were analyzed
+Evolutionary 
+game method
+Cao et al. 
+(2016)
+The multi-objective model is aimed at minimizing the cost and maximiz
+ing customer satisfaction
+Multi-objective 
+optimization
+Guo et al. 
+(2018)
+Decisions relating to location inventory for a closed supply chain consid
+ering the secondary market
+Optimization
+Wang (2015) Based on customer behavior, it is to be decided whether to accept the 
+customer request
+Optimization
+Lamba et al. 
+(2019)
+The barriers for RLND of e-commerce were studied Fuzzy-AHP
+Jindal & 
+Sangwan 
+(2011)
+RLND of e-commerce was studied where factors about the Indian market 
+were studied using Interpretive Structural Modeling
+ISM
+He et al. 
+(2019)
+The storage strategy for RL in e-commerce is suggested where inventory 
+error coefficients are added in the classical model, and thereby, a new 
+profit newsboy model is proposed
+Optimization
+Liu (2014) A network of RL for e-commerce considering the returned objects is sent 
+from the collection point to the recycling center. The objective was to 
+minimize the total cost and optimize collection, recycling, and remanu
+facturing centers’ number and location
+Optimization
+Deng et al. 
+(2016)
+It has proposed a Hybrid ant colony optimization (HACO) algorithm 
+which considers both the quality defects and non-defects in the chain. It 
+helped to minimize the cost of the network
+Algorithm 
+Development
+Jianyu et al. 
+(2015)
+Suggested a grid-based distribution system to manage returns coming 
+from online buying effectively
+Simulation
+Pan et al. 
+(2015)
+The concepts of crowdsourcing and physical internet were used. The 
+thought was to incentivize the taxi drivers by giving little money, who 
+are always on constant mobility to collect goods and drop to a reliable 
+preassigned shop
+Crowdsourc
+ing and 
+optimization
+Biswas & 
+Kader (2018)
+RL challenges were studied seeing the advent of the internet and rising 
+returns, then methods like restocking, disposition, and utilizing the scrap 
+were suggested to reduce waste
+A discussion 
+paper and 
+evidence-based 
+study
+Ma (2010) The existing strategies like starting point management, process manage
+ment, follow-up management were reviewed and improved
+A discussion 
+paper and 
+evidence-based 
+study
+Guojing 
+& Ciping 
+(2010)
+The network design from the strategic view where it was proposed that 
+having a relaxed returns good policy, integrating different feedback, and 
+analyzing the different reasons for returned goods could help decrease 
+the operating cost
+A discussion 
+paper and 
+evidence-based 
+study
+Xu & Jiang 
+(2009)
+Classified the characteristics of RL in an e-commerce environment and 
+factors that could help solve the problem
+A discussion 
+paper and 
+evidence-based 
+study
+Table 4 Review of the Key work of RL for e-commerce
+1 3
+Annals of Operations Research
+Table 4 (continued)
+Authors
+XiaoYan et 
+al. (2012)
+Liu (2014)
+Zhang et al. 
+(2019)
+Remarks
+A MILP mathematical model that could deal with the returned products 
+for e-businesses. With four players: Factories, online retailers, Third
+party logistics (3PLs), and markets
+Optimization of the E-commerce RL network cost
+The proposed model is aimed at optimizing the network route. The study 
+helps choose the vehicle type, optimal logistics decision, and the mini
+mum number of online orders in each transport cycle to optimize the cost
+Methodology
+Optimization
+Optimization
+Optimization
+cate the situation for retailers as these returns complicate the inventory and replenishment 
+decisions (Goedhart et al., 2023; Ma et al., 2024). While,the customer preferences for omni 
+channels are governed by walking distance to the store (Guerrero-Lorente et al., 2020), 
+convenience, and transparency (Xie et al., 2023).
+In the systematic literature, de Borba et al. (2020) focused on omnichannel returns and 
+developed a framework covering forty-three decision elements broadly categorized in the 
+realm of last-mile delivery, last-mile back-end fulfillment, supply, and internal distribu
+tion. Return policies with modifications were studied by game theoretic models in recent 
+years. The exchange policy tradeoff between online and offline options (Sun et al., 2024); 
+retailer optimal return strategy with a focus on consumer disappointment aversion (Shen 
+et al., 2022) and in presence of competition (Jin et al., 2020); retailers optimal ordering 
+strategy along with the pricing decision (He et al., 2020);consumer return policies (Nag
+eswaran et al., 2020);Choosing the optimal strategy between BORS and BOPS strategy by 
+the retailer(Liu et al., 2023); Investigating when a pure online retailer go for omni channel 
+strategy (Liu & Xiong, 2023).
+The all-in-one network generally considers all kinds of products, which are electronic 
+items from a vital entity. Though no research paper distinguishes differently for electronic 
+e-commerce, the basic idea of WEEE (waste of electrical and electronic equipment) man
+agement remains the same as discussed in Barba-gutierrez et al. (2008), Habibi et al. (2014), 
+John et al. (2020), Bal & Satoglu (2018). The only difference lies in the customer’s use of 
+information and other challenges discussed above in returns management.
+The literature has applied a single model for all goods categories to explain the RL 
+network for e-commerce (Liu (2014); Wenjuan & Wang, 2015). We believe that such an 
+approach ignores inter-category differences, e.g., the RL design of electronic equipment 
+differs from the RL design of a food network or apparel network in terms of waste man
+agement, dumping, and return policies. Therefore, we think there is a need to research and 
+design category-specific RL networks.
+3.3.3 E-commerce: apparel network
+3.3.3.1 Return rate and challenges The cumulative data shows a bright picture for the fash
+ion industry; business is expected to grow from $481.2 billion in 2018 to $712.9 billion by 
+2022 (Orendorff, 2019). Hence, it is observed that apparel e-commerce is exponentially 
+rising worldwide, but at the same time, returns are also expected to grow manifold. With 
+the ease of shopping online, the shopping culture of customers has changed with the avail
+able options of getting faster deliveries of multiple items with varying sizes and colors 
+and additional options to return what they dislike (Velazquez & Chankov, 2019). It is also 
+1 3
+Annals of Operations Research
+observed by Kim et al., (2011), by looking into differentiating attributes in men’s and wom
+en’s apparel websites and found out that e-services required by men are more sophisticated 
+than women in the E- e-retailers websites. Hence, website sophistication also plays a vital 
+role in the customer’s correct buying, thereby reducing the chances of return.
+One of the foremost challenges faced by online retailers is managing these high volumes 
+of returns (Wood, 2001). Fit uncertainty is one of the fashion industry’s significant driv
+ers for product returns (Gustafsson et al., 2021). In order to manage these returns effec
+tively, there is a need to handle returns efficiently by having a simple and easy return policy. 
+Though these return policies may vary from firm to firm, some have a lenient return policy, 
+though not free, and some have a free return policy. However, it is observed that free-of
+charge return policies do not always ensure long-term profitability (Hjort & Lantz, 2016). 
+Hence, a return policy focusing on the ease of returns will help reduce waste, increase profit, 
+and develop an efficient RL network for apparel e-commerce. The better presentation of 
+products on offer by additional features such as zoom-in and 360-degree view could also 
+help to reduce returns (Stöcker et al., 2021).
+3.3.3.2 Textile waste and treatment With the onset of internet growth and new informa
+tion communication technologies flaring the market, the trend travels faster nowadays. It 
+creates volatility in demand and a shorter life cycle for fashion products (Caniato et al., 
+2012), creating more textile waste. The proper treatment of textile wastes (TW) through 
+segregation instead of incineration would help reduce environmental degradation. Product 
+recovery reuse contributes to lessening the adverse impact on the environment (Govindan 
+& Popiuc, 2014). If the number of residues in different clusters is added, it becomes sig
+nificant for recycling (Dhanda & Peters, 2005). Pinheiro et al. (2019) have researched and 
+identified opportunities for improvement in the use of RL in clothing industries and listed 
+down different existing strengths in the treatment of textile waste (TW). The research elabo
+rates on the strengths of the literature to bring out the importance of adequate disposition 
+and proper segregation of wastes, which enables Reuse, thereby helping the market reduce 
+waste. Mayo (2021) suggested the use of novel compostable polymers to reduce the TW.
+The challenges while developing an RL network specifically for apparel e-commerce 
+are very different from traditional RL network design. The rising incidence of returns is a 
+massive concern for e-commerce operators. Textile waste generation and proper recycling 
+are daunting challenges worldwide (Domina & Koch, 1999). In the case of apparel, the RL 
+network requires a proper inspection channel to check defects, and after that, delegation on 
+the defect decides whether to reuse, remanufacture, or recycle. Reselling defected apparel is 
+also an option, but no significant research has been conducted on the utility of this approach.
+3.3.3.3 Optimization problems (inventory, vehicle routing, and cost optimization) Guo et 
+al., (2017a, 2017b) developed one of the first optimization models for apparel e-commerce, 
+considering the RL network’s multi-period and dynamic joint construction model. The study 
+forms a basis for reducing the regional RL cost. Adding to this, the multi-objective model 
+suggested by Dutta et al. (2020) developed the model on three fronts, i.e., economic cost, 
+environmental impact, and social responsibility. To reduce returns in apparel e-commerce, 
+an innovative vehicle routing problem with an uncertain "try on time "was proposed by Hu 
+1 3
+Annals of Operations Research
+et al. (2015) to save return costs and improve customer satisfaction by providing an experi
+ence to improve customer loyalty. Das et al. (2020) designed an RL network for fashion 
+e-commerce firms with inventory, transportation, and facilities costs. They found out that 
+the inventory cost is meager than the transportation cost, including the returned product 
+from the customer to the initial collection center and from the warehouse. Hence, efficiency 
+in transportation has to be worked for RL in e-commerce. Table 5 briefly describes the 
+research done in RL for online apparel and the findings that could be used in further research 
+concerning the area.
+3.3.4 E-commerce: food e-commerce
+3.3.4.1 RL challenges and dimensions E-commerce growth and advancement have grown 
+leaps and bounds, and there are new developments seen in fresh food e-commerce, mak
+ing it a new strategic field for traditional e-commerce firms (Chen et al., 2020a, 2020b). 
+While considering the food e-commerce firms, factors like time-critical delivery, high prod
+uct variety, food quality factor, and arrival time windows are considered in addition to the 
+traditional e-commerce firms (Tsang et al., 2020).
+With the recent COVID pandemic, online grocery shopping has taken a forward leap 
+(Keyes, 2020). Also, grocery stores and supermarkets have implemented new strategies to 
+cater to the new demand, like appealing to websites and mobile applications (Dominici et 
+al., 2021). Similarly, the delivery of other food items like fresh vegetables, cooked food, 
+and other eatables has increased in developing countries. Therefore, the design of the RL 
+network for food e-commerce brings out different challenges due to multiple subcategories, 
+as mentioned above. Given these subcategories’ varying shelf lives, it is crucial to have a 
+speedy and responsive logistics system in place. During transportation, each type of fresh 
+food has its temperature requirement to be maintained (Chen et al., 2020a, 2020b; Tsang et 
+al., 2020). Hence, it will be unviable to treat them homogeneously.
+Reverse food logistics across the product life cycle was studied by (Vlachos, 2014), 
+where speed, flexibility, reliability, quality, and sustainability were considered the perfor
+mance indicators for reverse food logistics. The study’s key finding was that effectiveness 
+in the introduction phase, and the Management of quality-related problems would determine 
+the success of future RL in the food chain. Perishability and inaccuracy in demand forecast
+ing also led to inventory issues in food e-commerce networks (Ekren et al., 2021).
+3.3.4.2 Waste treatment and disposal Also, Food waste generated through e-commerce 
+networks is a huge issue. Food waste is a subset of food loss, which signifies a reduction 
+in quantity or quality for any reason throughout the supply chain. In contrast, food waste 
+refers to materials meant for human consumption but not consumed (Kibler et al., 2018). 
+Heterogeneity in generation patterns and the varying physical and chemical properties with 
+inconsistency in quantity have made food waste management a big challenge (Joshi & Vis
+vanathan, 2019). These food wastes could be generated due to various reasons like excess 
+buying, inadequate labeling, poor storage facilities, transportation, and packaging defects 
+(Gustavsson et al., 2011). There are also social reasons like lack of awareness, poor plan
+ning, and accepting the waste of food as a social norm (Joshi & Visvanathan, 2019) for food 
+1 3
+Annals of Operations Research
+Table 5 Review of the RL for ap
+parel e-commerce
+Authors
+Pinheiro et 
+al. (2019)
+Hjort & 
+Lantz (2016)
+Dutta et al. 
+(2020)
+Govindan 
+& Popiuc 
+(2014)
+Guo et al., 
+(2017a, 
+2017b)
+Das et al. 
+(2020)
+de Leeuw et 
+al., (2016)
+Velazquez et 
+al. (2019)
+Gustafsson 
+et al. (2021)
+Findings/Remarks
+The study elaborates on the strengths 
+of the literature to bring out the 
+importance of adequate disposition and 
+proper segregation of wastes, which 
+enables Reuse, thereby helping the 
+market reduce waste
+How a return policy focusing on the 
+ease of returns will help reduce waste 
+and help to develop an efficient RL 
+network for apparel e-commerce
+The model had set goals on three 
+fronts, i.e., economic cost, environ
+mental impact, and social responsibil
+ity. The model considered different 
+types of technologies present in the 
+delivery hub and mother warehouse 
+to process and transfer products 
+efficiently
+Proper treatment of Textile Wastes 
+(TW) through segregation instead of 
+incineration would be helpful to reduce 
+environmental degradation and how 
+Product recovery reuse contributes to 
+lessening the adverse impact on the 
+environment
+In consideration, a multi-period and 
+dynamic joint construction model of 
+the reverse logistics network optimiza
+tion model was used with apparel in 
+e-commerce
+Designed an RL network for fashion e
+commerce firms with inventory costs, 
+transportation costs, facilities cost
+The study focused on the apparel 
+market and how to make a tradeoff be
+tween efficiently handling the returns, 
+strategizing to reduce customer returns, 
+and, at the same time, increasing sales 
+through RM
+The environmental impact caused by 
+online returns of fashion products was 
+studied
+The study aimed to analyze the return 
+costs, the primary reason for return 
+being uncertainty in fit
+Methodology
+Case study
+Empirical 
+study
+Multi
+objective 
+optimization
+A discussion 
+paper and 
+evidence
+based study
+Multi
+objective 
+optimization
+Optimization
+Empirical 
+Study
+Empirical
+Case study
+wastage. Cold storage facilities for frozen foods, processing, and distribution are the other 
+factors that may lead to food losses. The food waste will also be coupled with disposable 
+plates, utensils, and bags, significantly impacting the environment (Song et al., 2018). Apart 
+from the economic and environmental losses, these wastes also create health hazards (FAO, 
+1 3
+Annals of Operations Research
+2011). Table 6 illustrates the vital work done in food e-commerce, and critical findings are 
+also elaborated.
+Studies conducted by Dominici et al. (2021), Naseri & Elliott (2011), and Arce-Urriza 
+& Cebollada (2010) have found that the young population buys more from online grocery 
+stores. Hence, these young people could be made more aware of the detrimental effects 
+of food wastage and restrict themselves from buying additional food items through social 
+media.
+Even after trying out the above ways, the possibility of food waste cannot be eliminated. 
+The dumping and disposal of food waste are also huge environmental problems (Salem
+deeb et al., 2017). In developing countries, incomplete food waste management systems 
+especially lead to environmental and sanitary problems (Thi et al., 2015). Since waste can 
+be a resource, a notion on which sustainable resource management is based (Bringezu & 
+Bleischwitz, 2017), the concentration of e-commerce firms should reduce and utilize waste. 
+The waste hierarchy represents various measures applied to materials, food, and substances 
+before and after they have become waste (Gharfalkar et al., 2015). It lists prevention, prepa
+ration for reuse, recycling, recovery, and disposal (UNION, 2008), with prevention as the 
+most preferred option and disposal being the least preferred.
+Composting and animal feed as the feasible recycling options, anaerobic digestion for 
+recovery energy, redistribution of food through various networks and food banks to reuse 
+the food by giving it to the poor, disposing of the unavoidable waste into engineered land
+f
+ills could be carried out in the waste hierarchy system (Papargyropoulou et al., 2014). 
+Even in recent times, increasing efforts have been made to obtain biofuel and bio-products 
+from food waste (Girotto et al., 2015). For promoting recycling in Japan, a law promotes 
+a recycling loop where the food industries are pushed to buy farm products (Takata et al., 
+2012). The food wastes generated creates economic, environmental, and social problems. 
+Table 6 Review of the RL for 
+Food e-commerce
+Authors
+Zhuang et 
+al. (2016)
+Guo 
+et al., 
+(2017a, 
+2017b)
+Ekren et 
+al. (2021)
+Tsang et 
+al. (2020)
+Gu et al., 
+(2018)
+Findings/Remarks
+Considering the cost and time sensitiv
+ity, a multi-objective model looks into a 
+forward and reverse logistics network of 
+agricultural products for a rural area in 
+China
+A two-stage closed-loop RL network de
+signed for fresh food e-commerce. In The 
+model, food processing plants take care 
+of the returned plants by processing them 
+into canned or semi-finished products
+Lateral inventory sharing in IoT enabled 
+food e-commerce to reduce wastage
+The study’s basis was integrating the 
+internet of things and multi-temperature 
+compartment planning. Since each type 
+of fresh food during transportation has its 
+temperature required to be maintained, 
+reducing waste in food e-commerce
+An analytical model is designed to calcu
+late the optimal price and quantity. This 
+model stresses the need to keep the food 
+fresh and reduce returns
+Methodology
+Multi
+objective 
+optimization
+Two-stage 
+optimization
+Optimization
+Optimization
+Optimization
+1 3
+Annals of Operations Research
+The target is to minimize the waste by keeping the added value in materials, products, and 
+resources for the longest possible cycle (Laso et al., 2018).
+3.3.4.3 RL network optimization (cost optimization: vehicle routing: network optimiza
+tion) Zhuang et al. (2016) developed a multi-objective model that considers cost and time 
+sensitivity. Time sensitivity consideration has made the model more realistic and insight
+ful because the quality of agricultural products, i.e., fresh fruit, will keep degrading with 
+time. Guo et al., (2017a, 2017b) designed a two-stage closed-loop RL network design for 
+fresh food e-commerce where the food processing plants take care of the returned plants 
+by processing them into canned or semi-finished products. Chen et al., and and’s (2020a, 
+2020b) food e-commerce model aimed to reduce waste and restore freshness for a long 
+time. They have proposed a multi-compartment vehicle routing problem to minimize the 
+total cost, which consists of fixing, refrigeration, travel, and carbon emission costs. Multi
+compartment helps transport different products requiring different temperatures to be kept 
+at to transport together. For example, kiwi fruit could be maintained at 0 to 7 degrees, while 
+meat requiring between − 15 to − 18 degrees could be transported together by keeping in 
+different compartments. Gu et al. (2018) observed that firms’ profits increase when more 
+efforts are put in to maintain the freshness of the product, though it is independent of the 
+return rate. Table 7 lists the prevalent issues in the RL for food e-commerce, like waste uti
+lization, food waste prevention, temperature maintenance, routing network, and inventory 
+Table 7 Challenges unique to RL 
+of food e-commerce
+Challenges
+Methods suggested in dealing with the 
+challenges
+Food waste 
+prevention
+Waste Utilization
+Temperature 
+Maintenance
+Routing Network
+Inventory
+Creating awareness in consumers (Kibler et 
+al., 2018)
+Giving to the needy poor (Papargyropoulou 
+et al., 2014)
+Composting and Animal feed (Papargyropou
+lou et al., 2014)
+Biofuel and Bio products (Girotto et al., 2015)
+Food processing plant (Guo et al., 2017a, 
+2017b)
+Need for time windows, the multi-temperature 
+joint distribution (Chen et al., 2020a, 2020b)
+Refrigeration is vital for freshness and 
+reduces returns(Chen et al., 2020a, 2020b; Gu 
+et al., 2018)
+Time sensitivity consideration in the route 
+(Chen et al., 2020a, 2020b; Tsang et al., 2020; 
+Zhuang et al., 2016)
+Internet of things helps identify unanticipated 
+accidents and change the alternate route ac
+cordingly (Ekren et al., 2021)
+Need for Cold storage inventory (Gu et al., 
+2018)
+Improve forecasting techniques to incorporate 
+return uncertainty(Ekren et al., 2021)
+1 3
+Annals of Operations Research
+issues. The table further elaborates on how the research on food waste management and 
+food e-commerce has dealt with the abovementioned issues.
+3.3.5 E-commerce: packaging waste
+3.3.5.1 Packaging and waste treatment challenges The e-commerce market worldwide is 
+increasing exponentially, creating economic benefits and testing sustainable development 
+(Caiyi et al., 2022; Lu et al., 2020). One major issue with the e-commerce firms that arises 
+is the issue of packaging waste (Nath et al., 2023; Wang et al., 2022), and it is found to be 
+more than the brick and mortar retail (Yang et al., 2023a, 2023b); also, it could be around 4.8 
+more times in the case of former(Kim et al., 2022). The main functions of packaging could 
+be categorized as protection, convenience, communication, and containment (Schaefer & 
+Cheung, 2018), and it is an essential component of online delivery. However, the firms 
+still look into packaging and products in different ways, and the main focus is only on the 
+consumption of products, leaving the issue of managing packaging waste to the government 
+(Ajwani-Ramchandani et al., 2021); this aggravates the matter further. Also, a large portion 
+of the greenhouse gas emissions in e-commerce is represented by packaging (Mangiaracina 
+et al., 2015).
+The organizations want to penetrate deeply by covering all urban and rural areas door
+to-door. The need for a packaging system that is reliable and safe to reach the end customer 
+safely is of utmost importance. For safer delivery, we need packaging, which requires even 
+more packaging materials consisting of cardboard, paper, wood, and plastics, thereby creat
+ing a plethora of biodegradable and non-biodegradable waste. The advancement of logistics 
+and information has led to the express deliveries offered by firms having a competitive 
+advantage, and the use of excessive packaging materials and nonrecyclable materials has 
+aggravated the packaging waste problem further (Lin et al., 2022; Pinos et al., 2022; Xiao 
+& Zhou, 2020; Xie et al., 2021; Zhang et al., 2024; Zhilong & Guisheng, 2023). How
+ever, it has also been observed that this excessive packaging may hurt customer satisfaction 
+(Wang & Zhu, 2020) along with causing harm to the environment and ecology (Grönberg & 
+Hulthén, 2022; Guo et al., 2021). Around 30% of the carbon footprints generated by online 
+shopping are contributed by shipping packages (Zimmermann & Bliklen, 2020). Packaging 
+also creates a case of over-packaging, which may harm humans as the plastic used in pack
+aging materials is derived from recycled agricultural film, which may have pesticides in it 
+(Duan et al., 2019). Every shipped and distributed product leaves some waste residuals, and 
+most of them are produced significantly by the retail sector (Mcleod et al., 2008). Though 
+packaging waste is considered a significant challenge majorly for retailers (LISEC et al., 
+2018), it affects every player in the market. Hence, a collaborative approach is needed to 
+streamline these wastes and improve packaging waste handling. The packaging waste due to 
+food delivery alone in China surged from 0.2 million metric tons to 1.5 million metric tons 
+in 2017 (Song et al., 2018).
+If these wastes are not recycled and adequately treated, then there is a significant chance 
+of them being dumped into landfills from where they may seep in to pollute the land ocean 
+and alarm the lives of marine animals (Chen et al., 2017). Therefore, E-commerce firms 
+have forced the packaging functions to be enforced with additional requirements of end-life 
+1 3
+Annals of Operations Research
+management and environmental sustainability (Alberto et al., 2014). Hence to be competi
+tive, a supply chain has to be very responsive by responding to the orders quickly. Hence
+forth, quick packaging is required and therefore avoids repackaging, sometimes resulting in 
+the size of the box being more prominent than the required. Hence, an inefficient packaging 
+strategy also increases packaging waste (Brinker & Gunduz, 2016).
+3.3.5.2 Packaging dimensions and attributes The study was conducted on the recycling of 
+various packaging materials done in individual contexts like the study of plastic packaging 
+(Ross & Evans, 2003) and paper packaging (Pati et al., 2008). Likewise, Kondo et al. (2001) 
+and Su et al. (2020) studied various packages from the life cycle assessment perspective. 
+Nevertheless, it is different for packaging for e-commerce. Packaging could be primary, 
+secondary, and tertiary (Palsson et al., 2018) and may vary between store packaging and an 
+online store; for example, a book may be sold without any packaging in traditional stores. 
+However, while sold through online stores, it will require separate packaging (Pålsson et al., 
+2017). A typical packaging done for an online firm consists of corrugated boxes, extensive 
+tape sealing, air-filled columns, bubble wrap, and plastic foam (Carlin, 2019; Chueamuang
+phan et al., 2020; Tokar et al., 2021).
+As Matthews et al. (2002) explained in their case study of two countries USA and Japan, 
+for book packaging, the material is more required in the case of e-commerce than conven
+tional stores, and hence more energy is required in the former. The packaging is required 
+for food items, electronic items, and even bulkier packaging for furniture, but nothing is 
+done to retrieve the packaging material. Henceforth due to the recent trends in e-commerce, 
+the daily packaging material has increased worldwide (Brinker & Gunduz, 2016). There is 
+a need to promote the reduction in packaging waste, encourage the Reuse of materials like 
+cardboard and wood, and promote green packaging. Henceforth, e-commerce businesses 
+must look for protection, handleability, security, respect for the environment, and reuse 
+options in their packaging systems (Alberto et al., 2014).
+The study conducted by Pålsson et al. (2017) revealed that the e-commerce channel con
+sumes more energy than the conventional stores. Wang and Hu (2016) concluded that most 
+e-commerce packaging materials are not recyclable, not reusable, and suggested a way for
+ward for using the green packaging design. Chen et al., (2018) conducted a study to evaluate 
+the refurbishing process in e-commerce logistics. They suggested a recycling process for 
+packaging material and an optimum routing strategy for the distribution network.
+This waste also degrades the environment. One way to reduce wastage is to use dispos
+able packaging waste. Bortolini et al. (2018) studied the packaging for the fresh food sup
+ply chain and debated the tradeoff between reusable and disposable packaging containers. 
+Since disposable containers go to the landfills directly, reusable containers require repair
+ing, which could be costly and require an initial investment. It was found that 47.1% reus
+able and 52.9% as disposable is a perfect balance to achieve the objective. Maharishi et al. 
+(2020), in their study focusing on the return of last-mile packaging, concluded that decen
+tralized channels, when compared to centralized channels, produce fewer profits and create 
+less packaging waste. Chodak (2024) also stressed that there is a need for innovative solu
+tions in reusable packaging so that they are more environmentally friendly along with being 
+economical. Further, a set of existing issues that are more frequently observed is listed in 
+Table 8.
+1 3
+Annals of Operations Research
+Table 8 Packaging problems/challenges observed in E-commerce with their features/Indicators
+Problems/challenges
+Features/indicators
+Excessive Packing/Overpacking
+Non-recyclable materials
+Low degree of standardization
+Packaging technology
+Reusable packaging
+Return Packaging Material 
+Network
+Packaging waste and plastic con
+tainers used in food delivery
+Energy usage
+To ensure customer satisfaction and the safety of products indulge 
+in heavy packaging (Escursell et al., 2020; Kao et al., 2020; wang 
+& hu, 2016)
+Items such as plastic bags, foam, and adhesive tapes are polyvinyl 
+chloride and are either non-degradable or take decades to degrade 
+(Wang & Hu, 2016)
+Scattered standards can lead to disorder stacking, packaging ineffi
+ciency, and high logistics costs. (Liu et al., 2015; Wang & Hu, 2016)
+Express delivery partners or e-commerce industries pay less atten
+tion to packaging technology and there is a need for new technolo
+gies to be adopted to optimize packaging configuration(Zennaro et 
+al., 2022)
+More vehicle trips, additional energy consumption in cleaning pack
+aging, and RL costs (Mahmoudi & Parviziomran, 2020)
+Reusable packaging should check the feasibility of economic and 
+environmental aspects, logistics design, and operation manage
+ment measures like inventory management, scheduling, and routing 
+(Mahmoudi & Parviziomran, 2020)
+The routing selection strategy, if inefficient, increases the cost of 
+transportation and the procurement cost of new material (Chen et 
+al., 2018)
+Plastic containers used to pack food are polypropylene and Polysty
+rene (Song et al., 2018)
+Food packaging waste is adulterated with food residues and mixed 
+with municipal solid waste. The treatment for the same is carried 
+out through landfilling, incineration, illegal dumping, and open 
+burning. The latter two create environmental problems (Song et al., 
+2018)
+More energy usage due to additional packaging (the study was done 
+for the books e-commerce market)
+Reason for additional usage is the multipurpose use of automobiles 
+(Williams & Tagami, 2002)
+3.3.5.3 Opportunities and recent advancements Sustainable packaging is definitely the way 
+forward to reduce wastage and environmental degradation (Hadas et al., 2024; Muñoz-Vil
+lamizar et al., 2021; Park & Waqar, 2022).The ways forward are green packaging, the bal
+ance of disposable and non-disposable containers, biodegradable materials, and optimizing 
+packaging waste. There are more significant opportunities to reduce the packaging material 
+than to lessen its impact (Su et al., 2020). As (Brinker & Gunduz, 2016) designed an algo
+rithm for optimizing packaging size using a p-median approach, 12 simple packaging strate
+gies were suggested for virtual 4020 orders using the industry data, which helped reduce the 
+space ratio and optimize the volumetric efficiency. When used in warehouses, the suitable 
+variety and mix of shipping boxes for the packaging and shipping of orders to customers 
+helps maintain profit by creating a great customer experience (Yang & Mu, 2019). Encour
+agement of package-free returns (Li et al., 2022) and promoting paper and paperboard mate
+rials in packaging help bring sustainability to e-commerce (Carlin, 2019). Also, the change 
+in packaging material could help to dry down the environmental impact. Like the use of 
+materials like cellulose, which can be found in woody and non-woody plants (Rajinipriya, 
+2018), which is an abundant material (Abitbol et al., 2016; Klemm, 2018) and also a renew
+able material (Cusola, 2015; Osong et al., 2016). Even bamboo as outer packaging material 
+1 3
+Annals of Operations Research
+will help reduce environmental degradation and have better average mechanical properties 
+than wood (Wang & Hu, 2016). (Lai et al., 2022) suggested the reuse of packaging mate
+rial through reverse logistics. A set of 13 over packaging solutions was summarized by Lu 
+et al. (2020), followed by ranking the solutions on user preferences. It was concluded that 
+users prefer more technologically advanced solutions, and the least preference was given to 
+improving the material. Then there are also issues arising from the recent advances made in 
+the packaging industry for example, intelligent packaging materials are difficult to recycle 
+(Schafer & Cheung, 2018). Hence, there is a need for more comprehensive research looking 
+into aspects of sustainability, logistics, operational issues, and design (Alberto et al., 2014; 
+Wang & Hu, 2016). The recent advancements in packaging field are depicted in Table 9.
+We can also start by incentivizing the customers to return the packaging waste by giv
+ing particular money as wallet balance or free delivery service/cumulative point system 
+proposed by Elgaaied-Gambier (2016). Incentivizing the firms to respond positively to the 
+recycling of waste (Song et al., 2018), educating the customers about the benefit of returns, 
+and creating awareness of environmental impacts (Wang et al., 2016) and mindful purchases 
+((Kadam & Bochare, 2023) are the necessary steps needed to reduce wastage.Therefore, 
+there is a need for e-commerce firms and logistics partners to develop and innovate in eco
+friendly delivery methods, along with educating, encouraging, and incentivizing customers 
+to opt for sustainable delivery choices(Villa et al., 2023).
+Table 9 Recent trends and technologies used to reduce packaging waste in e-commerce
+Proposed solutions
+Application/Advancement in the previously used system
+Reusable packaging
+Last-mile delivery 
+alternate solutions to 
+reduce damage and 
+bulkier packaging
+Circular economy 
+in packaging 
+industry leading to 
+sustainability
+Green Packaging
+Smart Packaging
+There is a need to reduce the single-use packaging to the reusable packaging 
+(Transchel et al., 2024), for e.g., Loop, a brainchild of which, for e.g., Terracy
+cle, is bringing back the old milkman model where the products are delivered to 
+the door. Subsequently, the emptied items are picked up, and from there, they are 
+cleaned, refilled, and ready to be delivered to another customer (Makower, 2019)
+Loop has Nestle, PepsiCo, Coca-Cola, and others. (Makower, 2019)
+Solutions like pick-up points Locker-based automated parcel stations are used to 
+give packages to customers (Morganti et al., 2014; Moroz & Polkowski, 2016)
+Circular economy (CE) as a concept endorses an approach that provides an eco
+nomic system with a cyclical flow model in line with sustainable development 
+and economic development (Deselnicu et al., 2018; Schulze, 2016)
+Application of CE in packaging could be seen in studies conducted by Hellgren 
+(2017), suggesting the use of returnable and reusable materials for e-commerce 
+bags; Billqvist and Glansen (2019) stressing the use of biodegradable beeswax 
+for rice packaging; Arora et al. (2023) emphasized the use of resealable and 
+reusable packaging materials
+It should start with a supervision system to divide responsibility between firms 
+and sellers for the check on the use of environmentally friendly and, at the same 
+time, protective material (Guo et al., 2021; Jou et al., 2024)
+Identification of green material, with an R&D team in place to meet the industry 
+standards (Chunfang et al., 2019)
+Smart packaging is a system that provides a packaging solution that allows 
+tracking and tracing a product and acting on the changes happening inside the 
+package (Schafer & Cheung, 2018; Vanderroost et al., 2014)
+Its most important application area is the food industry, like detecting biosensors 
+to detect pathogens in food. It could also reduce the wastage of edible products 
+due to poor transportation, harvesting, or storage (Schafer & Cheung, 2018)
+1 3
+Annals of Operations Research
+4 Synthesis and discussion: opportunities and future research scope
+The RL network for e-commerce discussed so far consists of empirical, theoretical, and 
+strategy based studies. It has been a mix of both qualitative and quantitative studies. Through 
+discussion of RL practices in the respective themes, we presented many opportunities that 
+could help to increase the RL practices, and the opportunities for research are wide open 
+in these themes. A summary of the reverse use for different e-commerce uses is depicted in 
+Table 10. The challenges currently are operational, regulatory, and digital, among others. 
+A joint collaborative effort of academia and industry will give a boost to enhance the RL 
+practices in e-commerce.
+However, along with opportunities, many challenges are coming our way with changing 
+technologies and increasing customer adaptability and demand for a better service. There
+fore, it is time to discover more ways to enhance trust. Increasing the customer base through 
+the digital medium creates more waste to be reduced, recycled, or reused for a more sustain
+able environment. The various challenges, opportunities, and research gaps are discussed in 
+the subsequent subsections.
+4.1 Return management
+● The person’s inability to physically touch or see a product is significant. When the cus
+tomer finds that the product received is unable to meet the displayed product, he at
+tempts to return the product, increasing the return volume. There are need for studies to 
+understand the virtual assistant in trying and its impact on product return.
+● Sometimes, the returned products are not even the originally ordered ones (Harris, 2010; 
+Wachter et al., 2012). Some customers return excessively and abuse the return policies, 
+termed opportunism or return fraud (Abdulla et al., 2019).
+Table 10 Segregation of e-commerce product types along with possible reverse use
+e-commerce (Differ
+Subtypes
+ent Product-specific 
+networks)
+Characteristics of the Network
+Reverse use
+Ex
+am
+ples
+All in one
+Food
+Clothing/Apparels
+Secondary Market
+All types of 
+products
+Fresh Fruits 
+& vegetables
+Groceries
+Ready to eat 
+cooked food
+Ethnic
+Casual/ 
+Formals
+Furniture
+Books
+Electronics
+Sells all kinds of products
+Less inventory of products due to wide 
+variety of products
+Shelf life is 1–2 days
+Shelf life varies in months
+2–3 hours.
+Maximum returns are just due to color 
+f
+itting
+Could be resold with new packaging
+Higher inventory than an all-in-one 
+e-commerce platform as the product 
+type is only specific to one product
+Negotiation for price happens
+Returns are difficult
+Refurbish the 
+products
+Recycle specific 
+parts
+Biogas plant
+Secondary market 
+(Juice making 
+companies)
+Resell in second
+ary markets
+Textile waste 
+recycling and 
+secondary use
+Itself a reuse
+Am
+azon, 
+Ali
+baba
+Bon 
+Bon 
+Bon, 
+swig
+gy
+Asos, 
+Na
+tori, 
+Myn
+tra
+eBay, 
+OLX
+1 3
+Annals of Operations Research
+● Henceforth, customer fraudulent behavior is an important aspect of reducing returns, 
+but the research underlying the specifics of this behavior is scant and needs to be ad
+dressed in more length and depth in future research.
+● For cases similar to this, an algorithm is proposed by Urbanke et al. (2015). The predic
+tion and much-needed intervention are made by studying the consumption behavior 
+of consumers who have a high product return rate to avert such transactions that will 
+eventually be made in return after ordering the product. However, it is also observed that 
+the nature of return fraud changes quickly, and therefore, there is a continuous need for 
+model calibration with new and derived variables (John et al., 2020).
+● The prevalent methodology in return management has been modelling and secondary 
+data-based research. More research is needed using case studies and artificial intelli
+gence-based tools.
+● The research on including the social and sustainability part in return management is 
+still nascent, and we highlight the need for more research on these incorporations in the 
+study.
+● The discussed literature does not focus much on resources and human skills. Therefore, 
+more studies on training the workforce and efficient human capital utilization could 
+make the return process smoother and faster.
+4.2 RL challenges, current strategies, and research gaps
+● The need for sustainable e-commerce network design (Bharani et al., 2024; Cano et 
+al., 2022; Haryanti & Subriadi, 2022; Sarkar et al., 2024; Vieira et al., 2021) is gaining 
+attention in recent times. Research has shown that reintroducing refurbished products 
+into the forward supply chains has increased profitability (Difrancesco & Huchzermeier, 
+2020). There is scant research on the integration of the sustainability aspect in network 
+design, and this has to be done in future research.
+● An integrated approach was suggested by Schrotenboer et al. (2019) to tackle large 
+numbers of returns by integrating the return products with the regular picking orders 
+and decomposition with the small customer orders. However, more research needs to be 
+explored to highlight other means of network integration.
+● Segregation could also be essential in increasing reuse and cyclicity in return items. The 
+returned products are reusable or distributed into smaller pieces; the smaller compo
+nents could be used in other products (Snyder & Hamdan, 2009).
+● Since all the products returned should be inspected first at a centralized inspection cent
+er, the subsequent decisions are taken: send it to the store, resell it to a new customer 
+with new packaging, or directly send it to the trash. There is a certain high probability 
+that returned items will be ordered shortly. These products could be assigned a special 
+storage place in warehouses (Boysen et al., 2019). However, e-commerce firms have 
+faced many returns lately, which need to be stocked in the warehouses, creating addi
+tional labor demands (Schrotenboer et al., 2017).
+● Hence, the significant challenges include facility location, collection center establish
+ment with capacity decisions, warehouse establishment, vehicle routing route, and in
+ventory management.
+● Further research on planning, coordination, forecasting, and integrating other diverse 
+1 3
+Annals of Operations Research
+activities in the e-commerce supply chains will smoothen the return management pro
+cess (Difrancesco et al., 2018; Shang et al., 2020). There is little research on warehouse 
+management and the use of information in managing the warehouse space for e-tailers, 
+and further study is needed.
+● Inventory models in e-commerce could be balanced using different variants like Sale 
+or Return (SOR) and outright purchase. In SOR, there is an agreement between e-com
+merce and sellers for holding for a fixed duration, whereas in Outright purchase, the 
+e-commerce firms are the sole owners (Das et al., 2020). There is scope for including 
+various inventory models in the study, as well as how different models work for e-tailers 
+and how integrating various technological aspects could make the model more robust 
+and reliable in managing inventory.
+● The other challenge that is gaining momentum these days is the time and damage costs. 
+The refund amount is only credited once the product is returned. Hence, time forms 
+a crucial factor. Hence, vehicle routing problems with time windows in e-commerce 
+should be further explored.
+● Research in forward e-commerce has also advanced to incorporate dynamic pricing for 
+f
+lexible time slots to attend home delivery (Strauss et al., 2020). The research could be 
+taken forward and clubbed with return flow, where return windows are created for return 
+pickup to reduce environmental emissions and transportation costs.
+● Even the cross-channel or Omnichannel could be cashed in as a competitive tool (Jin et 
+al., 2020; Letizia et al., 2018) as it will pool in the customers to buy online who would 
+have otherwise purchased from the store only (de Leeuw et al., 2016). Additionally, 
+Omni-channels retail could take advantage of the sales tax gap between online and of
+f
+line channels (Zhang & Choi, 2020). However, research suggests that there is a need for 
+e-tailers of omnichannel to make the cross-return process more accessible and smooth 
+for customers (Nageswaran et al., 2020).
+● Still, the research in omnichannel is in the nascent stage, and customer behavioral as
+pects concerning the Omni channels have to be investigated along with customer expec
+tations in return policy and service.
+● The research carried out in omnichannel returns has mostly used game theoretic models, 
+and other methodological work in this area will help to further understand the dynamics 
+of omnichannel returns.
+● The flow of information and factual data is of absolute necessity in the case of RL for 
+e-commerce as reselling probability is high in e-commerce. Therefore, research using 
+information technology (IT) systems as the central theme is recommended to see the 
+effect of effective IT systems in managing reverse logistics, channel and customer re
+sponse, and feedback.
+● The challenge of utilizing the trash received by coordinating with industries that could 
+make the most of the trash and giving financial benefits should be considered and fur
+ther investigated and explored for future research. Even risk management has limited 
+research, and the e-tailer’s mitigation efforts and corresponding strategies could form 
+a basis for further studies. Issues like the maximum hold period at the initial collec
+tion centers before sending to the final collection center/warehouse need elaborative 
+research.
+● The opportunity in e-commerce networks is to sell the refurbished products as a differ
+ent segment with a reduced price; it will help both the customers and firms. The scope 
+1 3
+Annals of Operations Research
+of research includes the secondary market in the network and how it affects the firm’s 
+warehouse and inventory management. The reintegration of return processes with the 
+forward supply chain of e-commerce warehouses is still rare and remains a field of study 
+for future studies (Boysen et al., 2019).
+● Further enhanced research on Promoting crowdsourcing solutions where taxi drivers 
+(Pan et al., 2015) or other transporters could be incentivized to drop parcels and pick 
+return parcels will help reduce environmental losses.
+4.3 Food e-commerce: challenges and research gaps
+● There is a need for food supply network management to be taken with utmost serious
+ness to reduce food waste and increase sustainability for food e-commerce firms (Ekren 
+et al., 2021).
+● A complex problem like food waste requires a mix of technology-based solutions, direct 
+intervention by the public, and an incentive structure to change consumer dumping be
+havior (Kibler et al., 2018). Hence, there needs to be further research investigating the 
+psychological aspects of customer return behavior, the effect of technological solutions 
+and public intervention on the return behavior.
+● Lateral inventory sharing among organizations could be helpful in solving inventory 
+issues, and results have shown that it is helpful for tight food shelf life products (Ekren 
+et al., 2021). There is a need for research on various inventory models that could be 
+incorporated in a responsive supply chain that of food e-commerce.
+● Also, barring a few studies, food waste management is not incorporated into the net
+work, and there is a need for more research in waste utilization. Research is also needed 
+to study the effects of awareness created on social media and other social platforms 
+about food wastage on customer return behavior.
+● Therefore, the design should include an efficient RL network for food e-commerce in
+ventory policy, routing strategy, multi-compartment transportation strategy, food waste 
+prevention, and utilization. The research is still in the nascent stages, and integration of 
+RL food e-commerce networks with the secondary market, recycling, and recovery op
+tions could be further explored along with circular economy measures.
+4.4 Apparel e-commerce: challenges and research gaps
+● The sale of apparel and garments through online websites and apps has created huge 
+sales volumes. It has created significant sales revenues and also significant returns. The 
+biggest challenge for the online apparel market is to make a tradeoff between handling 
+the returns, strategizing to reduce customer returns efficiently, and increasing sales 
+through RM (de Leeuw et al., 2016).
+● The challenge is that while buying garments, customers prefer to have the exact size 
+and variety as displayed in the platform and hence tend to order more sizes and styles 
+and choose one and return the rest; this is a significant challenge for e-retailers world
+wide. This could be tackled by providing accurate size, color, and size (de Leeuw et al., 
+2016). This increase in return volume has created more challenges, and apart from the 
+1 3
+Annals of Operations Research
+increased transportation and handling costs, inventory is a significant concern.
+● The flooding inventory of returns and the periodical orders coming into the warehouse 
+create a space crunch and a severe issue for all the firms. Further research into inventory 
+and its variants incorporation in the e-commerce network is recommended, emphasizing 
+warehouse management.
+● The challenge is to check return frauds or unauthorized returns (de Leeuw et al., 2016). 
+The firms could sell the return goods in the secondary market to save space (Difrancesco 
+et al., 2018). Real-time data could also be helpful to wherein the undamaged garments 
+can be sent to a new customer without going back to the warehouse. Return policy of 
+lesser windows may also help the firms, or a strategically planned time window may 
+help to increase profit (Difrancesco et al., 2018). Hence, there is a need for more re
+search on the information systems aspect of Apparel’s e-commerce network and how it 
+could reduce returns.
+● In developing countries like India, it is observed that half of the imported used or muti
+lated garments are used for apparel aftermarket, and the rest are used as shoddy yarn to 
+make carpets and blankets (Abraham, 2011). Something similar could also be explored 
+for returned e-commerce apparel worldwide.
+● The fashion apparel industry has a particular category: intimate apparel (Hart & Dews
+nap, 2001). When Product return and recycling (PRP) is used for intimate apparel col
+lection (UIAC) in the supply chain process, it could help reduce health problems as 
+women are advised to change their intimate apparel for better health, and it helps bring 
+in social, environmental, and economic sustainability (Choi et al., 2018). Therefore, it is 
+recommended that further research incorporate secondary markets and recycling/reuse 
+centers in the RL of e-commerce networks.
+4.5 Packaging waste: challenges and research gaps
+● As discussed in most research, the issues of packaging waste have been non-biode
+gradable materials used in packaging; the box sizes are often larger than required, the 
+volume of packaging waste is enormous, and in total, it is affecting the environment 
+severely.
+● Packaging waste is mostly seen in isolation, but for online firms, it can be studied by 
+integrating the product along with packaging to have a more sustainable goal.
+● Though some research has been carried out, like optimizing box sizes, promoting more 
+disposable containers, and ways forward for green packaging, a lot more is to be done.
+● One of the issues within the packaging is that express delivery packaging is mostly of 
+nonrecyclable materials, and this issue needs more directed research.
+● The scope of research is still left wide open; the practices of green packaging need more 
+clarity with investments in developing countries to implement the right technology to 
+achieve sustainable packaging.
+● The role of government is a must, and government intervention, like a reduction in tax 
+for those firms using green and sustainable packaging practices, gives an initial boost to 
+the industries (Lu et al., 2020).
+● Research on the Reuse of packaging materials used in e-commerce is still nascent. More 
+research is to be done to achieve the sustainability and cost-effectiveness objectives 
+1 3
+Annals of Operations Research
+mentioned above.
+5 Conclusion
+This study delves into the comprehensive landscape of RM within the realm of e-commerce, 
+examining its critical components, including RL and packaging waste. Firstly, the study 
+contrasts brick-and-mortar shops with online markets, highlighting distinctions in return 
+policies and network intricacies. It meticulously explores RM elements such as return ser
+vices, fraud prevention, policy frameworks, handling processes, and associated costs. More
+over, the study intricately weaves these aspects into their impact on customer satisfaction, 
+loyalty, and purchase intent.
+Extending beyond RM, the study deep dives into RL, an integral facet of RM. It dissects 
+the divergences in RL processes between online and offline stores, offering nuanced impli
+cations. It scrutinizes the RL network within e-commerce, focusing on specific industries 
+like apparel and food. This analysis zooms in on the challenges of waste treatment and 
+network optimization.
+The notable significance is the examination of a pivotal discrepancy between offline 
+and online stores: packaging. The study scrutinizes packaging-related issues, specifically 
+addressing the surge in packaging waste. This includes a multifaceted exploration spanning 
+packaging materials, standardization, and the predicament of overpackaging. Furthermore, 
+considering the exponential rise in e-commerce and its corresponding packaging usage, 
+the study advocates for attention to recent advancements. It emphasizes the need for solu
+tions that mitigate waste, such as reusable, smart, and environmentally friendly packaging 
+options. Overall, this study provides a comprehensive and insightful analysis, illuminating 
+critical areas within RM, RL, and packaging waste management in the e-commerce land
+scape. Its findings underscore the pressing need for innovative strategies to curb packaging 
+waste in the burgeoning e-commerce industry.
+Secondly, as shown in Fig. 9, the conceptual framework maps the thematic areas dis
+cussed above. It will be helpful for academicians and practitioners to gain a better under
+standing of the RM and RL processes and the critical areas to investigate for smoother 
+processes. Moreover, this framework underscores the pivotal aspects of RL that signifi
+cantly influence the RM process. It emphasizes the necessity for investments in Information 
+Technology (IT), technological advancements, and managerial expertise to enhance cus
+tomer service and ensure quality. Also, the framework will help to understand the features 
+that affect both the customers and online markets in return management. Third, the study’s 
+insights are instrumental for practitioners in shaping efficient RM systems. It sheds light on 
+key focus areas for designing effective return processes, acknowledging the variability of 
+RL processes based on product types. Practitioners can streamline network development by 
+understanding primary barriers aligned with specific product types. Fourth, the framework 
+also looks into the aspects of return packaging issues. The need for reusable packaging, 
+packaging material upgradation, and incorporation of technology is stressed. There is a need 
+to optimize the packaging size and reduce the packaging waste starting from the point of 
+introduction into the supply chain. Ultimately, this study provides a concise yet comprehen
+sive overview of published literature, serving as a valuable resource for managers seeking a 
+holistic understanding of RM and RL intricacies.
+1 3
+Annals of Operations Research
+Fig. 9 A conceptual Framework of RM in the e-commerce market
+The study reviews 240 articles and comprehensively studies RM and RL processes in 
+e-commerce. The descriptive study shows that the study is in the growth phase, and the 
+methodology of modelling and empirical studies is preferred. The RM process is one of 
+the building blocks for RL and a critical feature that distinguishes industries; an efficient 
+RM process helps in customer retention and loyalty. The model of RL for e-commerce was 
+studied using relevant literature. A broad network consists of saleable items like electron
+ics, books, kitchen utensils, and other small items The study’s focal point revolves around 
+discerning differences in Return Logistics Network Design (RLND) across various product 
+categories. Notably, e-commerce platforms exhibit diverse return policies contingent upon 
+product types. Consequently, the complexity magnifies due to the varied treatment and han
+dling of return items associated with these policies.
+The challenges discussed are many for e-commerce RL networks. Addressing food waste 
+involves a multifaceted approach, necessitating technological solutions, public engagement, 
+and incentive structures to alter consumer behavior (Kibler et al., 2018). Further research is 
+imperative to probe into the psychological aspects influencing customer return behavior, the 
+impact of technology and public intervention, and their interplay in shaping return habits. 
+In the online apparel market, a significant challenge lies in balancing efficient return han
+dling, strategies for reducing returns, and maximizing sales through effective RM. There’s 
+a pressing need for research integrating IT advancements, such as virtual fitting, into this 
+domain. The issue of packaging waste exacerbates environmental concerns, driven by non
+biodegradable materials, oversized packaging, and an overwhelming volume of waste. 
+More comprehensive research is necessary to delve into green packaging practices, par
+ticularly directing attention and investments toward implementing sustainable technologies, 
+especially in developing countries.
+1 3
+Annals of Operations Research
+This study will help researchers study the RL networks in place, adequate research gaps, 
+challenges, and the opportunities we need to look forward. The collaboration of industries 
+and academia could further help grow the RL practice in e-commerce industries, thereby 
+reducing waste and promoting the recycling and reuse of products.
+Funding There is no funding for this research work.
+Declarations
+Conflict of interest The authors declare that they have no conflict of interest.
+Ethical approval This article does not contain any studies with human participants or animals performed by 
+any of the authors.
+References
+Abdulla, H., Ketzenberg, M., & Abbey, J. D. (2019). Taking stock of consumer returns: A review and clas
+sification of the literature. Journal of Operations Management, 65(6), 560–605.
+Abitbol, T., Rivkin, A., Cao, Y., Nevo, Y., Abraham, E., Ben-Shalom, T., & Shoseyov, O. (2016). Nanocel
+lulose, a tiny fiber with huge applications. Current Opinion in Biotechnology, 39, 76–88.
+Abraham, N. (2011). The apparel aftermarket in India–a case study focusing on reverse logistics. Journal of 
+Fashion Marketing and Management: An International Journal.
+Agrawal, S., & Singh, R. K. (2021). Outsourcing and reverse supply chain performance: A triple bottom line 
+approach. Benchmarking: An International Journal, 28(4), 1146–1163.
+Agrawal, S., Singh, R. K., & Murtaza, Q. (2015). A literature review and perspectives in reverse logistics. 
+Resources, Conservation and Recycling, 97, 76–92.
+Ahsan, K., & Rahman, S. (2022). A systematic review of e-tail product returns and an agenda for future 
+research. Industrial Management & Data Systems, 122(1), 137–166.
+Ajwani-Ramchandani, R., Figueira, S., de Oliveira, R. T., Jha, S., Ramchandani, A., & Schuricht, L. (2021). 
+Towards a circular economy for packaging waste by using new technologies: The case of large multina
+tionals in emerging economies. Journal of Cleaner Production, 281, 125139.
+Akçalı, E., & Çetinkaya, S. (2011). Quantitative models for inventory and production planning in closed-loop 
+supply chains. International Journal of Production Research, 49(8), 2373–2407.
+Akturk, M. S., Ketzenberg, M., & Heim, G. R. (2018). Assessing impacts of introducing ship-to-store service 
+on sales and returns in omnichannel retailing: A data analytics study. Journal of Operations Manage
+ment, 61, 15–45.
+Alberto, R., Giulia, S., Mauro, G., & Cristina, M. (2014). A new paradigm for packaging design in web-based 
+commerce. International Journal of Engineering Business Management, 6, 14.
+Alshamsi, A., & Diabat, A. (2015). A reverse logistics network design. Journal of Manufacturing Systems, 
+37, 589–598.
+Alumur, S. A., Nickel, S., Saldanha-da-Gama, F., & Verter, V. (2012). Multi-period reverse logistics network 
+design. European Journal of Operational Research, 220(1), 67–78.
+Ambilkar, P., Dohale, V., Gunasekaran, A., & Bilolikar, V. (2022). Product returns management: A com
+prehensive review and future research agenda. International Journal of Production Research, 60(12), 
+3920–3944.
+Anh, N. T. M., & Khoa, V. D. (2023). Impact of reverse logistics on the shopping experience of e-commerce 
+customers. In International conference on research in management & technovation (pp. 473–485). Sin
+gapore: Springer Nature Singapore.
+Arce-Urriza, M., & Cebollada, J. (2010). A theoretical evaluation of the internet’s potential as a shopping 
+channel. ESIC Market Economic and Business Journal, 135, 149–180.
+Arora, T., Chirla, S. R., Singla, N., & Gupta, L. (2023). Product packaging by e-commerce platforms: Impact 
+of COVID-19 and proposal for circular model to reduce the demand of virgin packaging. Circular 
+Economy and Sustainability, 3(3), 1255–1273.
+Bal, A., & Satoglu, S. I. (2018). A goal programming model for sustainable reverse logistics operations plan
+ning and an application. Journal of Cleaner Production, 201, 1081–1091.
+1 3
+Annals of Operations Research
+Barba-Gutiérrez, Y., Adenso-Diaz, B., & Gupta, S. M. (2008). Lot sizing in reverse MRP for scheduling 
+disassembly. International Journal of Production Economics, 111(2), 741–751.
+Barman, A. (2024). Return-refund strategy with coordination contracts in the e-commerce supply chain: a 
+study under effects of digitalization and sustainable manufacturing. Electronic Commerce Research, 
+1–53.
+Benedito, E., & Corominas, A. (2013). Optimal manufacturing policy in a reverse logistic system with depen
+dent stochastic returns and limited capacities. International Journal of Production Research, 51(1), 
+189–201.
+Beranek, M. (2020). Game Theoretic Analysis of State Interventions to Reduce Customer Returns in E-Com
+merce. In International Conference on Computational Logistics (pp. 666–681). Springer, Cham.
+Bernon, M., Upperton, J., Bastl, M., & Cullen, J. (2013). An exploration of supply chain integration in the 
+retail product returns process. International Journal of Physical Distribution & Logistics Management. 
+https://doi.org/10.1108/ijpdlm-03-2012-0060
+Bharani, S., Roy, S., & Tawde, S. (2024). Green products wrapped and delivered: Consumer’s preference 
+for sustainable e-commerce practices. International Review of Retail, Distribution and Consumer 
+Research, 34(3), 331–360.
+Billqvist, H., & Glansén, A. (2019). This Too Shall Pass [WWW Document]. Retrieved from  h t t p : / / t o m o r r o 
+w m a c h i n e . s e / # f u t u r e 
+Bing, X., Bloemhof-Ruwaard, J. M., & Van der Vorst, J. G. (2014). Sustainable reverse logistics network 
+design for household plastic waste. Flexible Services and Manufacturing Journal, 26(1), 119–142.
+Biswas, C., & Abdul-Kader, W. Reverse Logistics Challenges in e-Commerce.
+Bortolini, M., Galizia, F. G., Mora, C., Botti, L., & Rosano, M. (2018). Bi-objective design of fresh food 
+supply chain networks with reusable and disposable packaging containers. Journal of Cleaner Produc
+tion, 184, 375–388.
+Bower, A. B., & Maxham, J. G., III. (2012). Return shipping policies of online retailers: Normative assump
+tions and the long-term consequences of fee and free returns. Journal of Marketing, 76(5), 110–124.
+Boysen, N., De Koster, R., & Weidinger, F. (2019). Warehousing in the e-commerce era: A survey. European 
+Journal of Operational Research, 277(2), 396–411.
+Bras, B., & McIntosh, M. W. (1999). Product, process, and organizational design for remanufacture–an over
+view of research. Robotics and Computer-Integrated Manufacturing, 15(3), 167–178.
+Brüel Grönberg, S., & Hulthén, K. (2022). E-commerce packaging as an embedded resource in three network 
+settings. The International Review of Retail, Distribution and Consumer Research, 32(4), 450–467.
+Bringezu, S., & Bleischwitz, R. (Eds.). (2017). Sustainable resource management: global trends, visions and 
+policies. Routledge.
+Brinker, J., & Gündüz, H. I. (2016). Optimization of demand-related packaging sizes using a p-median 
+approach. The International Journal of Advanced Manufacturing Technology, 87(5–8), 2259–2268.
+Caiyi, L., Xiaoyong, L., & Zhenyu, L. (2022). The nexus between e-commerce growth and solid-waste emis
+sions in china: Open the pathway of green development of e-commerce. Frontiers in Environmental 
+Science, 10, 963264.
+Caniato, F., Caridi, M., Crippa, L., & Moretto, A. (2012). Environmental sustainability in fashion supply 
+chains: An exploratory case based research. International Journal of Production Economics, 135(2), 
+659–670.
+Cano, J. A., Londoño-Pineda, A., & Rodas, C. (2022). Sustainable logistics for e-commerce: A literature 
+review and bibliometric analysis. Sustainability, 14(19), 12247.
+Cao, F., Guo, J., & Liang, C. (2016). Multi-stage layout optimization for reverse logistics network of rural 
+e-commerce under b2c mode: a case study of e-commerce enterprises on 3c products. In 2016 IEEE 
+13th international conference on e-business engineering (ICEBE) (pp. 287–292). IEEE.
+Carlin, C. (2019). Tokyo pack introduces innovative plastic packaging ideas from Asian exhibitors. Plastics 
+Engineering, 75(1), 8–13.
+Carter, C. R., & Ellram, L. M. (1998). Reverse logistics: A review of the literature and framework for future 
+investigation. Journal of Business Logistics, 19(1), 85.
+Chaabane, A., Ramudhin, A., & Paquet, M. (2012). Design of sustainable supply chains under the emission 
+trading scheme. International Journal of Production Economics, 135(1), 37–49.
+Chaleshtari, A. S., Elahi, E., Fathi, M., & Khakifirooz, M. (2022). Impact of return leniency on retailers’ 
+profit and social welfare in monopoly markets. Computers & Industrial Engineering, 169, 108149.
+Chen, H., Liu, S. C., & Su, T. S. (2018). The study for refurbishing process of packaging material in E-com
+merce Logistics. In: 2018 IEEE International Conference on Service Operations and Logistics, and 
+Informatics (SOLI) (pp. 80–84). IEEE.
+Chen, J., Dan, B., & Shi, J. (2020a). A variable neighborhood search approach for the multi-compartment 
+vehicle routing problem with time windows considering carbon emission. Journal of Cleaner Produc
+tion, 277, 123932.
+1 3
+Annals of Operations Research
+Chen, W. K., Chen, C. W., & Lin, Y. C. (2020b). Understanding the influence of impulse buying toward con
+sumers’ post-purchase dissonance and return intention: an empirical investigation of apparel websites. 
+Journal of Ambient Intelligence and Humanized Computing, 1–14.
+Chen, Y. S., Hung, S. T., Wang, T. Y., Huang, A. F., & Liao, Y. W. (2017). The influence of excessive product 
+packaging on green brand attachment: The mediation roles of green brand attitude and green brand 
+image. Sustainability, 9(4), 654.
+Chileshe, N., Jayasinghe, R. S., & Rameezdeen, R. (2019). Information flow-centric approach for reverse 
+logistics supply chains. Automation in Construction, 106, Article 102858.
+Chodak, G. (2024). The development of different logistics solutions in E-commerce. In the future of E-com
+merce: innovations and developments (pp. 25–49). Cham: Springer Nature Switzerland.
+Choi, T. M., Chow, P. S., Lee, C. H., & Shen, B. (2018). Used intimate apparel collection programs: A game
+theoretic analytical study. Transportation Research Part e: Logistics and Transportation Review, 109, 
+44–62.
+Choi, T. M., Li, D., & Yan, H. (2004). Optimal returns policy for supply chain with e-marketplace. Interna
+tional Journal of Production Economics, 88(2), 205–227.
+Chueamuangphan, K., Kashyap, P., & Visvanathan, C. (2020). Packaging waste from e-commerce: Consum
+ers’ awareness and concern. In sustainable waste management: policies and case studies (pp. 27–41). 
+Springer, Singapore.
+Chunfang, W., Ming, X., & Yanqiu, X. (2019). Research on Innovation and Application of Green Packaging 
+Energy Saving Technology for E-commerce Logistics. In IOP conference series: earth and environmen
+tal science (Vol. 242, No. 5, p. 052006). IOP Publishing.
+Chung, S. S., & Zhang, C. (2011). An evaluation of legislative measures on electrical and electronic waste in 
+the People’s Republic of China. Waste Management, 31(12), 2638–2646.
+Cui, H., Rajagopalan, S., & Ward, A. R. (2020). Predicting product return volume using machine learning 
+methods. European Journal of Operational Research, 281(3), 612–627.
+Cullinane, S., Browne, M., Karlsson, E., & Wang, Y. (2019). Retail clothing returns: A review of key issues. 
+Contemporary Operations and Logistics, 301–322.
+Cusola, O., Valls, C., Vidal, T., & Roncero, M. B. (2015). Conferring antioxidant capacity to cellulose based 
+materials by using enzymatically-modified products. Cellulose, 22(4), 2375–2390.
+Das, D., & Dutta, P. (2015). Design and analysis of a closed-loop supply chain in presence of promotional 
+offer. International Journal of Production Research, 53(1), 141–165.
+Das, D., Kumar, R., & Rajak, M. (2020). Designing a reverse logistics network for an e-commerce firm: A 
+case study. Operations and Supply Chain Management: An International Journal, 13(1), 48–63.
+da Silveira Guimarães, J. L., & Salomon, V. A. P. (2015). ANP applied to the evaluation of performance indi
+cators of reverse logistics in footwear industry. Procedia Computer Science, 55, 139–148.
+Das, K., & Chowdhury, A. H. (2012). Designing a reverse logistics network for optimal collection, recov
+ery and quality-based product-mix planning. International Journal of Production Economics, 135(1), 
+209–221.
+Daugherty, P. J., Myers, M. B., & Richey, R. G. (2002). Information support for reverse logistics: The influ
+ence of relationship commitment. Journal of Business Logistics, 23(1), 85–106.
+Daultani, Y., Cheikhrouhou, N., Pratap, S., & Prajapati, D. (2022). Forward and reverse logistics network 
+design with sustainability for new and refurbished products in E-commerce. Operations and Supply 
+Chain Management: an International Journal, 15(4), 540–550.
+Davidavičienė, V., & Al Majzoub, M. (2021). Performance of reverse logistics in electronic commerce: a case 
+study from Lebanon and Syria. Transport, 1–23.
+De Araújo, A. C., Matsuoka, E. M., Ung, J. E., Massote, A., & Sampaio, M. (2018). An exploratory study on 
+the returns management process in an online retailer. International Journal of Logistics Research and 
+Applications, 21(3), 345–362.
+de Borba, J. L. G., Magalhaes, M. R. D., Filgueiras, R. S., & Bouzon, M. (2020). Barriers in omnichannel 
+retailing returns: A conceptual framework. International Journal of Retail & Distribution Management, 
+49(1), 121–143.
+de Campos, E. A. R., de Paula, I. C., Pagani, R. N., & Guarnieri, P. (2017). Reverse logistics for the end
+of-life and end-of-use products in the pharmaceutical industry: A systematic literature review. Supply 
+Chain Management: An International Journal. https://doi.org/10.1108/scm-01-2017-0040
+de Leeuw, S., Minguela-Rata, B., Sabet, E., Boter, J., & Sigurðardóttir, R. (2016). Trade-offs in managing 
+commercial consumer returns for online apparel retail. International Journal of Operations & Produc
+tion Management., 36(6), 710–731.
+Deng, S., Li, Y., Guo, H., & Liu, B. (2016). Solving a closed-loop location-inventory-routing problem with 
+mixed quality defects returns in e-commerce by hybrid ant colony optimization algorithm. Discrete 
+Dynamics in Nature and Society, 2016.
+1 3
+Annals of Operations Research
+de Paula, I. C., de Campos, E. A. R., Pagani, R. N., Guarnieri, P., & Kaviani, M. A. (2019). Are collaboration 
+and trust sources for innovation in the reverse logistics? Insights from a systematic literature review. 
+Supply Chain Management: An International Journal. https://doi.org/10.1108/scm-03-2018-0129
+Deselnicu, D. C., Militāru, G., Deselnicu, V., Zăinescu, G., & Albu, L. (2018). Towards a circular econ
+omy–a zero waste programme for Europe. In International conference on advanced materials and 
+systems (ICAMS) (pp. 563–568). The National Research & Development Institute for Textiles and 
+Leather-INCDTP.
+Dhanda, K. K., & Peters, A. A. (2005). Reverse logistics in the computer industry. International Journal of 
+Computer Systems and Signal Processing, 6(2), 57.
+Diabat, A., Kannan, D., Kaliyan, M., & Svetinovic, D. (2013). Resources, conservation and recycling an opti
+mization model for product returns using genetic algorithms and artificial immune system. Resources, 
+Conservation & Recycling, 74, 156–169.
+Difrancesco, R. M., & Huchzermeier, A. (2020). Multichannel retail competition with product returns: 
+Effects of restocking fee legislation. Electronic Commerce Research and Applications, 43, 100993.
+Difrancesco, R. M., Huchzermeier, A., & Schröder, D. (2018). Optimizing the return window for online 
+fashion retailers with closed-loop refurbishment. Omega, 78, 205–221.
+Ding, Y., & Jin, M. (2019). Service and pricing strategies in online retailing under carbon emission regula
+tion. Journal of Cleaner Production, 217, 85–94.
+Domina, T., & Koch, K. (1999). Consumer reuse and recycling of post-consumer textile waste. Journal of 
+Fashion Marketing and Management: An International Journal, 3(4), 346–359.
+Dominici, A., Boncinelli, F., Gerini, F., & Marone, E. (2021). Determinants of online food purchasing: The 
+impact of socio-demographic and situational factors. Journal of Retailing and Consumer Services, 60, 
+102473.
+Dowlatshahi, S. (2000). Developing a theory of reverse logistics. Interfaces, 30(3), 143–155.
+Duan, H., Song, G., Qu, S., Dong, X., & Xu, M. (2019). Post-consumer packaging waste from express deliv
+ery in China. Resources, Conservation and Recycling, 144, 137–143.
+Dutta, P., Das, D., Schultmann, F., & Fröhling, M. (2016). Design and planning of a closed-loop supply chain 
+with three way recovery and buy-back offer. Journal of Cleaner Production, 135, 604–619.
+Dutta, P., Mishra, A., Khandelwal, S., & Katthawala, I. (2020). A multiobjective optimization model for 
+sustainable reverse logistics in Indian e-commerce market. Journal of Cleaner Production.  h t t p s :  / / d o i  . 
+o r g / 1  0 . 1 0  1 6 / j .  j c l e p  r o . 2 0 1  9 . 1 1  9 3 4 8
+Ekren, B. Y., Mangla, S. K., Turhanlar, E. E., Kazancoglu, Y., & Li, G. (2021). Lateral inventory share
+based models for IoT-enabled e-commerce sustainable food supply networks. Computers & Operations 
+Research. https://doi.org/10.1016/j.cor.2021.105237
+Elgaaïed-Gambier, L. (2016). Who buys overpackaged grocery products and why? Understanding consum
+ers’ reactions to overpackaging in the food sector. Journal of Business Ethics, 135(4), 683–698.
+El Kihal, S., & Shehu, E. (2022). It’s not only what they buy, it’s also what they keep: Linking marketing 
+instruments to product returns. Journal of Retailing, 98(3), 558–571.
+Escursell, S., Llorach, P., & Roncero, M. B. (2020). Sustainability in e-commerce packaging: A review. 
+Journal of Cleaner Production, 124314.
+FAO, G. (2011). Global food losses and food waste–Extent, causes and prevention. Save Food: An Initiative 
+on Food Loss and Waste Reduction.
+Ferraz, R. M., da Veiga, C. P., da Veiga, C. R. P., Furquim, T. S. G., & da Silva, W. V. (2023). After-sales attri
+butes in E-commerce: A systematic literature review and future research agenda. Journal of Theoretical 
+and Applied Electronic Commerce Research, 18(1), 475–500.
+Ferri, G. L., Chaves, G. D. L. D., & Ribeiro, G. M. (2015). Reverse logistics network for municipal solid 
+waste management: The inclusion of waste pickers as a Brazilian legal requirement. Waste Manage
+ment, 40, 173–191.
+Fleischmann, M., Bloemhof-Ruwaard, J., Dekker, R., Van der Laan, E., van Nunen, J., & Van Wassenhove, 
+L. (1997). Quantitative models for reverse logistics. European Journal of Operational Research, 103, 
+1–17.
+Fleischmann, M., Bloemhof-Ruwaard, J. M., Beullens, P., & Dekker, R. (2004). Reverse logistics network 
+design. In Reverse logistics (pp. 65–94). Springer, Berlin, Heidelberg.
+Fleischmann, M., Krikke, H. R., Dekker, R., & Flapper, S. D. P. (2000). A characterisation of logistics net
+works for product recovery. Omega, 28(6), 653–666.
+Fleischmann, M., Van Nunen, J. A., & Gräve, B. (2003). Integrating closed-loop supply chains and spare
+parts management at IBM. Interfaces, 33(6), 44–56.
+Frei, R., Jack, L., & Krzyzaniak, S. A. (2022). Mapping product returns processes in multichannel retailing: 
+Challenges and opportunities. Sustainability, 14(3), 1382.
+1 3
+Annals of Operations Research
+Gabe, G. (2009). The 4 pillars of e-commerce excellence, why Amazon.com has earned the "First in mind" 
+advantage. Internet Marketing Driver. Retrieved January 17, 2022, from  h t t p s : / / w w w . g s q i . c o m / i m d / ? 
+p = 1 7 9 1 
+Galvez, D., Rakotondranaivo, A., Morel, L., Camargo, M., & Fick, M. (2015). Reverse logistics network 
+design for a biogas plant: An approach based on MILP optimization and Analytical Hierarchical Process 
+(AHP). Journal of Manufacturing Systems, 37, 616–623.
+Gao, F., Agrawal, V. V., & Cui, S. (2022). The effect of multichannel and omnichannel retailing on physical 
+stores. Management Science, 68(2), 809–826.
+Gelbrich, K., Gäthke, J., & Hübner, A. (2017). Rewarding customers who keep a product: How reinforcement 
+affects customers’ product return decision in online retailing. Psychology & Marketing, 34(9), 853–867.
+Gharfalkar, M., Court, R., Campbell, C., Ali, Z., & Hillier, G. (2015). Analysis of waste hierarchy in the 
+European waste directive 2008/98/EC. Waste Management, 39, 305–313.
+Girotto, F., Alibardi, L., & Cossu, R. (2015). Food waste generation and industrial uses: A review. Waste 
+Management, 45, 32–41.
+Goedhart, J., Haijema, R., & Akkerman, R. (2023). Modelling the influence of returns for an omni-channel 
+retailer. European Journal of Operational Research, 306(3), 1248–1263.
+Govindan, K., & Bouzon, M. (2018). From a literature review to a multi-perspective framework for reverse 
+logistics barriers and drivers. Journal of Cleaner Production, 187, 318–337.
+Govindan, K., Palaniappan, M., Zhu, Q., & Kannan, D. (2012). Analysis of third party reverse logistics pro
+vider using interpretive structural modeling. International Journal of Production Economics, 140(1), 
+204–211.
+Govindan, K., & Popiuc, M. N. (2014). Reverse supply chain coordination by revenue sharing contract: A 
+case for the personal computers industry. European Journal of Operational Research, 233(2), 326–336.
+Govindan, K., Soleimani, H., & Kannan, D. (2015). Reverse logistics and closed-loop supply chain: A com
+prehensive review to explore the future. European Journal of Operational Research, 240(3), 603–626.
+Griffis, S. E., Rao, S., Goldsby, T. J., & Niranjan, T. T. (2012). The customer consequences of returns in 
+online retailing: An empirical analysis. Journal of Operations Management, 30(4), 282–294.
+Gu, B., Fu, Y., & Li, Y. (2018). Fresh-keeping effort and channel performance in a fresh product supply chain 
+with loss-averse consumers’ returns. Mathematical Problems in Engineering, 2018.
+Guerrero-Lorente, J., Gabor, A. F., & Ponce-Cueto, E. (2020). Omnichannel logistics network design with 
+integrated customer preference for deliveries and returns. Computers & Industrial Engineering, 144, 
+106433.
+Guide, V. D. R., Jr. (2000). Production planning and control for remanufacturing: Industry practice and 
+research needs. Journal of Operations Management, 18(4), 467–483.
+Guide, V. D. R., Jr., Jayaraman, V., & Srivastava, R. (1999). Production planning and control for remanufac
+turing: A state-of-the-art survey. Robotics and Computer-Integrated Manufacturing, 15(3), 221–230.
+Guide, V. D. R., Jr., & Van Wassenhove, L. N. (2009). OR forum—the evolution of closed-loop supply chain 
+research. Operations Research, 57(1), 10–18.
+/ 
+Guo, H., Zhang, Y., Zhang, C., Liu, Y., & Zhou, Y. (2018). Location-inventory decisions for closed-loop sup
+ply chain management in the presence of the secondary market. Annals of Operations Research.  h t t p s : 
+/ 
+d o i . o r g / 1 0 . 1 0 0 7 / s 1 0 4 7 9 - 0 1 8 - 3 0 3 9 - 0  
+Guojing, X., & Ciping, J. (2010). Strategic study on reverse logistics development based on e-commerce. In 
+2010 International Conference on Future Information Technology and Management Engineering (Vol. 
+1, pp. 196–198). IEEE.
+Guo, J., Liu, X., & Jo, J. (2017a). Dynamic joint construction and optimal operation strategy of multi-period 
+reverse logistics network: A case study of Shanghai apparel e-commerce enterprises. Journal of Intel
+ligent Manufacturing, 28(3), 819–831.
+Guo, J., Wang, X., Fan, S., & Gen, M. (2017b). Forward and reverse logistics network and route planning 
+under the environment of low-carbon emissions: A case study of Shanghai fresh food e-commerce 
+enterprises. Computers & Industrial Engineering, 106, 351–360.
+Guo, Y., Luo, G., & Hou, G. (2021). Research on the evolution of the express packaging recycling strat
+egy, considering government subsidies and synergy benefits. International Journal of Environmental 
+Research and Public Health, 18(3), 1144.
+Gustafsson, E., Jonsson, P., & Holmström, J. (2021). Reducing retail supply chain costs of product returns 
+using digital product fitting. International Journal of Physical Distribution & Logistics Management. 
+https://doi.org/10.1108/ijpdlm-10-2020-0334
+Gustavsson, J., Cederberg, C., Sonesson, U., van Otterdijk, R., & Meybeck, A. (2011). Global food losses 
+and food waste: Extent, causes and prevention. FAO.
+Habibi, M. K. K., Battaïa, O., Cung, V. D., & Dolgui, A. (2014, September). Integrated procurement–disas
+sembly problem. In IFIP International Conference on Advances in Production Management Systems 
+(pp. 482–490). Springer, Berlin, Heidelberg.
+1 3
+Annals of Operations Research
+Hadaś, Ł, Domański, R., Wojciechowski, H., Majewski, A., & Lewandowicz, J. (2024). The role of packag
+ing in sustainable omnichannel returns—the perspective of young consumers in Poland. Sustainability, 
+16(6), 2231.
+Han, H., & Trimi, S. (2018). A fuzzy TOPSIS method for performance evaluation of reverse logistics in social 
+commerce platforms. Expert Systems with Applications, 103, 133–145.
+Harris, L. C. (2010). Fraudulent consumer returns: Exploiting retailers’ return policies. European Journal of 
+Marketing. https://doi.org/10.1108/03090561011032694
+Hart, C., & Dewsnap, B. (2001). An exploratory study of the consumer decision process for intimate apparel. 
+Journal of Fashion Marketing and Management, 5(2), 108–119.
+Haryanti, T., & Subriadi, A. P. (2022). E-commerce acceptance in the dimension of sustainability. Journal of 
+Modelling in Management, 17(2), 715–745.
+Heal, G. (1977). Guarantees and risk-sharing. The Review of Economic Studies, 44(3), 549–560.
+Heilig, L., Hofer, J., Lessmann, S., & Voß, S. (2016). Data-driven product returns prediction: A cloud-based 
+ensemble selection approach.
+He, J., Hu, H., Han, Z., He, X., & Chen, K. Storage Strategy of Reverse Logistics Repurchase Contract Based 
+on Newsboy Model. In CICTP 2019 (pp. 1685–1694).
+Hellgren, J. (2017). What happens to RePack after use? RePack. https://www.repack.com
+He, Y., Xu, Q., & Wu, P. (2020). Omnichannel retail operations with refurbished consumer returns. Interna
+tional Journal of Production Research, 58(1), 271–290.
+Hjort, K., Hellström, D., Karlsson, S., & Oghazi, P. (2019). Typology of practices for managing consumer 
+returns in internet retailing. International Journal of Physical Distribution & Logistics Management. 
+https://doi.org/10.1108/ijpdlm-12-2017-0368
+Hjort, K., & Lantz, B. (2016). The impact of returns policies on profitability: A fashion e-commerce case. 
+Journal of Business Research, 69(11), 4980–4985.
+Hong, I. H., & Yeh, J. S. (2012). Modeling closed-loop supply chains in the electronics industry: A retailer 
+collection application. Transportation Research Part e: Logistics and Transportation Review, 48(4), 
+817–829.
+Hong, Y., & Pavlou, P. A. (2014). Product fit uncertainty in online markets: Nature, effects, and antecedents. 
+Information Systems Research, 25(2), 328–344.
+Hortaçsu, A., Martínez-Jerez, F., & Douglas, J. (2009). The geography of trade in online transactions: Evi
+dence from eBay and mercadolibre. American Economic Journal: Microeconomics, 1(1), 53–74.
+Huang, M., & Jin, D. (2020). Impact of buy-online-and-return-in-store service on omnichannel retailing: A 
+supply chain competitive perspective. Electronic Commerce Research and Applications, 41, 100977.
+Huang, Y. C., & Yang, M. L. (2014). Reverse logistics innovation, institutional pressures and performance. 
+Management Research Review, 37(7), 615–641.
+Hua, Z., Hou, H., & Bian, Y. (2016). Optimal shipping strategy and return service charge under no-rea
+son return policy in online retailing. IEEE Transactions on Systems, Man, and Cybernetics: Systems, 
+47(12), 3189–3206.
+Hu, H. T., Ru, Y. H., Wang, R. J., & Wang, Y. K. (2010). Dynamic closed-loop supply chain network design 
+based on recall and return of goods. In 2010 International Conference on Logistics Systems and Intel
+ligent Management (ICLSIM) (Vol. 2, pp. 788–791). IEEE.
+Hu, Z. H., Wei, C., & Yu, X. K. (2015). Apparel distribution with uncertain try-on time by evolutionary algo
+rithm. International Journal of Clothing Science and Technology.
+Ilgin, M. A., & Gupta, S. M. (2010). Environmentally conscious manufacturing and product recovery 
+(ECMPRO): A review of the state of the art. Journal of Environmental Management, 91(3), 563–591.
+Ishfaq, R., Raja, U., & Rao, S. (2016). Seller-induced scarcity and price-leadership: Impact on product 
+returns in the internet retail supply chain. The International Journal of Logistics Management.
+Jain, R., Aagja, J., & Bagdare, S. (2017). Customer experience–a review and research agenda. Journal of 
+service theory and practice, 27(3), 642–662.
+Janakiraman, N., Syrdal, H. A., & Freling, R. (2016). The effect of return policy leniency on consumer pur
+chase and return decisions: A meta-analytic review. Journal of Retailing, 92(2), 226–235.
+Jauhar, S. K., Chakma, B. R., Kamble, S. S., & Belhadi, A. (2023). Digital transformation technologies to 
+analyze product returns in the e-commerce industry. Journal of Enterprise Information Management. 
+https://doi.org/10.1108/jeim-09-2022-0315
+Jayaraman, R., Srivastava, A., Balgi, A., Kumar, A., & Prasad, B. (2013). A study of operating practices and 
+supply chains in the e-Commerce online retail businesses in India. Journal of Supply Chain Manage
+ment Systems, 2(3), 33.
+Jayasinghe, R. S., Chileshe, N., & Rameezdeen, R. (2019) Information-based quality management in reverse 
+logistics supply chain. Benchmarking: An International Journal
+Jena, S. K., & Meena, P. (2022). Shopping in the omnichannel supply chain under price competition and 
+product return. Journal of Retailing and Consumer Services, 65, 102848.
+1 3
+Annals of Operations Research
+Jianyu, W., Runtong, Z., & Jun, W. (2015). Research on the distribution system in e-commerce logistics 
+based on gridding management. In 2015 International Conference on Logistics, Informatics and Service 
+Sciences (LISS) (pp. 1–5). IEEE.
+Jindal, A., & Sangwan, K. S. (2011). Development of an interpretive structural model of barriers to reverse 
+logistics implementation in Indian industry. In Glocalized solutions for sustainability in manufactur
+ing (pp. 448–453). Springer, Berlin, Heidelberg.
+Jin, D., Caliskan-Demirag, O., Chen, F. Y., & Huang, M. (2020). Omnichannel retailers’ return policy strate
+gies in the presence of competition. International Journal of Production Economics, 225, 107595.
+John, S., Shah, B. J., & Kartha, P. (2020). Refund fraud analytics for an online retail purchases. Journal of 
+Business Analytics, 3(1), 56–66.
+John, S. T., Sridharan, R., & Kumar, P. R. (2017). Multi-period reverse logistics network design with emis
+sion cost. The International Journal of Logistics Management, 28(1), 127–149.
+Joshi, P., & Visvanathan, C. (2019). Sustainable management practices of food waste in Asia: Technological 
+and policy drivers. Journal of Environmental Management, 247, 538–550.
+Jou, Y. T., Lo, C. Y., Mariñas, K. A., Saflor, C. S., Gutierrez, C. J., Sanchez, C., & Bucal, M. J. (2024). Assess
+ing the E-Commerce sustainability readiness: A green logistics study on online sellers. Sustainability, 
+16(7), 2954.
+Kadam, M., & Bochare, R. (2023). Packaging waste trends in the age of sustainability: A case study of online 
+shopping behaviour pre and post-COVID. Environment, Development and Sustainability.  h t t p s : / / d o i . o r 
+g / 1 0 . 1 0 0 7 / s 1 0 6 6 8 - 0 2 3 - 0 4 2 3 8 - 1  
+Kao, C. K., Sun, M., Tang, Z. B., Luo, Y. P., & Zeng, F. (2020). Green manufacturing strategy of E-commerce 
+express packaging in China. The International Technology Management Review, 9(1), 11–26.
+Kara, S., Rugrungruang, F., & Kaebernick, H. (2007). Simulation modelling of reverse logistics networks. 
+International Journal of Production Economics, 106(1), 61–69.
+Karlsson, S., Oghazi, P., Hellstrom, D., Patel, P. C., Papadopoulou, C., & Hjort, K. (2023). Retail returns 
+management strategy: An alignment perspective. Journal of Innovation & Knowledge, 8(4), 100420.
+Kaushik, V., Kumar, A., Gupta, H., & Dixit, G. (2020). Modelling and prioritizing the factors for online 
+apparel return using BWM approach. Electronic Commerce Research, 1–31.
+Kaushik, V., Kumar, A., Gupta, H., & Dixit, G. (2022). Modelling and prioritizing the factors for online 
+apparel return using BWM approach. Electronic Commerce Research, 1–31.
+Kawa, A. (2019). Returns in E-Commerce as a value for customers from different perspectives. Business 
+Logistics in Modern Management.
+Keyes, D. (2020) The online grocery report: the coronavirus pandemic is thrusting online grocery into the 
+spotlight in the US.  h t t p s :  / / w w w  . b u s i n  e s s i  n s i d e  r . c o m  / o n l i n  e - g r  o c e r y - r e p o r t - 2 0 2 0 .
+Kibler, K. M., Reinhart, D., Hawkins, C., Motlagh, A. M., & Wright, J. (2018). Food waste and the food
+energy-water nexus: A review of food waste management alternatives. Waste Management, 74, 52–62.
+Kilic, H. S., Cebeci, U., & Ayhan, M. B. (2015). Reverse logistics system design for the waste of electrical 
+and electronic equipment (WEEE) in Turkey. Resources, Conservation and Recycling, 95, 120–132.
+Kim, M., Kim, J. H., & Lennon, S. J. (2011). E‐service attributes available on men’s and women’s apparel 
+web sites. Managing Service Quality: An International Journal.
+Kim, Y., Kang, J., & Chun, H. (2022). Is online shopping packaging waste a threat to the environment? Eco
+nomics Letters, 214, 110398.
+Klemm, D., Cranston, E. D., Fischer, D., Gama, M., Kedzior, S. A., Kralisch, D., & Rauchfuss, F. (2018). 
+Nanocellulose as a natural source for groundbreaking applications in materials science: Today’s state. 
+Materials Today, 21(7), 720–748.
+Kokkinaki, A. I., Dekker, R., De Koster, M. B. M., Pappis, C., & Verbeke, W. J. M. I. (2002). E-business 
+models for reverse logistics: Contributions and challenges. In: Proceedings. International Conference 
+on Information Technology: Coding and Computing (pp. 470–476). IEEE.
+Kondo, Y., Hirai, K. S., Kawamoto, R., & Obata, F. (2001). A discussion on the resource circulation strategy 
+of the refrigerator. Resources, Conservation and Recycling, 33(3), 153–165.
+Krapp, M., Nebel, J., & Sahamie, R. (2013a). Forecasting product returns in closed‐loop supply chains. 
+International Journal of Physical Distribution & Logistics Management.  h t t p s : / / d o i . o r g / 1 0 . 1 1 0 8 / i j p d 
+l m - 0 3 - 2 0 1 2 - 0 0 7 8  
+Krapp, M., Nebel, J., & Sahamie, R. (2013b). Using forecasts and managerial accounting information to 
+enhance closed-loop supply chain management. Or Spectrum, 35(4), 975–1007.
+Lai, N. Y. G., Kuah, A. T., Kim, C. H., & Wong, K. H. (2022). Toward sustainable express deliveries for 
+online shopping: Reusing packaging materials through reverse logistics. Thunderbird International 
+Business Review, 64(4), 351–362.
+Lamba, D., Yadav, D. K., Barve, A., & Panda, G. (2019). Prioritizing barriers in reverse logistics of e-com
+merce supply chain using fuzzy-analytic hierarchy process. Electronic Commerce Research, 1–23.
+1 3
+Annals of Operations Research
+Lantz, B., & Hjort, K. (2013). Real e-customer behavioural responses to free delivery and free returns. Elec
+tronic Commerce Research, 13(2), 183–198.
+Laso, J., Margallo, M., García-Herrero, I., Fullana, P., Bala, A., Gazulla, C., & Aldaco, R. (2018). Combined 
+application of life cycle assessment and linear programming to evaluate food waste-to-food strategies: 
+Seeking for answers in the nexus approach. Waste Management, 80, 186–197.
+Lee, D. H., & Dong, M. (2008). A heuristic approach to logistics network design for end-of-lease com
+puter products recovery. Transportation Research Part e: Logistics and Transportation Review, 44(3), 
+455–474.
+Lee, Y. J., Baker, T., & Jayaraman, V. (2012). Redesigning an integrated forward–reverse logistics system 
+for a third party service provider: An empirical study. International Journal of Production Research, 
+50(19), 5615–5634.
+Lendle, A., Olarreaga, M., Schropp, S., & Vézina, P. L. (2016). There goes gravity: EBay and the death of 
+distance. The Economic Journal, 126(591), 406–441.
+Letizia, P., Pourakbar, M., & Harrison, T. (2018). The impact of consumer returns on the multichannel sales 
+strategies of manufacturers. Production and Operations Management, 27(2), 323–349.
+Li, D., Ignatius, J., Wang, D., Yin, Y., & Cheng, T. C. E. (2024). A branch-and-price-and-cut algorithm for 
+the truck-drone routing problem with simultaneously delivery and pickup. Naval Research Logistics 
+(NRL), 71(2), 241–285.
+Li, J., He, J., & Zhu, Y. (2018). E-tail product return prediction via hypergraph-based local graph cut. In: 
+Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data 
+Mining (pp. 519–527).
+Lin, D., Lee, C. K. M., Siu, M. K., Lau, H., & Choy, K. L. (2020). Analysis of customers’ return behaviour 
+after online shopping in China using SEM. Industrial Management & Data Systems.  h t t p s : / / d o i . o r g / 1 0 
+. 
+1 1 0 8 / i m d s - 0 5 - 2 0 1 9 - 0 2 9 6  
+Lin, G., Chang, H., Li, X., Li, R., & Zhao, Y. (2022). Integrated environmental impacts and C-footprint 
+reduction potential in treatment and recycling of express delivery packaging waste. Resources, Conser
+vation and Recycling, 179, 106078.
+Lisec, A., Antić, S., Campuzano-Bolarín, F., & Pejić, V. (2018). An approach to packaging waste reverse 
+logistics: Case of Slovenia. Transport, 33(5), 1104–1112.
+Liu, D. (2014). Network site optimization of reverse logistics for E-commerce based on genetic algorithm. 
+Neural Computing and Applications, 25(1), 67–71.
+Liu, J., & Xiong, H. (2023). Information disclosure, consumer returns, and operational costs in omnichannel 
+retailing. Naval Research Logistics (NRL), 70(4), 376–391.
+Liu, S. Y., Feng, H. J., Xiang, H., Fan, X. P., & Yue, S. L. (2015). Problems and solutions for E-Commerce 
+logistic packaging. Packaging Engineering, 36(3), 144–148.
+Liu, Y., Xiao, Y., & Dai, Y. (2023). Omnichannel retailing with different order fulfillment and return options. 
+International Journal of Production Research, 61(15), 5053–5074.
+Li, X., & Olorunniwo, F. (2008). An exploration of reverse logistics practices in three companies. Supply 
+Chain Management: An International Journal, 13(5), 381–386.
+Li, Y., Martínez-López, F. J., Feng, C., & Chen, Y. (2022). Green communication for more package-free ecom
+merce returns. Journal of Theoretical and Applied Electronic Commerce Research, 17(4), 1450–1472.
+Li, Y., Xu, L., & Li, D. (2013). Examining relationships between the return policy, product quality, and pric
+ing strategy in online direct selling. International Journal of Production Economics, 144(2), 451–460.
+Li, Z., Yang, W., & Chen, X. (2021). Omnichannel inventory models accounting for Buy-Online–Return-to
+Store service and random demand. Soft Computing, 25(17), 11691–11710.
+Luo, Y., Wan, F., & Zhao, H. (2012). Research on facility location of re-manufacturing network based on 
+MILP. Industrial Engineering and Management, 17(5), 16–28.
+Lu, S., Yang, L., Liu, W., & Jia, L. (2020). User preference for electronic commerce overpackaging solutions: 
+Implications for cleaner production. Journal of Cleaner Production, 258, 120936.
+Ma, B., Mao, B., Liu, S., Meng, F., & Liu, J. (2024). Managing physical inventory and return policies in 
+omnichannel retailing. Computers & Industrial Engineering, 109986.
+Ma, F. (2010). The study on reverse logistics for e-commerce. In 2010 International Conference on Manage
+ment and Service Science (pp. 1–4). IEEE.
+Mahaboob Sheriff, K. M., Gunasekaran, A., & Nachiappan, S. (2012). Reverse logistics network design: A 
+review on strategic perspective. International Journal of Logistics Systems and Management, 12(2), 
+171–194.
+Mahmoudi, M., & Parviziomran, I. (2020). Reusable packaging in supply chains: A review of environmental 
+and economic impacts, logistics system designs, and operations management. International Journal of 
+Production Economics, 228, 107730.
+1 3
+Annals of Operations Research
+Makower, J. (2019, January 24). Loop’s launch brings reusable packaging to the world’s biggest brands. 
+Trellis. Retrieved January19, 2026, from  h t t p s :  / / t r e  l l i s . n  e t / a  r t i c l  e / l o o  p s - l a u  n c h -  b r i n g  s - r e u  s a b l e -  p a c k  a 
+g i n g - w o r l d s - b i g g e s t - b r a n d s /
+Mallari, C. B., San Juan, J. L., & Bongo, M. (2023). Modelling the vehicle routing problem with delivery and 
+pickup in e-commerce forward-reverse logistics networks based on the triple bottom line framework. 
+Chemical Engineering Transactions, 103, 463–468.
+Mandal, P., Basu, P., & Saha, K. (2021). Forays into omnichannel: An online retailer’s strategies for manag
+ing product returns. European Journal of Operational Research, 292(2), 633–651.
+Mangiaracina, R., Marchet, G., Perotti, S., & Tumino, A. (2015). A review of the environmental implications 
+of B2C e-commerce: A logistics perspective. International Journal of Physical Distribution & Logistics 
+Management. https://doi.org/10.1108/ijpdlm-06-2014-0133
+Martínez-López, F. J., Feng, C., Li, Y., & Mata, M. S. (2022). Restoring the buyer–seller relationship through 
+online return shipping: The role of return shipping method and return shipping fee. Electronic Com
+merce Research and Applications, 54, 101170.
+Martínez-López, F. J., Li, Y., Feng, C., Liu, H., & López-López, D. (2023). Reducing ecommerce returns with 
+return credits. Electronic Commerce Research, 23(4), 2011–2033.
+Matthews, H. S., Williams, E., Tagami, T., & Hendrickson, C. T. (2002). Energy implications of online book 
+retailing in the United States and Japan. Environmental Impact Assessment Review, 22(5), 493–507.
+Mayring, P. (2010). Qualitative Content Analysis: foundations and techniques. Handbook of qualitative tech
+niques in psychology. 11th edn. Weinheim: Beltz, 84–85.
+Mazumder, S., & Elliott, G. (2020). The four pillars of Ecommerce profitability: Publicis Sapient. The Four 
+Pillars of Ecommerce Profitability | Publicis Sapient. Retrieved January 17, 2022, from  h t t p s :  / / w w w  . p u 
+b l i  c i s s  a p i e n  t . c o m  / i n s i g  h t s /  t h e - f  o u r - p  i l l a r s  - o f -  e - c o m m e r c e - p r o fi  t a b i l i t y
+McLeod, F., Hickford, A., Maynard, S., Cherrett, T., & Allen, J. (2008). Developing innovative and more 
+sustainable approaches to reverse logistics for the collection, recycling and disposal of waste products 
+from urban centres: literature review and identification of opportunities.
+Meade, L., Sarkis, J., & Presley, A. (2007). The theory and practice of reverse logistics. International Journal 
+of Logistics Systems and Management, 3(1), 56–84.
+Meherishi, L., Narayana, S. A., & Ranjani, K. S. (2020). Integrated product and packaging decisions with 
+secondary packaging returns and protective packaging management. European Journal of Operational 
+Research.
+Meredith, J. (1993). Theory building through conceptual methods. International Journal of Operations & 
+Production Management, 13(5), 3–11.
+Millet, D. (2011). Designing a sustainable reverse logistics channel: The 18 generic structures framework. 
+Journal of Cleaner Production, 19(6–7), 588–597.
+Misra, S., & Arivazhagan, D. (2017). Application of design thinking techniques in marketing of fashion 
+apparel e-commerce. Indian Journal of Marketing, 47(8), 18–30.
+Mollenkopf, D. A., Frankel, R., & Russo, I. (2011). Creating value through returns management: Exploring 
+the marketing–operations interface. Journal of Operations Management, 29(5), 391–403.
+Mollenkopf, D. A., Rabinovich, E., Laseter, T. M., & Boyer, K. K. (2007). Managing internet product returns: 
+A focus on effective service operations. Decision Sciences, 38(2), 215–250.
+Mondal, C., & Giri, B. C. (2022). Analyzing strategies in a green e-commerce supply chain with return policy 
+and exchange offer. Computers & Industrial Engineering, 171, 108492.
+Morganti, E., Dablanc, L., & Fortin, F. (2014). Final deliveries for online shopping: The deployment of 
+pickup point networks in urban and suburban areas. Research in Transportation Business & Manage
+ment, 11, 23–31.
+Moroz, M., & Polkowski, Z. (2016). The last mile issue and urban logistics: Choosing parcel machines in 
+the context of the ecological attitudes of the Y generation consumers purchasing online. Transportation 
+Research Procedia, 16, 378–393.
+Moyo, D. (2021). Packaging waste and their management technologies. In Waste Management in the Fashion 
+and Textile Industries (pp. 145–155). Woodhead Publishing.
+Muñoz-Villamizar, A., Velázquez-Martínez, J. C., Haro, P., Ferrer, A., & Mariño, R. (2021). The environmen
+tal impact of fast shipping ecommerce in inbound logistics operations: A case study in Mexico. Journal 
+of Cleaner Production, 283, 125400.
+Nageswaran, L., Cho, S. H., & Scheller-Wolf, A. (2020). Consumer return policies in omnichannel opera
+tions. Management Science, 66(12), 5558–5575.
+Nanayakkara, P. R., Jayalath, M. M., Thibbotuwawa, A., & Perera, H. N. (2022). A circular reverse logistics 
+framework for handling e-commerce returns. Cleaner Logistics and Supply Chain, 5, 100080.
+Narang, U., & Shankar, V. (2019). Mobile app introduction and online and offline purchases and product 
+returns. Marketing Science, 38(5), 756–772.
+1 3
+Annals of Operations Research
+Naseem, M. H., Yang, J., & Xiang, Z. (2021). Prioritizing the solutions to reverse logistics barriers for the 
+e-commerce industry in Pakistan based on a fuzzy ahp-topsis approach. Sustainability, 13(22), 12743.
+Naseri, M. B., & Elliott, G. (2011). Role of demographics, social connectedness and prior internet experience 
+in adoption of online shopping: Applications for direct marketing. Journal of Targeting, Measurement 
+and Analysis for Marketing, 19(2), 69–84.
+Nath, O., Kumar, S., Sharma, V., Meena, M. L., & Jain, R. (2023). Design of strategic framework for green 
+sustainable practices in e-commerce companies. Materials Today: Proceedings.
+Nel, J. D., & Badenhorst, A. (2020). A conceptual framework for reverse logistics challenges in e-commerce. 
+International Journal of Business Performance Management, 21(1–2), 114–131.
+Niknejad, A., & Petrovic, D. (2014). Optimisation of integrated reverse logistics networks with different 
+product recovery routes. European Journal of Operational Research, 238(1), 143–154.
+Ni, M., & Liao, R. H. (2009). Four types of reverse logistics model based on e-commerce environment. 
+Journal of E-Business, 53(18), 137–139.
+Nogueira, G. P. M., de Assis Rangel, J. J., Croce, P. R., & Peixoto, T. A. (2022). The environmental impact 
+of fast delivery B2C e-commerce in outbound logistics operations: A simulation approach. Cleaner 
+Logistics and Supply Chain, 5, 100070.
+Oghazi, P., Karlsson, S., Hellström, D., & Hjort, K. (2018). Online purchase return policy leniency and 
+purchase decision: Mediating role of consumer trust. Journal of Retailing and Consumer Services, 41, 
+190–200.
+Orendorff, A. (2019). The state of the ecommerce fashion industry: Statistics, trends & strategy. Preuzeto, 
+13, 2019.
+Osong, S. H., Norgren, S., & Engstrand, P. (2016). Processing of wood-based microfibrillated cellulose and 
+nanofibrillated cellulose, and applications relating to papermaking: A review. Cellulose, 23(1), 93–123.
+Pan, S., Chen, C., & Zhong, R. Y. (2015). A crowdsourcing solution to collect e-commerce reverse flows in 
+metropolitan areas. IFAC-PapersOnLine, 48(3), 1984–1989.
+Papargyropoulou, E., Lozano, R., Steinberger, J. K., Wright, N., & bin Ujang, Z. (2014). The food waste 
+hierarchy as a framework for the management of food surplus and food waste. Journal of Cleaner 
+Production, 76, 106–115.
+Park, J., & Waqar, Z. (2022). Life cycle assessment of returnable mailers used for apparel electronic com
+merce: A case study in Canada. Packaging Technology and Science, 35(9), 651–662.
+Patel, P. C., Baldauf, C., Karlsson, S., & Oghazi, P. (2021). The impact of free returns on online purchase 
+behavior: Evidence from an intervention at an online retailer. Journal of Operations Management, 
+67(4), 511–555.
+Pati, R. K., Vrat, P., & Kumar, P. (2008). A goal programming model for paper recycling system. Omega, 
+36(3), 405–417.
+Pei, Z., & Paswan, A. (2018). Consumers’legitimate and opportunistic product return behaviors in online 
+shopping. Journal of Electronic Commerce Research, 19(4), 301–319.
+Pei, Z., Paswan, A., & Yan, R. (2014). E-tailer׳ s return policy, consumer׳ s perception of return policy fair
+ness and purchase intention. Journal of Retailing and Consumer Services, 21(3), 249–257.
+Peng, Y., Liu, Y., & Ablanedo-Rosas, J. H. (2022). Store density in omnichannel implementation while con
+sidering the environmental impact of packaging materials. Journal of Cleaner Production, 371, 133668.
+Pinheiro, E., de Francisco, A. C., Piekarski, C. M., & de Souza, J. T. (2019). How to identify opportunities 
+for improvement in the use of reverse logistics in clothing industries? A case study in a Brazilian cluster. 
+Journal of Cleaner Production, 210, 612–619.
+Pinos, J., Hahladakis, J. N., & Chen, H. (2022). Why is the generation of packaging waste from express 
+deliveries a major problem? Science of the Total Environment, 830, 154759.
+Pishvaee, M. S., Jolai, F., & Razmi, J. (2009). A stochastic optimization model for integrated forward/reverse 
+logistics network design. Journal of Manufacturing Systems, 28(4), 107–114.
+Pålsson, H. (2018). Packaging Logistics: Understanding and managing the economic and environmental 
+impacts of packaging in supply chains. Kogan Page Publishers.
+Pålsson, H., Pettersson, F., & Hiselius, L. W. (2017). Energy consumption in e-commerce versus conven
+tional trade channels-Insights into packaging, the last mile, unsold products and product returns. Jour
+nal of Cleaner Production, 164, 765–778.
+Pokharel, S., & Mutha, A. (2009). Perspectives in reverse logistics: A review. Resources, Conservation and 
+Recycling, 53(4), 175–182.
+Policarpo, L. M., da Silveira, D. E., da Rosa Righi, R., Stoffel, R. A., da Costa, C. A., Barbosa, J. L. V., & 
+Arcot, T. (2021). Machine learning through the lens of e-commerce initiatives: An up-to-date systematic 
+literature review. Computer Science Review, 41, 100414.
+Posselt, T., Gerstner, E., & Radic, D. (2008). Rating e-tailers’ money-back guarantees. Journal of Service 
+Research, 10(3), 207–219.
+1 3
+Annals of Operations Research
+Prahinski, C., & Kocabasoglu, C. (2006). Empirical research opportunities in reverse supply chains. Omega, 
+34(6), 519–532.
+Prajapati, D., Chan, F. T., Daultani, Y., & Pratap, S. (2022). Sustainable vehicle routing of agro-food grains in 
+the e-commerce industry. International Journal of Production Research, 60(24), 7319–7344.
+Prajapati, D., Kumar, M. M., Pratap, S., Chelladurai, H., & Zuhair, M. (2021a). Sustainable logistics network 
+design for delivery operations with time horizons in B2B e-commerce platform. Logistics, 5(3), 61.
+Prajapati, D., Zhou, F., Zhang, M., Chelladurai, H., & Pratap, S. (2021b). Sustainable logistics network 
+design for multi-products delivery operations in B2B e-commerce platform. Sādhanā, 46(2), 100.
+Pratap, S., Daultani, Y., Dwivedi, A., & Zhou, F. (2021). Supplier selection and evaluation in e-commerce 
+enterprises: A data envelopment analysis approach. Benchmarking: An International Journal.  h t t p s : / / d 
+o i . o r g / 1 0 . 1 1 0 8 / b i j - 1 0 - 2 0 2 0 - 0 5 5 6  
+Qiang, Q., Ke, K., Anderson, T., & Dong, J. (2013). The closed-loop supply chain network with competition, 
+distribution channel investment, and uncertainties. Omega, 41(2), 186–194.
+Qiu, R., Ma, L., & Sun, M. (2023). A robust omnichannel pricing and ordering optimization approach 
+with return policies based on data-driven support vector clustering. European Journal of Operational 
+Research, 305(3), 1337–1354.
+Rabinovich, E., Sinha, R., & Laseter, T. (2011). Unlimited shelf space in Internet supply chains: Treasure 
+trove or wasteland? Journal of Operations Management, 29(4), 305–317.
+Rachih, H., Mhada, F. Z., & Chiheb, R. (2019). Meta-heuristics for reverse logistics: A literature review and 
+perspectives. Computers & Industrial Engineering, 127, 45–62.
+Radhi, M., & Zhang, G. (2019). Optimal cross-channel return policy in dual-channel retailing systems. Inter
+national Journal of Production Economics, 210, 184–198.
+Rajasekaran, V., & Priyadarshini, R. (2021). An E-Commerce Prototype for Predicting the Product Return 
+Phenomenon Using Optimization and Regression Techniques. In International Conference on Advances 
+in Computing and Data Sciences (pp. 230–240). Springer, Cham.
+Rajinipriya, M., Nagalakshmaiah, M., Robert, M., & Elkoun, S. (2018). Importance of agricultural and indus
+trial waste in the field of nanocellulose and recent industrial developments of wood based nanocellu
+lose: A review. ACS Sustainable Chemistry & Engineering, 6(3), 2807–2828.
+Ramanathan, R. (2011). An empirical analysis on the influence of risk on relationships between handling of 
+product returns and customer loyalty in e-commerce. International Journal of Production Economics, 
+130(2), 255–261.
+Rao, S., Lee, K. B., Connelly, B., & Iyengar, D. (2018). Return time leniency in online retail: A signaling 
+theory perspective on buying outcomes. Decision Sciences, 49(2), 275–305.
+Rao, S., Rabinovich, E., & Raju, D. (2014). The role of physical distribution services as determinants of 
+product returns in Internet retailing. Journal of Operations Management, 32(6), 295–312.
+Risberg, A. (2023). A systematic literature review on e-commerce logistics: Towards an e-commerce and 
+omni-channel decision framework. The International Review of Retail, Distribution and Consumer 
+Research, 33(1), 67–91.
+Röllecke, F. J., Huchzermeier, A., & Schröder, D. (2018). Returning customers: The hidden strategic oppor
+tunity of returns management. California Management Review, 60(2), 176–203.
+Rodríguez, P. G., Villarreal, R., Valiño, P. C., & Blozis, S. (2020). A PLS-SEM approach to understanding 
+E-SQ, E-Satisfaction and E-Loyalty for fashion E-Retailers in Spain. Journal of Retailing and Con
+sumer Services, 57, 102201.
+Rogers, D. S., Lambert, D. M., Croxton, K. L., & García-Dastugue, S. J. (2002). The returns management 
+process. The International Journal of Logistics Management, 13(2), 1–18.
+Rogers, D. S., Lembke, R., & Benardino, J. (2013). Reverse logistics: A new core competency. Supply Chain 
+Management Review, 17(3).
+Rogers, D. S., & Tibben‐Lembke, R. (2001). An examination of reverse logistics practices. Journal of busi
+ness logistics, 22(2), 129–148.
+Rogers, D. S., & Tibben-Lembke, R. S. (1999). Going backwards: reverse logistics trends and practices (Vol. 
+2). Pittsburgh, PA: Reverse Logistics Executive Council.
+Roghanian, E., & Pazhoheshfar, P. (2014). An optimization model for reverse logistics network under sto
+chastic environment by using genetic algorithm. Journal of Manufacturing Systems, 33(3), 348–356. 
+https://doi.org/10.1016/j.jmsy.2014.02.007
+Ross, S., & Evans, D. (2003). The environmental effect of reusing and recycling a plastic-based packaging 
+system. Journal of Cleaner Production, 11(5), 561–571.
+Rubio, S., Chamorro, A., & Miranda, F. J. (2008). Characteristics of the research on reverse logistics (1995
+2005). International Journal of Production Research, 46(4), 1099–1120.
+Saastamoinen, J. (2009). Returns on reputation in retail e-commerce. Journal of Electronic Commerce 
+Research, 10(4), 196–219.
+1 3
+Annals of Operations Research
+Sahoo, N., Dellarocas, C., & Srinivasan, S. (2018). The impact of online product reviews on product returns. 
+Information Systems Research, 29(3), 723–738.
+Saleh, K.: E-commerce product return rate - statistics and trends [infographic].  h t t p s :  / / w w w  . i n v e s  p c r o  . c o m /  b 
+l 
+o g /  e - c o m m  e r c e  - p r o d  u c t - r  e t u r n -  r a t e  - s t a t i s t i c s / .
+Salemdeeb, R., Zu Ermgassen, E. K., Kim, M. H., Balmford, A., & Al-Tabbaa, A. (2017). Environmental and 
+health impacts of using food waste as animal feed: A comparative analysis of food waste management 
+options. Journal of Cleaner Production, 140, 871–880.
+Samar, K. M., & Robert, S. (2004). Reverse logistics in e-business. Optimal price and return policy. Interna
+tional Journal of Physical Distribution & Logistics Management, 34(1), 70–89.
+Sangwan, K. S. (2017). Key activities, decision variables and performance indicators of reverse logistics. 
+Procedia CIRP, 61, 257–262.
+Santana, J. C. C., Guerhardt, F., Franzini, C. E., Ho, L. L., Júnior, S. E. R. R., Cânovas, G., & Berssaneti, F. 
+T. (2021). Refurbishing and recycling of cell phones as a sustainable process of reverse logistics: A case 
+study in Brazil. Journal of Cleaner Production, 283, 124585.
+Sarkar, M. K., Rao, A. C., & Singh, A. K. (2024). Sustainability and talent management”: A two-pronged 
+approach for the evolution of E-commerce in India. Circular Economy and Sustainability, 4(1), 267–285.
+Sasikumar, P., & Kannan, G. (2008a). Issues in reverse supply chains, part I: End-of-life product recovery and 
+inventory management–an overview. International Journal of Sustainable Engineering, 1(3), 154–172.
+Sasikumar, P., & Kannan, G. (2008b). Issues in reverse supply chains, part II: Reverse distribution issues–an 
+overview. International Journal of Sustainable Engineering, 1(4), 234–249.
+Sasikumar, P., & Kannan, G. (2009). Issues in reverse supply chain, part III: Classification and simple analy
+sis. International Journal of Sustainable Engineering, 2(1), 2–27.
+Schaefer, D., & Cheung, W. M. (2018). Smart packaging: Opportunities and challenges. Procedia CIRP, 72, 
+1022–1027.
+Schrotenboer, A. H., Wruck, S., Roodbergen, K. J., Veenstra, M., & Dijkstra, A. S. (2017). Order picker rout
+ing with product returns and interaction delays. International Journal of Production Research, 55(21), 
+6394–6406.
+Schrotenboer, A. H., Wruck, S., Vis, I. F., & Roodbergen, K. J. (2019). Integration of returns and decomposi
+tion of customer orders in e-commerce warehouses. arXiv preprint arXiv:1909.01794.
+Schulze, G. (2016). Growth Within: A Circular Economy Vision for a Competitive Europe. Ellen MacArthur 
+Foundation and the McKinsey Center for Business and Environment, 1–22.
+Shang, G., Ferguson, M. E., & Galbreth, M. R. (2019). Where should i focus my return reduction efforts? 
+Empirical guidance for retailers. Decision Sciences, 50(4), 877–909.
+Shang, G., McKie, E. C., Ferguson, M. E., & Galbreth, M. R. (2020). Using transactions data to improve 
+consumer returns forecasting. Journal of Operations Management, 66(3), 326–348.
+Shang, G., Pekgün, P., Ferguson, M., & Galbreth, M. (2017). How much do online consumers really value 
+free product returns? Evidence from eBay. Journal of Operations Management, 53, 45–62.
+Shehu, E., Papies, D., & Neslin, S. A. (2020). Free shipping promotions and product returns. Journal of 
+Marketing Research, 57(4), 640–658.
+Shen, Y., Zhang, Q., Zhang, Z., & Ma, X. (2022). Omnichannel retailing return operations with consumer 
+disappointment aversion. Operations Research Perspectives, 9, 100253.
+Shi, X., Dong, C., & Cheng, T. C. E. (2018). Does the buy-online-and-pick-up-in-store strategy with pre
+orders benefit a retailer with the consideration of returns? International Journal of Production Econom
+ics, 206, 134–145.
+Shi, X., Li, L. X., Yang, L., Li, Z., & Choi, J. Y. (2012). Information flow in reverse logistics: An industrial 
+information integration study. Information Technology and Management, 13(4), 217–232.
+Shi, Y., Nie, J., Qu, T., Chu, L. K., & Sculli, D. (2015). Choosing reverse channels under collection responsi
+bility sharing in a closed-loop supply chain with re-manufacturing. Journal of Intelligent Manufactur
+ing, 26(2), 387–402.
+Snyder, R., & Hamdan, B. (2009). E-commerce and Inventory Management. In Proceedings of ASBBS 
+Annual Conference. Vol. 16. No 1, Las Vegas, February.
+Song, G., Zhang, H., Duan, H., & Xu, M. (2018). Packaging waste from food delivery in China’s mega cities. 
+Resources, Conservation and Recycling, 130, 226–227.
+Srivastava, S. K. (2007). Green supply‐chain management: A state‐of‐the‐art literature review. International 
+Journal of Management Reviews, 9(1), 53–80.
+Stöcker, B., Baier, D., & Brand, B. M. (2021). New insights in online fashion retail returns from a customers’ 
+perspective and their dynamics. Journal of Business Economics, 91(8), 1149–1187.
+Stock, J. R., & Mulki, J. P. (2009). Product returns processing: An examination of practices of manufacturers, 
+wholesalers/distributors, and retailers. Journal of Business Logistics, 30(1), 33–62.
+Stock, J., Speh, T., & Shear, H. (2002). Many happy (product) returns.
+1 3
+Annals of Operations Research
+Strauss, A., Gülpınar, N., & Zheng, Y. (2020). Dynamic pricing of flexible time slots for attended home 
+delivery. European Journal of Operational Research.
+Subramoniam, R., Huisingh, D., & Chinnam, R. B. (2009). Remanufacturing for the automotive aftermarket
+strategic factors: Literature review and future research needs. Journal of Cleaner Production, 17(13), 
+1163–1174.
+Subulan, K., Taşan, A. S., & Baykasoğlu, A. (2015). Designing an environmentally conscious tire closed
+loop supply chain network with multiple recovery options using interactive fuzzy goal programming. 
+Applied Mathematical Modelling, 39(9), 2661–2702.
+Sun, K., Liu, Y., & Li, X. (2024). Mail back or in-store dropoff? Optimal design of product-exchange policies 
+in omnichannel retailing systems. Omega, 125, 103024.
+Sun, M., & Zhao, J. (2022). Behavioral patterns beyond posting negative reviews online: An empirical view. 
+Journal of Theoretical and Applied Electronic Commerce Research, 17(3), 949–983.
+Su, Y., Duan, H., Wang, Z., Song, G., Kang, P., & Chen, D. (2020). Characterizing the environmental impact 
+of packaging materials for express delivery via life cycle assessment. Journal of Cleaner Production, 
+274, 122961.
+Takata, M., Fukushima, K., Kino-Kimata, N., Nagao, N., Niwa, C., & Toda, T. (2012). The effects of recy
+cling loops in food waste management in Japan: Based on the environmental and economic evaluation 
+of food recycling. Science of the Total Environment, 432, 309–317.
+Thibbotuwawa, A., Nanayakkara, P. R., Fernando, W. M., Jayalath, M. M., Perera, H. N., & Nielsen, P. 
+(2023). A reverse logistics network model for handling E-commerce returns. IFAC-PapersOnLine, 
+56(2), 138–143.
+Thi, N. B. D., Kumar, G., & Lin, C. Y. (2015). An overview of food waste management in developing coun
+tries: Current status and future perspective. Journal of Environmental Management, 157, 220–229.
+Titiyal, R., Bhattacharya, S., & Thakkar, J. J. (2020). E-fulfillment performance evaluation for an e-tailer: A 
+DANP approach. International Journal of Productivity and Performance Management, 69(4), 741–773.
+Tokar, T., Jensen, R., & Williams, B. D. (2021). A guide to the seen costs and unseen benefits of e-commerce. 
+Business Horizons, 64(3), 323–332.
+Transchel, S., Taheri-Bavil-Oliaei, M., & Petersen, M. (2024). Reusable packaging for B2C supply chains. 
+Sustainable supply chains: A research-based textbook on operations and strategy (pp. 405–431). 
+Springer International Publishing.
+Tsang, Y. P., Wu, C. H., Lam, H. Y., Choy, K. L., & Ho, G. T. S. (2020). Integrating Internet of Things and 
+multi-temperature delivery planning for perishable food E-commerce logistics: A model and applica
+tion. International Journal of Production Research.  h t t p s :   /  / d o  i . o r  g /  1 0 .  1 0  8 0 /  0 0 2 0 7   5 4 3 . 2   0 2 0 .  1 8 4 1 3 1 5
+UNION, P. (2008). Directive 2008/50/EC of the European Parliament and of the Council of 21 May 2008 
+on ambient air quality and cleaner air for Europe. Official Journal of the European Union, 152, 1–44.
+Urbanke, P., Kranz, J., & Kolbe, L. (2015). Predicting product returns in e-commerce: the contribution of 
+mahalanobis feature extraction.
+Vanderroost, M., Ragaert, P., Devlieghere, F., & De Meulenaer, B. (2014). Intelligent food packaging: The 
+next generation. Trends in Food Science & Technology, 39(1), 47–62.
+Van Wassenhove, L. N., & Besiou, M. (2013). Complex problems with multiple stakeholders: How to bridge 
+the gap between reality and OR/MS? Journal of Business Economics, 83(1), 87–97.
+Velazquez, R., & Chankov, S. M. (2019). Environmental impact of last mile deliveries and returns in fashion 
+E-commerce: a cross-case analysis of six retailers. In 2019 IEEE International Conference on Industrial 
+Engineering and Engineering Management (IEEM) (pp. 1099–1103). IEEE.
+Vieira, M., Malaquias, T., Ketsmur, V., Ketsmur, V., & Au-Yong-Oliveira, M. (2021). Towards a More 
+Sustainable E-commerce in the Post-COVID-19 Recovery of Portuguese Companies. In Advanced 
+Research in Technologies, Information, Innovation and Sustainability: First International Conference, 
+ARTIIS 2021, La Libertad, Ecuador, November 25–27, 2021, Proceedings 1 (pp. 600–613). Springer 
+International Publishing.
+Vilar-Zanón, J. L., Vilar, E., & Heras, A. (2017). Online product returns risk assessment and management. 
+TOP, 25(3), 445–466.
+Villa, R., Serrano, M., García, T., & González, G. (2023). To green or not to green: The E-Commerce-deliv
+ery question. Sustainability, 15(16), 12161.
+Vlachos, I. P. (2014). Reverse food logistics during the product life cycle. International Journal of Integrated 
+Supply Management, 9(1–2), 49–73.
+Wachter, K., Vitell, S. J., Shelton, R. K., & Park, K. (2012). Exploring consumer orientation toward returns: 
+Unethical dimensions. Business Ethics: A European Review, 21(1), 115–128.
+Walsh et al., 2016 Walsh, G., Albrecht, A. K., Kunz, W., & Hofacker, C. F. (2016). Relationship between 
+online retailers’ reputation and product returns.British Journal of Management, 27(1), 3-20.
+Walsh, G., & Brylla, D. (2017). Do product returns hurt relational outcomes? Some evidence from online 
+retailing. Electronic Markets, 27(4), 329–339.
+1 3
+Annals of Operations Research
+Walsh, G., Hennig-Thurau, T., Sassenberg, K., & Bornemann, D. (2010). Does relationship quality matter in 
+e-services? A comparison of online and offline retailing. Journal of Retailing and Consumer Services, 
+17(2), 130–142.
+Walsh, G., & Möhring, M. (2017). Effectiveness of product return-prevention instruments: Empirical evi
+dence. Electronic Markets, 27(4), 341–350.
+Wang, C. N., Dang, T. T., & Nguyen, N. A. T. (2021). Outsourcing reverse logistics for e-commerce retailers: 
+A two-stage fuzzy optimization approach. Axioms, 10(1), 34.
+Wang, F., & Hu, Y. (2016). Research on green express packaging design under the electronic commerce. 
+Open Journal of Business and Management, 4(4), 621–628.
+Wang, J. J., Chen, H., Rogers, D. S., Ellram, L. M., & Grawe, S. J. (2017). A bibliometric analysis of reverse 
+logistics research (1992–2015) and opportunities for future research. International Journal of Physical 
+Distribution & Logistics Management.
+Wang, L., Elahi, E., Zhou, Y., Wang, L., & Zhang, S. (2022). A review of packaging materials’ consumption 
+regulation and pollution control. Sustainability, 14(23), 15866.
+Wang, W. (2015). A decision method for returns logistics based on the customer’s behaviour in e-commerce. 
+Procedia Computer Science, 60, 1506–1515.
+Wang, X., Xie, J., & Fan, Z. P. (2020). B2C cross-border E-commerce logistics mode selection considering 
+product returns. International Journal of Production Research, 1–20.
+Wang, Y., Anderson, J., Joo, S. J., & Huscroft, J. R. (2019). The leniency of return policy and consumers’ 
+repurchase intention in online retailing. Industrial Management & Data Systems.
+Wang, Y., Sun, M., Yang, X., & Yuan, X. (2016). Public awareness and willingness to pay for tackling smog 
+pollution in China: A case study. Journal of Cleaner Production, 112, 1627–1634.
+Wang, Y., & Zhu, Q. (2020). How do you manage online delivery package waste? IEEE Engineering Man
+agement Review, 48(2), 184–192.
+Webster, J., & Watson, R. T. (2002). Analyzing the past to prepare for the future: Writing a literature review. 
+MIS Quarterly, xiii-xxiii.
+Wei, H., & Dong, M. (2019). Import-export freight organization and optimization in the dry-port-based cross
+border logistics network under the Belt and Road Initiative. Computers & Industrial Engineering, 130, 
+472–484.
+Weiland, D. (2017). The role of information in e-commerce. Zeszyty Naukowe Uniwersytetu Gdańskiego. 
+Ekonomika Transportu i Logistyka, 68, 103–115.
+Williams, E., & Tagami, T. (2002). Energy use in sales and distribution via e-commerce and conventional 
+retail: A case study of the Japanese book sector. Journal of Industrial Ecology, 6(2), 99–114.
+Wood, S. L. (2001). Remote purchase environments: The influence of return policy leniency on two-stage 
+decision processes. Journal of Marketing Research, 38(2), 157–169.
+XiaoYan, Q., Yong, H., Qinli, D., & Stokes, P. (2012). Reverse logistics network design model based on 
+e-commerce. International Journal of Organizational Analysis, 20(2), 251–261.
+Xiao, Y., & Zhou, B. (2020). Does the development of delivery industry increase the production of municipal 
+solid waste?—an empirical study of China. Resources, Conservation and Recycling, 155, 104577.
+Xie, C., Gong, Y., Xu, X., Chiang, C. Y., & Chen, Q. (2023). The influence of return channel type on the 
+relationship between return service quality and customer loyalty in omnichannel retailing. Journal of 
+Enterprise Information Management, 36(4), 1105–1134.
+Xie, G., Huang, L., Apostolidis, C., Huang, Z., Cai, W., & Li, G. (2021). Assessing consumer preference for 
+overpackaging solutions in e-commerce. International Journal of Environmental Research and Public 
+Health, 18(15), 7951.
+Xie, Q. H., Zhang, X. W., Lv, W. G., Cheng, S. Y., Huang, H. X., & Cai, S. D. (2013). Research on re
+use reverse logistics network of disused electric appliances based on election campaign algorithm. In 
+Applied Mechanics and Materials (Vol. 397, pp. 1121–1128). Trans Tech Publications Ltd.
+Xu, J., & Jiang, Y. (2009). Study of reverse logistics in the E-commerce environment. International Business 
+Research, 2(1), 128–130.
+Xu, Y., Li, H., Song, W., & Dang, X. (2023). Welfare promoter or profit obstructor? The role of return-freight 
+insurance in online retailing.
+Yadegari, E., Najmi, H., Ghomi-Avili, M., & Zandieh, M. (2015). A flexible integrated forward/reverse logis
+tics model with random path-based memetic algorithm. Iranian Journal of Management Studies, 8(2), 
+287–313.
+Yang, F., Hu, P., Zhao, F., & Hu, C. (2015). Customer returns model in a dual-channel supply chain. Journal 
+of Modelling in Management.
+Yang, G., & Ji, G. (2022). The impact of cross-selling on managing consumer returns in omnichannel opera
+tions. Omega, 111, 102665.
+Yang, G., Ji, G., & Tan, K. H. (2020). Impact of artificial intelligence adoption on online returns policies. 
+Annals of Operations Research, 1–24.
+1 3
+Annals of Operations Research
+Yang, G., & Mu, C. M. (2019). A machine learning approach to shipping box design. In Proceedings of SAI 
+Intelligent Systems Conference (pp. 402–407). Springer, Cham.
+Yang, H. (2014, May). Returns reverse logistics management strategy in e-commerce B2C Market. In Inter
+national Conference on Logistics Engineering, Management and Computer Science (LEMCS 2014). 
+Atlantis Press.
+Yang, L., Li, X., Xia, Y., & Aneja, Y. P. (2023a). Returns operations in omnichannel retailing with buy-online
+and-return-to-store. Omega, 119, Article 102874.
+Yang, Y., Habib, K., & Wood, M. O. (2023b). Establishing best practices for E-commerce transport packag
+ing waste management in Canada: A systematic review. Journal of Cleaner Production, 429, Article 
+139377.
+Yan, R., & Pei, Z. (2019). Return policies and O2O coordination in the e-tailing age. Journal of Retailing and 
+Consumer Services, 50, 314–321.
+Yan, X. I. O. N. G. (2005). Reverse logistics profit-maximization model and its application strategy based on 
+E-business. Journal of Shanghai Institute of Technology.
+Yanyan, W. (2010). Research on the reverse logistics model based on e-commerce. In 2010 International 
+Conference on Logistics Systems and Intelligent Management (ICLSIM) (Vol. 2, pp. 687–691). IEEE.
+Yao, H., & Ran, X. (2019). Reverse Logistics in e-commerce Development Based on Trilateral Game. In Pro
+ceedings of the 2019 3rd International Conference on Management Engineering, Software Engineering 
+and Service Sciences (pp. 123–127). ACM.
+Yasin, M. M., Alavi, J., Czuchry, A., & Shafieyoun, R. (2014). An exploratory investigation of factors shap
+ing electronic commerce practices in Iran: Benchmarking the role of technology and culture. Bench
+marking: An International Journal.
+Yu, J., & Ni, J. (2013). Development strategies for SME E-commerce based on cloud computing. In 2013 
+Seventh International Conference on Internet Computing for Engineering and Science (pp. 1–8). IEEE.
+Yu, Y., & Kim, H. S. (2019). Online retailers’ return policy and prefactual thinking: An exploratory study 
+of USA and China e-commerce markets. Journal of Fashion Marketing and Management: An Interna
+tional Journal.
+Zaarour, N., Melachrinoudis, E., Solomon, M., & Mine, H. (2014). A reverse logistics network model for 
+handling returned products. International Journal of Engineering Business Management, 6, 6–13.
+Zennaro, I., Finco, S., Calzavara, M., & Persona, A. (2022). Implementing E-commerce from logistic per
+spective: Literature review and methodological framework. Sustainability, 14(2), 911.
+Zhang, F., & Song, G. (2016). Can delivery speed affect sale in ecommerce: Evidence from household appli
+ance. In: 2016 International Conference on Logistics, Informatics and Service Sciences (LISS) (pp. 
+1–5). IEEE.
+Zhang, J., Li, H., Yan, R., & Johnston, C. (2017). Examining the signaling effect of e-tailers’ return policies. 
+Journal of Computer Information Systems, 57(3), 191–200.
+Zhang, J., Xu, Q., & He, Y. (2018). Omnichannel retail operations with consumer returns and order cancella
+tion. Transportation Research Part e: Logistics and Transportation Review, 118, 308–324.
+Zhang, M., Huang, G. Q., Xu, S. X., & Zhao, Z. (2019). Optimization based transportation service trading in 
+B2B e-commercelogistics. Journal of Intelligent Manufacturing, 30(7), 2603–2619.
+Zhang, M., Pratap, S., Zhao, Z., Prajapati, D., & Huang, G. Q. (2020). Forward and reverse logistics vehicle 
+routing problems with time horizons in B2C e-commerce logistics. International Journal of Production 
+Research, 1–20.
+Zhang, S., Hou, H., Wang, G., Yao, Y., Zhang, Y., & Xu, H. (2024). Exploring the metabolic characteristic 
+of express packaging waste to promote the synergy of pollution and carbon reduction. Environmental 
+Impact Assessment Review, 106, 107523.
+Zhang, T., & Choi, T. M. (2020). Optimal consumer sales tax policies for online‐offline retail operations with 
+consumer returns. Naval Research Logistics (NRL).
+Zhang, T., Guo, X., & Wu, T. (2022). An analysis of cross-channel return processing with return-freight insur
+ance for live streaming platforms. Computers & Industrial Engineering, 174, 108805.
+Zhao, S., Wu, F., Jia, T., & Shu, L. (2018). The impact of product returns on price and delivery time competi
+tion in online retailing. Computers & Industrial Engineering, 125, 658–667.
+Zhao, X., Hu, S., & Meng, X. (2020). Who should pay for return freight in the online retailing? Retailers or 
+consumers. Electronic Commerce Research, 20(2), 427–452.
+Zhao, Y., Guan, Z. M., & Zhang, J. (2023). Return freight strategies and selling formats in e-commerce 
+supply chain: The perspective of consumer fairness concerns and online shopping returns. Journal of 
+Retailing and Consumer Services, 75, 103493.
+Zhilong, Y., & Guisheng, H. (2023). Research on the evolution of express packaging recycling strategy con
+sidering virtual incentives and heterogeneous subsidies. Scientific Reports, 13(1), 8478.
+1 3
+Annals of Operations Research
+Zhuang, Y., Zhao, H., & Zhang, C. (2016). Multiobjective Optimization for forward and Reverse Logistics 
+Network Design in Rural Areas. In 2016 IEEE 13th International Conference on e-Business Engineer
+ing (ICEBE) (pp. 316–321). IEEE.
+Zhu, X., & Xiuquan, X. U. (2013). An integrated optimization model of a closed-loop supply chain under 
+uncertainty. In LISS 2012 (pp. 1389–1395). Springer, Berlin, Heidelberg.
+Zikopoulos, C., & Tagaras, G. (2007). Impact of uncertainty in the quality of returns on the profitability of 
+a single-period refurbishing operation. European Journal of Operational Research, 182(1), 205–225.
+Zimmermann, T., & Bliklen, R. (2020). Single-use vs. reusable packaging in e-commerce: Comparing carbon 
+footprints and identifying break-even points. Gaia, 29(3), 176–183.
+Publisher’s Note Springer Nature remains neutral with regard to jurisdictional claims in published maps and 
+institutional affiliations.
+Springer Nature or its licensor (e.g. a society or other partner) holds exclusive rights to this article under a 
+publishing agreement with the author(s) or other rightsholder(s); author self-archiving of the accepted manu
+script version of this article is solely governed by the terms of such publishing agreement and applicable law.
+1 3
