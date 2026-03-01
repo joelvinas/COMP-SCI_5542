@@ -1,0 +1,5 @@
+timestamp,team,user,query_name,latency_ms,rows_returned,error,perf_note
+2026-03-01T21:53:50.081470,TeamEVN,Student,overview_monthly_revenue,3667,24,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T21:53:53.832740,TeamEVN,Student,exec_kpi,3466,1,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T21:53:53.834833,TeamEVN,Student,exec_terminal,3288,25,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T21:53:53.836632,TeamEVN,Student,exec_sparkline,3580,10,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis

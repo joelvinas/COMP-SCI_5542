@@ -34,9 +34,14 @@ def get_conn():
         "SNOWFLAKE_ACCOUNT", "SNOWFLAKE_USER",
         "SNOWFLAKE_WAREHOUSE", "SNOWFLAKE_DATABASE", "SNOWFLAKE_SCHEMA"
     ]
-    # Password only required when NOT using externalbrowser / SSO
-    if not _get("SNOWFLAKE_AUTHENTICATOR"):
-        required.append("SNOWFLAKE_PASSWORD")
+
+   
+    # Determine auth method: PAT → SSO → Password
+    auth_method = _get("SNOWFLAKE_TOKEN") or _get("SNOWFLAKE_AUTHENTICATOR")
+    if not auth_method:
+        # Password only required when NOT using externalbrowser / SSO
+        if not _get("SNOWFLAKE_AUTHENTICATOR"):
+            required.append("SNOWFLAKE_PASSWORD")
 
     missing = [k for k in required if not _get(k)]
     if missing:
@@ -54,11 +59,17 @@ def get_conn():
         database=_get("SNOWFLAKE_DATABASE"),
         schema=_get("SNOWFLAKE_SCHEMA"),
     )
-
-    # Optional SSO / external browser auth
-    authenticator = _get("SNOWFLAKE_AUTHENTICATOR")
-    if authenticator:
-        conn_kwargs["authenticator"] = authenticator
-        conn_kwargs.pop("password", None)
+    # Priority: PAT → SSO → Password
+    token = _get("SNOWFLAKE_TOKEN")
+    if token:
+        conn_kwargs["token"] = token
+        conn_kwargs["auth_type"] = "oauth"
+    else:
+        # Optional SSO / external browser auth
+        authenticator = _get("SNOWFLAKE_AUTHENTICATOR")
+        if authenticator:
+            conn_kwargs["authenticator"] = authenticator
+        else:
+            conn_kwargs["password"] = _get("SNOWFLAKE_PASSWORD")
 
     return snowflake.connector.connect(**{k: v for k, v in conn_kwargs.items() if v})

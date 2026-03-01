@@ -13,6 +13,7 @@ from datetime import datetime
 import sys, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 from scripts.sf_connect import get_conn
+from scripts.agent import run_agent
 
 # ── config ───────────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -96,11 +97,9 @@ st.title("🚛 CS 5542 — Trucking Logistics Dashboard")
 st.caption("Live connection to **Snowflake** · parameterized inputs · Altair charts")
 
 # ── tabs ─────────────────────────────────────────────────────────────────────
-tab_overview, tab_fleet, tab_routes, tab_fuel, tab_monitor, tab_analytics, tab_exec, tab_safety = st.tabs(
-tab_overview, tab_fleet, tab_routes, tab_fuel, tab_monitor, tab_analytics, tab_exec, tab_safety = st.tabs(
+tab_overview, tab_fleet, tab_routes, tab_fuel, tab_monitor, tab_analytics, tab_exec, tab_safety, tab_agent = st.tabs(
     ["📊 Overview", "🚛 Fleet & Drivers", "🗺️ Routes", "⛽ Fuel Spend",
-     "📈 Monitoring", "🔬 Analytics", "🎯 Executive", "⚠️ Safety"]
-     "📈 Monitoring", "🔬 Analytics", "🎯 Executive", "⚠️ Safety"]
+     "📈 Monitoring", "🔬 Analytics", "🎯 Executive", "⚠️ Safety", "🤖 AI Agent"] 
 )
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -1092,3 +1091,97 @@ with tab_safety:
 
         except Exception as exc:
             st.error(f"Safety query error: {exc}")
+
+# ═════════════════════════════════════════════════════════════════════════════
+# TAB 8 — Safety Incidents  (querying SAFETY_INCIDENTS)
+# ═════════════════════════════════════════════════════════════════════════════
+with tab_agent:
+    st.subheader("Chat with the Snowflake AI Agent")
+    st.caption("Ask questions about data, documents, or images — the agent uses RAG, chart generation, and more.")
+
+    # Initialise session state for conversation
+    if "agent_messages" not in st.session_state:
+        st.session_state.agent_messages = []
+
+    # Helper to render tool outputs (images, charts)
+    def _render_tool_outputs(steps):
+        """Display images and charts produced by tool calls."""
+        for step in steps:
+            tool = step.get("tool", "")
+            args = step.get("args", {})
+
+            # Show chart if generate_chart was called
+            if tool == "generate_chart" and "chart_path" in step.get("extra", {}):
+                chart_path = step["extra"]["chart_path"]
+                if os.path.exists(chart_path):
+                    st.image(chart_path, caption=args.get("title", "Generated Chart"))
+
+            # Show images if search_images was called
+            if tool == "search_images" and "image_results" in step.get("extra", {}):
+                for img_info in step["extra"]["image_results"]:
+                    img_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "images", img_info["filename"])
+                    if os.path.exists(img_path):
+                        st.image(img_path, caption=img_info.get("caption", ""))
+
+    # Display conversation history
+    for msg in st.session_state.agent_messages:
+        with st.chat_message(msg["role"]):
+            st.markdown(msg["content"])
+            # Show tool usage for assistant messages
+            if msg["role"] == "assistant" and msg.get("steps"):
+                _render_tool_outputs(msg["steps"])
+                with st.expander("🔧 Tool Usage & Reasoning Steps"):
+                    for step in msg["steps"]:
+                        st.markdown(
+                            f"**Step {step['iteration']}** — `{step['tool']}`\n\n"
+                            f"Args: `{step['args']}`\n\n"
+                            f"Result: {step['result_summary']}"
+                        )
+                        st.divider()
+
+    # Chat input
+    if prompt := st.chat_input("Ask about data, documents, or images...", key="agent_chat"):
+        # Show user message
+        st.session_state.agent_messages.append({"role": "user", "content": prompt})
+        with st.chat_message("user"):
+            st.markdown(prompt)
+
+        # Build chat history for the agent (only role + content)
+        history = [
+            {"role": m["role"], "content": m["content"]}
+            for m in st.session_state.agent_messages[:-1]  # exclude current query
+        ]
+
+        # Run the agent with a spinner
+        with st.chat_message("assistant"):
+            with st.spinner("🤔 Agent is thinking..."):
+                result = run_agent(prompt, chat_history=history)
+
+            st.markdown(result["answer"])
+
+            # Show images/charts
+            _render_tool_outputs(result["steps"])
+
+            # Show tool usage
+            if result["steps"]:
+                with st.expander("🔧 Tool Usage & Reasoning Steps"):
+                    for step in result["steps"]:
+                        st.markdown(
+                            f"**Step {step['iteration']}** — `{step['tool']}`\n\n"
+                            f"Args: `{step['args']}`\n\n"
+                            f"Result: {step['result_summary']}"
+                        )
+                        st.divider()
+
+        # Save assistant message to history
+        st.session_state.agent_messages.append({
+            "role": "assistant",
+            "content": result["answer"],
+            "steps": result["steps"],
+        })
+
+    # Clear conversation button
+    if st.session_state.agent_messages:
+        if st.button("🗑️ Clear Conversation", key="clear_agent"):
+            st.session_state.agent_messages = []
+            st.rerun()    
