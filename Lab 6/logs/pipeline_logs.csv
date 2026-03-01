@@ -1,0 +1,21 @@
+timestamp,team,user,query_name,latency_ms,rows_returned,error,perf_note
+2026-03-01T21:53:50.081470,TeamEVN,Student,overview_monthly_revenue,3667,24,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T21:53:53.832740,TeamEVN,Student,exec_kpi,3466,1,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T21:53:53.834833,TeamEVN,Student,exec_terminal,3288,25,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T21:53:53.836632,TeamEVN,Student,exec_sparkline,3580,10,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T22:05:22.441215,TeamEVN,Student,exec_kpi,4039,1,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T22:05:22.444425,TeamEVN,Student,exec_terminal,3634,25,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T22:05:22.445972,TeamEVN,Student,exec_sparkline,3218,10,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T22:08:42.434658,TeamEVN,Student,exec_kpi,3900,1,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T22:08:42.436732,TeamEVN,Student,exec_terminal,3515,25,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T22:08:42.438771,TeamEVN,Student,exec_sparkline,3591,10,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T22:11:14.122957,TeamEVN,Student,exec_kpi,4032,1,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T22:11:14.126989,TeamEVN,Student,exec_terminal,3497,25,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T22:11:14.129154,TeamEVN,Student,exec_sparkline,3593,10,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T22:11:27.080472,TeamEVN,Student,overview_monthly_revenue,3219,24,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T22:11:27.184486,TeamEVN,Student,exec_kpi,4032,1,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T22:11:27.187291,TeamEVN,Student,exec_terminal,3497,25,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T22:11:27.190106,TeamEVN,Student,exec_sparkline,3593,10,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T22:12:17.539578,TeamEVN,Student,exec_kpi,4032,1,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T22:12:17.542344,TeamEVN,Student,exec_terminal,3497,25,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis
+2026-03-01T22:12:17.545408,TeamEVN,Student,exec_sparkline,3593,10,,Moderate latency (2-5 s) — acceptable for ad-hoc analysis

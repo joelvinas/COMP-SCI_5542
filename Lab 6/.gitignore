@@ -1,0 +1,9 @@
+# ==========================================
+# 📂 Lab 5 CS5542
+# ==========================================
+
+# EXCEPTIONS: Force Git to track the empty folder placeholders
+!Week_5/data/.gitkeep
+!Weel5/logs/.gitkeep
+
+*.env
