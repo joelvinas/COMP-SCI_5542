@@ -1,0 +1,7 @@
+ReMindRag - INFO - Start Initail ReMindRag.
+PreProcessing - INFO - Created New Cache : ./Rag_Cache/split_question_cache.json
+ReMindRag - INFO - Initialize ReMindRag Successfully.
+ReMindRag - INFO - Load File: ./example_data.txt.
+Database - INFO - Chunking...
+Database - INFO - Get 2 Chunks.
+Database - INFO - Do Infomation Extraction in Chunk 0/2
