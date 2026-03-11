@@ -1,7 +1,7 @@
 # Individual Reflection - Lab 7
 **Author: Joel Vinas**
 **GitHub Repo: https://github.com/joelvinas/COMP-SCI_5542/tree/fc47674174ae112a1eb525fee8e55a534aefb241/Lab%207**
-**Team Report: https://github.com/joelvinas/COMP-SCI_5542/blob/fc47674174ae112a1eb525fee8e55a534aefb241/Lab%207/ReMindRAG/reports/TEAM_REPORT.md**
+**Team Report: https://github.com/joelvinas/COMP-SCI_5542/blob/7b37b587af613cd4b19a884d56c650c80415e9eb/Lab%207/ReMindRAG/reports/TEAM_REPORT.md**
 
 This reflection documents my individual contributions and learning outcomes during the reproduction, audit, and team-based enhancement of the ReMindRAG repository.
 
