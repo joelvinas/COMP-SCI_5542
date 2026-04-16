@@ -18,7 +18,7 @@ briefing_text = "The cold-medicine aisle is empty. I've updated the planogram to
 tts = gTTS(briefing_text)
 tts.save(os.path.join(local_output_path, "manager_briefing.mp3"))
 
-# --- Gemini Assist ---
+# --- Helper Functions ---
 def create_masks(image):
     """
     Refined masks to prevent merchandise from appearing on the ceiling.
@@ -44,27 +44,46 @@ def create_masks(image):
     return top_mask, bottom_mask
 # ---------------------
 
+def create_shelf_masks(image):
+    width, height = image.size
+    masks = {}
+    
+    # Define vertical boundaries for 5 shelves (y_min, y_max)
+    # These are calibrated to stay within the red background areas
+    # shelf_bounds = {
+    #     "shelf_1": (0.18, 0.31),
+    #     "shelf_2": (0.33, 0.45),
+    #     "shelf_3": (0.47, 0.59),
+    #     "shelf_4": (0.61, 0.74),
+    #     "shelf_5": (0.76, 0.92)
+    # }
+    # Updated vertical boundaries for the 7-shelf layout
+    # (y_start, y_end) as percentages of total image height
+    shelf_bounds = {
+        "shelf_1": (0.16, 0.25),  # Top-most shelf (below light bar)
+        "shelf_2": (0.27, 0.36),
+        "shelf_3": (0.38, 0.47),
+        "shelf_4": (0.49, 0.58),
+        "shelf_5": (0.60, 0.69),
+        "shelf_6": (0.71, 0.80),
+        "shelf_7": (0.82, 0.91)   # Bottom-most shelf (above base)
+    }
 
-# --- Helper Functions ---
-# def create_masks(image, top_percent=0.4):
-#     """
-#     Creates two complementary binary masks based on a percentage split.
-#     White regions (255) denote the area that Stable Diffusion WILL modify.
-#     Black regions (0) denote the area that Stable Diffusion WILL preserve perfectly.
-#     """
-#     width, height = image.size
-    
-#     # 1. Top Shelf Mask (White on top, Black on bottom)
-#     top_mask = Image.new("L", (width, height), 0)
-#     top_draw = ImageDraw.Draw(top_mask)
-#     top_draw.rectangle([0, 0, width, int(height * top_percent)], fill=255)
-    
-#     # 2. Bottom Shelves Mask (Black on top, White on bottom)
-#     bottom_mask = Image.new("L", (width, height), 0)
-#     bottom_draw = ImageDraw.Draw(bottom_mask)
-#     bottom_draw.rectangle([0, int(height * top_percent), width, height], fill=255)
-    
-#     return top_mask, bottom_mask
+    for shelf_name, (y_start, y_end) in shelf_bounds.items():
+        mask = Image.new("L", (width, height), 0)
+        draw = ImageDraw.Draw(mask)
+        
+        # Calculate pixel coordinates
+        top = int(height * y_start)
+        bottom = int(height * y_end)
+        
+        # Draw the "active" zone for this specific shelf
+        draw.rectangle([0, top, width, bottom], fill=255)
+        masks[shelf_name] = mask
+        
+    return masks
+
+
 
 # --- Pipeline Loading ---
 def setup_pipeline():
@@ -84,64 +103,117 @@ def setup_pipeline():
 
 # --- Main App ---
 def main_pharmacy_scenario():
-    # 0. Load Pipe
+    # 1. Setup Pipeline
     inpaint_pipe = setup_pipeline()
 
-    # 1. Load Visual Anchor
+    # 2. Load Visual Anchor
+    # Standardizing to 512x512 is crucial for SD 1.5 mask alignment
     template_path = os.path.join('.', 'Template', 'shelving_template.jpg')
-    if not os.path.exists(template_path):
-        raise FileNotFoundError(f"Could not find anchor template at {template_path}")
-    
-    # Open and standardize to 512x512 for SD 1.5 stability
     anchor_image = Image.open(template_path).convert("RGB").resize((512, 512))
     
-    # 2. Create complementary masks
-    top_shelf_mask, bottom_shelves_mask = create_masks(anchor_image)
+    # 3. Get the Dictionary of Shelf Masks
+    # This uses the percentages we discussed to isolate the red zones
+    masks = create_shelf_masks(anchor_image)
 
-    # 3. Intermediate Template: Modify anchor to add stock to all but ONE shelf
-    print("Generating Intermediate Template (Bottom Shelves Stocked)...")
-    intermediate_prompt = ("Fully filled bottom shelves of a pharmacy display, brightly lit retail lighting, "
-                           "highly organized colorful generic medicine boxes and standard health items, 8k, photorealistic.")
+    # 4. Generate the "Base Layout" (Stocking all shelves)
+    # We start with the empty anchor and progressively add stock shelf by shelf
+    current_working_image = anchor_image
     
-    intermediate_template = inpaint_pipe(
-        prompt=intermediate_prompt,
-        image=anchor_image,
-        mask_image=bottom_shelves_mask,
-        num_inference_steps=30,
-        guidance_scale=8.0
-    ).images[0]
-    intermediate_template.save(os.path.join(local_output_path, "pharmacy_intermediate_template.png"))
-    print("Intermediate Template saved.")
+    shelf_order = ["shelf_5", "shelf_4", "shelf_3", "shelf_2", "shelf_1"]
+    
+    print("Populating Base Layout shelf by shelf...")
+    for shelf in shelf_order:
+        print(f"Stocking {shelf}...")
+        prompt = ("Highly organized colorful pharmacy products, medicine boxes, "
+                  "neatly stacked on a retail shelf, professional lighting, 8k.")
+        
+        current_working_image = inpaint_pipe(
+            prompt=prompt,
+            image=current_working_image,
+            mask_image=masks[shelf],
+            num_inference_steps=30,
+            guidance_scale=7.5
+        ).images[0]
 
-    # 4. Base Layout: Modify intermediate to add items to the ONE shelf
-    print("Generating Base Layout (All Shelves Stocked)...")
-    base_prompt = ("Fully filled top shelf of a pharmacy display, brightly lit retail lighting, "
-                   "highly organized colorful general brand medicine boxes and standard health items, 8k, photorealistic.")
+    current_working_image.save(os.path.join(local_output_path, "pharmacy_base_full.png"))
 
-    base_image = inpaint_pipe(
-        prompt=base_prompt,
-        image=intermediate_template,
-        mask_image=top_shelf_mask,
-        num_inference_steps=30,
-        guidance_scale=8.0
-    ).images[0]
-    base_image.save(os.path.join(local_output_path, "pharmacy_base_layout.png"))
-    print("Pharmacy Base Layout saved.")
-
-    # 5. Updated Layout: Modify intermediate to add DIFFERENT items to the ONE shelf
-    print("Generating Updated Planogram (Top Shelf Generics)...")
-    update_prompt = ("Fully filled top shelf of a pharmacy display, brightly lit retail lighting, "
-                     "highly organized generic store-brand white-label medicine bottles, simple healthcare packaging, 8k, photorealistic.")
-
-    updated_image = inpaint_pipe(
+    # 5. Create the "Updated Planogram" (Swapping only Shelf 1)
+    # We take the full base layout and overwrite JUST the top shelf with generics
+    print("Updating Top Shelf (Shelf 1) with generic brand labels...")
+    
+    update_prompt = ("Organized white-label generic medicine bottles, simple "
+                     "healthcare packaging, pharmacy store brand, photorealistic.")
+    
+    updated_planogram = inpaint_pipe(
         prompt=update_prompt,
-        image=intermediate_template,
-        mask_image=top_shelf_mask,
+        image=current_working_image, # Use the already stocked image as the base
+        mask_image=masks["shelf_1"],  # Only modify the top shelf
         num_inference_steps=30,
         guidance_scale=8.0
     ).images[0]
-    updated_image.save(os.path.join(local_output_path, "pharmacy_updated_planogram.png"))
-    print("Updated planogram saved to Local.")
+    
+    updated_planogram.save(os.path.join(local_output_path, "pharmacy_updated_planogram.png"))
+    print("Process complete. Files saved to 'Store Output'.")
+
+# def main_pharmacy_scenario():
+#     # 0. Load Pipe
+#     inpaint_pipe = setup_pipeline()
+
+#     # 1. Load Visual Anchor
+#     template_path = os.path.join('.', 'Template', 'shelving_template.jpg')
+#     if not os.path.exists(template_path):
+#         raise FileNotFoundError(f"Could not find anchor template at {template_path}")
+    
+#     # Open and standardize to 512x512 for SD 1.5 stability
+#     anchor_image = Image.open(template_path).convert("RGB").resize((512, 512))
+    
+#     # 2. Create complementary masks
+#     top_shelf_mask, bottom_shelves_mask = create_masks(anchor_image)
+
+#     # 3. Intermediate Template: Modify anchor to add stock to all but ONE shelf
+#     print("Generating Intermediate Template (Bottom Shelves Stocked)...")
+#     intermediate_prompt = ("Fully filled bottom shelves of a pharmacy display, brightly lit retail lighting, "
+#                            "highly organized colorful generic medicine boxes and standard health items, 8k, photorealistic.")
+    
+#     intermediate_template = inpaint_pipe(
+#         prompt=intermediate_prompt,
+#         image=anchor_image,
+#         mask_image=bottom_shelves_mask,
+#         num_inference_steps=30,
+#         guidance_scale=8.0
+#     ).images[0]
+#     intermediate_template.save(os.path.join(local_output_path, "pharmacy_intermediate_template.png"))
+#     print("Intermediate Template saved.")
+
+#     # 4. Base Layout: Modify intermediate to add items to the ONE shelf
+#     print("Generating Base Layout (All Shelves Stocked)...")
+#     base_prompt = ("Fully filled top shelf of a pharmacy display, brightly lit retail lighting, "
+#                    "highly organized colorful general brand medicine boxes and standard health items, 8k, photorealistic.")
+
+#     base_image = inpaint_pipe(
+#         prompt=base_prompt,
+#         image=intermediate_template,
+#         mask_image=top_shelf_mask,
+#         num_inference_steps=30,
+#         guidance_scale=8.0
+#     ).images[0]
+#     base_image.save(os.path.join(local_output_path, "pharmacy_base_layout.png"))
+#     print("Pharmacy Base Layout saved.")
+
+#     # 5. Updated Layout: Modify intermediate to add DIFFERENT items to the ONE shelf
+#     print("Generating Updated Planogram (Top Shelf Generics)...")
+#     update_prompt = ("Fully filled top shelf of a pharmacy display, brightly lit retail lighting, "
+#                      "highly organized generic store-brand white-label medicine bottles, simple healthcare packaging, 8k, photorealistic.")
+
+#     updated_image = inpaint_pipe(
+#         prompt=update_prompt,
+#         image=intermediate_template,
+#         mask_image=top_shelf_mask,
+#         num_inference_steps=30,
+#         guidance_scale=8.0
+#     ).images[0]
+#     updated_image.save(os.path.join(local_output_path, "pharmacy_updated_planogram.png"))
+#     print("Updated planogram saved to Local.")
 
 def main():
     main_pharmacy_scenario()
