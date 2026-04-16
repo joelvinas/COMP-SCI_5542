@@ -1,0 +1,9 @@
+diffusers
+transformers
+accelerate
+opencv-python
+Pillow
+torch
+torchvision
+sympy
+gTTS
