@@ -108,7 +108,7 @@ def main_pharmacy_scenario():
 
     # 2. Load Visual Anchor
     # Standardizing to 512x512 is crucial for SD 1.5 mask alignment
-    template_path = os.path.join('.', 'Template', 'shelving_template.jpg')
+    template_path = os.path.join('.', 'Template', 'shelving_template.png')
     anchor_image = Image.open(template_path).convert("RGB").resize((512, 512))
     
     # 3. Get the Dictionary of Shelf Masks
@@ -119,7 +119,7 @@ def main_pharmacy_scenario():
     # We start with the empty anchor and progressively add stock shelf by shelf
     current_working_image = anchor_image
     
-    shelf_order = ["shelf_5", "shelf_4", "shelf_3", "shelf_2", "shelf_1"]
+    shelf_order = ["shelf_1", "shelf_2", "shelf_3", "shelf_4", "shelf_5", "shelf_6", "shelf_7"]
     
     print("Populating Base Layout shelf by shelf...")
     for shelf in shelf_order:
