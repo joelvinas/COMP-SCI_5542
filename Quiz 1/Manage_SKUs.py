@@ -99,5 +99,5 @@ def generate_sku_assets(csv_path=CSV_FILE_PATH):
         clean_asset.save(f"sku_assets/{row['SKU']}.png")
         print(f"Generated flat asset for SKU {row['SKU']} at {width}x{height}")
 
-#generate_stock_csv()    
+generate_stock_csv()    
 generate_sku_assets()
