@@ -1,4 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <style>
+    .base-items { animation: fadeOutBase 8s infinite; }
+    .update-items { opacity: 0; animation: fadeInUpdate 8s infinite; }
+    @keyframes fadeOutBase {
+      0%, 40% { opacity: 1; }
+      50%, 90% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes fadeInUpdate {
+      0%, 40% { opacity: 0; }
+      50%, 90% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  </style>
   <image href="pharmacy_intermediate_background.png" x="0" y="0" width="512" height="512" />
   <image href="../sku_assets/193644.png" x="0" y="124.2" width="11.04" height="28.8" />
   <image href="../sku_assets/797820.png" x="11.04" y="121.14" width="19.44" height="31.86" />
@@ -122,28 +136,56 @@
   <image href="../sku_assets/120579.png" x="443.6" y="375.52" width="18.3" height="33.48" />
   <image href="../sku_assets/797820.png" x="461.9" y="377.14" width="19.44" height="31.86" />
   <image href="../sku_assets/649890.png" x="481.34" y="378.22" width="19.38" height="30.78" />
-  <image href="../sku_assets/848102.png" x="0" y="205.44" width="20.22" height="34.56" />
-  <image href="../sku_assets/126831.png" x="20.22" y="221.7" width="22.2" height="18.3" />
-  <image href="../sku_assets/402781.png" x="42.42" y="214.5" width="28.62" height="25.5" />
-  <image href="../sku_assets/662871.png" x="71.04" y="213.6" width="28.98" height="26.4" />
-  <image href="../sku_assets/288399.png" x="100.02" y="224.94" width="19.62" height="15.06" />
-  <image href="../sku_assets/104875.png" x="127.64" y="225.18" width="9.66" height="14.82" />
-  <image href="../sku_assets/159447.png" x="137.3" y="209.88" width="17.58" height="30.12" />
-  <image href="../sku_assets/159447.png" x="160.88" y="209.88" width="17.58" height="30.12" />
-  <image href="../sku_assets/899794.png" x="178.46" y="199.14" width="25.08" height="40.86" />
-  <image href="../sku_assets/775066.png" x="203.54" y="199.5" width="11.76" height="40.5" />
-  <image href="../sku_assets/662871.png" x="215.3" y="213.6" width="28.98" height="26.4" />
-  <image href="../sku_assets/435164.png" x="254.28" y="225.0" width="9.3" height="15.0" />
-  <image href="../sku_assets/952750.png" x="263.58" y="215.82" width="23.4" height="24.18" />
-  <image href="../sku_assets/662871.png" x="286.98" y="213.6" width="28.98" height="26.4" />
-  <image href="../sku_assets/868668.png" x="315.96" y="227.52" width="17.4" height="12.48" />
-  <image href="../sku_assets/435164.png" x="333.36" y="225.0" width="9.3" height="15.0" />
-  <image href="../sku_assets/741264.png" x="342.66" y="212.1" width="16.74" height="27.9" />
-  <image href="../sku_assets/104875.png" x="369.4" y="225.18" width="9.66" height="14.82" />
-  <image href="../sku_assets/159447.png" x="379.06" y="209.88" width="17.58" height="30.12" />
-  <image href="../sku_assets/899794.png" x="407.64" y="199.14" width="25.08" height="40.86" />
-  <image href="../sku_assets/596647.png" x="432.72" y="199.26" width="22.62" height="40.74" />
-  <image href="../sku_assets/288399.png" x="455.34" y="224.94" width="19.62" height="15.06" />
-  <image href="../sku_assets/868668.png" x="474.96" y="227.52" width="17.4" height="12.48" />
-  <image href="../sku_assets/288399.png" x="492.36" y="224.94" width="19.62" height="15.06" />
+  <g class="base-items">
+    <image href="../sku_assets/848102.png" x="0" y="205.44" width="20.22" height="34.56" />
+    <image href="../sku_assets/126831.png" x="20.22" y="221.7" width="22.2" height="18.3" />
+    <image href="../sku_assets/402781.png" x="42.42" y="214.5" width="28.62" height="25.5" />
+    <image href="../sku_assets/662871.png" x="71.04" y="213.6" width="28.98" height="26.4" />
+    <image href="../sku_assets/288399.png" x="100.02" y="224.94" width="19.62" height="15.06" />
+    <image href="../sku_assets/104875.png" x="127.64" y="225.18" width="9.66" height="14.82" />
+    <image href="../sku_assets/159447.png" x="137.3" y="209.88" width="17.58" height="30.12" />
+    <image href="../sku_assets/159447.png" x="160.88" y="209.88" width="17.58" height="30.12" />
+    <image href="../sku_assets/899794.png" x="178.46" y="199.14" width="25.08" height="40.86" />
+    <image href="../sku_assets/775066.png" x="203.54" y="199.5" width="11.76" height="40.5" />
+    <image href="../sku_assets/662871.png" x="215.3" y="213.6" width="28.98" height="26.4" />
+    <image href="../sku_assets/435164.png" x="254.28" y="225.0" width="9.3" height="15.0" />
+    <image href="../sku_assets/952750.png" x="263.58" y="215.82" width="23.4" height="24.18" />
+    <image href="../sku_assets/662871.png" x="286.98" y="213.6" width="28.98" height="26.4" />
+    <image href="../sku_assets/868668.png" x="315.96" y="227.52" width="17.4" height="12.48" />
+    <image href="../sku_assets/435164.png" x="333.36" y="225.0" width="9.3" height="15.0" />
+    <image href="../sku_assets/741264.png" x="342.66" y="212.1" width="16.74" height="27.9" />
+    <image href="../sku_assets/104875.png" x="369.4" y="225.18" width="9.66" height="14.82" />
+    <image href="../sku_assets/159447.png" x="379.06" y="209.88" width="17.58" height="30.12" />
+    <image href="../sku_assets/899794.png" x="407.64" y="199.14" width="25.08" height="40.86" />
+    <image href="../sku_assets/596647.png" x="432.72" y="199.26" width="22.62" height="40.74" />
+    <image href="../sku_assets/288399.png" x="455.34" y="224.94" width="19.62" height="15.06" />
+    <image href="../sku_assets/868668.png" x="474.96" y="227.52" width="17.4" height="12.48" />
+    <image href="../sku_assets/288399.png" x="492.36" y="224.94" width="19.62" height="15.06" />
+  </g>
+  <g class="update-items">
+    <image href="../sku_assets/288399.png" x="0" y="224.94" width="19.62" height="15.06" />
+    <image href="../sku_assets/662871.png" x="19.62" y="213.6" width="28.98" height="26.4" />
+    <image href="../sku_assets/507967.png" x="48.6" y="210.0" width="18.42" height="30.0" />
+    <image href="../sku_assets/596647.png" x="67.02" y="199.26" width="22.62" height="40.74" />
+    <image href="../sku_assets/662871.png" x="89.64" y="213.6" width="28.98" height="26.4" />
+    <image href="../sku_assets/582766.png" x="118.62" y="210.96" width="9.96" height="29.04" />
+    <image href="../sku_assets/402781.png" x="128.58" y="214.5" width="28.62" height="25.5" />
+    <image href="../sku_assets/741264.png" x="157.2" y="212.1" width="16.74" height="27.9" />
+    <image href="../sku_assets/741264.png" x="187.94" y="212.1" width="16.74" height="27.9" />
+    <image href="../sku_assets/662871.png" x="204.68" y="213.6" width="28.98" height="26.4" />
+    <image href="../sku_assets/868668.png" x="233.66" y="227.52" width="17.4" height="12.48" />
+    <image href="../sku_assets/848102.png" x="251.06" y="205.44" width="20.22" height="34.56" />
+    <image href="../sku_assets/741264.png" x="271.28" y="212.1" width="16.74" height="27.9" />
+    <image href="../sku_assets/596647.png" x="288.02" y="199.26" width="22.62" height="40.74" />
+    <image href="../sku_assets/126831.png" x="310.64" y="221.7" width="22.2" height="18.3" />
+    <image href="../sku_assets/104875.png" x="332.84" y="225.18" width="9.66" height="14.82" />
+    <image href="../sku_assets/848102.png" x="342.5" y="205.44" width="20.22" height="34.56" />
+    <image href="../sku_assets/662439.png" x="362.72" y="220.26" width="17.52" height="19.74" />
+    <image href="../sku_assets/598320.png" x="380.24" y="199.08" width="21.66" height="40.92" />
+    <image href="../sku_assets/662871.png" x="401.9" y="213.6" width="28.98" height="26.4" />
+    <image href="../sku_assets/288399.png" x="436.88" y="224.94" width="19.62" height="15.06" />
+    <image href="../sku_assets/868668.png" x="456.5" y="227.52" width="17.4" height="12.48" />
+    <image href="../sku_assets/126831.png" x="473.9" y="221.7" width="22.2" height="18.3" />
+    <image href="../sku_assets/582766.png" x="496.1" y="210.96" width="9.96" height="29.04" />
+  </g>
 </svg>

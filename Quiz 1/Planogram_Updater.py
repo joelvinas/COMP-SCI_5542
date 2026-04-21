@@ -4,6 +4,7 @@
 import os
 import torch
 import numpy as np
+import cv2
 from PIL import Image, ImageDraw
 from diffusers import StableDiffusionInpaintPipeline, UniPCMultistepScheduler
 from gtts import gTTS
@@ -141,6 +142,61 @@ def generate_animated_svg(filename, background_path, intermediate_assignments, b
     with open(svg_path, 'w') as f:
         f.write("\n".join(svg_lines))
     print(f"Generated {svg_path}")
+
+def generate_mp4_video(filename, background_path, intermediate_assignments, base_shelf_3, update_shelf_3, image_size=(512, 512)):
+    print(f"Rendering MP4 video: {filename}...")
+    mp4_path = os.path.join(local_output_path, filename)
+    width, height = image_size
+    
+    # helper to paste items
+    def composite_items(base_canvas, items_list):
+        canvas = base_canvas.copy()
+        for sku in items_list:
+            sku_path = os.path.join('.', 'sku_assets', f"{sku['sku_id']}.png")
+            if os.path.exists(sku_path):
+                sku_img = Image.open(sku_path).convert("RGBA")
+                # Scale properly before pasting to match SVG
+                sku_img = sku_img.resize((int(sku["block_width"]), int(sku["block_height"])))
+                canvas.paste(sku_img, (int(sku["x_pos"]), int(sku["y_pos"])), sku_img)
+        return canvas
+
+    # Render intermediate static background
+    bg = Image.open(background_path).convert("RGBA")
+    
+    # Flatten items from intermediate (all shelves except shelf_3)
+    static_items = []
+    for shelf, skus in intermediate_assignments.items():
+        if shelf != "shelf_3":
+            static_items.extend(skus)
+            
+    intermediate_img = composite_items(bg, static_items)
+    
+    # Render full base and full update images
+    base_img = composite_items(intermediate_img, base_shelf_3).convert("RGB")
+    update_img = composite_items(intermediate_img, update_shelf_3).convert("RGB")
+    
+    fps = 30
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+    out = cv2.VideoWriter(mp4_path, fourcc, fps, (width, height))
+    
+    # Hold base: 2.5 secs = 75 frames
+    base_frame = cv2.cvtColor(np.array(base_img), cv2.COLOR_RGB2BGR)
+    for _ in range(75):
+        out.write(base_frame)
+        
+    # Crossfade: 1 sec = 30 frames
+    update_frame = cv2.cvtColor(np.array(update_img), cv2.COLOR_RGB2BGR)
+    for i in range(30):
+        alpha = i / 30.0
+        blended = cv2.addWeighted(update_frame, alpha, base_frame, 1.0 - alpha, 0)
+        out.write(blended)
+        
+    # Hold update: 2.5 secs = 75 frames
+    for _ in range(75):
+        out.write(update_frame)
+        
+    out.release()
+    print(f"Saved MP4 video to {mp4_path}")
 
 def allocate_skus_to_shelves(shelf_bounds, df, skip_shelves=None):
     """
@@ -288,6 +344,10 @@ def main_pharmacy_scenario():
     # Step 4: Animated SVG Video
     print("Generating Animated SVG Transition (Base -> Update)...")
     generate_animated_svg("pharmacy_transition_video.svg", bg_out_path, intermediate_assignments, base_shelf_3["shelf_3"], update_shelf_3["shelf_3"])
+
+    # Step 5: Render explicit MP4 Video
+    print("Rendering final composed timeline as MP4...")
+    generate_mp4_video("pharmacy_transition_video.mp4", bg_out_path, intermediate_assignments, base_shelf_3["shelf_3"], update_shelf_3["shelf_3"])
 
     print("Process complete. Files saved to 'Store Output'.")
 
