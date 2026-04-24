@@ -82,3 +82,12 @@ The Hugging Face models (`facebook/musicgen-medium` and `laion/clap-htsat-unfuse
 
 **The Resolution:**
 Updated `app.py` to load `.env` variables immediately on boot, explicitly grabbing the `HF_TOKEN` and passing it to `huggingface_hub.login()`. This ensures that all subsequent model initializations are securely authenticated without hardcoding credentials into the source code.
+
+---
+
+### 9. TensorFlow Lite Deprecation Warnings
+**The Issue:**
+During inference, `basic-pitch` imports `tensorflow.lite` as a fallback, which triggered a massive block of verbose `UserWarning` traces about the interpreter's deprecation in TF 2.20. It also printed root logger warnings about missing `coremltools` and `tflite-runtime` packages.
+
+**The Resolution:**
+We dynamically filtered out these noisy warnings by importing the `warnings` and `logging` modules at the top of `midi_engine.py`, explicitly ignoring all `UserWarning` traces from the `tensorflow` module, and setting the root logger to strictly `ERROR` level. This completely cleans up the terminal output during transcription.

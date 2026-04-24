@@ -1,8 +1,14 @@
 import os
 import sys
 import subprocess
+import warnings
+import logging
 from basic_pitch.inference import predict_and_save
 from basic_pitch import ICASSP_2022_MODEL_PATH
+
+# Suppress verbose basic-pitch warnings about missing backends and TFLite deprecation
+warnings.filterwarnings("ignore", category=UserWarning, module="tensorflow")
+logging.getLogger().setLevel(logging.ERROR)
 import mido
 import music21
 
