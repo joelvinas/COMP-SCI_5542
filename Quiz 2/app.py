@@ -33,7 +33,19 @@ def generate_and_evaluate(description, revisions, duration):
     generator.save_audio("baseline_audio.wav", sr_base, audio_base)
     generator.save_audio("improved_audio.wav", sr_imp, audio_imp)
 
-    return "baseline_audio.wav", "improved_audio.wav", baseline_prompt, improved_prompt, results_md
+    prompt_file_content = f"""**Base Prompt**
+`{baseline_prompt}`
+
+**Improved Prompt**
+`{improved_prompt}`
+
+**Metrics**
+{results_md.strip()}
+"""
+    with open("prompt.md", "w") as f:
+        f.write(prompt_file_content)
+
+    return "baseline_audio.wav", "improved_audio.wav", baseline_prompt, improved_prompt, results_md, "prompt.md"
 
 with gr.Blocks(title="Video Game Race Music Generator AI") as demo:
     gr.Markdown("# Video Game Race Music Generator AI")
@@ -49,6 +61,7 @@ with gr.Blocks(title="Video Game Race Music Generator AI") as demo:
         with gr.Column():
             gr.Markdown("### Evaluation Results")
             results_out = gr.Markdown("Results will appear here.")
+            download_prompt_out = gr.File(label="Download prompt.md")
             
     with gr.Row():
         with gr.Column():
@@ -64,7 +77,7 @@ with gr.Blocks(title="Video Game Race Music Generator AI") as demo:
     generate_btn.click(
         fn=generate_and_evaluate,
         inputs=[desc_input, rev_input, duration_slider],
-        outputs=[base_audio_out, imp_audio_out, base_prompt_out, imp_prompt_out, results_out]
+        outputs=[base_audio_out, imp_audio_out, base_prompt_out, imp_prompt_out, results_out, download_prompt_out]
     )
 
 if __name__ == "__main__":
