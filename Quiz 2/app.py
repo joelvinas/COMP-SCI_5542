@@ -80,19 +80,19 @@ def generate_and_evaluate(race_name, description, revisions, duration, transcrib
     with open(prompt_file_path, "w", encoding="utf-8") as f:
         f.write(prompt_file_content)
 
-    midi_path, xml_path = None, None
+    midi_path, xml_path, svg_path = None, None, None
     if transcribe_midi:
-        midi_path, xml_path = transcription_engine.generate_score(improved_audio_path, output_dir)
+        midi_path, xml_path, svg_path = transcription_engine.generate_score(improved_audio_path, output_dir)
 
-    return baseline_audio_path, improved_audio_path, baseline_prompt, improved_prompt, results_md, prompt_file_path, midi_path, xml_path
+    return baseline_audio_path, improved_audio_path, baseline_prompt, improved_prompt, results_md, prompt_file_path, midi_path, xml_path, svg_path
 
 def transcribe_only(audio_path):
     if not audio_path:
-        return None, None
+        return None, None, None
     import os
     output_dir = os.path.dirname(audio_path)
-    midi_path, xml_path = transcription_engine.generate_score(audio_path, output_dir)
-    return midi_path, xml_path
+    midi_path, xml_path, svg_path = transcription_engine.generate_score(audio_path, output_dir)
+    return midi_path, xml_path, svg_path
 
 with gr.Blocks(title="Video Game Race Music AI") as demo:
     gr.Markdown("# Video Game Race Music AI")
@@ -127,17 +127,23 @@ with gr.Blocks(title="Video Game Race Music AI") as demo:
 
     with gr.Row():
         transcribe_btn = gr.Button("Transcribe Stems (MIDI/XML)", variant="secondary")
+
+    with gr.Row():
+        gr.Markdown("### Sheet Music Viewer")
+        
+    with gr.Row():
+        svg_out = gr.Image(label="Sheet Music (SVG)", type="filepath", interactive=False)
             
     generate_btn.click(
         fn=generate_and_evaluate,
         inputs=[name_input, desc_input, rev_input, duration_slider, transcribe_checkbox],
-        outputs=[base_audio_out, imp_audio_out, base_prompt_out, imp_prompt_out, results_out, download_prompt_out, midi_out, xml_out]
+        outputs=[base_audio_out, imp_audio_out, base_prompt_out, imp_prompt_out, results_out, download_prompt_out, midi_out, xml_out, svg_out]
     )
 
     transcribe_btn.click(
         fn=transcribe_only,
         inputs=[imp_audio_out],
-        outputs=[midi_out, xml_out]
+        outputs=[midi_out, xml_out, svg_out]
     )
 
 if __name__ == "__main__":
