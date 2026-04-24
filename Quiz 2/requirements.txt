@@ -6,3 +6,6 @@ scipy
 librosa
 numpy
 soundfile
+google-genai
+pydantic
+python-dotenv

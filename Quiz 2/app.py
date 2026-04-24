@@ -42,7 +42,7 @@ def generate_and_evaluate(description, revisions, duration):
 **Metrics**
 {results_md.strip()}
 """
-    with open("prompt.md", "w") as f:
+    with open("prompt.md", "w", encoding="utf-8") as f:
         f.write(prompt_file_content)
 
     return "baseline_audio.wav", "improved_audio.wav", baseline_prompt, improved_prompt, results_md, "prompt.md"

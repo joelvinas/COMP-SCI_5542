@@ -1,7 +1,9 @@
 import torch
 import scipy.io.wavfile
 import numpy as np
+import re
 from transformers import AutoProcessor, MusicgenForConditionalGeneration
+from prompt_translator import PromptTranslator
 
 class VideoGameMusicGenerator:
     def __init__(self, model_id="facebook/musicgen-medium"):
@@ -10,16 +12,20 @@ class VideoGameMusicGenerator:
         self.processor = AutoProcessor.from_pretrained(model_id)
         self.model = MusicgenForConditionalGeneration.from_pretrained(model_id).to(self.device)
         self.sample_rate = self.model.config.audio_encoder.sampling_rate
+        self.translator = PromptTranslator()
 
     def create_prompts(self, race_description, revisions=""):
-        baseline_prompt = race_description
+        translation = self.translator.translate(race_description)
+        
+        baseline_prompt = translation.get("baseline_prompt", f"16-bit SNES chiptune {race_description}")
+        improved_params = translation.get("improved_parameters", {})
+        
+        params_str = ", ".join([f"{k}: {v}" for k, v in improved_params.items()])
+        
         if revisions:
             baseline_prompt += f" {revisions}"
             
-        improved_prompt = (
-            f"16-bit SNES style video game music for a race characterized by: {race_description}. "
-            "chiptune, synthetic instruments, loopable, rhythmic, atmospheric, retro gaming soundtrack."
-        )
+        improved_prompt = f"{baseline_prompt} {params_str}"
         if revisions:
             improved_prompt += f" Make it: {revisions}."
             
