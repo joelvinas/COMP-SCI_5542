@@ -84,13 +84,14 @@ def generate_and_evaluate(race_name, description, revisions, duration, transcrib
     if transcribe_midi:
         midi_path, xml_path, svg_path = transcription_engine.generate_score(improved_audio_path, output_dir)
 
-    return baseline_audio_path, improved_audio_path, baseline_prompt, improved_prompt, results_md, prompt_file_path, midi_path, xml_path, svg_path
+    return baseline_audio_path, improved_audio_path, baseline_prompt, improved_prompt, results_md, prompt_file_path, midi_path, xml_path, svg_path, output_dir
 
-def transcribe_only(audio_path):
+def transcribe_only(audio_path, output_dir):
     if not audio_path:
         return None, None, None
     import os
-    output_dir = os.path.dirname(audio_path)
+    if not output_dir or not os.path.exists(output_dir):
+        output_dir = os.path.dirname(audio_path)
     midi_path, xml_path, svg_path = transcription_engine.generate_score(audio_path, output_dir)
     return midi_path, xml_path, svg_path
 
@@ -99,6 +100,7 @@ with gr.Blocks(title="Video Game Race Music AI") as demo:
     gr.Markdown("Describe a new video game race, and the AI will generate MIDI-orchestral music tailored to their culture.")
     
     with gr.Row():
+        current_output_dir = gr.State(value="")
         with gr.Column():
             name_input = gr.Textbox(label="Race Name", placeholder="e.g., Goblin", lines=1)
             desc_input = gr.Textbox(label="Race Description", placeholder="e.g., An ancient race of tree-dwellers, strong in magic but physically weak, secretive and melodic.", lines=3)
@@ -122,11 +124,13 @@ with gr.Blocks(title="Video Game Race Music AI") as demo:
             gr.Markdown("### Improved Generation")
             imp_prompt_out = gr.Textbox(label="Improved Prompt", interactive=False)
             imp_audio_out = gr.Audio(label="Improved Audio", type="filepath", loop=True)
-            midi_out = gr.File(label="Download stems.mid")
-            xml_out = gr.File(label="Download sheet_music.xml")
 
     with gr.Row():
         transcribe_btn = gr.Button("Transcribe Stems (MIDI/XML)", variant="secondary")
+
+    with gr.Row():
+        midi_out = gr.File(label="Download stems.mid")
+        xml_out = gr.File(label="Download sheet_music.xml")
 
     with gr.Row():
         gr.Markdown("### Sheet Music Viewer")
@@ -137,12 +141,12 @@ with gr.Blocks(title="Video Game Race Music AI") as demo:
     generate_btn.click(
         fn=generate_and_evaluate,
         inputs=[name_input, desc_input, rev_input, duration_slider, transcribe_checkbox],
-        outputs=[base_audio_out, imp_audio_out, base_prompt_out, imp_prompt_out, results_out, download_prompt_out, midi_out, xml_out, svg_out]
+        outputs=[base_audio_out, imp_audio_out, base_prompt_out, imp_prompt_out, results_out, download_prompt_out, midi_out, xml_out, svg_out, current_output_dir]
     )
 
     transcribe_btn.click(
         fn=transcribe_only,
-        inputs=[imp_audio_out],
+        inputs=[imp_audio_out, current_output_dir],
         outputs=[midi_out, xml_out, svg_out]
     )
 
