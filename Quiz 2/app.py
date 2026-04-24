@@ -67,12 +67,12 @@ with gr.Blocks(title="Video Game Race Music Generator AI") as demo:
         with gr.Column():
             gr.Markdown("### Baseline Generation")
             base_prompt_out = gr.Textbox(label="Baseline Prompt", interactive=False)
-            base_audio_out = gr.Audio(label="Baseline Audio", type="filepath")
+            base_audio_out = gr.Audio(label="Baseline Audio", type="filepath", loop=True)
             
         with gr.Column():
             gr.Markdown("### Improved Generation")
             imp_prompt_out = gr.Textbox(label="Improved Prompt", interactive=False)
-            imp_audio_out = gr.Audio(label="Improved Audio", type="filepath")
+            imp_audio_out = gr.Audio(label="Improved Audio", type="filepath", loop=True)
             
     generate_btn.click(
         fn=generate_and_evaluate,
