@@ -1,15 +1,27 @@
 import os
 import re
 import gradio as gr
+from dotenv import load_dotenv
+from huggingface_hub import login
 from music_generator import VideoGameMusicGenerator
 from evaluator import MusicEvaluator
+from midi_engine import MidiTranscriptionEngine
+
+load_dotenv()
+hf_token = os.environ.get("HF_TOKEN")
+if hf_token:
+    print("Authenticating with Hugging Face...")
+    login(token=hf_token)
+else:
+    print("No HF_TOKEN found in environment. Proceeding without authentication.")
 
 print("Initializing models...")
 generator = VideoGameMusicGenerator()
 evaluator = MusicEvaluator()
+transcription_engine = MidiTranscriptionEngine()
 print("Models loaded successfully.")
 
-def generate_and_evaluate(race_name, description, revisions, duration):
+def generate_and_evaluate(race_name, description, revisions, duration, transcribe_midi):
     baseline_prompt, improved_prompt = generator.create_prompts(description, revisions)
     
     # Generate Baseline
@@ -68,11 +80,23 @@ def generate_and_evaluate(race_name, description, revisions, duration):
     with open(prompt_file_path, "w", encoding="utf-8") as f:
         f.write(prompt_file_content)
 
-    return baseline_audio_path, improved_audio_path, baseline_prompt, improved_prompt, results_md, prompt_file_path
+    midi_path, xml_path = None, None
+    if transcribe_midi:
+        midi_path, xml_path = transcription_engine.generate_score(improved_audio_path, output_dir)
 
-with gr.Blocks(title="Video Game Race Music Generator AI") as demo:
-    gr.Markdown("# Video Game Race Music Generator AI")
-    gr.Markdown("Describe a new video game race, and the AI will generate retro 16-bit music tailored to their culture.")
+    return baseline_audio_path, improved_audio_path, baseline_prompt, improved_prompt, results_md, prompt_file_path, midi_path, xml_path
+
+def transcribe_only(audio_path):
+    if not audio_path:
+        return None, None
+    import os
+    output_dir = os.path.dirname(audio_path)
+    midi_path, xml_path = transcription_engine.generate_score(audio_path, output_dir)
+    return midi_path, xml_path
+
+with gr.Blocks(title="Video Game Race Music AI") as demo:
+    gr.Markdown("# Video Game Race Music AI")
+    gr.Markdown("Describe a new video game race, and the AI will generate MIDI-orchestral music tailored to their culture.")
     
     with gr.Row():
         with gr.Column():
@@ -80,6 +104,7 @@ with gr.Blocks(title="Video Game Race Music Generator AI") as demo:
             desc_input = gr.Textbox(label="Race Description", placeholder="e.g., An ancient race of tree-dwellers, strong in magic but physically weak, secretive and melodic.", lines=3)
             rev_input = gr.Textbox(label="Revisions / Tweaks", placeholder="e.g., make it faster and add drums", lines=1)
             duration_slider = gr.Slider(minimum=5, maximum=30, value=10, step=1, label="Duration (seconds)")
+            transcribe_checkbox = gr.Checkbox(label="Generate MIDI/XML Stems (Takes extra time)", value=False)
             generate_btn = gr.Button("Generate & Evaluate", variant="primary")
             
         with gr.Column():
@@ -97,11 +122,22 @@ with gr.Blocks(title="Video Game Race Music Generator AI") as demo:
             gr.Markdown("### Improved Generation")
             imp_prompt_out = gr.Textbox(label="Improved Prompt", interactive=False)
             imp_audio_out = gr.Audio(label="Improved Audio", type="filepath", loop=True)
+            midi_out = gr.File(label="Download stems.mid")
+            xml_out = gr.File(label="Download sheet_music.xml")
+
+    with gr.Row():
+        transcribe_btn = gr.Button("Transcribe Stems (MIDI/XML)", variant="secondary")
             
     generate_btn.click(
         fn=generate_and_evaluate,
-        inputs=[name_input, desc_input, rev_input, duration_slider],
-        outputs=[base_audio_out, imp_audio_out, base_prompt_out, imp_prompt_out, results_out, download_prompt_out]
+        inputs=[name_input, desc_input, rev_input, duration_slider, transcribe_checkbox],
+        outputs=[base_audio_out, imp_audio_out, base_prompt_out, imp_prompt_out, results_out, download_prompt_out, midi_out, xml_out]
+    )
+
+    transcribe_btn.click(
+        fn=transcribe_only,
+        inputs=[imp_audio_out],
+        outputs=[midi_out, xml_out]
     )
 
 if __name__ == "__main__":

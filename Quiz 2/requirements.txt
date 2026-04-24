@@ -1,5 +1,6 @@
 torch
 torchaudio
+torchcodec
 transformers
 gradio
 scipy
@@ -9,3 +10,9 @@ soundfile
 google-genai
 pydantic
 python-dotenv
+demucs
+mido
+music21
+pretty_midi
+mir_eval
+resampy>=0.4.3
