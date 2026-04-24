@@ -1,3 +1,5 @@
+import os
+import re
 import gradio as gr
 from music_generator import VideoGameMusicGenerator
 from evaluator import MusicEvaluator
@@ -7,7 +9,7 @@ generator = VideoGameMusicGenerator()
 evaluator = MusicEvaluator()
 print("Models loaded successfully.")
 
-def generate_and_evaluate(description, revisions, duration):
+def generate_and_evaluate(race_name, description, revisions, duration):
     baseline_prompt, improved_prompt = generator.create_prompts(description, revisions)
     
     # Generate Baseline
@@ -30,8 +32,29 @@ def generate_and_evaluate(description, revisions, duration):
 | Loopability | {metrics_base['loopability']:.4f} | {metrics_imp['loopability']:.4f} |
 """
 
-    generator.save_audio("baseline_audio.wav", sr_base, audio_base)
-    generator.save_audio("improved_audio.wav", sr_imp, audio_imp)
+    base_output_dir = "Output"
+    os.makedirs(base_output_dir, exist_ok=True)
+    
+    safe_race_name = "".join(c if c.isalnum() else "_" for c in race_name).lower()
+    safe_race_name = re.sub(r'_+', '_', safe_race_name).strip('_')
+    if not safe_race_name:
+        safe_race_name = "unknown_race"
+        
+    folder_idx = 1
+    while True:
+        folder_name = f"{safe_race_name}_{folder_idx:02d}"
+        output_dir = os.path.join(base_output_dir, folder_name)
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+            break
+        folder_idx += 1
+
+    baseline_audio_path = os.path.join(output_dir, "baseline_audio.wav")
+    improved_audio_path = os.path.join(output_dir, "improved_audio.wav")
+    prompt_file_path = os.path.join(output_dir, "prompt.md")
+
+    generator.save_audio(baseline_audio_path, sr_base, audio_base)
+    generator.save_audio(improved_audio_path, sr_imp, audio_imp)
 
     prompt_file_content = f"""**Base Prompt**
 `{baseline_prompt}`
@@ -42,10 +65,10 @@ def generate_and_evaluate(description, revisions, duration):
 **Metrics**
 {results_md.strip()}
 """
-    with open("prompt.md", "w", encoding="utf-8") as f:
+    with open(prompt_file_path, "w", encoding="utf-8") as f:
         f.write(prompt_file_content)
 
-    return "baseline_audio.wav", "improved_audio.wav", baseline_prompt, improved_prompt, results_md, "prompt.md"
+    return baseline_audio_path, improved_audio_path, baseline_prompt, improved_prompt, results_md, prompt_file_path
 
 with gr.Blocks(title="Video Game Race Music Generator AI") as demo:
     gr.Markdown("# Video Game Race Music Generator AI")
@@ -53,6 +76,7 @@ with gr.Blocks(title="Video Game Race Music Generator AI") as demo:
     
     with gr.Row():
         with gr.Column():
+            name_input = gr.Textbox(label="Race Name", placeholder="e.g., Goblin", lines=1)
             desc_input = gr.Textbox(label="Race Description", placeholder="e.g., An ancient race of tree-dwellers, strong in magic but physically weak, secretive and melodic.", lines=3)
             rev_input = gr.Textbox(label="Revisions / Tweaks", placeholder="e.g., make it faster and add drums", lines=1)
             duration_slider = gr.Slider(minimum=5, maximum=30, value=10, step=1, label="Duration (seconds)")
@@ -76,7 +100,7 @@ with gr.Blocks(title="Video Game Race Music Generator AI") as demo:
             
     generate_btn.click(
         fn=generate_and_evaluate,
-        inputs=[desc_input, rev_input, duration_slider],
+        inputs=[name_input, desc_input, rev_input, duration_slider],
         outputs=[base_audio_out, imp_audio_out, base_prompt_out, imp_prompt_out, results_out, download_prompt_out]
     )
 
