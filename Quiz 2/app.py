@@ -30,7 +30,10 @@ def generate_and_evaluate(description, revisions, duration):
 | Loopability | {metrics_base['loopability']:.4f} | {metrics_imp['loopability']:.4f} |
 """
 
-    return (sr_base, audio_base), (sr_imp, audio_imp), baseline_prompt, improved_prompt, results_md
+    generator.save_audio("baseline_audio.wav", sr_base, audio_base)
+    generator.save_audio("improved_audio.wav", sr_imp, audio_imp)
+
+    return "baseline_audio.wav", "improved_audio.wav", baseline_prompt, improved_prompt, results_md
 
 with gr.Blocks(title="Video Game Race Music Generator AI") as demo:
     gr.Markdown("# Video Game Race Music Generator AI")
@@ -51,12 +54,12 @@ with gr.Blocks(title="Video Game Race Music Generator AI") as demo:
         with gr.Column():
             gr.Markdown("### Baseline Generation")
             base_prompt_out = gr.Textbox(label="Baseline Prompt", interactive=False)
-            base_audio_out = gr.Audio(label="Baseline Audio", type="numpy")
+            base_audio_out = gr.Audio(label="Baseline Audio", type="filepath")
             
         with gr.Column():
             gr.Markdown("### Improved Generation")
             imp_prompt_out = gr.Textbox(label="Improved Prompt", interactive=False)
-            imp_audio_out = gr.Audio(label="Improved Audio", type="numpy")
+            imp_audio_out = gr.Audio(label="Improved Audio", type="filepath")
             
     generate_btn.click(
         fn=generate_and_evaluate,

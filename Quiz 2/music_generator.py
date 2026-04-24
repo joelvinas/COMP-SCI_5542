@@ -4,7 +4,7 @@ import numpy as np
 from transformers import AutoProcessor, MusicgenForConditionalGeneration
 
 class VideoGameMusicGenerator:
-    def __init__(self, model_id="facebook/musicgen-small"):
+    def __init__(self, model_id="facebook/musicgen-medium"):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         print(f"Loading {model_id} on {self.device}...")
         self.processor = AutoProcessor.from_pretrained(model_id)
