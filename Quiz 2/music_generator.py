@@ -36,10 +36,24 @@ class VideoGameMusicGenerator:
         ).to(self.device)
 
         with torch.no_grad():
-            audio_values = self.model.generate(**inputs, max_new_tokens=max_new_tokens)
+            #audio_values = self.model.generate(**inputs, max_new_tokens=max_new_tokens)
+            # Adding guidance_scale and do_sample is CRITICAL
+            audio_values = self.model.generate(
+                **inputs, 
+                max_new_tokens=max_new_tokens,
+                do_sample=True,           # Enables creative variation
+                guidance_scale=3.5,       # Forces the model to follow the text
+                temperature=1.0,          # Standard randomness
+                top_k=250                 # Limits noise in the sampling pool
+            )            
             
         # audio_values is of shape (batch, channels, length)
         audio_data = audio_values[0, 0].cpu().numpy()
+
+        # NORMALIZATION: Prevents the clipping/distortion you heard
+        if np.abs(audio_data).max() > 0:
+            audio_data = audio_data / np.abs(audio_data).max()  
+
         return self.sample_rate, audio_data
 
     def save_audio(self, filename, sample_rate, audio_data):
