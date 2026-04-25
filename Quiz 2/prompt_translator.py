@@ -53,7 +53,7 @@ class PromptTranslator:
         # )
 
         self.system_instruction = (
-            "Role: You are a Lead Audio Director specializing in 16-bit SNES and PS1-era RPG soundtracks.\n"
+            "Role: You are a Lead Audio Director specializing in MIDI-orchestral Video Game Music.\n"
             "Task: Dynamically translate physical race lore into a 'Musical Composition Script' for MusicGen using Prompt2MusicBench templates.\n\n"
             
             "PHASE 1: MUSICAL MAPPING LOGIC:\n"
@@ -76,7 +76,7 @@ class PromptTranslator:
             "Output: 'Create magical forest music in a whimsical style, using shimmering synth bells and high-pitched arpeggios, 150 BPM, F Major.'\n\n"
             
             "OUTPUT REQUIREMENT:\n"
-            "Return a structured JSON object. The 'baseline_prompt' must prefix the result with '16-bit SNES chiptune '."
+            "Return a structured JSON object. The 'baseline_prompt' must prefix the result with 'MIDI-orchestral '."
         )
 
     def translate(self, raw_prompt: str) -> dict:
@@ -84,7 +84,7 @@ class PromptTranslator:
             response = self.client.models.generate_content(
                 #model="gemini-3.1-pro-preview",
                 # Change the model from "gemini-3.1-pro-preview" to:
-                model="gemini-3.1-flash",  # Highly efficient, higher free-tier limits
+                model="gemini-3.1-flash-lite-preview",  # Highly efficient, higher free-tier limits
                 contents=raw_prompt,
                 config=genai.types.GenerateContentConfig(
                     system_instruction=self.system_instruction,
