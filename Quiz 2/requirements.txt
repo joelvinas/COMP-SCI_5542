@@ -17,3 +17,4 @@ pretty_midi
 mir_eval
 resampy>=0.4.3
 verovio
+vector_quantize_pytorch

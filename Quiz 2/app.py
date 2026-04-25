@@ -3,7 +3,7 @@ import re
 import gradio as gr
 from dotenv import load_dotenv
 from huggingface_hub import login
-from music_generator import VideoGameMusicGenerator
+from music_generator import VideoGameMusicGenerator, AceStepMusicGenerator
 from evaluator import MusicEvaluator
 from midi_engine import MidiTranscriptionEngine
 
@@ -17,6 +17,7 @@ else:
 
 print("Initializing models...")
 generator = VideoGameMusicGenerator()
+ace_generator = AceStepMusicGenerator()
 evaluator = MusicEvaluator()
 transcription_engine = MidiTranscriptionEngine()
 print("Models loaded successfully.")
@@ -25,9 +26,19 @@ def generate_and_evaluate(race_name, description, revisions, duration, transcrib
     baseline_prompt, improved_prompt = generator.create_prompts(description, revisions)
     
     # Generate Baseline
+    generator.load_to_gpu()
     sr_base, audio_base = generator.generate_music(baseline_prompt, duration)
+    
     # Generate Improved
     sr_imp, audio_imp = generator.generate_music(improved_prompt, duration)
+    
+    # Force offload MusicGen to clear VRAM for ACE-Step
+    generator.offload_to_cpu()
+    
+    # Generate 3rd Track via ACE-Step
+    ace_generator.load_to_gpu()
+    sr_ace, audio_ace = ace_generator.generate_music(improved_prompt, duration)
+    ace_generator.offload_to_cpu()
     
     # Evaluate
     metrics_base = evaluator.evaluate_all(audio_base, sr_base, baseline_prompt)
@@ -63,10 +74,12 @@ def generate_and_evaluate(race_name, description, revisions, duration, transcrib
 
     baseline_audio_path = os.path.join(output_dir, "baseline_audio.wav")
     improved_audio_path = os.path.join(output_dir, "improved_audio.wav")
+    ace_audio_path = os.path.join(output_dir, "ace_step_audio.wav")
     prompt_file_path = os.path.join(output_dir, "prompt.md")
 
     generator.save_audio(baseline_audio_path, sr_base, audio_base)
     generator.save_audio(improved_audio_path, sr_imp, audio_imp)
+    generator.save_audio(ace_audio_path, sr_ace, audio_ace)
 
     prompt_file_content = f"""**Base Prompt**
 `{baseline_prompt}`
@@ -84,7 +97,7 @@ def generate_and_evaluate(race_name, description, revisions, duration, transcrib
     if transcribe_midi:
         midi_path, xml_path, svg_path = transcription_engine.generate_score(improved_audio_path, output_dir)
 
-    return baseline_audio_path, improved_audio_path, baseline_prompt, improved_prompt, results_md, prompt_file_path, midi_path, xml_path, svg_path, output_dir
+    return baseline_audio_path, improved_audio_path, ace_audio_path, baseline_prompt, improved_prompt, improved_prompt, results_md, prompt_file_path, midi_path, xml_path, svg_path, output_dir
 
 def transcribe_only(audio_path, output_dir):
     if not audio_path:
@@ -116,14 +129,19 @@ with gr.Blocks(title="Video Game Race Music AI") as demo:
             
     with gr.Row():
         with gr.Column():
-            gr.Markdown("### Baseline Generation")
+            gr.Markdown("### Baseline Generation (MusicGen)")
             base_prompt_out = gr.Textbox(label="Baseline Prompt", interactive=False)
             base_audio_out = gr.Audio(label="Baseline Audio", type="filepath", loop=True)
             
         with gr.Column():
-            gr.Markdown("### Improved Generation")
+            gr.Markdown("### Improved Generation (MusicGen)")
             imp_prompt_out = gr.Textbox(label="Improved Prompt", interactive=False)
             imp_audio_out = gr.Audio(label="Improved Audio", type="filepath", loop=True)
+            
+        with gr.Column():
+            gr.Markdown("### Improved Generation (ACE-Step Turbo)")
+            ace_prompt_out = gr.Textbox(label="ACE-Step Prompt", interactive=False)
+            ace_audio_out = gr.Audio(label="ACE-Step Audio", type="filepath", loop=True)
 
     with gr.Row():
         transcribe_btn = gr.Button("Transcribe Stems (MIDI/XML)", variant="secondary")
@@ -141,7 +159,7 @@ with gr.Blocks(title="Video Game Race Music AI") as demo:
     generate_btn.click(
         fn=generate_and_evaluate,
         inputs=[name_input, desc_input, rev_input, duration_slider, transcribe_checkbox],
-        outputs=[base_audio_out, imp_audio_out, base_prompt_out, imp_prompt_out, results_out, download_prompt_out, midi_out, xml_out, svg_out, current_output_dir]
+        outputs=[base_audio_out, imp_audio_out, ace_audio_out, base_prompt_out, imp_prompt_out, ace_prompt_out, results_out, download_prompt_out, midi_out, xml_out, svg_out, current_output_dir]
     )
 
     transcribe_btn.click(
