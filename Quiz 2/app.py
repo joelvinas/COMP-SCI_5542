@@ -22,37 +22,49 @@ evaluator = MusicEvaluator()
 transcription_engine = MidiTranscriptionEngine()
 print("Models loaded successfully.")
 
-def generate_and_evaluate(race_name, description, revisions, duration, transcribe_midi):
-    baseline_prompt, improved_prompt = generator.create_prompts(description, revisions)
+def _core_generate(race_name, description, revisions, duration, transcribe_midi, engine_choice):
+    baseline_prompt, improved_prompt, ace_step_prompt, bpm, key = generator.create_prompts(description, revisions)
     
-    # Generate Baseline
-    generator.load_to_gpu()
-    sr_base, audio_base = generator.generate_music(baseline_prompt, duration)
+    sr_base, audio_base = None, None
+    sr_imp, audio_imp = None, None
+    sr_ace, audio_ace = None, None
     
-    # Generate Improved
-    sr_imp, audio_imp = generator.generate_music(improved_prompt, duration)
-    
-    # Force offload MusicGen to clear VRAM for ACE-Step
-    generator.offload_to_cpu()
-    
-    # Generate 3rd Track via ACE-Step
-    ace_generator.load_to_gpu()
-    sr_ace, audio_ace = ace_generator.generate_music(improved_prompt, duration)
-    ace_generator.offload_to_cpu()
-    
-    # Evaluate
-    metrics_base = evaluator.evaluate_all(audio_base, sr_base, baseline_prompt)
-    metrics_imp = evaluator.evaluate_all(audio_imp, sr_imp, improved_prompt)
+    metrics_base = None
+    metrics_imp = None
+    metrics_ace = None
+
+    if engine_choice == "MusicGen":
+        # Generate Baseline
+        generator.load_to_gpu()
+        sr_base, audio_base = generator.generate_music(baseline_prompt, duration)
+        
+        # Generate Improved
+        sr_imp, audio_imp = generator.generate_music(improved_prompt, duration)
+        
+        generator.offload_to_cpu()
+        
+        metrics_base = evaluator.evaluate_all(audio_base, sr_base, baseline_prompt)
+        metrics_imp = evaluator.evaluate_all(audio_imp, sr_imp, improved_prompt)
+        
+    elif engine_choice == "ACE-Step SFT (Experimental)":
+        ace_generator.load_to_gpu()
+        sr_ace, audio_ace = ace_generator.generate_music(ace_step_prompt, duration, bpm=bpm, keyscale=key)
+        ace_generator.offload_to_cpu()
+        
+        metrics_ace = evaluator.evaluate_all(audio_ace, sr_ace, ace_step_prompt)
     
     # Format Results
+    def fmt(m, key):
+        return f"{m[key]:.4f}" if m else "N/A"
+
     results_md = f"""
-| Metric | Baseline | Improved |
-|---|---|---|
-| Quality | {metrics_base['quality']:.4f} | {metrics_imp['quality']:.4f} |
-| Alignment | {metrics_base['alignment']:.4f} | {metrics_imp['alignment']:.4f} |
-| Realism | {metrics_base['realism']:.4f} | {metrics_imp['realism']:.4f} |
-| Creativity | {metrics_base['creativity']:.4f} | {metrics_imp['creativity']:.4f} |
-| Loopability | {metrics_base['loopability']:.4f} | {metrics_imp['loopability']:.4f} |
+| Metric | Baseline | Improved | ACE-Step |
+|---|---|---|---|
+| Quality | {fmt(metrics_base, 'quality')} | {fmt(metrics_imp, 'quality')} | {fmt(metrics_ace, 'quality')} |
+| Alignment | {fmt(metrics_base, 'alignment')} | {fmt(metrics_imp, 'alignment')} | {fmt(metrics_ace, 'alignment')} |
+| Realism | {fmt(metrics_base, 'realism')} | {fmt(metrics_imp, 'realism')} | {fmt(metrics_ace, 'realism')} |
+| Creativity | {fmt(metrics_base, 'creativity')} | {fmt(metrics_imp, 'creativity')} | {fmt(metrics_ace, 'creativity')} |
+| Loopability | {fmt(metrics_base, 'loopability')} | {fmt(metrics_imp, 'loopability')} | {fmt(metrics_ace, 'loopability')} |
 """
 
     base_output_dir = "Output"
@@ -77,27 +89,57 @@ def generate_and_evaluate(race_name, description, revisions, duration, transcrib
     ace_audio_path = os.path.join(output_dir, "ace_step_audio.wav")
     prompt_file_path = os.path.join(output_dir, "prompt.md")
 
-    generator.save_audio(baseline_audio_path, sr_base, audio_base)
-    generator.save_audio(improved_audio_path, sr_imp, audio_imp)
-    generator.save_audio(ace_audio_path, sr_ace, audio_ace)
+    if audio_base is not None:
+        generator.save_audio(baseline_audio_path, sr_base, audio_base)
+    if audio_imp is not None:
+        generator.save_audio(improved_audio_path, sr_imp, audio_imp)
+    if audio_ace is not None:
+        generator.save_audio(ace_audio_path, sr_ace, audio_ace)
 
-    prompt_file_content = f"""**Base Prompt**
-`{baseline_prompt}`
-
-**Improved Prompt**
-`{improved_prompt}`
-
-**Metrics**
-{results_md.strip()}
-"""
+    revisions_line = f"\n\n**Revisions / Tweaks:** {revisions}" if revisions and revisions.strip() else ""
+    prompt_file_content = (
+        f"# Given Prompt\n\n"
+        f"**Race Name:** {race_name}\n\n"
+        f"**Race Description:** {description}"
+        f"{revisions_line}\n\n"
+        f"---\n\n"
+        f"**Base Prompt** *(MusicGen)*\n"
+        f"`{baseline_prompt}`\n\n"
+        f"**Improved Prompt** *(MusicGen)*\n"
+        f"`{improved_prompt}`\n\n"
+        f"**ACE-Step Prompt** *(tag-based)*\n"
+        f"`{ace_step_prompt}`\n\n"
+        f"**Metrics**\n"
+        f"{results_md.strip()}\n"
+    )
     with open(prompt_file_path, "w", encoding="utf-8") as f:
         f.write(prompt_file_content)
 
     midi_path, xml_path, svg_path = None, None, None
     if transcribe_midi:
-        midi_path, xml_path, svg_path = transcription_engine.generate_score(improved_audio_path, output_dir)
+        if engine_choice == "MusicGen" and audio_imp is not None:
+            midi_path, xml_path, svg_path = transcription_engine.generate_score(improved_audio_path, output_dir)
+        elif engine_choice == "ACE-Step SFT (Experimental)" and audio_ace is not None:
+            midi_path, xml_path, svg_path = transcription_engine.generate_score(ace_audio_path, output_dir)
 
-    return baseline_audio_path, improved_audio_path, ace_audio_path, baseline_prompt, improved_prompt, improved_prompt, results_md, prompt_file_path, midi_path, xml_path, svg_path, output_dir
+    out_base_audio = baseline_audio_path if audio_base is not None else gr.update()
+    out_imp_audio = improved_audio_path if audio_imp is not None else gr.update()
+    out_ace_audio = ace_audio_path if audio_ace is not None else gr.update()
+    
+    out_base_prompt = baseline_prompt if engine_choice == "MusicGen" else gr.update()
+    out_imp_prompt = improved_prompt if engine_choice == "MusicGen" else gr.update()
+    out_ace_prompt = ace_step_prompt if engine_choice == "ACE-Step SFT (Experimental)" else gr.update()
+
+    return out_base_audio, out_imp_audio, out_ace_audio, out_base_prompt, out_imp_prompt, out_ace_prompt, results_md, prompt_file_path, midi_path or gr.update(), xml_path or gr.update(), svg_path or gr.update(), output_dir
+
+def generate_and_evaluate(race_name, description, revisions, duration, transcribe_midi, engine_choice):
+    return _core_generate(race_name, description, revisions, duration, transcribe_midi, engine_choice)
+
+def run_musicgen_only(race_name, description, revisions, duration, transcribe_midi):
+    return _core_generate(race_name, description, revisions, duration, transcribe_midi, "MusicGen")
+
+def run_acestep_only(race_name, description, revisions, duration, transcribe_midi):
+    return _core_generate(race_name, description, revisions, duration, transcribe_midi, "ACE-Step SFT (Experimental)")
 
 def transcribe_only(audio_path, output_dir):
     if not audio_path:
@@ -120,6 +162,8 @@ with gr.Blocks(title="Video Game Race Music AI") as demo:
             rev_input = gr.Textbox(label="Revisions / Tweaks", placeholder="e.g., make it faster and add drums", lines=1)
             duration_slider = gr.Slider(minimum=5, maximum=30, value=10, step=1, label="Duration (seconds)")
             transcribe_checkbox = gr.Checkbox(label="Generate MIDI/XML Stems (Takes extra time)", value=False)
+            engine_choice = gr.Radio(choices=["MusicGen", "ACE-Step SFT (Experimental)"], value="MusicGen", label="Primary Generator Engine")
+            gr.Markdown("**Note:** ACE-Step is an *experimental* local feature. It requires a CUDA GPU to function correctly. CPU execution will produce severe audio artifacts.")
             generate_btn = gr.Button("Generate & Evaluate", variant="primary")
             
         with gr.Column():
@@ -129,6 +173,7 @@ with gr.Blocks(title="Video Game Race Music AI") as demo:
             
     with gr.Row():
         with gr.Column():
+            rerun_musicgen_btn = gr.Button("Re-run MusicGen")
             gr.Markdown("### Baseline Generation (MusicGen)")
             base_prompt_out = gr.Textbox(label="Baseline Prompt", interactive=False)
             base_audio_out = gr.Audio(label="Baseline Audio", type="filepath", loop=True)
@@ -139,7 +184,8 @@ with gr.Blocks(title="Video Game Race Music AI") as demo:
             imp_audio_out = gr.Audio(label="Improved Audio", type="filepath", loop=True)
             
         with gr.Column():
-            gr.Markdown("### Improved Generation (ACE-Step Turbo)")
+            run_acestep_btn = gr.Button("Run ACE-Step")
+            gr.Markdown("### Experimental Generation (ACE-Step SFT)")
             ace_prompt_out = gr.Textbox(label="ACE-Step Prompt", interactive=False)
             ace_audio_out = gr.Audio(label="ACE-Step Audio", type="filepath", loop=True)
 
@@ -158,6 +204,18 @@ with gr.Blocks(title="Video Game Race Music AI") as demo:
             
     generate_btn.click(
         fn=generate_and_evaluate,
+        inputs=[name_input, desc_input, rev_input, duration_slider, transcribe_checkbox, engine_choice],
+        outputs=[base_audio_out, imp_audio_out, ace_audio_out, base_prompt_out, imp_prompt_out, ace_prompt_out, results_out, download_prompt_out, midi_out, xml_out, svg_out, current_output_dir]
+    )
+
+    rerun_musicgen_btn.click(
+        fn=run_musicgen_only,
+        inputs=[name_input, desc_input, rev_input, duration_slider, transcribe_checkbox],
+        outputs=[base_audio_out, imp_audio_out, ace_audio_out, base_prompt_out, imp_prompt_out, ace_prompt_out, results_out, download_prompt_out, midi_out, xml_out, svg_out, current_output_dir]
+    )
+
+    run_acestep_btn.click(
+        fn=run_acestep_only,
         inputs=[name_input, desc_input, rev_input, duration_slider, transcribe_checkbox],
         outputs=[base_audio_out, imp_audio_out, ace_audio_out, base_prompt_out, imp_prompt_out, ace_prompt_out, results_out, download_prompt_out, midi_out, xml_out, svg_out, current_output_dir]
     )

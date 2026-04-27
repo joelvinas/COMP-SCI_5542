@@ -72,6 +72,13 @@ class MusicEvaluator:
         if len(audio) == 0:
              return {"quality": 0.0, "alignment": 0.0, "realism": 0.0, "creativity": 0.0, "loopability": 0.0}
         
+        # Ensure audio is mono for librosa and CLAP
+        if audio.ndim == 2:
+            if audio.shape[1] == 2:
+                audio = np.mean(audio, axis=1)
+            else:
+                audio = audio.squeeze()
+        
         return {
             "quality": self.evaluate_quality(audio, sr),
             "alignment": self.evaluate_alignment(audio, sr, aggregate_prompt),

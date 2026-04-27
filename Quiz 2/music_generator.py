@@ -29,20 +29,39 @@ class VideoGameMusicGenerator:
 
     def create_prompts(self, race_description, revisions=""):
         translation = self.translator.translate(race_description)
-        
-        baseline_prompt = translation.get("baseline_prompt", f"16-bit SNES chiptune {race_description}")
+
+        # --- MusicGen prompts (natural language) ---
+        baseline_prompt = translation.get("baseline_prompt", f"MIDI-orchestral {race_description}")
         improved_params = translation.get("improved_parameters", {})
-        
+
         params_str = ", ".join([f"{k}: {v}" for k, v in improved_params.items()])
-        
+
         if revisions:
             baseline_prompt += f" {revisions}"
-            
+
         improved_prompt = f"{baseline_prompt} {params_str}"
         if revisions:
             improved_prompt += f" Make it: {revisions}."
-            
-        return baseline_prompt, improved_prompt
+
+        # --- ACE-Step prompt (tag-based) ---
+        # Base tags come from the translator; improved_parameters are appended as tags,
+        # mirroring the way improved_prompt is built from baseline_prompt + params.
+        ace_step_base = translation.get(
+            "ace_step_tags",
+            f"MIDI-orchestral, {race_description}, high fidelity, clean mix, professional mastering, pure melodic tones"
+        )
+        if revisions:
+            ace_step_base += f", {revisions}"
+
+        ace_step_prompt = ace_step_base
+        if improved_params:
+            ace_tag_params = ", ".join([f"{v}" for v in improved_params.values()])
+            ace_step_prompt = f"{ace_step_base}, {ace_tag_params}"
+
+        bpm = improved_params.get("BPM")
+        key = improved_params.get("Key")
+
+        return baseline_prompt, improved_prompt, ace_step_prompt, bpm, key
 
     def generate_music(self, prompt, duration=10):
         # MusicGen uses 50 tokens per second of audio
@@ -55,7 +74,6 @@ class VideoGameMusicGenerator:
         ).to(self.device)
 
         with torch.no_grad():
-            #audio_values = self.model.generate(**inputs, max_new_tokens=max_new_tokens)
             # Adding guidance_scale and do_sample is CRITICAL
             audio_values = self.model.generate(
                 **inputs, 
@@ -82,11 +100,12 @@ class AceStepMusicGenerator:
     def __init__(self):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.dit_handler = None
+        self.llm_handler = None
         self.is_initialized = False
 
     def initialize(self):
         if not self.is_initialized:
-            print("Initializing ACE-Step Turbo model...")
+            print("Initializing ACE-Step SFT model...")
             import sys
             import os
             # Ensure acestep is in path
@@ -95,16 +114,31 @@ class AceStepMusicGenerator:
                 sys.path.insert(0, current_dir)
             
             from acestep.handler import AceStepHandler
+            from acestep.llm_inference import LLMHandler
             self.dit_handler = AceStepHandler()
+            self.llm_handler = LLMHandler()
             
             # AceStep natively supports VRAM offloading
             self.dit_handler.initialize_service(
                 project_root=current_dir,
-                config_path="acestep-v15-turbo",
+                config_path="acestep-v15-sft",
                 device=self.device,
                 offload_to_cpu=True,
                 offload_dit_to_cpu=True
             )
+            
+            print("Initializing ACE-Step LLM...")
+            from acestep.model_downloader import get_checkpoints_dir
+            ckpt_dir = str(get_checkpoints_dir())
+            self.llm_handler.initialize(
+                checkpoint_dir=ckpt_dir,
+                lm_model_path="acestep-5Hz-lm-1.7B", 
+                backend="pt",
+                device=self.device,
+                offload_to_cpu=True,
+                dtype=torch.float32
+            )
+            
             self.is_initialized = True
 
     def load_to_gpu(self):
@@ -116,17 +150,33 @@ class AceStepMusicGenerator:
             print("ACE-Step offloads automatically, just clearing cache...")
             torch.cuda.empty_cache()
 
-    def generate_music(self, prompt, duration=10):
+    def generate_music(self, prompt, duration=10, bpm=None, keyscale=None):
         self.initialize()
         from acestep.inference import GenerationParams, GenerationConfig, generate_music
-        
-        # We disable LLM thinking to save VRAM and latency since we use the Prompt Translator
+
+        # Parse bpm as int if provided
+        bpm_val = None
+        if bpm:
+            try:
+                import re
+                bpm_match = re.search(r'\d+', str(bpm))
+                if bpm_match:
+                    bpm_val = int(bpm_match.group(0))
+            except Exception as e:
+                print(f"Failed to parse bpm: {bpm}, error: {e}")
+
+        # Re-enable LLM thinking to generate audio codes for the DiT
         params = GenerationParams(
             task_type="text2music",
             caption=prompt,
+            instrumental=True,        # Use the explicit boolean flag to prevent vocals
             duration=duration,
-            thinking=False, 
-            inference_steps=8
+            bpm=bpm_val,
+            keyscale=str(keyscale) if keyscale else "",
+            thinking=True,
+            inference_steps=50,
+            guidance_scale=7.0,       # Restore to standard SFT CFG
+            dcw_enabled=False         # Disable Wavelet Correction for CPU stability
         )
         config = GenerationConfig(
             batch_size=1,
@@ -134,36 +184,56 @@ class AceStepMusicGenerator:
         )
         
         print("Starting ACE-Step generation...")
-        result = generate_music(self.dit_handler, None, params, config)
+        result = generate_music(self.dit_handler, self.llm_handler, params, config)
         
         # Handle various possible return types from generate_music
-        audio_path = ""
         if result:
             if hasattr(result, "audios") and result.audios and len(result.audios) > 0:
-                audio_path = result.audios[0].get("path", "")
-            elif isinstance(result, dict) and "audios" in result and len(result["audios"]) > 0:
-                audio_path = result["audios"][0].get("path", "")
-            elif isinstance(result, tuple) and len(result) > 0:
-                # If it's bizarrely a tuple, maybe the first element is the path or the dict
-                if isinstance(result[0], str) and result[0].endswith(".wav"):
-                    audio_path = result[0]
-                elif isinstance(result[0], dict) and "path" in result[0]:
-                    audio_path = result[0].get("path", "")
+                audio_dict = result.audios[0]
+                if isinstance(audio_dict, dict):
+                    audio_tensor = audio_dict.get("tensor")
+                    if audio_tensor is not None:
+                        # tensor is [channels, samples], convert to numpy [samples] or [samples, channels]
+                        sample_rate = audio_dict.get("sample_rate", 44100)
+                        audio_data = audio_tensor.cpu().numpy() #Extract to numpy without transposing first
+
+                        # Force to 1D (Mono) if it's a standard single-channel output
+                        if audio_data.ndim > 1:
+                            # if [channels, samples], take the first channel
+                            if audio_data.shape[0] < audio_data.shape[1]:
+                                audio_data = audio_data[0] #Take the first channel
+                            else:
+                                # if [sample, channels], take the first channel
+                                audio_data = audio_data[:,0]
+
+                        # Print raw audio properties before normalization for debugging
+                        raw_max = np.abs(audio_data).max()
+                        print(f"DEBUG: ACE-Step raw audio max: {raw_max}, min: {audio_data.min()}")
+
+                        # Add NORMALIZATION to prevent digital clipping
+                        if raw_max > 0:
+                            audio_data = audio_data / raw_max
+
+                        # Ensure correct shape (remove extra channel dimension) 
+                        if audio_data.ndim == 2 and audio_data.shape[1] == 1:
+                            audio_data = audio_data.squeeze(1)
+                        return sample_rate, audio_data
                     
-        if audio_path and os.path.exists(audio_path):
-            try:
-                sample_rate, audio_data = scipy.io.wavfile.read(audio_path)
-                return sample_rate, audio_data
-            except Exception as e:
-                print(f"Failed to read generated ACE-Step audio: {e}")
-        else:
+                    # Fallback to reading file if tensor is missing but path exists
+                    audio_path = audio_dict.get("path", "")
+                    if audio_path and os.path.exists(audio_path):
+                        try:
+                            sample_rate, audio_data = scipy.io.wavfile.read(audio_path)
+                            return sample_rate, audio_data
+                        except Exception as e:
+                            print(f"Failed to read generated ACE-Step audio file: {e}")
+
             print("ACE-Step audio generation failed. Result output:")
-            if result:
-                if hasattr(result, "error"):
-                    print(f"Error: {result.error}")
-                if hasattr(result, "status_message"):
-                    print(f"Status: {result.status_message}")
-                elif isinstance(result, dict):
-                    print(f"Dict result: {result}")
+            if hasattr(result, "error"):
+                print(f"Error: {result.error}")
+            if hasattr(result, "status_message"):
+                print(f"Status: {result.status_message}")
+            elif isinstance(result, dict):
+                print(f"Dict result: {result}")
         
         return 44100, np.zeros(44100)
